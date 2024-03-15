@@ -1,0 +1,199 @@
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/transitions_15.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/emissions_15.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/emissions_15.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/emissions_15.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/transitions_15.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/transitions_15.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/model_15.txt
+ Iteration  Estimated Log Likelihood     Change    Total Time (secs)
+         1             -46292855.749          -                 37.9
+         2             -43018293.664 3274562.084                 75.1
+         3             -41976083.189 1042210.475                111.5
+         4             -41466164.423 509918.766                147.7
+         5             -41194745.465 271418.958                183.8
+         6             -41054197.253 140548.213                217.9
+         7             -40974412.759  79784.494                252.1
+         8             -40923550.106  50862.653                286.9
+         9             -40887040.079  36510.027                321.3
+        10             -40858616.715  28423.364                355.6
+        11             -40834333.649  24283.066                390.0
+        12             -40811594.201  22739.448                424.2
+        13             -40789422.992  22171.208                458.2
+        14             -40767834.728  21588.264                492.2
+        15             -40747101.744  20732.985                526.3
+        16             -40727117.898  19983.846                561.7
+        17             -40707235.870  19882.028                597.3
+        18             -40686457.277  20778.592                632.9
+        19             -40663642.280  22814.997                669.4
+        20             -40637472.791  26169.489                704.5
+        21             -40605474.732  31998.059                739.7
+        22             -40560862.129  44612.604                774.9
+        23             -40495514.683  65347.445                810.1
+        24             -40418216.169  77298.514                845.1
+        25             -40341959.399  76256.771                880.3
+        26             -40273248.102  68711.297                915.5
+        27             -40219545.511  53702.591                950.5
+        28             -40182194.250  37351.261                985.5
+        29             -40157049.026  25145.224               1020.5
+        30             -40140000.543  17048.483               1055.5
+        31             -40128207.183  11793.360               1090.5
+        32             -40119816.417   8390.766               1125.3
+        33             -40113595.905   6220.512               1160.2
+        34             -40108736.273   4859.632               1195.0
+        35             -40104708.494   4027.779               1229.8
+        36             -40101125.192   3583.302               1264.7
+        37             -40097674.029   3451.164               1299.4
+        38             -40094026.037   3647.992               1334.0
+        39             -40089715.147   4310.891               1368.7
+        40             -40083893.306   5821.841               1403.4
+        41             -40074978.554   8914.751               1438.0
+        42             -40060853.259  14125.295               1472.7
+        43             -40041530.029  19323.231               1507.3
+        44             -40020126.270  21403.759               1542.0
+        45             -40000554.442  19571.827               1576.6
+        46             -39984607.642  15946.800               1611.2
+        47             -39971533.568  13074.074               1645.8
+        48             -39959958.075  11575.493               1680.4
+        49             -39948931.695  11026.380               1715.0
+        50             -39938271.587  10660.109               1749.6
+        51             -39928363.860   9907.727               1784.1
+        52             -39919957.524   8406.335               1818.6
+        53             -39913772.024   6185.500               1852.9
+        54             -39909814.764   3957.261               1887.3
+        55             -39907450.225   2364.539               1921.6
+        56             -39906023.683   1426.542               1956.0
+        57             -39905124.643    899.040               1990.2
+        58             -39904530.930    593.713               2024.9
+        59             -39904123.350    407.580               2059.5
+        60             -39903835.260    288.091               2093.7
+        61             -39903627.430    207.830               2127.9
+        62             -39903475.477    151.953               2162.1
+        63             -39903363.321    112.156               2196.2
+        64             -39903279.898     83.423               2230.2
+        65             -39903217.370     62.528               2264.2
+        66             -39903170.103     47.267               2298.2
+        67             -39903134.004     36.099               2332.2
+        68             -39903106.071     27.933               2366.1
+        69             -39903084.116     21.955               2400.0
+        70             -39903066.520     17.597               2433.9
+        71             -39903052.100     14.420               2467.8
+        72             -39903040.020     12.080               2501.6
+        73             -39903029.697     10.323               2535.5
+        74             -39903020.708      8.990               2569.3
+        75             -39903012.645      8.062               2603.1
+        76             -39903003.815      8.831               2637.0
+        77             -39902995.474      8.340               2670.8
+        78             -39902989.239      6.235               2704.6
+        79             -39902983.661      5.579               2738.5
+        80             -39902978.517      5.144               2772.3
+        81             -39902973.706      4.811               2806.0
+        82             -39902969.174      4.532               2839.7
+        83             -39902964.877      4.297               2873.4
+        84             -39902960.782      4.095               2907.2
+        85             -39902956.856      3.926               2940.8
+        86             -39902953.055      3.800               2974.6
+        87             -39902949.311      3.744               3008.3
+        88             -39902945.537      3.774               3042.0
+        89             -39902941.640      3.898               3075.8
+        90             -39902937.547      4.092               3109.5
+        91             -39902933.213      4.334               3143.2
+        92             -39902928.589      4.624               3176.9
+        93             -39902923.594      4.996               3210.7
+        94             -39902918.110      5.483               3244.4
+        95             -39902912.035      6.075               3278.1
+        96             -39902905.296      6.740               3311.9
+        97             -39902897.719      7.576               3345.6
+        98             -39902888.765      8.954               3379.4
+        99             -39902877.305     11.460               3413.2
+       100             -39902861.863     15.442               3447.0
+       101             -39902839.291     22.572               3480.7
+       102             -39902784.053     55.238               3514.4
+       103             -39902601.669    182.384               3548.1
+       104             -39901952.348    649.322               3581.8
+       105             -39901020.191    932.156               3615.5
+       106             -39900089.044    931.147               3649.2
+       107             -39899273.464    815.580               3683.0
+       108             -39898567.751    705.713               3716.7
+       109             -39898019.257    548.495               3750.5
+       110             -39897585.282    433.975               3784.2
+       111             -39897249.827    335.455               3817.9
+       112             -39896998.453    251.374               3851.7
+       113             -39896811.898    186.555               3885.4
+       114             -39896673.558    138.340               3919.1
+       115             -39896570.384    103.174               3952.8
+       116             -39896492.862     77.522               3986.6
+       117             -39896434.574     58.288               4020.3
+       118             -39896390.885     43.689               4054.0
+       119             -39896358.213     32.672               4087.7
+       120             -39896333.801     24.411               4121.4
+       121             -39896315.561     18.241               4155.2
+       122             -39896301.929     13.632               4188.9
+       123             -39896291.735     10.194               4222.6
+       124             -39896284.109      7.626               4256.3
+       125             -39896278.405      5.704               4290.0
+       126             -39896274.139      4.266               4323.7
+       127             -39896270.951      3.188               4357.5
+       128             -39896268.571      2.379               4391.2
+       129             -39896266.798      1.774               4425.0
+       130             -39896265.480      1.318               4458.7
+       131             -39896264.504      0.976               4492.5
+       132             -39896263.786      0.718               4526.3
+       133             -39896263.261      0.526               4560.0
+       134             -39896262.881      0.380               4593.7
+       135             -39896262.608      0.273               4627.5
+       136             -39896262.417      0.191               4661.2
+       137             -39896262.287      0.130               4694.9
+       138             -39896262.199      0.087               4728.6
+       139             -39896262.146      0.053               4762.3
+       140             -39896262.116      0.030               4796.0
+       141             -39896262.104      0.012               4829.8
+       142             -39896262.103      0.001               4863.4
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/young2_15_RefSeqTSS_neighborhood.svg
+Warning could not automatically open in a browser /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/15/webpage_15.html

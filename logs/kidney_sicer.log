@@ -1,0 +1,478 @@
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 16 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          7823466                  7760308                  7823085                  7760097         
+chr2          8992705                  8901857                  8992444                  8900249         
+chr3          4929031                  4902909                  4927288                  4902067         
+chr4          7826878                  7734099                  7825730                  7735427         
+chr5          7973791                  7897400                  7974138                  7896998         
+chr6          6276863                  6231390                  6276586                  6230572         
+chr7          7729054                  7669121                  7731200                  7673187         
+chr8          6459016                  6387250                  6459032                  6383231         
+chr9          6425019                  6378345                  6424299                  6376064         
+chr10         4396271                  4375195                  4395908                  4375159         
+chr11         6999798                  6937786                  7001062                  6938489         
+chr12         4731150                  4702841                  4731173                  4703528         
+chr13         4951708                  4914637                  4951605                  4908557         
+chr14         4545235                  4515439                  4546869                  4520500         
+chr15         4571542                  4536740                  4572682                  4538214         
+chr16         3317750                  3299625                  3318795                  3300137         
+chr17         4458692                  4368295                  4458554                  4374969         
+chr18         3372606                  3353342                  3372839                  3355037         
+chr19         2863823                  2839757                  2863341                  2838813         
+chrX          1904495                  1902602                  1904604                  1902816         
+chrY          1481062                  1481027                  1480932                  1480898         
+chrM           19283                    18482                    19272                    18375          
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 15520405
+Total count of chr2 tags: 17802106
+Total count of chr3 tags: 9804976
+Total count of chr4 tags: 15469526
+Total count of chr5 tags: 15794398
+Total count of chr6 tags: 12461962
+Total count of chr7 tags: 15342308
+Total count of chr8 tags: 12770481
+Total count of chr9 tags: 12754409
+Total count of chr10 tags: 8750354
+Total count of chr11 tags: 13876275
+Total count of chr12 tags: 9406369
+Total count of chr13 tags: 9823194
+Total count of chr14 tags: 9035939
+Total count of chr15 tags: 9074954
+Total count of chr16 tags: 6599762
+Total count of chr17 tags: 8743264
+Total count of chr18 tags: 6708379
+Total count of chr19 tags: 5678570
+Total count of chrX tags: 3805418
+Total count of chrY tags: 2961925
+Total count of chrM tags: 36817
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  1000
+Gap size:  3000
+E value is: 100
+Total read count: 222221029
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 101.91614279812731
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  111
+
+Determining the score threshold from random background...
+The score threshold is: 63.556000000000004
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  24818
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ113_S112_L001.nodup.bam                     ||
+||                           o SZJ119_S116_L001.nodup.bam                     ||
+||                           o SZJ135_S290_L003.nodup.bam                     ||
+||                           o SZJ141_S291_L003.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K27me3_merge-W1000-G3000-E100.counts           ||
+||                 Summary : H3K27me3_merge-W1000-G3000-E100.counts.summary   ||
+||              Annotation : H3K27me3_merge-W1000-G3000-E100.saf (SAF)        ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27me3_merge-W1000-G3000-E100.saf ...               ||
+||    Features : 24817                                                        ||
+||    Meta-features : 24817                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ113_S112_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26089050                                             ||
+||    Successfully assigned alignments : 18856941 (72.3%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ119_S116_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29848803                                             ||
+||    Successfully assigned alignments : 20294730 (68.0%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ135_S290_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 32987078                                             ||
+||    Successfully assigned alignments : 21632450 (65.6%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ141_S291_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30121672                                             ||
+||    Successfully assigned alignments : 19467759 (64.6%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K27me3/H3K27me3_  ||
+|| merge-W1000-G3000-E100.counts.summary"                                     ||
+||                                                                            ||
+\\============================================================================//
+
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 16 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          7236323                  7226737                  7236799                  7227502         
+chr2          5966743                  5834939                  5962669                  5834512         
+chr3          6005068                  5992296                  6002926                  5991010         
+chr4          5957912                  5939271                  5957450                  5940130         
+chr5          5302177                  5297778                  5301639                  5297808         
+chr6          5291690                  5280656                  5292532                  5282589         
+chr7          6163515                  6136177                  6164998                  6140747         
+chr8          4628883                  4622823                  4628619                  4622242         
+chr9          4457578                  4163798                  4458313                  4153503         
+chr10         4536301                  4511275                  4535909                  4509735         
+chr11         3039695                  3028029                  3039815                  3028126         
+chr12         4964209                  4944651                  4962328                  4945810         
+chr13         4467921                  4446068                  4468176                  4437910         
+chr14         4629183                  4536629                  4630220                  4547549         
+chr15         3345888                  3342473                  3346128                  3342453         
+chr16         3132708                  3124904                  3132505                  3125943         
+chr17         3571639                  3483680                  3572673                  3496030         
+chr18         3005532                  2993582                  3005679                  2995587         
+chr19         1335863                  1331965                  1335686                  1333318         
+chrX          4380314                  4373223                  4379744                  4373330         
+chrY          3740412                  3739593                  3740593                  3739759         
+chrM           60985                    54639                    60982                    54584          
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 14454239
+Total count of chr2 tags: 11669451
+Total count of chr3 tags: 11983306
+Total count of chr4 tags: 11879401
+Total count of chr5 tags: 10595586
+Total count of chr6 tags: 10563245
+Total count of chr7 tags: 12276924
+Total count of chr8 tags: 9245065
+Total count of chr9 tags: 8317301
+Total count of chr10 tags: 9021010
+Total count of chr11 tags: 6056155
+Total count of chr12 tags: 9890461
+Total count of chr13 tags: 8883978
+Total count of chr14 tags: 9084178
+Total count of chr15 tags: 6684926
+Total count of chr16 tags: 6250847
+Total count of chr17 tags: 6979710
+Total count of chr18 tags: 5989169
+Total count of chr19 tags: 2665283
+Total count of chrX tags: 8746553
+Total count of chrY tags: 7479352
+Total count of chrM tags: 109138
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  1000
+Gap size:  3000
+E value is: 100
+Total read count: 188823324
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 86.59911682976258
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  95
+
+Determining the score threshold from random background...
+The score threshold is: 62.527
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  53566
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/kidney’: File exists
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/kidney/deeptools’: File exists
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ114_S210_L001.nodup.bam                     ||
+||                           o SZJ120_S211_L001.nodup.bam                     ||
+||                           o SZJ136_S102_L002.nodup.bam                     ||
+||                           o SZJ142_S107_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K9me3_merge-W1000-G3000-E100.counts            ||
+||                 Summary : H3K9me3_merge-W1000-G3000-E100.counts.summary    ||
+||              Annotation : H3K9me3_merge-W1000-G3000-E100.saf (SAF)         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K9me3_merge-W1000-G3000-E100.saf ...                ||
+||    Features : 53565                                                        ||
+||    Meta-features : 53565                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ114_S210_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30652979                                             ||
+||    Successfully assigned alignments : 15073149 (49.2%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ120_S211_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27199273                                             ||
+||    Successfully assigned alignments : 14095394 (51.8%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ136_S102_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23858870                                             ||
+||    Successfully assigned alignments : 11024274 (46.2%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ142_S107_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21587082                                             ||
+||    Successfully assigned alignments : 10515713 (48.7%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K9me3/H3K9me3_me  ||
+|| rge-W1000-G3000-E100.counts.summary"                                       ||
+||                                                                            ||
+\\============================================================================//
+
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 16 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          6084446                  6035238                  6083250                  6034040         
+chr2          6849524                  6715415                  6847469                  6715259         
+chr3          4507295                  4474323                  4507401                  4475185         
+chr4          5928763                  5879488                  5928436                  5878657         
+chr5          5949202                  5891830                  5949056                  5892347         
+chr6          4851235                  4813747                  4852851                  4816003         
+chr7          6045817                  5966964                  6046445                  5970426         
+chr8          4858566                  4802940                  4858959                  4803374         
+chr9          4786897                  4608842                  4787191                  4600225         
+chr10         4597791                  4550489                  4597735                  4550990         
+chr11         4850465                  4812031                  4850605                  4812760         
+chr12         4109843                  4072082                  4108418                  4074012         
+chr13         3985536                  3950627                  3984483                  3946327         
+chr14         3582490                  3510212                  3583175                  3518195         
+chr15         3520640                  3488140                  3521071                  3488219         
+chr16         3077134                  3053306                  3076820                  3053835         
+chr17         4020412                  3950898                  4020991                  3956715         
+chr18         2807967                  2780425                  2808763                  2783867         
+chr19         2002429                  1988342                  2002683                  1989537         
+chrX          2361846                  2356518                  2361146                  2356201         
+chrY          989147                   988730                   988832                   988238          
+chrM           42938                    38839                    42946                    38777          
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 12069278
+Total count of chr2 tags: 13430674
+Total count of chr3 tags: 8949508
+Total count of chr4 tags: 11758145
+Total count of chr5 tags: 11784177
+Total count of chr6 tags: 9629750
+Total count of chr7 tags: 11937390
+Total count of chr8 tags: 9606314
+Total count of chr9 tags: 9209067
+Total count of chr10 tags: 9101479
+Total count of chr11 tags: 9624791
+Total count of chr12 tags: 8146094
+Total count of chr13 tags: 7896954
+Total count of chr14 tags: 7028407
+Total count of chr15 tags: 6976359
+Total count of chr16 tags: 6107141
+Total count of chr17 tags: 7907613
+Total count of chr18 tags: 5564292
+Total count of chr19 tags: 3977879
+Total count of chrX tags: 4712719
+Total count of chrY tags: 1976968
+Total count of chrM tags: 77556
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  1000
+Gap size:  3000
+E value is: 100
+Total read count: 177470946
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 81.39263127547997
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  90
+
+Determining the score threshold from random background...
+The score threshold is: 57.853
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  24139
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/kidney’: File exists
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/kidney/deeptools’: File exists
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ116_S113_L001.nodup.bam                     ||
+||                           o SZJ122_S117_L001.nodup.bam                     ||
+||                           o SZJ138_S104_L002.nodup.bam                     ||
+||                           o SZJ144_S109_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K36me3_merge-W1000-G3000-E100.counts           ||
+||                 Summary : H3K36me3_merge-W1000-G3000-E100.counts.summary   ||
+||              Annotation : H3K36me3_merge-W1000-G3000-E100.saf (SAF)        ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K36me3_merge-W1000-G3000-E100.saf ...               ||
+||    Features : 24138                                                        ||
+||    Meta-features : 24138                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ116_S113_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 18478129                                             ||
+||    Successfully assigned alignments : 12518436 (67.7%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ122_S117_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31007112                                             ||
+||    Successfully assigned alignments : 21472954 (69.3%)                     ||
+||    Running time : 0.21 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ138_S104_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23657608                                             ||
+||    Successfully assigned alignments : 14234881 (60.2%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ144_S109_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22339784                                             ||
+||    Successfully assigned alignments : 13530146 (60.6%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/kidney/H3K36me3/H3K36me3_  ||
+|| merge-W1000-G3000-E100.counts.summary"                                     ||
+||                                                                            ||
+\\============================================================================//
+

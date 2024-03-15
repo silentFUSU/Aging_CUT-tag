@@ -1,0 +1,243 @@
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/merge_bam’: File exists
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/bed’: File exists
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154’: File exists
+#############################################
+######           SICER v1.1            ######
+#############################################
+Input library directory: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/bed
+ChIP library: LLX_148_154.bed
+Output directory: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154
+Species: mm10
+Threshold for redundancy allowed for reads: 1
+Window size: 5000 bps
+Fragment size: 300 bps. The shift for reads is half of 300
+Effective genome size as a fraction of the reference genome of mm10: 0.8
+Gap size: 10000 bps
+Evalue for identification of significant islands: 0.01
+ 
+ 
+Preprocess the raw LLX_148_154 file to remove redundancy with threshold 1...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/remove_redundant_reads.py -s mm10 -b /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/bed/LLX_148_154.bed -t 1 -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-1-removed.bed
+chr1 	Plus reads: 3693040 	Retained plus reads: 2992775 ;	Minus reads: 3692835 	Retained minus reads: 2992927
+chr2 	Plus reads: 4238798 	Retained plus reads: 3308853 ;	Minus reads: 4238158 	Retained minus reads: 3308727
+chr3 	Plus reads: 2639350 	Retained plus reads: 2183186 ;	Minus reads: 2638160 	Retained minus reads: 2183957
+chr4 	Plus reads: 3617745 	Retained plus reads: 2828731 ;	Minus reads: 3616922 	Retained minus reads: 2829504
+chr5 	Plus reads: 3439196 	Retained plus reads: 2704528 ;	Minus reads: 3438970 	Retained minus reads: 2704064
+chr6 	Plus reads: 3069722 	Retained plus reads: 2472122 ;	Minus reads: 3069233 	Retained minus reads: 2471417
+chr7 	Plus reads: 3610311 	Retained plus reads: 2857286 ;	Minus reads: 3611196 	Retained minus reads: 2861854
+chr8 	Plus reads: 3043804 	Retained plus reads: 2384207 ;	Minus reads: 3044358 	Retained minus reads: 2381584
+chr9 	Plus reads: 2911156 	Retained plus reads: 2317693 ;	Minus reads: 2910827 	Retained minus reads: 2317045
+chr10 	Plus reads: 2294013 	Retained plus reads: 1876348 ;	Minus reads: 2293031 	Retained minus reads: 1875480
+chr11 	Plus reads: 3336653 	Retained plus reads: 2584107 ;	Minus reads: 3336764 	Retained minus reads: 2583461
+chr12 	Plus reads: 2158960 	Retained plus reads: 1754502 ;	Minus reads: 2159063 	Retained minus reads: 1755920
+chr13 	Plus reads: 2572053 	Retained plus reads: 2054150 ;	Minus reads: 2572123 	Retained minus reads: 2053275
+chr14 	Plus reads: 2536349 	Retained plus reads: 2047458 ;	Minus reads: 2536232 	Retained minus reads: 2046909
+chr15 	Plus reads: 1981645 	Retained plus reads: 1607751 ;	Minus reads: 1982028 	Retained minus reads: 1607071
+chr16 	Plus reads: 1633502 	Retained plus reads: 1350238 ;	Minus reads: 1634783 	Retained minus reads: 1350374
+chr17 	Plus reads: 2098253 	Retained plus reads: 1631468 ;	Minus reads: 2099060 	Retained minus reads: 1632663
+chr18 	Plus reads: 1652964 	Retained plus reads: 1348089 ;	Minus reads: 1653053 	Retained minus reads: 1347696
+chr19 	Plus reads: 1518101 	Retained plus reads: 1188648 ;	Minus reads: 1517970 	Retained minus reads: 1189229
+chrX 	Plus reads: 935940 	Retained plus reads: 854851 ;	Minus reads: 935713 	Retained minus reads: 854259
+chrY 	Plus reads: 498358 	Retained plus reads: 474435 ;	Minus reads: 498470 	Retained minus reads: 474609
+chrM 	Plus reads: 6209 	Retained plus reads: 3818 ;	Minus reads: 6208 	Retained minus reads: 3754
+ 
+ 
+Partion the genome in windows ...
+Generate summary files for LLX_148_154...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/run-make-graph-file-by-chrom.py -s mm10 -b /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-1-removed.bed -w 5000 -i 300 -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000.graph
+total tag count in chr1.bed is: 5985702.0 = 2992775.0+2992927.0
+total tag count in chr2.bed is: 6617580.0 = 3308853.0+3308727.0
+total tag count in chr3.bed is: 4367143.0 = 2183186.0+2183957.0
+total tag count in chr4.bed is: 5658235.0 = 2828731.0+2829504.0
+total tag count in chr5.bed is: 5408592.0 = 2704528.0+2704064.0
+total tag count in chr6.bed is: 4943539.0 = 2472122.0+2471417.0
+total tag count in chr7.bed is: 5719140.0 = 2857286.0+2861854.0
+total tag count in chr8.bed is: 4765791.0 = 2384207.0+2381584.0
+total tag count in chr9.bed is: 4634738.0 = 2317693.0+2317045.0
+total tag count in chr10.bed is: 3751828.0 = 1876348.0+1875480.0
+total tag count in chr11.bed is: 5167568.0 = 2584107.0+2583461.0
+total tag count in chr12.bed is: 3510422.0 = 1754502.0+1755920.0
+total tag count in chr13.bed is: 4107425.0 = 2054150.0+2053275.0
+total tag count in chr14.bed is: 4094367.0 = 2047458.0+2046909.0
+total tag count in chr15.bed is: 3214822.0 = 1607751.0+1607071.0
+total tag count in chr16.bed is: 2700612.0 = 1350238.0+1350374.0
+total tag count in chr17.bed is: 3264131.0 = 1631468.0+1632663.0
+total tag count in chr18.bed is: 2695785.0 = 1348089.0+1347696.0
+total tag count in chr19.bed is: 2377877.0 = 1188648.0+1189229.0
+total tag count in chrX.bed is: 1709110.0 = 854851.0+854259.0
+total tag count in chrY.bed is: 949044.0 = 474435.0+474609.0
+Ilegitimate read with end beyond chromosome length  16299  is ignored
+chrM	16160	16299	A00133:913:HNYK7DSX7:3:1612:5448:33285/1	40	+
+Ilegitimate read with end beyond chromosome length  16299  is ignored
+chrM	16162	16299	A00133:912:HNWN5DSX7:1:1411:30436:29528/2	3	+
+Ilegitimate read with end beyond chromosome length  16299  is ignored
+chrM	16168	16299	A00133:912:HNWN5DSX7:1:1478:6207:32784/1	0	+
+Ilegitimate read with end beyond chromosome length  16299  is ignored
+chrM	16157	16299	A00133:912:HNWN5DSX7:1:1521:9109:28479/2	23	-
+Ilegitimate read with end beyond chromosome length  16299  is ignored
+chrM	16159	16299	A00133:912:HNWN5DSX7:1:1576:24469:18098/2	40	-
+Ilegitimate read with end beyond chromosome length  16299  is ignored
+chrM	16162	16299	A00133:912:HNWN5DSX7:1:1411:30436:29528/1	3	-
+total tag count in chrM.bed is: 7566.0 = 3815.0+3751.0
+
+
+Normalize summary graph by total redundancy-removed reads per million for LLX_148_154 ...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/normalize.py -i /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000.graph -a 3 -t 1000000 -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-normalized.graph
+
+
+Convert the normalized summary graph into wig vstep format...
+sh /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/variableStep.sh /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-normalized.graph /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-normalized.wig LLX_148_154 5000
+ 
+ 
+Find significant islands with E-value 0.01 for LLX_148_154...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/find_islands_in_pr.py -s mm10 -b /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000.graph -w 5000 -g 10000 -t 0.8 -e 0.01 -f /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01.scoreisland
+Species:  mm10
+Window_size:  5000
+Gap size:  10000
+E value is: 0.01
+Total read count: 85650083.0
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 196.406391622
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  209
+Generate the enriched probscore summary graph and filter the summary graph to get rid of ineligible windows 
+Determine the score threshold from random background
+Traceback (most recent call last):
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/find_islands_in_pr.py", line 270, in <module>
+    main(sys.argv)
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/find_islands_in_pr.py", line 244, in main
+    score_threshold = background.find_island_threshold(opt.evalue); 
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/lib/Background_island_probscore_statistics.py", line 228, in find_island_threshold
+    current_expectation=self.background_island_expectation(current_scaled_score);
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/lib/Background_island_probscore_statistics.py", line 175, in background_island_expectation
+    while ( int(round(index - self.window_score[i]/self.bin_size))>=0):
+IndexError: list index out of range
+
+
+Filter reads with identified significant islands for LLX_148_154...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/utility/filter_raw_tags_by_islands.py -s mm10 -a /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-1-removed.bed -i 300 -b /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01.scoreisland  -o  /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+Traceback (most recent call last):
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/utility/filter_raw_tags_by_islands.py", line 111, in <module>
+    main(sys.argv)
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/utility/filter_raw_tags_by_islands.py", line 99, in main
+    islands = BED.BED(opt.species, opt.islandbedfile, "BED3", 0);
+  File "/storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/lib/BED.py", line 202, in __init__
+    infile = open(file);
+IOError: [Errno 2] No such file or directory: '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01.scoreisland'
+
+
+Make summary graph with filtered reads for LLX_148_154...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/run-make-graph-file-by-chrom.py -s mm10 -b /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed -w 5000 -i 300 -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.graph
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr1 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr2 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr3 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr4 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr5 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr6 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr7 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr8 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr9 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr10 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr11 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr12 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr13 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr14 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr15 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr16 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr17 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr18 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chr19 reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chrX reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chrY reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+grep: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed: No such file or directory
+Warning: chrM reads do not exist in /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.bed
+total tag count in chr1.bed is: 0.0 = 0.0+0.0
+total tag count in chr2.bed is: 0.0 = 0.0+0.0
+total tag count in chr3.bed is: 0.0 = 0.0+0.0
+total tag count in chr4.bed is: 0.0 = 0.0+0.0
+total tag count in chr5.bed is: 0.0 = 0.0+0.0
+total tag count in chr6.bed is: 0.0 = 0.0+0.0
+total tag count in chr7.bed is: 0.0 = 0.0+0.0
+total tag count in chr8.bed is: 0.0 = 0.0+0.0
+total tag count in chr9.bed is: 0.0 = 0.0+0.0
+total tag count in chr10.bed is: 0.0 = 0.0+0.0
+total tag count in chr11.bed is: 0.0 = 0.0+0.0
+total tag count in chr12.bed is: 0.0 = 0.0+0.0
+total tag count in chr13.bed is: 0.0 = 0.0+0.0
+total tag count in chr14.bed is: 0.0 = 0.0+0.0
+total tag count in chr15.bed is: 0.0 = 0.0+0.0
+total tag count in chr16.bed is: 0.0 = 0.0+0.0
+total tag count in chr17.bed is: 0.0 = 0.0+0.0
+total tag count in chr18.bed is: 0.0 = 0.0+0.0
+total tag count in chr19.bed is: 0.0 = 0.0+0.0
+total tag count in chrX.bed is: 0.0 = 0.0+0.0
+total tag count in chrY.bed is: 0.0 = 0.0+0.0
+total tag count in chrM.bed is: 0.0 = 0.0+0.0
+
+
+Normalize summary graph with filtered reads for LLX_148_154 by total island filtered reads per million...
+python /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/normalize.py -i /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered.graph -a 3 -t 1000000 -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered-normalized.graph
+
+
+Convert the summary graph made with the filtered reads into wig vstep format and normalize by total island-filtered read count per million...
+sh /storage/zhangyanxiaoLab/niuyuxiao/tools/SICER_V1.1/SICER/src/variableStep.sh /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered-normalized.graph /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01-islandfiltered-normalized.wig LLX_148_154 5000
+
+
+Done!
+awk: fatal: cannot open file `/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01.scoreisland' for reading (No such file or directory)
+Traceback (most recent call last):
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/bin/computeMatrix", line 14, in <module>
+    main(args)
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/deeptools/computeMatrix.py", line 421, in main
+    hm.computeMatrix(scores_file_list, args.regionsFileName, parameters, blackListFileName=args.blackListFileName, verbose=args.verbose, allArgs=args)
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/deeptools/heatmapper.py", line 252, in computeMatrix
+    res, labels = mapReduce.mapReduce([score_file_list, parameters],
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/deeptools/mapReduce.py", line 85, in mapReduce
+    bed_interval_tree = GTF(bedFile, defaultGroup=defaultGroup, transcriptID=transcriptID, exonID=exonID, transcript_id_designator=transcript_id_designator, keepExons=keepExons)
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/deeptoolsintervals/parse.py", line 591, in __init__
+    ftype = self.inferType(fp, line, labelColumn)
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/deeptoolsintervals/parse.py", line 166, in inferType
+    raise RuntimeError('{0} does not seem to be a recognized file type!'.format(self.filename))
+RuntimeError: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/peaks/LLX148_154/LLX_148_154-W5000-G10000-E0.01.scoreisland.bed does not seem to be a recognized file type!
+usage: plotProfile [--matrixFile MATRIXFILE] --outFileName OUTFILENAME
+                   [--outFileSortedRegions FILE]
+                   [--outFileNameData OUTFILENAMEDATA] [--dpi DPI]
+                   [--kmeans KMEANS] [--hclust HCLUST] [--silhouette] [--help]
+                   [--version] [--averageType {mean,median,min,max,std,sum}]
+                   [--plotHeight PLOTHEIGHT] [--plotWidth PLOTWIDTH]
+                   [--plotType {lines,fill,se,std,overlapped_lines,heatmap}]
+                   [--colors COLORS [COLORS ...]]
+                   [--numPlotsPerRow NUMPLOTSPERROW]
+                   [--clusterUsingSamples CLUSTERUSINGSAMPLES [CLUSTERUSINGSAMPLES ...]]
+                   [--startLabel STARTLABEL] [--endLabel ENDLABEL]
+                   [--refPointLabel REFPOINTLABEL]
+                   [--labelRotation LABEL_ROTATION]
+                   [--regionsLabel REGIONSLABEL [REGIONSLABEL ...]]
+                   [--samplesLabel SAMPLESLABEL [SAMPLESLABEL ...]]
+                   [--plotTitle PLOTTITLE] [--yAxisLabel YAXISLABEL]
+                   [--yMin YMIN [YMIN ...]] [--yMax YMAX [YMAX ...]]
+                   [--legendLocation {best,upper-right,upper-left,upper-center,lower-left,lower-right,lower-center,center,center-left,center-right,none}]
+                   [--perGroup] [--plotFileFormat] [--verbose]
+plotProfile: error: argument --matrixFile/-m: can't open '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/matrix/H3K27me3_merge.mat.gz': [Errno 2] No such file or directory: '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/20231201_LLX_Sample/matrix/H3K27me3_merge.mat.gz'

@@ -1,0 +1,723 @@
+INFO  @ Wed, 13 Mar 2024 22:01:15: 
+# Command line: callpeak -t /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/tmp.merge.bam -f BAMPE -n H3K27ac --outdir /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/peaks/macs_narrowpeak -g mm --nomodel -q 0.0001 --keep-dup all
+# ARGUMENTS LIST:
+# name = H3K27ac
+# format = BAMPE
+# ChIP-seq file = ['/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/tmp.merge.bam']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 1.00e-04
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is on
+ 
+INFO  @ Wed, 13 Mar 2024 22:01:15: #1 read fragment files... 
+INFO  @ Wed, 13 Mar 2024 22:01:15: #1 read treatment fragments... 
+INFO  @ Wed, 13 Mar 2024 22:01:18:  1000000 
+INFO  @ Wed, 13 Mar 2024 22:01:21:  2000000 
+INFO  @ Wed, 13 Mar 2024 22:01:23:  3000000 
+INFO  @ Wed, 13 Mar 2024 22:01:26:  4000000 
+INFO  @ Wed, 13 Mar 2024 22:01:29:  5000000 
+INFO  @ Wed, 13 Mar 2024 22:01:31:  6000000 
+INFO  @ Wed, 13 Mar 2024 22:01:34:  7000000 
+INFO  @ Wed, 13 Mar 2024 22:01:37:  8000000 
+INFO  @ Wed, 13 Mar 2024 22:01:39:  9000000 
+INFO  @ Wed, 13 Mar 2024 22:01:42:  10000000 
+INFO  @ Wed, 13 Mar 2024 22:01:45:  11000000 
+INFO  @ Wed, 13 Mar 2024 22:01:47:  12000000 
+INFO  @ Wed, 13 Mar 2024 22:01:50:  13000000 
+INFO  @ Wed, 13 Mar 2024 22:01:53:  14000000 
+INFO  @ Wed, 13 Mar 2024 22:01:56:  15000000 
+INFO  @ Wed, 13 Mar 2024 22:01:58:  16000000 
+INFO  @ Wed, 13 Mar 2024 22:02:01:  17000000 
+INFO  @ Wed, 13 Mar 2024 22:02:03:  18000000 
+INFO  @ Wed, 13 Mar 2024 22:02:06:  19000000 
+INFO  @ Wed, 13 Mar 2024 22:02:09:  20000000 
+INFO  @ Wed, 13 Mar 2024 22:02:12:  21000000 
+INFO  @ Wed, 13 Mar 2024 22:02:14:  22000000 
+INFO  @ Wed, 13 Mar 2024 22:02:17:  23000000 
+INFO  @ Wed, 13 Mar 2024 22:02:20:  24000000 
+INFO  @ Wed, 13 Mar 2024 22:02:22:  25000000 
+INFO  @ Wed, 13 Mar 2024 22:02:25:  26000000 
+INFO  @ Wed, 13 Mar 2024 22:02:28:  27000000 
+INFO  @ Wed, 13 Mar 2024 22:02:30:  28000000 
+INFO  @ Wed, 13 Mar 2024 22:02:33:  29000000 
+INFO  @ Wed, 13 Mar 2024 22:02:36:  30000000 
+INFO  @ Wed, 13 Mar 2024 22:02:38:  31000000 
+INFO  @ Wed, 13 Mar 2024 22:02:41:  32000000 
+INFO  @ Wed, 13 Mar 2024 22:02:44:  33000000 
+INFO  @ Wed, 13 Mar 2024 22:02:46:  34000000 
+INFO  @ Wed, 13 Mar 2024 22:02:49:  35000000 
+INFO  @ Wed, 13 Mar 2024 22:02:52:  36000000 
+INFO  @ Wed, 13 Mar 2024 22:02:54:  37000000 
+INFO  @ Wed, 13 Mar 2024 22:02:57:  38000000 
+INFO  @ Wed, 13 Mar 2024 22:03:00:  39000000 
+INFO  @ Wed, 13 Mar 2024 22:03:03:  40000000 
+INFO  @ Wed, 13 Mar 2024 22:03:05:  41000000 
+INFO  @ Wed, 13 Mar 2024 22:03:08:  42000000 
+INFO  @ Wed, 13 Mar 2024 22:03:11:  43000000 
+INFO  @ Wed, 13 Mar 2024 22:03:13:  44000000 
+INFO  @ Wed, 13 Mar 2024 22:03:16:  45000000 
+INFO  @ Wed, 13 Mar 2024 22:03:19:  46000000 
+INFO  @ Wed, 13 Mar 2024 22:03:21:  47000000 
+INFO  @ Wed, 13 Mar 2024 22:03:24:  48000000 
+INFO  @ Wed, 13 Mar 2024 22:03:27:  49000000 
+INFO  @ Wed, 13 Mar 2024 22:03:29:  50000000 
+INFO  @ Wed, 13 Mar 2024 22:03:32:  51000000 
+INFO  @ Wed, 13 Mar 2024 22:03:35:  52000000 
+INFO  @ Wed, 13 Mar 2024 22:03:38:  53000000 
+INFO  @ Wed, 13 Mar 2024 22:03:41:  54000000 
+INFO  @ Wed, 13 Mar 2024 22:03:44:  55000000 
+INFO  @ Wed, 13 Mar 2024 22:03:46:  56000000 
+INFO  @ Wed, 13 Mar 2024 22:03:49:  57000000 
+INFO  @ Wed, 13 Mar 2024 22:03:52:  58000000 
+INFO  @ Wed, 13 Mar 2024 22:03:55:  59000000 
+INFO  @ Wed, 13 Mar 2024 22:03:58:  60000000 
+INFO  @ Wed, 13 Mar 2024 22:04:00:  61000000 
+INFO  @ Wed, 13 Mar 2024 22:04:03:  62000000 
+INFO  @ Wed, 13 Mar 2024 22:04:06:  63000000 
+INFO  @ Wed, 13 Mar 2024 22:04:08:  64000000 
+INFO  @ Wed, 13 Mar 2024 22:04:11:  65000000 
+INFO  @ Wed, 13 Mar 2024 22:04:14:  66000000 
+INFO  @ Wed, 13 Mar 2024 22:04:16:  67000000 
+INFO  @ Wed, 13 Mar 2024 22:04:19:  68000000 
+INFO  @ Wed, 13 Mar 2024 22:04:22:  69000000 
+INFO  @ Wed, 13 Mar 2024 22:04:25:  70000000 
+INFO  @ Wed, 13 Mar 2024 22:04:27:  71000000 
+INFO  @ Wed, 13 Mar 2024 22:04:30:  72000000 
+INFO  @ Wed, 13 Mar 2024 22:04:33:  73000000 
+INFO  @ Wed, 13 Mar 2024 22:04:35:  74000000 
+INFO  @ Wed, 13 Mar 2024 22:04:38:  75000000 
+INFO  @ Wed, 13 Mar 2024 22:04:41:  76000000 
+INFO  @ Wed, 13 Mar 2024 22:04:44:  77000000 
+INFO  @ Wed, 13 Mar 2024 22:04:46:  78000000 
+INFO  @ Wed, 13 Mar 2024 22:04:49:  79000000 
+INFO  @ Wed, 13 Mar 2024 22:04:52:  80000000 
+INFO  @ Wed, 13 Mar 2024 22:04:54:  81000000 
+INFO  @ Wed, 13 Mar 2024 22:04:57:  82000000 
+INFO  @ Wed, 13 Mar 2024 22:05:00:  83000000 
+INFO  @ Wed, 13 Mar 2024 22:05:02:  84000000 
+INFO  @ Wed, 13 Mar 2024 22:05:05:  85000000 
+INFO  @ Wed, 13 Mar 2024 22:05:08:  86000000 
+INFO  @ Wed, 13 Mar 2024 22:05:11:  87000000 
+INFO  @ Wed, 13 Mar 2024 22:05:13:  88000000 
+INFO  @ Wed, 13 Mar 2024 22:05:16:  89000000 
+INFO  @ Wed, 13 Mar 2024 22:05:19:  90000000 
+INFO  @ Wed, 13 Mar 2024 22:05:21:  91000000 
+INFO  @ Wed, 13 Mar 2024 22:05:24:  92000000 
+INFO  @ Wed, 13 Mar 2024 22:05:27:  93000000 
+INFO  @ Wed, 13 Mar 2024 22:05:29:  94000000 
+INFO  @ Wed, 13 Mar 2024 22:05:32:  95000000 
+INFO  @ Wed, 13 Mar 2024 22:05:35:  96000000 
+INFO  @ Wed, 13 Mar 2024 22:05:38:  97000000 
+INFO  @ Wed, 13 Mar 2024 22:05:40:  98000000 
+INFO  @ Wed, 13 Mar 2024 22:05:43:  99000000 
+INFO  @ Wed, 13 Mar 2024 22:05:46:  100000000 
+INFO  @ Wed, 13 Mar 2024 22:05:48:  101000000 
+INFO  @ Wed, 13 Mar 2024 22:05:51:  102000000 
+INFO  @ Wed, 13 Mar 2024 22:05:54:  103000000 
+INFO  @ Wed, 13 Mar 2024 22:05:57:  104000000 
+INFO  @ Wed, 13 Mar 2024 22:05:59:  105000000 
+INFO  @ Wed, 13 Mar 2024 22:06:02:  106000000 
+INFO  @ Wed, 13 Mar 2024 22:06:05:  107000000 
+INFO  @ Wed, 13 Mar 2024 22:06:07:  108000000 
+INFO  @ Wed, 13 Mar 2024 22:06:10:  109000000 
+INFO  @ Wed, 13 Mar 2024 22:06:13:  110000000 
+INFO  @ Wed, 13 Mar 2024 22:06:15:  111000000 
+INFO  @ Wed, 13 Mar 2024 22:06:18:  112000000 
+INFO  @ Wed, 13 Mar 2024 22:06:21:  113000000 
+INFO  @ Wed, 13 Mar 2024 22:06:23:  114000000 
+INFO  @ Wed, 13 Mar 2024 22:06:26:  115000000 
+INFO  @ Wed, 13 Mar 2024 22:06:29:  116000000 
+INFO  @ Wed, 13 Mar 2024 22:06:32:  117000000 
+INFO  @ Wed, 13 Mar 2024 22:06:34:  118000000 
+INFO  @ Wed, 13 Mar 2024 22:06:37:  119000000 
+INFO  @ Wed, 13 Mar 2024 22:06:40: 119249208 fragments have been read. 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #1 mean fragment size is determined as 343.0 bp from treatment 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #1 fragment size = 343.0 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #1  total fragments in treatment: 119249208 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #1 finished! 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #2 Build Peak Model... 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #2 Skipped... 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #3 Call peaks... 
+INFO  @ Wed, 13 Mar 2024 22:07:38: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Wed, 13 Mar 2024 22:12:17: #3 Call peaks for each chromosome... 
+INFO  @ Wed, 13 Mar 2024 22:14:42: #4 Write output xls file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/peaks/macs_narrowpeak/H3K27ac_peaks.xls 
+INFO  @ Wed, 13 Mar 2024 22:14:42: #4 Write peak in narrowPeak format file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/peaks/macs_narrowpeak/H3K27ac_peaks.narrowPeak 
+INFO  @ Wed, 13 Mar 2024 22:14:42: #4 Write summits bed file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/peaks/macs_narrowpeak/H3K27ac_summits.bed 
+INFO  @ Wed, 13 Mar 2024 22:14:42: Done! 
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+6: Setting LC_PAPER failed, using "C" 
+7: Setting LC_MEASUREMENT failed, using "C" 
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bed/H3K27ac_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_061_S39_L002.nodup.bam                     ||
+||                           o HJC_067_S41_L002.nodup.bam                     ||
+||                           o HJC_075_S5_L002.nodup.bam                      ||
+||                           o HJC_081_S19_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K27ac_macs_narrowpeak.counts                   ||
+||                 Summary : H3K27ac_macs_narrowpeak.counts.summary           ||
+||              Annotation : H3K27ac_macs_narrowpeak.saf (SAF)                ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27ac_macs_narrowpeak.saf ...                       ||
+||    Features : 70921                                                        ||
+||    Meta-features : 70921                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_061_S39_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33709926                                             ||
+||    Successfully assigned alignments : 9549891 (28.3%)                      ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_067_S41_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30398537                                             ||
+||    Successfully assigned alignments : 9299373 (30.6%)                      ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_075_S5_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34645587                                             ||
+||    Successfully assigned alignments : 8900091 (25.7%)                      ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_081_S19_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27863553                                             ||
+||    Successfully assigned alignments : 8551356 (30.7%)                      ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/H3K27ac_mac  ||
+|| s_narrowpeak.counts.summary"                                               ||
+||                                                                            ||
+\\============================================================================//
+
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/cecum': File exists
+done
+INFO  @ Wed, 13 Mar 2024 22:26:23: 
+# Command line: callpeak -t /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/tmp.merge.bam -f BAMPE -n H3K4me3 --outdir /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/peaks/macs_narrowpeak -g mm --nomodel -q 0.0001 --keep-dup all
+# ARGUMENTS LIST:
+# name = H3K4me3
+# format = BAMPE
+# ChIP-seq file = ['/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/tmp.merge.bam']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 1.00e-04
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is on
+ 
+INFO  @ Wed, 13 Mar 2024 22:26:23: #1 read fragment files... 
+INFO  @ Wed, 13 Mar 2024 22:26:23: #1 read treatment fragments... 
+INFO  @ Wed, 13 Mar 2024 22:26:25:  1000000 
+INFO  @ Wed, 13 Mar 2024 22:26:28:  2000000 
+INFO  @ Wed, 13 Mar 2024 22:26:31:  3000000 
+INFO  @ Wed, 13 Mar 2024 22:26:33:  4000000 
+INFO  @ Wed, 13 Mar 2024 22:26:36:  5000000 
+INFO  @ Wed, 13 Mar 2024 22:26:38:  6000000 
+INFO  @ Wed, 13 Mar 2024 22:26:41:  7000000 
+INFO  @ Wed, 13 Mar 2024 22:26:44:  8000000 
+INFO  @ Wed, 13 Mar 2024 22:26:46:  9000000 
+INFO  @ Wed, 13 Mar 2024 22:26:49:  10000000 
+INFO  @ Wed, 13 Mar 2024 22:26:51:  11000000 
+INFO  @ Wed, 13 Mar 2024 22:26:54:  12000000 
+INFO  @ Wed, 13 Mar 2024 22:26:57:  13000000 
+INFO  @ Wed, 13 Mar 2024 22:26:59:  14000000 
+INFO  @ Wed, 13 Mar 2024 22:27:02:  15000000 
+INFO  @ Wed, 13 Mar 2024 22:27:05:  16000000 
+INFO  @ Wed, 13 Mar 2024 22:27:07:  17000000 
+INFO  @ Wed, 13 Mar 2024 22:27:10:  18000000 
+INFO  @ Wed, 13 Mar 2024 22:27:13:  19000000 
+INFO  @ Wed, 13 Mar 2024 22:27:15:  20000000 
+INFO  @ Wed, 13 Mar 2024 22:27:18:  21000000 
+INFO  @ Wed, 13 Mar 2024 22:27:21:  22000000 
+INFO  @ Wed, 13 Mar 2024 22:27:23:  23000000 
+INFO  @ Wed, 13 Mar 2024 22:27:26:  24000000 
+INFO  @ Wed, 13 Mar 2024 22:27:29:  25000000 
+INFO  @ Wed, 13 Mar 2024 22:27:32:  26000000 
+INFO  @ Wed, 13 Mar 2024 22:27:34:  27000000 
+INFO  @ Wed, 13 Mar 2024 22:27:37:  28000000 
+INFO  @ Wed, 13 Mar 2024 22:27:40:  29000000 
+INFO  @ Wed, 13 Mar 2024 22:27:42:  30000000 
+INFO  @ Wed, 13 Mar 2024 22:27:45:  31000000 
+INFO  @ Wed, 13 Mar 2024 22:27:48:  32000000 
+INFO  @ Wed, 13 Mar 2024 22:27:50:  33000000 
+INFO  @ Wed, 13 Mar 2024 22:27:53:  34000000 
+INFO  @ Wed, 13 Mar 2024 22:27:56:  35000000 
+INFO  @ Wed, 13 Mar 2024 22:27:58:  36000000 
+INFO  @ Wed, 13 Mar 2024 22:28:01:  37000000 
+INFO  @ Wed, 13 Mar 2024 22:28:04:  38000000 
+INFO  @ Wed, 13 Mar 2024 22:28:06:  39000000 
+INFO  @ Wed, 13 Mar 2024 22:28:09:  40000000 
+INFO  @ Wed, 13 Mar 2024 22:28:12:  41000000 
+INFO  @ Wed, 13 Mar 2024 22:28:15:  42000000 
+INFO  @ Wed, 13 Mar 2024 22:28:17:  43000000 
+INFO  @ Wed, 13 Mar 2024 22:28:20:  44000000 
+INFO  @ Wed, 13 Mar 2024 22:28:23:  45000000 
+INFO  @ Wed, 13 Mar 2024 22:28:25:  46000000 
+INFO  @ Wed, 13 Mar 2024 22:28:28:  47000000 
+INFO  @ Wed, 13 Mar 2024 22:28:31:  48000000 
+INFO  @ Wed, 13 Mar 2024 22:28:33:  49000000 
+INFO  @ Wed, 13 Mar 2024 22:28:36:  50000000 
+INFO  @ Wed, 13 Mar 2024 22:28:38:  51000000 
+INFO  @ Wed, 13 Mar 2024 22:28:41:  52000000 
+INFO  @ Wed, 13 Mar 2024 22:28:44:  53000000 
+INFO  @ Wed, 13 Mar 2024 22:28:47:  54000000 
+INFO  @ Wed, 13 Mar 2024 22:28:49:  55000000 
+INFO  @ Wed, 13 Mar 2024 22:28:52:  56000000 
+INFO  @ Wed, 13 Mar 2024 22:28:55:  57000000 
+INFO  @ Wed, 13 Mar 2024 22:28:57:  58000000 
+INFO  @ Wed, 13 Mar 2024 22:29:00:  59000000 
+INFO  @ Wed, 13 Mar 2024 22:29:03:  60000000 
+INFO  @ Wed, 13 Mar 2024 22:29:05:  61000000 
+INFO  @ Wed, 13 Mar 2024 22:29:08:  62000000 
+INFO  @ Wed, 13 Mar 2024 22:29:11:  63000000 
+INFO  @ Wed, 13 Mar 2024 22:29:13:  64000000 
+INFO  @ Wed, 13 Mar 2024 22:29:16:  65000000 
+INFO  @ Wed, 13 Mar 2024 22:29:19:  66000000 
+INFO  @ Wed, 13 Mar 2024 22:29:22:  67000000 
+INFO  @ Wed, 13 Mar 2024 22:29:24:  68000000 
+INFO  @ Wed, 13 Mar 2024 22:29:27:  69000000 
+INFO  @ Wed, 13 Mar 2024 22:29:30:  70000000 
+INFO  @ Wed, 13 Mar 2024 22:29:32:  71000000 
+INFO  @ Wed, 13 Mar 2024 22:29:35:  72000000 
+INFO  @ Wed, 13 Mar 2024 22:29:37:  73000000 
+INFO  @ Wed, 13 Mar 2024 22:29:40:  74000000 
+INFO  @ Wed, 13 Mar 2024 22:29:43:  75000000 
+INFO  @ Wed, 13 Mar 2024 22:29:45:  76000000 
+INFO  @ Wed, 13 Mar 2024 22:29:48:  77000000 
+INFO  @ Wed, 13 Mar 2024 22:29:51:  78000000 
+INFO  @ Wed, 13 Mar 2024 22:29:53:  79000000 
+INFO  @ Wed, 13 Mar 2024 22:29:56:  80000000 
+INFO  @ Wed, 13 Mar 2024 22:29:59:  81000000 
+INFO  @ Wed, 13 Mar 2024 22:30:01:  82000000 
+INFO  @ Wed, 13 Mar 2024 22:30:04:  83000000 
+INFO  @ Wed, 13 Mar 2024 22:30:07:  84000000 
+INFO  @ Wed, 13 Mar 2024 22:30:09:  85000000 
+INFO  @ Wed, 13 Mar 2024 22:30:12:  86000000 
+INFO  @ Wed, 13 Mar 2024 22:30:14:  87000000 
+INFO  @ Wed, 13 Mar 2024 22:30:17:  88000000 
+INFO  @ Wed, 13 Mar 2024 22:30:20:  89000000 
+INFO  @ Wed, 13 Mar 2024 22:30:22:  90000000 
+INFO  @ Wed, 13 Mar 2024 22:30:25:  91000000 
+INFO  @ Wed, 13 Mar 2024 22:30:28:  92000000 
+INFO  @ Wed, 13 Mar 2024 22:30:30:  93000000 
+INFO  @ Wed, 13 Mar 2024 22:30:33:  94000000 
+INFO  @ Wed, 13 Mar 2024 22:30:36:  95000000 
+INFO  @ Wed, 13 Mar 2024 22:30:38:  96000000 
+INFO  @ Wed, 13 Mar 2024 22:30:41:  97000000 
+INFO  @ Wed, 13 Mar 2024 22:30:44:  98000000 
+INFO  @ Wed, 13 Mar 2024 22:30:46:  99000000 
+INFO  @ Wed, 13 Mar 2024 22:30:49:  100000000 
+INFO  @ Wed, 13 Mar 2024 22:30:51:  101000000 
+INFO  @ Wed, 13 Mar 2024 22:30:54:  102000000 
+INFO  @ Wed, 13 Mar 2024 22:30:57:  103000000 
+INFO  @ Wed, 13 Mar 2024 22:30:59:  104000000 
+INFO  @ Wed, 13 Mar 2024 22:31:02:  105000000 
+INFO  @ Wed, 13 Mar 2024 22:31:05:  106000000 
+INFO  @ Wed, 13 Mar 2024 22:31:07:  107000000 
+INFO  @ Wed, 13 Mar 2024 22:31:10:  108000000 
+INFO  @ Wed, 13 Mar 2024 22:31:12:  109000000 
+INFO  @ Wed, 13 Mar 2024 22:31:15:  110000000 
+INFO  @ Wed, 13 Mar 2024 22:31:18:  111000000 
+INFO  @ Wed, 13 Mar 2024 22:31:20:  112000000 
+INFO  @ Wed, 13 Mar 2024 22:31:23:  113000000 
+INFO  @ Wed, 13 Mar 2024 22:31:26:  114000000 
+INFO  @ Wed, 13 Mar 2024 22:31:28:  115000000 
+INFO  @ Wed, 13 Mar 2024 22:31:31:  116000000 
+INFO  @ Wed, 13 Mar 2024 22:31:34:  117000000 
+INFO  @ Wed, 13 Mar 2024 22:31:37:  118000000 
+INFO  @ Wed, 13 Mar 2024 22:31:40:  119000000 
+INFO  @ Wed, 13 Mar 2024 22:31:43:  120000000 
+INFO  @ Wed, 13 Mar 2024 22:31:46:  121000000 
+INFO  @ Wed, 13 Mar 2024 22:31:49:  122000000 
+INFO  @ Wed, 13 Mar 2024 22:31:54: 122273611 fragments have been read. 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #1 mean fragment size is determined as 331.4 bp from treatment 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #1 fragment size = 331.4 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #1  total fragments in treatment: 122273611 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #1 finished! 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #2 Build Peak Model... 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #2 Skipped... 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #3 Call peaks... 
+INFO  @ Wed, 13 Mar 2024 22:33:05: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Wed, 13 Mar 2024 22:40:04: #3 Call peaks for each chromosome... 
+INFO  @ Wed, 13 Mar 2024 22:42:32: #4 Write output xls file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/peaks/macs_narrowpeak/H3K4me3_peaks.xls 
+INFO  @ Wed, 13 Mar 2024 22:42:33: #4 Write peak in narrowPeak format file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/peaks/macs_narrowpeak/H3K4me3_peaks.narrowPeak 
+INFO  @ Wed, 13 Mar 2024 22:42:33: #4 Write summits bed file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/peaks/macs_narrowpeak/H3K4me3_summits.bed 
+INFO  @ Wed, 13 Mar 2024 22:42:33: Done! 
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+6: Setting LC_PAPER failed, using "C" 
+7: Setting LC_MEASUREMENT failed, using "C" 
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bed/H3K4me3_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bed/H3K4me3_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_064_S86_L001.nodup.bam                     ||
+||                           o HJC_070_S88_L001.nodup.bam                     ||
+||                           o HJC_078_S67_L002.nodup.bam                     ||
+||                           o HJC_084_S43_L003.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K4me3_macs_narrowpeak.counts                   ||
+||                 Summary : H3K4me3_macs_narrowpeak.counts.summary           ||
+||              Annotation : H3K4me3_macs_narrowpeak.saf (SAF)                ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me3_macs_narrowpeak.saf ...                       ||
+||    Features : 70878                                                        ||
+||    Meta-features : 70878                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_064_S86_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35173771                                             ||
+||    Successfully assigned alignments : 16486648 (46.9%)                     ||
+||    Running time : 0.23 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_070_S88_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29265389                                             ||
+||    Successfully assigned alignments : 14272932 (48.8%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_078_S67_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29449691                                             ||
+||    Successfully assigned alignments : 15075466 (51.2%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_084_S43_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36689031                                             ||
+||    Successfully assigned alignments : 16303647 (44.4%)                     ||
+||    Running time : 0.23 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/H3K4me3_mac  ||
+|| s_narrowpeak.counts.summary"                                               ||
+||                                                                            ||
+\\============================================================================//
+
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/cecum': File exists
+done
+INFO  @ Wed, 13 Mar 2024 22:57:02: 
+# Command line: callpeak -t /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/tmp.merge.bam -f BAMPE -n H3K4me1 --outdir /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/peaks/macs_narrowpeak -g mm --nomodel -q 0.0001 --keep-dup all
+# ARGUMENTS LIST:
+# name = H3K4me1
+# format = BAMPE
+# ChIP-seq file = ['/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/tmp.merge.bam']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 1.00e-04
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is on
+ 
+INFO  @ Wed, 13 Mar 2024 22:57:02: #1 read fragment files... 
+INFO  @ Wed, 13 Mar 2024 22:57:02: #1 read treatment fragments... 
+INFO  @ Wed, 13 Mar 2024 22:57:04:  1000000 
+INFO  @ Wed, 13 Mar 2024 22:57:07:  2000000 
+INFO  @ Wed, 13 Mar 2024 22:57:10:  3000000 
+INFO  @ Wed, 13 Mar 2024 22:57:12:  4000000 
+INFO  @ Wed, 13 Mar 2024 22:57:15:  5000000 
+INFO  @ Wed, 13 Mar 2024 22:57:17:  6000000 
+INFO  @ Wed, 13 Mar 2024 22:57:20:  7000000 
+INFO  @ Wed, 13 Mar 2024 22:57:22:  8000000 
+INFO  @ Wed, 13 Mar 2024 22:57:25:  9000000 
+INFO  @ Wed, 13 Mar 2024 22:57:27:  10000000 
+INFO  @ Wed, 13 Mar 2024 22:57:30:  11000000 
+INFO  @ Wed, 13 Mar 2024 22:57:32:  12000000 
+INFO  @ Wed, 13 Mar 2024 22:57:35:  13000000 
+INFO  @ Wed, 13 Mar 2024 22:57:37:  14000000 
+INFO  @ Wed, 13 Mar 2024 22:57:40:  15000000 
+INFO  @ Wed, 13 Mar 2024 22:57:42:  16000000 
+INFO  @ Wed, 13 Mar 2024 22:57:45:  17000000 
+INFO  @ Wed, 13 Mar 2024 22:57:47:  18000000 
+INFO  @ Wed, 13 Mar 2024 22:57:50:  19000000 
+INFO  @ Wed, 13 Mar 2024 22:57:53:  20000000 
+INFO  @ Wed, 13 Mar 2024 22:57:55:  21000000 
+INFO  @ Wed, 13 Mar 2024 22:57:58:  22000000 
+INFO  @ Wed, 13 Mar 2024 22:58:00:  23000000 
+INFO  @ Wed, 13 Mar 2024 22:58:03:  24000000 
+INFO  @ Wed, 13 Mar 2024 22:58:05:  25000000 
+INFO  @ Wed, 13 Mar 2024 22:58:08:  26000000 
+INFO  @ Wed, 13 Mar 2024 22:58:10:  27000000 
+INFO  @ Wed, 13 Mar 2024 22:58:13:  28000000 
+INFO  @ Wed, 13 Mar 2024 22:58:15:  29000000 
+INFO  @ Wed, 13 Mar 2024 22:58:18:  30000000 
+INFO  @ Wed, 13 Mar 2024 22:58:21:  31000000 
+INFO  @ Wed, 13 Mar 2024 22:58:23:  32000000 
+INFO  @ Wed, 13 Mar 2024 22:58:26:  33000000 
+INFO  @ Wed, 13 Mar 2024 22:58:28:  34000000 
+INFO  @ Wed, 13 Mar 2024 22:58:31:  35000000 
+INFO  @ Wed, 13 Mar 2024 22:58:33:  36000000 
+INFO  @ Wed, 13 Mar 2024 22:58:36:  37000000 
+INFO  @ Wed, 13 Mar 2024 22:58:38:  38000000 
+INFO  @ Wed, 13 Mar 2024 22:58:41:  39000000 
+INFO  @ Wed, 13 Mar 2024 22:58:44:  40000000 
+INFO  @ Wed, 13 Mar 2024 22:58:46:  41000000 
+INFO  @ Wed, 13 Mar 2024 22:58:49:  42000000 
+INFO  @ Wed, 13 Mar 2024 22:58:51:  43000000 
+INFO  @ Wed, 13 Mar 2024 22:58:54:  44000000 
+INFO  @ Wed, 13 Mar 2024 22:58:56:  45000000 
+INFO  @ Wed, 13 Mar 2024 22:58:59:  46000000 
+INFO  @ Wed, 13 Mar 2024 22:59:01:  47000000 
+INFO  @ Wed, 13 Mar 2024 22:59:04:  48000000 
+INFO  @ Wed, 13 Mar 2024 22:59:06:  49000000 
+INFO  @ Wed, 13 Mar 2024 22:59:09:  50000000 
+INFO  @ Wed, 13 Mar 2024 22:59:12:  51000000 
+INFO  @ Wed, 13 Mar 2024 22:59:14:  52000000 
+INFO  @ Wed, 13 Mar 2024 22:59:17:  53000000 
+INFO  @ Wed, 13 Mar 2024 22:59:19:  54000000 
+INFO  @ Wed, 13 Mar 2024 22:59:22:  55000000 
+INFO  @ Wed, 13 Mar 2024 22:59:24:  56000000 
+INFO  @ Wed, 13 Mar 2024 22:59:27:  57000000 
+INFO  @ Wed, 13 Mar 2024 22:59:30:  58000000 
+INFO  @ Wed, 13 Mar 2024 22:59:32:  59000000 
+INFO  @ Wed, 13 Mar 2024 22:59:35:  60000000 
+INFO  @ Wed, 13 Mar 2024 22:59:37:  61000000 
+INFO  @ Wed, 13 Mar 2024 22:59:40:  62000000 
+INFO  @ Wed, 13 Mar 2024 22:59:42:  63000000 
+INFO  @ Wed, 13 Mar 2024 22:59:45:  64000000 
+INFO  @ Wed, 13 Mar 2024 22:59:48:  65000000 
+INFO  @ Wed, 13 Mar 2024 22:59:50:  66000000 
+INFO  @ Wed, 13 Mar 2024 22:59:53:  67000000 
+INFO  @ Wed, 13 Mar 2024 22:59:55:  68000000 
+INFO  @ Wed, 13 Mar 2024 22:59:58:  69000000 
+INFO  @ Wed, 13 Mar 2024 23:00:00:  70000000 
+INFO  @ Wed, 13 Mar 2024 23:00:03:  71000000 
+INFO  @ Wed, 13 Mar 2024 23:00:05:  72000000 
+INFO  @ Wed, 13 Mar 2024 23:00:08:  73000000 
+INFO  @ Wed, 13 Mar 2024 23:00:11:  74000000 
+INFO  @ Wed, 13 Mar 2024 23:00:13:  75000000 
+INFO  @ Wed, 13 Mar 2024 23:00:16:  76000000 
+INFO  @ Wed, 13 Mar 2024 23:00:18:  77000000 
+INFO  @ Wed, 13 Mar 2024 23:00:21:  78000000 
+INFO  @ Wed, 13 Mar 2024 23:00:23:  79000000 
+INFO  @ Wed, 13 Mar 2024 23:00:26:  80000000 
+INFO  @ Wed, 13 Mar 2024 23:00:28:  81000000 
+INFO  @ Wed, 13 Mar 2024 23:00:31:  82000000 
+INFO  @ Wed, 13 Mar 2024 23:00:33:  83000000 
+INFO  @ Wed, 13 Mar 2024 23:00:36:  84000000 
+INFO  @ Wed, 13 Mar 2024 23:00:38:  85000000 
+INFO  @ Wed, 13 Mar 2024 23:00:41:  86000000 
+INFO  @ Wed, 13 Mar 2024 23:00:43:  87000000 
+INFO  @ Wed, 13 Mar 2024 23:00:46:  88000000 
+INFO  @ Wed, 13 Mar 2024 23:00:48:  89000000 
+INFO  @ Wed, 13 Mar 2024 23:00:51:  90000000 
+INFO  @ Wed, 13 Mar 2024 23:00:53:  91000000 
+INFO  @ Wed, 13 Mar 2024 23:00:56:  92000000 
+INFO  @ Wed, 13 Mar 2024 23:00:59:  93000000 
+INFO  @ Wed, 13 Mar 2024 23:01:01:  94000000 
+INFO  @ Wed, 13 Mar 2024 23:01:04:  95000000 
+INFO  @ Wed, 13 Mar 2024 23:01:06:  96000000 
+INFO  @ Wed, 13 Mar 2024 23:01:09:  97000000 
+INFO  @ Wed, 13 Mar 2024 23:01:11:  98000000 
+INFO  @ Wed, 13 Mar 2024 23:01:14:  99000000 
+INFO  @ Wed, 13 Mar 2024 23:01:16:  100000000 
+INFO  @ Wed, 13 Mar 2024 23:01:19:  101000000 
+INFO  @ Wed, 13 Mar 2024 23:01:21:  102000000 
+INFO  @ Wed, 13 Mar 2024 23:01:24:  103000000 
+INFO  @ Wed, 13 Mar 2024 23:01:26:  104000000 
+INFO  @ Wed, 13 Mar 2024 23:01:29:  105000000 
+INFO  @ Wed, 13 Mar 2024 23:01:31:  106000000 
+INFO  @ Wed, 13 Mar 2024 23:01:34:  107000000 
+INFO  @ Wed, 13 Mar 2024 23:01:37:  108000000 
+INFO  @ Wed, 13 Mar 2024 23:01:39:  109000000 
+INFO  @ Wed, 13 Mar 2024 23:01:42:  110000000 
+INFO  @ Wed, 13 Mar 2024 23:01:44:  111000000 
+INFO  @ Wed, 13 Mar 2024 23:01:47:  112000000 
+INFO  @ Wed, 13 Mar 2024 23:01:50:  113000000 
+INFO  @ Wed, 13 Mar 2024 23:01:52:  114000000 
+INFO  @ Wed, 13 Mar 2024 23:01:55:  115000000 
+INFO  @ Wed, 13 Mar 2024 23:01:57:  116000000 
+INFO  @ Wed, 13 Mar 2024 23:02:00:  117000000 
+INFO  @ Wed, 13 Mar 2024 23:02:02:  118000000 
+INFO  @ Wed, 13 Mar 2024 23:02:05:  119000000 
+INFO  @ Wed, 13 Mar 2024 23:02:08:  120000000 
+INFO  @ Wed, 13 Mar 2024 23:02:10:  121000000 
+INFO  @ Wed, 13 Mar 2024 23:02:13:  122000000 
+INFO  @ Wed, 13 Mar 2024 23:02:17: 122561795 fragments have been read. 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #1 mean fragment size is determined as 259.2 bp from treatment 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #1 fragment size = 259.2 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #1  total fragments in treatment: 122561795 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #1 finished! 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #2 Build Peak Model... 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #2 Skipped... 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #3 Call peaks... 
+INFO  @ Wed, 13 Mar 2024 23:03:16: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Wed, 13 Mar 2024 23:07:29: #3 Call peaks for each chromosome... 
+INFO  @ Wed, 13 Mar 2024 23:09:56: #4 Write output xls file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/peaks/macs_narrowpeak/H3K4me1_peaks.xls 
+INFO  @ Wed, 13 Mar 2024 23:09:56: #4 Write peak in narrowPeak format file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/peaks/macs_narrowpeak/H3K4me1_peaks.narrowPeak 
+INFO  @ Wed, 13 Mar 2024 23:09:56: #4 Write summits bed file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/peaks/macs_narrowpeak/H3K4me1_summits.bed 
+INFO  @ Wed, 13 Mar 2024 23:09:56: Done! 
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+6: Setting LC_PAPER failed, using "C" 
+7: Setting LC_MEASUREMENT failed, using "C" 
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bed/H3K4me1_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_063_S85_L001.nodup.bam                     ||
+||                           o HJC_069_S87_L001.nodup.bam                     ||
+||                           o HJC_077_S176_L001.nodup.bam                    ||
+||                           o HJC_083_S178_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : H3K4me1_macs_narrowpeak.counts                   ||
+||                 Summary : H3K4me1_macs_narrowpeak.counts.summary           ||
+||              Annotation : H3K4me1_macs_narrowpeak.saf (SAF)                ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me1_macs_narrowpeak.saf ...                       ||
+||    Features : 91137                                                        ||
+||    Meta-features : 91137                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_063_S85_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34091601                                             ||
+||    Successfully assigned alignments : 7407214 (21.7%)                      ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_069_S87_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29273431                                             ||
+||    Successfully assigned alignments : 6473441 (22.1%)                      ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_077_S176_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31144262                                             ||
+||    Successfully assigned alignments : 7097029 (22.8%)                      ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_083_S178_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33605221                                             ||
+||    Successfully assigned alignments : 6597703 (19.6%)                      ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/H3K4me1_mac  ||
+|| s_narrowpeak.counts.summary"                                               ||
+||                                                                            ||
+\\============================================================================//
+
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/cecum': File exists
+done
