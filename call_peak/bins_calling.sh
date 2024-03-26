@@ -3,7 +3,7 @@ result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 antibodys=(H3K27me3 H3K9me3 H3K36me3 H3K27ac H3K4me1 H3K4me3)
 # tissues=(brain liver testis colon kidney lung spleen muscle pancreas)
 # tissues=(testis colon kidney lung spleen pancreas muscle Hip)
-tissues=(Hip cecum)
+tissues=$1
 ref=mm10
 for tissue in ${tissues[@]}
 do
@@ -16,7 +16,7 @@ do
 done
 
 antibodys=(H3K27ac H3K4me1 H3K4me3)
-tissues=(cecum)
+# tissues=(bonemarrow)
 # antibodys=(ATAC)
 for tissue in ${tissues[@]}
 do
@@ -30,7 +30,7 @@ done
 
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
 antibodys=(ATAC)
-tissues=(testis colon kidney lung spleen pancreas muscle Hip cecum)
+# tissues=(bonemarrow)
 for tissue in ${tissues[@]}
 do
     for antibody in ${antibodys[@]}
@@ -41,7 +41,7 @@ do
     done
 done
 
-tissues=(cecum)
+# tissues=(bonemarrow)
 # antibodys=(ATAC)
 for tissue in ${tissues[@]}
 do

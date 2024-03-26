@@ -1,0 +1,456 @@
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27ac/bed/H3K27ac_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27ac/bed/H3K27ac_macs_narrowpeak_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX339_S40_L001.nodup.bam                      ||
+||                           o LLX345_S43_L001.nodup.bam                      ||
+||                           o LLX353_S32_L004.nodup.bam                      ||
+||                           o LLX359_S46_L003.nodup.bam                      ||
+||                                                                            ||
+||             Output file : bonemarrow_H3K27ac_rm_blacklist.counts           ||
+||                 Summary : bonemarrow_H3K27ac_rm_blacklist.counts.summary   ||
+||              Annotation : H3K27ac_macs_narrowpeak_rm_blacklist.saf (SAF)   ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27ac_macs_narrowpeak_rm_blacklist.saf ...          ||
+||    Features : 60987                                                        ||
+||    Meta-features : 60987                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX339_S40_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33479366                                             ||
+||    Successfully assigned alignments : 9070936 (27.1%)                      ||
+||    Running time : 0.29 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX345_S43_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27875355                                             ||
+||    Successfully assigned alignments : 7020520 (25.2%)                      ||
+||    Running time : 0.27 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX353_S32_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24958580                                             ||
+||    Successfully assigned alignments : 7645168 (30.6%)                      ||
+||    Running time : 0.29 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX359_S46_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24573205                                             ||
+||    Successfully assigned alignments : 6881011 (28.0%)                      ||
+||    Running time : 0.23 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//bonemarrow_H3K27ac  ||
+|| _rm_blacklist.counts.summary"                                              ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me3/bed/H3K4me3_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me3/bed/H3K4me3_macs_narrowpeak_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX342_S43_L002.nodup.bam                      ||
+||                           o LLX348_S21_L002.nodup.bam                      ||
+||                           o LLX356_S45_L003.nodup.bam                      ||
+||                           o LLX362_S1_L001.nodup.bam                       ||
+||                                                                            ||
+||             Output file : bonemarrow_H3K4me3_rm_blacklist.counts           ||
+||                 Summary : bonemarrow_H3K4me3_rm_blacklist.counts.summary   ||
+||              Annotation : H3K4me3_macs_narrowpeak_rm_blacklist.saf (SAF)   ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me3_macs_narrowpeak_rm_blacklist.saf ...          ||
+||    Features : 57463                                                        ||
+||    Meta-features : 57463                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX342_S43_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36440019                                             ||
+||    Successfully assigned alignments : 14506247 (39.8%)                     ||
+||    Running time : 0.31 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX348_S21_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30841516                                             ||
+||    Successfully assigned alignments : 11058302 (35.9%)                     ||
+||    Running time : 0.39 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX356_S45_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23382879                                             ||
+||    Successfully assigned alignments : 11529257 (49.3%)                     ||
+||    Running time : 0.23 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX362_S1_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28370992                                             ||
+||    Successfully assigned alignments : 11752280 (41.4%)                     ||
+||    Running time : 0.29 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//bonemarrow_H3K4me3  ||
+|| _rm_blacklist.counts.summary"                                              ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me1/bed/H3K4me1_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me1/bed/H3K4me1_macs_narrowpeak_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX341_S19_L002.nodup.bam                      ||
+||                           o LLX347_S20_L002.nodup.bam                      ||
+||                           o LLX355_S44_L003.nodup.bam                      ||
+||                           o LLX361_S36_L004.nodup.bam                      ||
+||                                                                            ||
+||             Output file : bonemarrow_H3K4me1_rm_blacklist.counts           ||
+||                 Summary : bonemarrow_H3K4me1_rm_blacklist.counts.summary   ||
+||              Annotation : H3K4me1_macs_narrowpeak_rm_blacklist.saf (SAF)   ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me1_macs_narrowpeak_rm_blacklist.saf ...          ||
+||    Features : 78646                                                        ||
+||    Meta-features : 78646                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX341_S19_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34375532                                             ||
+||    Successfully assigned alignments : 6328054 (18.4%)                      ||
+||    Running time : 0.28 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX347_S20_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33074706                                             ||
+||    Successfully assigned alignments : 5329535 (16.1%)                      ||
+||    Running time : 0.30 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX355_S44_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24063713                                             ||
+||    Successfully assigned alignments : 5775718 (24.0%)                      ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX361_S36_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30073646                                             ||
+||    Successfully assigned alignments : 5457513 (18.1%)                      ||
+||    Running time : 0.26 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//bonemarrow_H3K4me1  ||
+|| _rm_blacklist.counts.summary"                                              ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX340_S26_L002.nodup.bam                      ||
+||                           o LLX346_S27_L002.nodup.bam                      ||
+||                           o LLX354_S33_L004.nodup.bam                      ||
+||                           o LLX360_S35_L004.nodup.bam                      ||
+||                                                                            ||
+||             Output file : bonemarrow_H3K27me3_rm_blacklist.counts          ||
+||                 Summary : bonemarrow_H3K27me3_rm_blacklist.counts.summary  ||
+||              Annotation : H3K27me3_merge-W1000-G3000-E100_rm_blacklist ... ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27me3_merge-W1000-G3000-E100_rm_blacklist.saf ...  ||
+||    Features : 15855                                                        ||
+||    Meta-features : 15855                                                   ||
+||    Chromosomes/contigs : 20                                                ||
+||                                                                            ||
+|| Process BAM file LLX340_S26_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25800654                                             ||
+||    Successfully assigned alignments : 17020506 (66.0%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX346_S27_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22628050                                             ||
+||    Successfully assigned alignments : 13244547 (58.5%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX354_S33_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 17229995                                             ||
+||    Successfully assigned alignments : 12176577 (70.7%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX360_S35_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23487697                                             ||
+||    Successfully assigned alignments : 13914056 (59.2%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//bonemarrow_H3K27me  ||
+|| 3_rm_blacklist.counts.summary"                                             ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX337_S38_L001.nodup.bam                      ||
+||                           o LLX343_S41_L001.nodup.bam                      ||
+||                           o LLX351_S4_L001.nodup.bam                       ||
+||                           o LLX357_S34_L004.nodup.bam                      ||
+||                                                                            ||
+||             Output file : bonemarrow_H3K9me3_rm_blacklist.counts           ||
+||                 Summary : bonemarrow_H3K9me3_rm_blacklist.counts.summary   ||
+||              Annotation : H3K9me3_merge-W1000-G3000-E100_rm_blacklist. ... ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K9me3_merge-W1000-G3000-E100_rm_blacklist.saf ...   ||
+||    Features : 39824                                                        ||
+||    Meta-features : 39824                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX337_S38_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30237247                                             ||
+||    Successfully assigned alignments : 13776521 (45.6%)                     ||
+||    Running time : 0.26 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX343_S41_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28663546                                             ||
+||    Successfully assigned alignments : 12005573 (41.9%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX351_S4_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 18141054                                             ||
+||    Successfully assigned alignments : 8862128 (48.9%)                      ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX357_S34_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26287300                                             ||
+||    Successfully assigned alignments : 12299209 (46.8%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//bonemarrow_H3K9me3  ||
+|| _rm_blacklist.counts.summary"                                              ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX338_S39_L001.nodup.bam                      ||
+||                           o LLX344_S42_L001.nodup.bam                      ||
+||                           o LLX352_S31_L004.nodup.bam                      ||
+||                           o LLX358_S6_L002.nodup.bam                       ||
+||                                                                            ||
+||             Output file : bonemarrow_H3K36me3_rm_blacklist.counts          ||
+||                 Summary : bonemarrow_H3K36me3_rm_blacklist.counts.summary  ||
+||              Annotation : H3K36me3_merge-W1000-G3000-E100_rm_blacklist ... ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K36me3_merge-W1000-G3000-E100_rm_blacklist.saf ...  ||
+||    Features : 15628                                                        ||
+||    Meta-features : 15628                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX338_S39_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27162425                                             ||
+||    Successfully assigned alignments : 17665816 (65.0%)                     ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX344_S42_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31812164                                             ||
+||    Successfully assigned alignments : 19240831 (60.5%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX352_S31_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23160003                                             ||
+||    Successfully assigned alignments : 16542163 (71.4%)                     ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX358_S6_L002.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27852654                                             ||
+||    Successfully assigned alignments : 18696348 (67.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//bonemarrow_H3K36me  ||
+|| 3_rm_blacklist.counts.summary"                                             ||
+||                                                                            ||
+\\============================================================================//
+

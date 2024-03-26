@@ -3,17 +3,10 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library("AnnotationDbi")
-library(org.Mm.eg.db)
-library(edgeR)
 library(ggplot2)
-library(ChIPseeker)
-library(EnsDb.Mmusculus.v79)
 library(tidyr)
 library(stringr)
 library(dplyr)
-library(clusterProfiler)
-library(ggrepel)
-library(limma)
 jaccard <- function(a, b) {
   intersection = length(intersect(a, b))
   union = length(a) + length(b) - intersection
@@ -29,16 +22,18 @@ bin_size <- function(antibody){
 
 all_10kb_bins <- read.delim("~/ref_data/mm10_10kb_bins.bed",header = F)
 all_10kb_bins <- all_10kb_bins$V4
-jaccard_index_random<-data.frame(tissue = character(), 
-                                 jaccard_index = numeric(),
-                                 antibody1 = character(),
-                                 antibody1_condition=character(),
-                                 antibody2 = character(),
-                                 antibody2_condition=character(),
-                                 stringsAsFactors = FALSE)
+# jaccard_index_random<-data.frame(tissue = character(), 
+#                                  jaccard_index = numeric(),
+#                                  antibody1 = character(),
+#                                  antibody1_condition=character(),
+#                                  antibody2 = character(),
+#                                  antibody2_condition=character(),
+#                                  stringsAsFactors = FALSE)
+jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
 conditions<-c("Up","Down")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum")
+# tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum")
+tissues <- c("bonemarrow")
 random_time <- 10000
 for (i in c(1:length(tissues))){
   tissue<-tissues[i]

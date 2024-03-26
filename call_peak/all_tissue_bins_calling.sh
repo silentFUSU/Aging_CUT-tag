@@ -1,7 +1,7 @@
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 ref=mm10  
-tissue=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum)
+tissue=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow)
 antibodys=(H3K27me3 H3K9me3 H3K36me3)
 # antibodys=(H3K4me1)
 for antibody in ${antibodys[@]}

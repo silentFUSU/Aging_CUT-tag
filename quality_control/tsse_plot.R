@@ -15,13 +15,13 @@ library(clusterProfiler)
 library(ggrepel)
 library(limma)
 library(gg.gap)
-antibody <- "H3K27ac"
+antibody <- "ATAC"
 tsse <- read.table(paste0("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/tsse/",antibody,"/tsse.txt"), header = FALSE)
 tsse <- tsse[order(tsse$V2),]
 tsse$V1[which(tsse$V1=="brain")] <- "brain_FC"
 tsse$V1[which(tsse$V1=="Hip")] <- "brain_HIP"
-tissue <- c("brain_FC","brain_HIP","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","cecum")
-tissue <- c("brain_HIP","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum")
+tissue <- c("brain_FC","brain_HIP","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","cecum","bonemarrow")
+tissue <- c("brain_HIP","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum","bonemarrow")
 tsse$V1 <- factor(tsse$V1,levels=tissue)
 tsse$batch<-rep(c("rep1", "rep1", "rep2", "rep2"), times = length(tissue)) 
 

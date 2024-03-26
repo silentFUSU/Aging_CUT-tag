@@ -122,8 +122,8 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
 tissues <- c("muscle","brain","liver","testis","colon","kidney","lung","spleen","pancreas")
 tissues <- c("Hip") 
 tissues <- c("cecum") 
-antibodys <- c("H3K36me3","H3K27me3","H3K9me3")
-antibodys <- c("H3K27ac","H3K4me3","H3K4me1")
+tissues <- c("bonemarrow")
+antibodys <- c("H3K36me3","H3K27me3","H3K9me3","H3K27ac","H3K4me3","H3K4me1")
 bin_size <-"10kb"
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]
@@ -141,38 +141,3 @@ for (i in c(1:length(tissues))){
     peak_preprocess_bin_level(tissue,antibody,bin_size)
   }
 }
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas") 
-bin_size="10kb"
-for(i in c(1:length(tissues))){
-  tissue <- tissues[i]
-  # peak_preprocess_bin_level(tissue,"H3K27me3","10kb")
-  # peak_preprocess_bin_level(tissue,"H3K9me3","10kb")
-  H3K27me3<-read.csv(paste0("data/samples/",tissue,"/H3K27me3/H3K27me3_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
-  H3K9me3<-read.csv(paste0("data/samples/",tissue,"/H3K9me3/H3K9me3_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
-  logFC<-merge(H3K27me3[,c("Geneid","LogFC.old.young","FDR.old.young")],H3K9me3[,c("Geneid","LogFC.old.young","FDR.old.young")],by="Geneid")
-  colnames(logFC)[2:5]<-c("logFC_H3K27me3","FDR_H3K27me3","logFC_H3K9me3","FDR_H3K9me3")
-  logFC <- logFC[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05),]
-  cor(logFC$logFC_H3K27me3,logFC$logFC_H3K9me3,method = c("pearson"),use = "complete.obs")
-  ggplot(logFC, aes(logFC_H3K9me3, logFC_H3K27me3)) +  
-    geom_point(color = "lightblue") +  
-    geom_hline(yintercept = 0, color = "red") +  
-    geom_vline(xintercept = 0, color = "red") +
-    coord_cartesian(xlim = c(-2, 2), ylim = c(-10, 10))+
-    labs(x="log2(old/young) H3K9me3",
-         y="log2(old/young) H3K27me3") +
-    theme_minimal() + theme(text = element_text(size = 20)) +annotate("text",label = paste0("Pearson corr = ",cor(logFC$logFC_H3K27me3,logFC$logFC_H3K9me3,method = c("pearson"),use = "pairwise.complete.obs")),x=1, y=-10,colour="red",size=5)
-  ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8)
-  
-}
-
-logFC<-merge(H3K27me3[which(H3K27me3$FDR.old.young < 0.05),c("Geneid","LogFC.old.young")],H3K9me3[which(H3K9me3$FDR.old.young < 0.05),c("Geneid","LogFC.old.young")],by="Geneid")
-colnames(logFC)[c(2,3)]<-c("H3K27me3","H3K9me3")
-ggplot(logFC, aes(H3K9me3, H3K27me3)) +
-  geom_point(color = "lightblue") +
-  geom_hline(yintercept = 0, color = "red") +
-  geom_vline(xintercept = 0, color = "red") +
-  coord_cartesian(xlim = c(-2, 2), ylim = c(-10, 10))+
-  labs(x="log2(old/young) H3K9me3",
-       y="log2(old/young) H3K27me3") +
-  theme_minimal() +annotate("text",label = paste0("Pearson corr = ",cor(logFC$H3K9me3,logFC$H3K27me3,method = c("pearson"))),x=-1, y=-10,colour="red",size=5)
-# ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 10,height = 10)

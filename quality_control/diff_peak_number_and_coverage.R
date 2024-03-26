@@ -16,7 +16,8 @@ library(ggrepel)
 library(limma)
 library(gg.gap)
 library(scales)
-tissues <-  c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas")
+library(colorspace)    
+tissues <-  c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
 diff_peak_number <-data.frame(Var1 = character(),  
                          Freq = numeric(),  
@@ -37,8 +38,8 @@ for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
     antibody<-antibodys[j]
-    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_merge-W1000-G3000-E100_diff_after_remove_batch_effect.csv"))
-    sig<-as.data.frame(table(diff$Significant))
+    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_10kb_bins_diff_after_remove_batch_effect.csv"))
+    sig<-as.data.frame(table(diff$Significant_bar))
     sig$tissue <- tissue
     sig$antibody <- antibody
     diff_peak_number<-rbind(diff_peak_number,sig)
@@ -47,7 +48,7 @@ for(i in c(1:length(tissues))){
     diff_peak_percent <- rbind(diff_peak_percent,sig)
     sig$coverage<-0
     for (k in c(1:nrow(sig))){
-      sig$coverage[k]<-sum(diff$Length[which(diff$Significant == sig$Var1[k])])
+      sig$coverage[k]<-sum(diff$Length[which(diff$Significant_bar == sig$Var1[k])])
     }
     diff_peak_coverage <- rbind(diff_peak_coverage,sig)
   }
@@ -57,8 +58,8 @@ for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
     antibody<-antibodys[j]
-    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_narrowpeak_diff_after_remove_batch_effect.csv"))
-    sig<-as.data.frame(table(diff$Significant))
+    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff_after_remove_batch_effect.csv"))
+    sig<-as.data.frame(table(diff$Significant_bar))
     sig$tissue <- tissue
     sig$antibody <- antibody
     diff_peak_number<-rbind(diff_peak_number,sig)
@@ -67,7 +68,7 @@ for(i in c(1:length(tissues))){
     diff_peak_percent <- rbind(diff_peak_percent,sig)
     sig$coverage<-0
     for (k in c(1:nrow(sig))){
-      sig$coverage[k]<-sum(diff$Length[which(diff$Significant == sig$Var1[k])])
+      sig$coverage[k]<-sum(diff$Length[which(diff$Significant_bar == sig$Var1[k])])
     }
     diff_peak_coverage <- rbind(diff_peak_coverage,sig)
   }
@@ -107,23 +108,33 @@ ggplot(diff_peak_coverage[which(diff_peak_coverage$Var1 !="Stable" & diff_peak_c
   theme_bw()+theme(text = element_text(size = 18))+ylab("peak length (bp)")+
   xlab("")+labs(fill = "", color = "")
 
+custom_colors <- c("#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#800000", "#008000", "#000080", "#808000", "#800080", "#008080") 
+diff_peak_coverage$tissue[which(diff_peak_coverage$tissue=="brain")] <- "brain_FC"
+diff_peak_coverage$tissue[which(diff_peak_coverage$tissue=="Hip")] <- "brain_Hip"
+
+diff_peak_number$tissue[which(diff_peak_number$tissue=="brain")] <- "brain_FC"
+diff_peak_number$tissue[which(diff_peak_number$tissue=="Hip")] <- "brain_Hip"
+
+diff_peak_percent$tissue[which(diff_peak_percent$tissue=="brain")] <- "brain_FC"
+diff_peak_percent$tissue[which(diff_peak_percent$tissue=="Hip")] <- "brain_Hip"
+
 ggplot(diff_peak_number[which(diff_peak_number$Var1 =="Down"),],mapping = aes(x=antibody,y=Freq,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Peaks")+ggtitle(paste0("Decrease"))+
-  ggsci::scale_fill_d3()+theme(text = element_text(size = 18))
+  theme(text = element_text(size = 18))+scale_fill_manual(values =custom_colors)
 
 ggplot(diff_peak_number[which(diff_peak_number$Var1 =="Up"),],mapping = aes(x=antibody,y=Freq,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Peaks")+ggtitle(paste0("Increase"))+
-  ggsci::scale_fill_d3()+theme(text = element_text(size = 18))
+  theme(text = element_text(size = 18))+scale_fill_manual(values =custom_colors)
 
 
 
 ggplot(diff_peak_percent[which(diff_peak_percent$Var1 =="Down"),],mapping = aes(x=antibody,y=Freq,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Percent")+ggtitle(paste0("Decrease"))+
-  ggsci::scale_fill_d3()+theme(text = element_text(size = 18))
+  theme(text = element_text(size = 18))+scale_fill_manual(values =custom_colors)
 
 ggplot(diff_peak_percent[which(diff_peak_percent$Var1 =="Up"),],mapping = aes(x=antibody,y=Freq,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Percent")+ggtitle(paste0("Increase"))+
-  ggsci::scale_fill_d3()+theme(text = element_text(size = 18))
+  theme(text = element_text(size = 18))+scale_fill_manual(values =custom_colors)
 
 ggplot(diff_peak_coverage[which(diff_peak_coverage$Var1 =="Down" & diff_peak_coverage$antibody %in% c("H3K27ac","H3K4me1","H3K4me3")),],mapping = aes(x=antibody,y=coverage,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Peak length")+ggtitle(paste0("Decrease"))+
