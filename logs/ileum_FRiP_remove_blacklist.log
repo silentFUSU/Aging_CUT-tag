@@ -1,0 +1,264 @@
+Error: Unable to open file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed. Exiting.
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bed/H3K27ac_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bed/H3K27ac_macs_narrowpeak_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_095_S1_L001.nodup.bam                      ||
+||                           o HJC_101_S5_L001.nodup.bam                      ||
+||                           o HJC_111_S53_L001.nodup.bam                     ||
+||                           o HJC_117_S316_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : ileum_H3K27ac_rm_blacklist.counts                ||
+||                 Summary : ileum_H3K27ac_rm_blacklist.counts.summary        ||
+||              Annotation : H3K27ac_macs_narrowpeak_rm_blacklist.saf (SAF)   ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27ac_macs_narrowpeak_rm_blacklist.saf ...          ||
+ERROR: no features were loaded in format SAF. The annotation format can be specified by the '-F' option.
+The porgram has to terminate.
+
+rm: cannot remove '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//ileum_H3K27ac_rm_blacklist.counts': No such file or directory
+Error: Unable to open file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bed/H3K4me3_macs_narrowpeak.bed. Exiting.
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bed/H3K4me3_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bed/H3K4me3_macs_narrowpeak_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_098_S3_L001.nodup.bam                      ||
+||                           o HJC_104_S7_L001.nodup.bam                      ||
+||                           o HJC_114_S39_L003.nodup.bam                     ||
+||                           o HJC_120_S28_L004.nodup.bam                     ||
+||                                                                            ||
+||             Output file : ileum_H3K4me3_rm_blacklist.counts                ||
+||                 Summary : ileum_H3K4me3_rm_blacklist.counts.summary        ||
+||              Annotation : H3K4me3_macs_narrowpeak_rm_blacklist.saf (SAF)   ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me3_macs_narrowpeak_rm_blacklist.saf ...          ||
+ERROR: no features were loaded in format SAF. The annotation format can be specified by the '-F' option.
+The porgram has to terminate.
+
+rm: cannot remove '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//ileum_H3K4me3_rm_blacklist.counts': No such file or directory
+Error: Unable to open file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed. Exiting.
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bed/H3K4me1_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bed/H3K4me1_macs_narrowpeak_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_097_S2_L001.nodup.bam                      ||
+||                           o HJC_103_S1_L004.nodup.bam                      ||
+||                           o HJC_113_S54_L001.nodup.bam                     ||
+||                           o HJC_119_S27_L004.nodup.bam                     ||
+||                                                                            ||
+||             Output file : ileum_H3K4me1_rm_blacklist.counts                ||
+||                 Summary : ileum_H3K4me1_rm_blacklist.counts.summary        ||
+||              Annotation : H3K4me1_macs_narrowpeak_rm_blacklist.saf (SAF)   ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me1_macs_narrowpeak_rm_blacklist.saf ...          ||
+ERROR: no features were loaded in format SAF. The annotation format can be specified by the '-F' option.
+The porgram has to terminate.
+
+rm: cannot remove '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//ileum_H3K4me1_rm_blacklist.counts': No such file or directory
+Error: Unable to open file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100.bed. Exiting.
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_096_S3_L001.nodup.bam                      ||
+||                           o HJC_102_S6_L001.nodup.bam                      ||
+||                           o HJC_112_S26_L004.nodup.bam                     ||
+||                           o HJC_118_S317_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : ileum_H3K27me3_rm_blacklist.counts               ||
+||                 Summary : ileum_H3K27me3_rm_blacklist.counts.summary       ||
+||              Annotation : H3K27me3_merge-W1000-G3000-E100_rm_blacklist ... ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27me3_merge-W1000-G3000-E100_rm_blacklist.saf ...  ||
+ERROR: no features were loaded in format SAF. The annotation format can be specified by the '-F' option.
+The porgram has to terminate.
+
+rm: cannot remove '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//ileum_H3K27me3_rm_blacklist.counts': No such file or directory
+Error: Unable to open file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100.bed. Exiting.
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_093_S1_L001.nodup.bam                      ||
+||                           o HJC_099_S3_L001.nodup.bam                      ||
+||                           o HJC_109_S11_L001.nodup.bam                     ||
+||                           o HJC_115_S315_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : ileum_H3K9me3_rm_blacklist.counts                ||
+||                 Summary : ileum_H3K9me3_rm_blacklist.counts.summary        ||
+||              Annotation : H3K9me3_merge-W1000-G3000-E100_rm_blacklist. ... ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K9me3_merge-W1000-G3000-E100_rm_blacklist.saf ...   ||
+ERROR: no features were loaded in format SAF. The annotation format can be specified by the '-F' option.
+The porgram has to terminate.
+
+rm: cannot remove '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//ileum_H3K9me3_rm_blacklist.counts': No such file or directory
+Error: Unable to open file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100.bed. Exiting.
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_094_S2_L001.nodup.bam                      ||
+||                           o HJC_100_S4_L001.nodup.bam                      ||
+||                           o HJC_110_S52_L001.nodup.bam                     ||
+||                           o HJC_116_S40_L003.nodup.bam                     ||
+||                                                                            ||
+||             Output file : ileum_H3K36me3_rm_blacklist.counts               ||
+||                 Summary : ileum_H3K36me3_rm_blacklist.counts.summary       ||
+||              Annotation : H3K36me3_merge-W1000-G3000-E100_rm_blacklist ... ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K36me3_merge-W1000-G3000-E100_rm_blacklist.saf ...  ||
+ERROR: no features were loaded in format SAF. The annotation format can be specified by the '-F' option.
+The porgram has to terminate.
+
+rm: cannot remove '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP//ileum_H3K36me3_rm_blacklist.counts': No such file or directory

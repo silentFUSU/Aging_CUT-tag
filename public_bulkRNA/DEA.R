@@ -17,7 +17,7 @@ library(biomaRt)
 tab = read.csv("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/GSE132040/GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv")
 tab <- tab[-c(54353:54357),]
 table = read.delim("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/GSE132040/GSE132040_MACA_Bulk_metadata.csv",sep = ',')
-table <- table[which(str_detect(table$source.name,"Intestine")),]
+table <- table[which(str_detect(table$source.name,"Muscle")),]
 table <- table[which(table$characteristics..sex=="m"),]
 table$characteristics..age <- as.numeric(table$characteristics..age)
 table <- table[order(table$characteristics..age), ]
@@ -34,8 +34,8 @@ rownames(counts) <- tab$gene
 counts <- counts[,match(table$Sample.name,colnames(counts),)]
 # colnames(counts) <- c("m3_1","m3_2","m3_3","m3_4","m21_1","m21_2","m21_3","m21_4","m24_1","m24_2","m24_3")
 # group =c("m3","m3","m3","m3","m21","m21","m21","m21","m24","m24","m24")
-colnames(counts) <- c("m3_1","m3_2","m3_3","m3_4","m24_1","m24_2","m24_3","m24_4")
-group =c("m3","m3","m3","m3","m24","m24","m24","m24")
+colnames(counts) <- c("m3_1","m3_2","m3_3","m3_4","m24_1","m24_2","m24_3")
+group =c("m3","m3","m3","m3","m24","m24","m24")
 
 
 design = model.matrix(~0+group)
@@ -65,8 +65,8 @@ for (i in 1:length(myContrasts)){
   out[,paste0("logFC.",myContrasts[i])] = lrt$table$logFC
 }
 
-out$Significant <- ifelse(out$`FDR.m24-m3` < 0.05 & abs(out$`logFC.m24-m3`) >= 1, 
-                          ifelse(out$`logFC.m24-m3` > 1, "Up", "Down"), "Stable")
+out$Significant <- ifelse(out$`FDR.m24-m3` < 0.05 & abs(out$`logFC.m24-m3`) >= 0, 
+                          ifelse(out$`logFC.m24-m3` > 0, "Up", "Down"), "Stable")
 colour<- list(c("grey"),c("grey","red"),c("blue","grey","red"))
 ggplot(
   # 数据、映射、颜色
@@ -93,7 +93,7 @@ ggplot(
   theme(legend.position = "bottom",panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())+
   theme_bw()
-write.csv(out,"data/public_data/GSE132040/Small_Intestine.csv",row.names = F)
+write.csv(out,"data/public_data/GSE132040/Limb_muscle.csv",row.names = F)
 
 df <- as.data.frame(t(out[,c(3:(3+length(group)-1))]))
 df_pca <- prcomp(df) 

@@ -38,7 +38,7 @@ save_pheatmap_pdf <- function(x, filename, width=7, height=7) {
   dev.off()
 }
 
-# jaccard_index<-data.frame(tissue = character(), 
+# jaccard_index<-data.frame(tissue = character(),
 #                           jaccard_index = numeric(),
 #                           antibody1 = character(),
 #                           antibody1_condition=character(),
@@ -49,8 +49,12 @@ jaccard_index <-read.csv("result/all/jaccard_index.csv")
 conditions<-c("Up","Down")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")
 
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum")
-tissues <- c("bonemarrow")
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","ileum","heart","thymus")
+# tissues <- c("bonemarrow")
+# tissues <- c("ileum")
+tissues <- c("heart","thymus")
+pb <- txtProgressBar(min = 0, length(tissues)*length(antibodys)*length(antibodys), style = 3)
+counter=0
 for (i in c(1:length(tissues))){
   tissue<-tissues[i]
   for(j in c(1:length(antibodys))){
@@ -73,6 +77,8 @@ for (i in c(1:length(tissues))){
           jaccard_index <- rbind(jaccard_index,t_jaccard_index)
         }
       }
+      counter <- counter+1
+      setTxtProgressBar(pb, counter)
     }
   }
 }
@@ -84,6 +90,7 @@ combinations <- paste(rep(antibodys, each = length(conditions)), rep(conditions,
 mat <- matrix(0, nrow = length(combinations), ncol = length(combinations), dimnames = list(combinations, combinations))  
 jaccard_index$label2 <- paste0(jaccard_index$antibody2,"_",jaccard_index$antibody2_condition)
 jaccard_index$label1 <- paste0(jaccard_index$antibody1,"_",jaccard_index$antibody1_condition)
+
 for(i in c(1:nrow(mat))){
   for(j in c(1:ncol(mat))){
     mat[i,j] <- mean(jaccard_index$jaccard_index[which(jaccard_index$label1==rownames(mat)[i] & jaccard_index$label2==colnames(mat)[j])],na.rm = TRUE)
@@ -92,7 +99,7 @@ for(i in c(1:nrow(mat))){
 mat[mat == 1] <- NA  
 colors <- colorRampPalette(c("#07689f", "#ffde7d", "#e84545"))(100) 
 pl <- pheatmap(mat,cluster_rows = F,cluster_cols = F,fontsize = 15,display_numbers = T, breaks = seq(0, 0.09, length.out = 101))
-save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/all_heatmap.pdf"),height=7,width = 8)
+save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/all_heatmap_bin_in_peak.pdf"),height=7,width = 8)
 
 jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
 
@@ -145,8 +152,9 @@ pl <- pheatmap(mat_compare,cluster_rows = F,cluster_cols = F,fontsize = 15,break
 save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/all_heatmap_compare.pdf"),height=7,width = 8)
 
 ##########################################################
-jaccard_index <-read.csv("result/all/jaccard_index.csv")
+jaccard_index <-read.csv("result/all/jaccard_index.csv") 
 jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
+jaccard_index <- read.csv("result/all/jaccard_index_bin_in_peak.csv")
 jaccard_index_random$label2 <- paste0(jaccard_index_random$antibody2,"_",jaccard_index_random$antibody2_condition)
 jaccard_index_random$label1 <- paste0(jaccard_index_random$antibody1,"_",jaccard_index_random$antibody1_condition)
 jaccard_index$label2 <- paste0(jaccard_index$antibody2,"_",jaccard_index$antibody2_condition)
@@ -179,7 +187,7 @@ ggplot()+
   scale_fill_brewer(palette="Set3")+
   theme_bw()+theme(text = element_text(size = 18))+ylab("Peaks")+
   xlab("")+labs(fill = "", color = "")
-
+pb <- txtProgressBar(min = 0, length(tissues), style = 3)
 for(k in c(1:length(tissues))){
   plot_jaccard_index <- jaccard_index[which(jaccard_index$tissue==tissues[k]),]
   mat_tissue<- matrix(0, nrow = length(combinations), ncol = length(combinations), dimnames = list(combinations, combinations)) 
@@ -190,7 +198,8 @@ for(k in c(1:length(tissues))){
   }
   mat_tissue[mat_tissue == 1] <- NA  
   pl <-pheatmap(mat_tissue,cluster_rows = F,cluster_cols = F,fontsize = 15,display_numbers = T, breaks = seq(0, 0.1, length.out = 101))
-  save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/",tissues[k],"_heatmap.pdf"),height=7,width = 8)
+  save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/",tissues[k],"_bin_in_peak_heatmap.pdf"),height=7,width = 8)
+  setTxtProgressBar(pb, k)
 }
 
 

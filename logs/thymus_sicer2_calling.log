@@ -1,0 +1,252 @@
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 16 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          7468328                  7343483                  7455045                  7340436         
+chr2          9914981                  9691677                  9911709                  9688031         
+chr3          5588086                  5502543                  5586586                  5503089         
+chr4          7507353                  7374522                  7510962                  7376074         
+chr5          7488152                  7340568                  7505431                  7341966         
+chr6          6357089                  6267832                  6364471                  6269454         
+chr7          7825582                  7684841                  7883051                  7692392         
+chr8          6109142                  5947017                  6108343                  5941656         
+chr9          6708283                  6607950                  6713120                  6607391         
+chr10         4929255                  4849334                  4948489                  4850756         
+chr11         8352519                  8149615                  8372034                  8156047         
+chr12         4692416                  4631005                  4697834                  4633684         
+chr13         5271967                  5187777                  5272636                  5187104         
+chr14         4750723                  4688999                  4795416                  4701656         
+chr15         5058812                  4948360                  5067044                  4953218         
+chr16         3430491                  3389628                  3454595                  3400398         
+chr17         4539315                  4373399                  4553160                  4381025         
+chr18         3459269                  3414108                  3451823                  3411902         
+chr19         3741330                  3661510                  3741923                  3661926         
+chrX          2174141                  2149142                  2150997                  2145431         
+chrY          756258                   756244                   756504                   756482          
+chrM           4269                     4269                     4266                     4266           
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 14683919
+Total count of chr2 tags: 19379708
+Total count of chr3 tags: 11005632
+Total count of chr4 tags: 14750596
+Total count of chr5 tags: 14682534
+Total count of chr6 tags: 12537286
+Total count of chr7 tags: 15377233
+Total count of chr8 tags: 11888673
+Total count of chr9 tags: 13215341
+Total count of chr10 tags: 9700090
+Total count of chr11 tags: 16305662
+Total count of chr12 tags: 9264689
+Total count of chr13 tags: 10374881
+Total count of chr14 tags: 9390655
+Total count of chr15 tags: 9901578
+Total count of chr16 tags: 6790026
+Total count of chr17 tags: 8754424
+Total count of chr18 tags: 6826010
+Total count of chr19 tags: 7323436
+Total count of chrX tags: 4294573
+Total count of chrY tags: 1512726
+Total count of chrM tags: 8531
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  1000
+Gap size:  3000
+E value is: 100
+Total read count: 227968073
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 104.55188145709607
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  114
+
+Determining the score threshold from random background...
+The score threshold is: 61.481
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  16414
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100.saf
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 16 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1         11792152                 11781520                 11789628                 11779874         
+chr2          9464096                  9304649                  9458757                  9303771         
+chr3          9674971                  9668361                  9674905                  9668696         
+chr4          9242829                  9229866                  9243711                  9230739         
+chr5          8348795                  8344799                  8351451                  8346696         
+chr6          8149774                  8140052                  8150776                  8140927         
+chr7          8902128                  8877473                  8911792                  8885758         
+chr8          7712089                  7703108                  7711453                  7702656         
+chr9          6387435                  6021418                  6388374                  6022476         
+chr10         7262521                  7225466                  7265994                  7228705         
+chr11         4506889                  4490522                  4509570                  4492086         
+chr12         6818557                  6800173                  6817873                  6801955         
+chr13         6440449                  6429593                  6440858                  6425000         
+chr14         7684075                  7582753                  7691980                  7594309         
+chr15         5110083                  5106322                  5112185                  5108247         
+chr16         5359640                  5354531                  5363602                  5358296         
+chr17         4931599                  4876753                  4934279                  4886310         
+chr18         4627011                  4615490                  4625587                  4616736         
+chr19         1903622                  1900917                  1904094                  1902166         
+chrX          6373425                  6368055                  6368618                  6364794         
+chrY          4584636                  4584402                  4584849                  4584562         
+chrM           29930                    29253                    29928                    29232          
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 23561394
+Total count of chr2 tags: 18608420
+Total count of chr3 tags: 19337057
+Total count of chr4 tags: 18460605
+Total count of chr5 tags: 16691495
+Total count of chr6 tags: 16280979
+Total count of chr7 tags: 17763231
+Total count of chr8 tags: 15405764
+Total count of chr9 tags: 12043894
+Total count of chr10 tags: 14454171
+Total count of chr11 tags: 8982608
+Total count of chr12 tags: 13602128
+Total count of chr13 tags: 12854593
+Total count of chr14 tags: 15177062
+Total count of chr15 tags: 10214569
+Total count of chr16 tags: 10712827
+Total count of chr17 tags: 9763063
+Total count of chr18 tags: 9232226
+Total count of chr19 tags: 3803083
+Total count of chrX tags: 12732849
+Total count of chrY tags: 9168964
+Total count of chrM tags: 58446
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  1000
+Gap size:  3000
+E value is: 100
+Total read count: 288908486
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 132.50068477887734
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  143
+
+Determining the score threshold from random background...
+The score threshold is: 63.669000000000004
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  36831
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100.saf
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 16 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1         12953444                 12831315                 12948572                 12827357         
+chr2         14318682                 14013170                 14312721                 14011762         
+chr3          9160255                  9095481                  9161041                  9096662         
+chr4         11654141                 11536422                 11654697                 11538001         
+chr5         12259748                 12105456                 12263429                 12106821         
+chr6          9497598                  9407982                  9499420                  9409376         
+chr7         11868696                 11708225                 11883897                 11717428         
+chr8          9709749                  9593272                  9709425                  9593140         
+chr9          9904409                  9405066                  9906108                  9405588         
+chr10         9372214                  9241540                  9377311                  9246396         
+chr11        11043991                 10889530                 11048824                 10891733         
+chr12         8317872                  8240438                  8318643                  8243708         
+chr13         8092421                  8018898                  8093221                  8015264         
+chr14         7627208                  7477713                  7638905                  7490709         
+chr15         7338028                  7246210                  7340889                  7248395         
+chr16         6571486                  6509826                  6577037                  6512556         
+chr17         8127223                  7970500                  8131634                  7980298         
+chr18         5565299                  5512109                  5563281                  5513440         
+chr19         4328527                  4276779                  4328797                  4277436         
+chrX          4956268                  4943365                  4949508                  4940268         
+chrY          2653979                  2652401                  2653716                  2652126         
+chrM           34219                    33407                    34211                    33334          
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 25658672
+Total count of chr2 tags: 28024932
+Total count of chr3 tags: 18192143
+Total count of chr4 tags: 23074423
+Total count of chr5 tags: 24212277
+Total count of chr6 tags: 18817358
+Total count of chr7 tags: 23425653
+Total count of chr8 tags: 19186412
+Total count of chr9 tags: 18810654
+Total count of chr10 tags: 18487936
+Total count of chr11 tags: 21781263
+Total count of chr12 tags: 16484146
+Total count of chr13 tags: 16034162
+Total count of chr14 tags: 14968422
+Total count of chr15 tags: 14494605
+Total count of chr16 tags: 13022382
+Total count of chr17 tags: 15950798
+Total count of chr18 tags: 11025549
+Total count of chr19 tags: 8554215
+Total count of chrX tags: 9883633
+Total count of chrY tags: 5304527
+Total count of chrM tags: 66701
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  1000
+Gap size:  3000
+E value is: 100
+Total read count: 365459823
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 167.6090497621012
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  179
+
+Determining the score threshold from random background...
+The score threshold is: 67.984
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  20943
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100.saf

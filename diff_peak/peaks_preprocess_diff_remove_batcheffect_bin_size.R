@@ -123,6 +123,9 @@ tissues <- c("muscle","brain","liver","testis","colon","kidney","lung","spleen",
 tissues <- c("Hip") 
 tissues <- c("cecum") 
 tissues <- c("bonemarrow")
+tissues <- c("ileum")
+tissues <- c("heart")
+tissues <- c("thymus")
 antibodys <- c("H3K36me3","H3K27me3","H3K9me3","H3K27ac","H3K4me3","H3K4me1")
 bin_size <-"10kb"
 for (i in c(1:length(tissues))){

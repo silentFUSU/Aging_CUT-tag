@@ -22,7 +22,7 @@ bin_size <- function(antibody){
 
 all_10kb_bins <- read.delim("~/ref_data/mm10_10kb_bins.bed",header = F)
 all_10kb_bins <- all_10kb_bins$V4
-# jaccard_index_random<-data.frame(tissue = character(), 
+# jaccard_index_random<-data.frame(tissue = character(),
 #                                  jaccard_index = numeric(),
 #                                  antibody1 = character(),
 #                                  antibody1_condition=character(),
@@ -32,9 +32,11 @@ all_10kb_bins <- all_10kb_bins$V4
 jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
 conditions<-c("Up","Down")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")
-# tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum")
-tissues <- c("bonemarrow")
+# tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","ileum")
+tissues <- c("heart","thymus")
 random_time <- 10000
+pb <- txtProgressBar(min = 0, length(tissues)*length(antibodys)*length(antibodys), style = 3)
+counter <- 0
 for (i in c(1:length(tissues))){
   tissue<-tissues[i]
   for(j in c(1:length(antibodys))){
@@ -64,7 +66,10 @@ for (i in c(1:length(tissues))){
           jaccard_index_random <- rbind(jaccard_index_random,t_jaccard_index)
         }
       }
+      counter <- counter +1
+      setTxtProgressBar(pb, counter)
     }
   }
 }
+# write.csv(jaccard_index_random,"result/all/jaccard_index_random_bin_in_peak.csv",row.names = F)
 write.csv(jaccard_index_random,"result/all/jaccard_index_random.csv",row.names = F)

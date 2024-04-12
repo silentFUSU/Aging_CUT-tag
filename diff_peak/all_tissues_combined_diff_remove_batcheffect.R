@@ -16,7 +16,7 @@ library(ggrepel)
 library(tidyr)
 library(MASS) 
 antibody = "H3K9me3"
-tissue = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow")
+tissue = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus")
 # brain liver testis colon kidney lung spleen muscle pancreas
 window_size = "1000"
 gap_size = "3000"

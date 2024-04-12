@@ -25,13 +25,15 @@ bin_size <- function(antibody){
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
+antibodys <- c("H3K27ac","H3K4me3","H3K4me1")
 for(i in c(1:length(antibodys))){
   antibody <- antibodys[i]
   dir.create(paste0("result/all/diff/",antibody))
   diff <- read.csv(paste0("data/samples/all/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_use_tissue_as_batch_effect.csv"))
   percent <- as.data.frame(table(diff$Significant))
+  pdf(paste0("result/all/diff/",antibody,"/",antibody,"_pie_percent.pdf"), width = 10, height = 10) 
   pie(percent$Freq,labels = percent$Var1)
-  ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_pie_percent.png"),width = 10,height = 10,type="cairo")
+  dev.off()
   diff_down <- diff[which(diff$Significant=="Down"),]
   diff_up <- diff[which(diff$Significant=="Up"),]
   down_peak <- GRanges(seqnames = diff_down$Chr,   
@@ -44,7 +46,7 @@ for(i in c(1:length(antibodys))){
   up_peak_anno <- annotatePeak(up_peak, tssRegion=c(-3000, 3000),
                                  TxDb=txdb, annoDb="org.Mm.eg.db")
   plotAnnoBar(list(down=down_peak_anno,up=up_peak_anno))
-  
+  ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_plotAnnoBar.png"),width = 10,height = 5,type="cairo")
   down_peak_anno <- unique(as.data.frame(down_peak_anno))
   genelist_down <- bitr(down_peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
   genelist_down_GO <-enrichGO( genelist_down$ENTREZID,#GO富集分析
@@ -57,7 +59,9 @@ for(i in c(1:length(antibodys))){
   if(nrow(genelist_down_GO) > 0){
     barplot(genelist_down_GO,font.size=15,label_format = 100)
     ggsave(paste0("result/all/diff/",antibody,"/all_tissue_batch_effect",bin_size(antibody),"_decrease_Go.png"),width = 8,height = 7,type="cairo")
-  }
+    GO_down <- genelist_down_GO@result 
+    write.csv(GO_down,paste0("result/all/diff/",antibody,"/GO_down.csv"))
+     }
   up_peak_anno <- unique(as.data.frame(up_peak_anno))
   genelist_up <- bitr(up_peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
   genelist_up_GO <-enrichGO( genelist_up$ENTREZID,#GO富集分析
@@ -70,6 +74,8 @@ for(i in c(1:length(antibodys))){
   if(nrow(genelist_up_GO) > 0){
     barplot(genelist_up_GO,font.size=15,label_format = 100)
     ggsave(paste0("result/all/diff/",antibody,"/all_tissue_batch_effect",bin_size(antibody),"_increase_Go.png"),width = 8,height = 7,type="cairo")
-  }
+    GO_up <- genelist_up_GO@result
+    write.csv(GO_up,paste0("result/all/diff/",antibody,"/GO_up.csv"))
+    }
   
 }
