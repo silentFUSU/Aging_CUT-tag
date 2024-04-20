@@ -11,7 +11,7 @@ if not os.path.exists("{}{}/tsse".format(result_path,antibody)):
     os.makedirs("{}{}/tsse".format(result_path,antibody))
 
 outfile = "{}{}/tsse/tsse.txt".format(result_path,antibody)
-glob_path="/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240205_SZJ_sample/bam/*.bam"
+glob_path="/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240412_HJC/bam/*.bam"
 for f in glob.glob(glob_path):
     f_name = f.rsplit('/',1)[-1].split('.')[0]
     input_fragment_file="{}{}/tsse/{}.tsv".format(result_path,antibody,f_name)

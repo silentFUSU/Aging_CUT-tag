@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/quality_control/snapatac2_tsse.py", line 1, in <module>
+    import snapatac2 as snap
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/snapatac2/__init__.py", line 2, in <module>
+    from ._io import read_10x_mtx
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/snapatac2/_io.py", line 4, in <module>
+    from anndata import AnnData
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/anndata/__init__.py", line 7, in <module>
+    from ._core.anndata import AnnData
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/anndata/_core/anndata.py", line 21, in <module>
+    import pandas as pd
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/__init__.py", line 48, in <module>
+    from pandas.core.api import (
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/api.py", line 47, in <module>
+    from pandas.core.groupby import (
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+    from pandas.core.groupby.generic import (
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/groupby/generic.py", line 76, in <module>
+    from pandas.core.frame import DataFrame
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/frame.py", line 172, in <module>
+    from pandas.core.generic import NDFrame
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/generic.py", line 169, in <module>
+    from pandas.core.window import (
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/window/__init__.py", line 1, in <module>
+    from pandas.core.window.ewm import (
+  File "/storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/core/window/ewm.py", line 15, in <module>
+    import pandas._libs.window.aggregations as window_aggregations
+ImportError: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /storage/zhangyanxiaoLab/suzhuojie/miniconda3/envs/snakemake/lib/python3.9/site-packages/pandas/_libs/window/aggregations.cpython-39-x86_64-linux-gnu.so)
