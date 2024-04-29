@@ -31,6 +31,101 @@ bin_size <- function(antibody){
 }
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
+antibodys <- c("H3K4me3","H3K4me1","H3K27ac")
+tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus")
+for(i in c(1:length(antibodys))){
+  antibody <- antibodys[i]
+  for(j in c(1:length(tissues))){
+    tissue <- tissues[j]
+    out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
+    out_up <- out[which(out$Significant_bar=="Up"),]
+    out_down <- out[which(out$Significant_bar=="Down"),]
+    if(nrow(out_up) > 0){
+      up_peak <- GRanges(seqnames = out_up$Chr,   
+                         ranges = IRanges(start = out_up$Start, end = out_up$End))
+      up_peak_anno <- annotatePeak(up_peak, tssRegion=c(-3000, 3000),
+                                   TxDb=txdb, annoDb="org.Mm.eg.db")
+      up_peak_anno <- unique(as.data.frame(up_peak_anno))
+      genelist_up <- bitr(up_peak_anno$SYMBOL[which(str_detect(up_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+      genelist_up_GO <- enrichGO( genelist_up$ENTREZID,#GO富集分析
+                                 OrgDb = GO_database,
+                                 keyType = "ENTREZID",#设定读取的gene ID类型
+                                 ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
+                                 pvalueCutoff = 0.05,#设定p值阈值
+                                 qvalueCutoff = 0.05,#设定q值阈值
+                                 readable = T)
+      genelist_up_GO_result <- genelist_up_GO@result
+      genelist_up_GO_result$tissue <- tissue
+      if(j==1){
+        up_anno_result <- genelist_up_GO_result
+      }else{
+        up_anno_result <- rbind(up_anno_result,genelist_up_GO_result)
+      }
+    }
+    if(nrow(out_down) > 0){
+      down_peak <- GRanges(seqnames = out_down$Chr,   
+                           ranges = IRanges(start = out_down$Start, end = out_down$End))
+      down_peak_anno <- annotatePeak(down_peak, tssRegion=c(-3000, 3000),
+                                     TxDb=txdb, annoDb="org.Mm.eg.db")
+      down_peak_anno <- unique(as.data.frame(down_peak_anno))
+      genelist_down <- bitr(down_peak_anno$SYMBOL[which(str_detect(down_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+      genelist_down_GO <- enrichGO( genelist_down$ENTREZID,#GO富集分析
+                                  OrgDb = GO_database,
+                                  keyType = "ENTREZID",#设定读取的gene ID类型
+                                  ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
+                                  pvalueCutoff = 0.05,#设定p值阈值
+                                  qvalueCutoff = 0.05,#设定q值阈值
+                                  readable = T)
+      genelist_down_GO_result <- genelist_down_GO@result
+      genelist_down_GO_result$tissue <- tissue
+      if(j==1){
+        down_anno_result <- genelist_down_GO_result
+      }else{
+        down_anno_result <- rbind(down_anno_result,genelist_down_GO_result)
+      }
+    }
+  }
+  up_anno_result_table<-as.data.frame(table(up_anno_result$ID[which(up_anno_result$p.adjust<0.05)]))
+  down_anno_result_table<-as.data.frame(table(down_anno_result$ID[which(down_anno_result$p.adjust<0.05)]))
+
+  up_anno_result_filter <- up_anno_result[which(up_anno_result$ID %in% up_anno_result_table$Var1[which(up_anno_result_table$Freq>=4)]),c("Description","p.adjust","tissue")]
+  up_anno_result_plot <- reshape2::melt(up_anno_result_filter)
+  up_anno_result_plot$value <- -log10(up_anno_result_plot$value)
+  ggplot(up_anno_result_plot, aes(x=tissue, y=Description, fill=value)) +
+    geom_tile()+
+    scale_fill_gradient2(low="#a8d8ea", high="#990033",mid = "#ffffd2")+
+    theme(axis.text.x = element_text(angle=90, vjust=0.5),axis.text = element_text(size = 12)) +
+    labs(title = paste(antibody,"up"),x=NULL, y=NULL, fill="-log10(p.adjust)")+theme_bw()
+  ggsave(paste0("result/all/diff/",antibody,"/bins_promoter_increase_GO_heatmap.png"),width = 10,height = 15,type="cairo")
+  down_anno_result_filter <- down_anno_result[which(down_anno_result$ID %in% down_anno_result_table$Var1[which(down_anno_result_table$Freq>=4)]),c("Description","p.adjust","tissue")]
+  down_anno_result_plot <- reshape2::melt(down_anno_result_filter)
+  down_anno_result_plot$value <- -log10(down_anno_result_plot$value)
+  ggplot(down_anno_result_plot, aes(x=tissue, y=Description, fill=value)) +
+    geom_tile()+
+    scale_fill_gradient2(low="#a8d8ea", high="#990033",mid = "#ffffd2")+
+    theme(axis.text.x = element_text(angle=90, vjust=0.5),axis.text = element_text(size = 12)) +
+    labs(title = paste(antibody,"down"),x=NULL, y=NULL, fill="-log10(p.adjust)")+theme_bw()
+  ggsave(paste0("result/all/diff/",antibody,"/bins_promoter_decrease_GO_heatmap.png"),width = 10,height = 15,type="cairo")
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 tissues <- c("spleen","testis","colon","kidney","lung","liver","muscle","Hip","cecum","bonemarrow","brain","ileum","heart","thymus")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]

@@ -13,8 +13,8 @@ genome = 'mm10'
 # genome = 'GCF_000364345.1'
 # genome = 'hg38'
 # baseurl = 'http://10.28.0.127/share/suzhuojie/Aging_CUT_Tag/'
-baseurl = 'http://10.28.0.127/share/suzhuojie/Aging_CUT_Tag/20240320_HJC/'
-outfile = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/IGV_session/20240320_HJC.xml'
+baseurl = 'http://10.28.0.127/share/suzhuojie/Aging_CUT_Tag/all/bed/'
+outfile = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/IGV_session/chromHMM_20_enhancer.xml'
 # baseurl = 'http://10.28.0.127/share/suzhuojie/cellular_aging_GSE133292'
 # outfile = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/IGV_session/cellular_aging_GSE133292.xml'
 with open(outfile,'w') as f:
@@ -35,7 +35,7 @@ with open(outfile,'w') as f:
   #   f.write('    <Resource path="'+baseurl+"/" + sfile + '"/>\n')
   # for sfile in sorted(glob.glob("bw/*_input.bw")):
   #   f.write('    <Resource path="'+baseurl+"/" + sfile + '"/>\n')
-  for sfile in sorted(glob.glob("*.bw")):
+  for sfile in sorted(glob.glob("*_enhancer.bed")):
     f.write('    <Resource path="'+baseurl+"/" + sfile + '"/>\n')
   f.write('  </Resources>\n')
   f.write('</Session>\n')

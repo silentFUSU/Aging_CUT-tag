@@ -115,8 +115,8 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"),row.names = F)
   outup <- out[which(out$Significant=="Up"),]
   outdown <- out[which(out$Significant=="Down"),]
-  write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
 
 tissues <- c("muscle","brain","liver","testis","colon","kidney","lung","spleen","pancreas")
@@ -126,7 +126,10 @@ tissues <- c("bonemarrow")
 tissues <- c("ileum")
 tissues <- c("heart")
 tissues <- c("thymus")
+
 antibodys <- c("H3K36me3","H3K27me3","H3K9me3","H3K27ac","H3K4me3","H3K4me1")
+# antibodys <- c("ATAC")
+# tissues<-c("Hip","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum","bonemarrow","ileum","heart","thymus")
 bin_size <-"10kb"
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]

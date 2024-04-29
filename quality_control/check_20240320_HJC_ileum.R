@@ -15,11 +15,12 @@ library(clusterProfiler)
 library(ggrepel)
 library(tidyr)
 library(MASS) 
-tab = read.delim("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240320_HJC_all_ileum/merge-1kb_bins.counts",skip=1)
+tab = read.delim("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240417_HJC/merge-1kb_bins.counts",skip=1)
 
 counts = tab[,c(7:ncol(tab))]
 colnames(counts) <-sub('.*\\.HJC_(\\d+)_S.*', 'HJC\\1', colnames(counts))
-counts <- counts[,-which(colnames(counts) %in% c("HJC105","HJC106","HJC107","HJC108"))]
+# counts <- counts[,-which(colnames(counts) %in% c("HJC167","HJC168","HJC169","HJC170"))]
+counts <- counts[,which(colnames(counts) %in% c("HJC157","HJC163","HJC183","HJC189"))]
 logCPMs <- cpm(y, log = T)
 y= DGEList(counts=counts)
 keep = which(rowSums(cpm(y)>1)>=2)
@@ -31,12 +32,12 @@ logCPMs <- as.data.frame(cpm(y, log = T))
 pca <- prcomp(t(logCPMs))
 to_plot <- data.frame(pca$x, y$samples)
 percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
-info <- read.csv("data/raw_data/20240320_HJC_all_ileum/20240230_HJC_ileum.csv",row.names = 1,header = F)
-to_plot <- merge(to_plot,info,by="row.names")
-rownames(to_plot) <- to_plot$Row.names
+# info <- read.csv("data/raw_data/20240320_HJC_all_ileum/20240230_HJC_ileum.csv",row.names = 1,header = F)
+# to_plot <- merge(to_plot,info,by="row.names")
+# rownames(to_plot) <- to_plot$Row.names
 use.pcs <- c(1,2)
 labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
-ggplot(to_plot, aes(x=PC1, y=PC2,color=V4)) + 
+ggplot(to_plot, aes(x=PC1, y=PC2)) + 
   geom_point(size=5) +theme_bw()+
   xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+    
   geom_text_repel(

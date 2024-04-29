@@ -86,6 +86,7 @@ for (i in c(1:length(tissues))){
 
 
 ## mean value of all tissues
+
 combinations <- paste(rep(antibodys, each = length(conditions)), rep(conditions, length(antibodys)), sep = "_")
 mat <- matrix(0, nrow = length(combinations), ncol = length(combinations), dimnames = list(combinations, combinations))  
 jaccard_index$label2 <- paste0(jaccard_index$antibody2,"_",jaccard_index$antibody2_condition)
@@ -99,7 +100,7 @@ for(i in c(1:nrow(mat))){
 mat[mat == 1] <- NA  
 colors <- colorRampPalette(c("#07689f", "#ffde7d", "#e84545"))(100) 
 pl <- pheatmap(mat,cluster_rows = F,cluster_cols = F,fontsize = 15,display_numbers = T, breaks = seq(0, 0.09, length.out = 101))
-save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/all_heatmap_bin_in_peak.pdf"),height=7,width = 8)
+save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/all_heatmap.pdf"),height=7,width = 8)
 
 jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
 
@@ -154,7 +155,7 @@ save_pheatmap_pdf(pl,paste0("result/all/jaccard_index/all_heatmap_compare.pdf"),
 ##########################################################
 jaccard_index <-read.csv("result/all/jaccard_index.csv") 
 jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
-jaccard_index <- read.csv("result/all/jaccard_index_bin_in_peak.csv")
+# jaccard_index <- read.csv("result/all/jaccard_index_bin_in_peak.csv")
 jaccard_index_random$label2 <- paste0(jaccard_index_random$antibody2,"_",jaccard_index_random$antibody2_condition)
 jaccard_index_random$label1 <- paste0(jaccard_index_random$antibody1,"_",jaccard_index_random$antibody1_condition)
 jaccard_index$label2 <- paste0(jaccard_index$antibody2,"_",jaccard_index$antibody2_condition)
@@ -166,11 +167,13 @@ wilcox.test(H3K27me3_up_H3K9me3_down$jaccard_index.x,H3K27me3_up_H3K9me3_down$ja
 
 colnames(H3K27me3_up_H3K9me3_down)[2:3] <- c("reality","random")
 H3K27me3_up_H3K9me3_down_long<- melt(H3K27me3_up_H3K9me3_down, id.vars = c("tissue"), measure.vars = c("reality","random"), variable.name = "condition", value.name = "jaccard_index")  
+custom_colors <- c("#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#800000", "#008000", "#000080", "#808000", "#800080", "#008080", "#C0C0C0", "#808080", "#FFA500")  
+H3K27me3_up_H3K9me3_down_long$tissue[which(H3K27me3_up_H3K9me3_down_long$tissue=="brain")]<-"FC"
 ggplot()+
   geom_boxplot(H3K27me3_up_H3K9me3_down_long,mapping=aes(x=condition,y=jaccard_index,fill =condition))+
   geom_jitter(H3K27me3_up_H3K9me3_down_long,mapping=aes(x=condition,y=jaccard_index,color =tissue),position = position_jitter(width = 0.3), size = 3, alpha = 0.7)+
   # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
-  scale_fill_brewer(palette="Set3")+
+  scale_color_manual(values =custom_colors)+
   theme_bw()+theme(text = element_text(size = 18))+ylab("Peaks")+
   xlab("")+labs(fill = "", color = "")
 
@@ -180,11 +183,12 @@ wilcox.test(H3K27me3_down_H3K9me3_up$jaccard_index.x,H3K27me3_down_H3K9me3_up$ja
 
 colnames(H3K27me3_down_H3K9me3_up)[2:3] <- c("reality","random")
 H3K27me3_down_H3K9me3_up_long<- melt(H3K27me3_down_H3K9me3_up, id.vars = c("tissue"), measure.vars = c("reality","random"), variable.name = "condition", value.name = "jaccard_index")  
+H3K27me3_down_H3K9me3_up_long$tissue[which(H3K27me3_down_H3K9me3_up_long$tissue=="brain")]<-"FC"
 ggplot()+
   geom_boxplot(H3K27me3_down_H3K9me3_up_long,mapping=aes(x=condition,y=jaccard_index,fill =condition))+
   geom_jitter(H3K27me3_down_H3K9me3_up_long,mapping=aes(x=condition,y=jaccard_index,color =tissue),position = position_jitter(width = 0.3), size = 3, alpha = 0.7)+
   # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
-  scale_fill_brewer(palette="Set3")+
+  scale_color_manual(values =custom_colors)+
   theme_bw()+theme(text = element_text(size = 18))+ylab("Peaks")+
   xlab("")+labs(fill = "", color = "")
 pb <- txtProgressBar(min = 0, length(tissues), style = 3)
@@ -209,6 +213,7 @@ wilcox.test(H3K9me3_down_H3K27ac_up$jaccard_index.x,H3K9me3_down_H3K27ac_up$jacc
 
 colnames(H3K9me3_down_H3K27ac_up)[2:3] <- c("reality","random")
 H3K9me3_down_H3K27ac_up_long<- melt(H3K9me3_down_H3K27ac_up, id.vars = c("tissue"), measure.vars = c("reality","random"), variable.name = "condition", value.name = "jaccard_index")  
+
 ggplot()+
   geom_boxplot(H3K9me3_down_H3K27ac_up_long,mapping=aes(x=condition,y=jaccard_index,fill =condition))+
   geom_jitter(H3K9me3_down_H3K27ac_up_long,mapping=aes(x=condition,y=jaccard_index,color =tissue),position = position_jitter(width = 0.3), size = 3, alpha = 0.7)+

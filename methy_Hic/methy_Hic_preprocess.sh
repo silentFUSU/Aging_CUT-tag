@@ -7,8 +7,8 @@ sample=$2
 ref=$3
 # ref=mm10
 # sample=SRR7770796
-f1=${data_path}${sample}/*1*.f*q.gz
-f2=${data_path}${sample}/*2*.f*q.gz
+f1=${data_path}${sample}/*1.f*q.gz
+f2=${data_path}${sample}/*2.f*q.gz
 cd ${data_path}${sample}
 mkdir ${data_path}${sample}/bam
 mkdir ${data_path}${sample}/tmp/

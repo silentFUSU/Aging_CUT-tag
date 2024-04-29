@@ -17,8 +17,10 @@ library(limma)
 library(gg.gap)
 library(scales)
 library(colorspace)    
-tissues <-  c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus")
-antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus")
+# tissues <- c("Hip","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum","bonemarrow","ileum","heart","thymus")
+# antibodys <- c("ATAC")
+############## all bins ########################
 diff_peak_number <-data.frame(Var1 = character(),  
                          Freq = numeric(),  
                          tissue = character(),  
@@ -34,6 +36,8 @@ diff_peak_coverage <-data.frame(Var1 = character(),
                                tissue = character(),  
                                antibody = character(),  
                                stringsAsFactors = FALSE)  
+
+antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
@@ -76,40 +80,8 @@ for(i in c(1:length(tissues))){
 write.csv(diff_peak_number,"data/samples/all/diff_peak_number.csv",row.names = F)
 write.csv(diff_peak_percent,"data/samples/all/diff_peak_percent.csv",row.names = F)
 write.csv(diff_peak_coverage,"data/samples/all/diff_peak_coverage.csv",row.names = F)
-ggplot(diff_peak_number[which(diff_peak_number$Var1 !="Stable"),],aes(x=antibody,y=Freq,fill =Var1))+
-  geom_boxplot()+
-  # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
-  scale_fill_brewer(palette="Set3")+
-  theme_bw()+theme(text = element_text(size = 18))+ylab("Peaks")+
-  xlab("")+labs(fill = "", color = "")
 
-
-
-diff_peak_percent$Freq <- diff_peak_percent$Freq *100
-
-ggplot(diff_peak_percent[which(diff_peak_percent$Var1 !="Stable"),],aes(x=antibody,y=Freq,fill =Var1))+
-  geom_boxplot()+
-  # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
-  scale_fill_brewer(palette="Set3")+
-  theme_bw()+theme(text = element_text(size = 18))+ylab("Percent (%)")+
-  xlab("")+labs(fill = "", color = "")
-
-ggplot(diff_peak_coverage[which(diff_peak_coverage$Var1 !="Stable" & diff_peak_coverage$antibody %in%c("H3K27me3","H3K9me3","H3K36me3")),],aes(x=antibody,y=coverage,fill =Var1))+
-  geom_boxplot()+
-  # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
-  scale_fill_brewer(palette="Set3")+
-  theme_bw()+theme(text = element_text(size = 18))+ylab("peak length (bp)")+
-  xlab("")+labs(fill = "", color = "")
-
-ggplot(diff_peak_coverage[which(diff_peak_coverage$Var1 !="Stable" & diff_peak_coverage$antibody %in%c("H3K27ac","H3K4me3","H3K4me1")),],aes(x=antibody,y=coverage,fill =Var1))+
-  geom_boxplot()+
-  # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
-  scale_fill_brewer(palette="Set3")+
-  theme_bw()+theme(text = element_text(size = 18))+ylab("peak length (bp)")+
-  xlab("")+labs(fill = "", color = "")
-
-
-
+############### bins overlap with peaks #######################
 diff_peak_number <-data.frame(Var1 = character(),  
                               Freq = numeric(),  
                               tissue = character(),  
@@ -165,6 +137,8 @@ for(i in c(1:length(tissues))){
     diff_peak_coverage <- rbind(diff_peak_coverage,sig)
   }
 }
+
+##################### PLOT ######################
 custom_colors <- c("#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#800000", "#008000", "#000080", "#808000", "#800080", "#008080", "#C0C0C0", "#808080", "#FFA500")  
 diff_peak_coverage$tissue[which(diff_peak_coverage$tissue=="brain")] <- "brain_FC"
 diff_peak_coverage$tissue[which(diff_peak_coverage$tissue=="Hip")] <- "brain_Hip"
@@ -211,6 +185,30 @@ ggplot(diff_peak_coverage[which(diff_peak_coverage$Var1 =="Up" & diff_peak_cover
 ggplot(diff_peak_coverage[which(diff_peak_coverage$Var1 =="Up" & diff_peak_coverage$antibody %in% c("H3K27me3","H3K9me3","H3K36me3")),],mapping = aes(x=antibody,y=coverage,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Peak length")+ggtitle(paste0("Increase"))+
   ggsci::scale_fill_d3()+theme(text = element_text(size = 18))
+
+
+
+H3K27me3 <- diff_peak_percent[which(diff_peak_percent$antibody=="H3K27me3"),]
+H3K27me3 <- H3K27me3[-which(H3K27me3$Var1=="Stable"),]
+H3K27me3$Var1 <- factor(H3K27me3$Var1,levels=c("Stable","Up","Down"))
+ggplot(H3K27me3, aes( x = tissue, weight = Freq, fill = Var1))+
+  geom_bar( position = "stack")+theme_bw()+theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  theme(text = element_text(size = 15))+labs(x = NULL, y = NULL, fill = NULL) 
+H3K9me3 <- diff_peak_percent[which(diff_peak_percent$antibody=="H3K9me3"),]
+H3K9me3 <- H3K9me3[-which(H3K9me3$Var1=="Stable"),]
+H3K9me3$Var1 <- factor(H3K9me3$Var1,levels=c("Stable","Up","Down"))
+
+ggplot(H3K9me3, aes( x = tissue, weight = Freq, fill = Var1))+
+  geom_bar( position = "stack")+theme_bw()+theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  theme(text = element_text(size = 15))+labs(x = NULL, y = NULL, fill = NULL) 
+
+
+
+
+
+
+
+
 
 # 
 # gg.gap(plot=p,
@@ -283,14 +281,14 @@ ggplot(diff_peak_percent[which(diff_peak_percent$Var1 =="Up"),],aes(x=antibody,y
   # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
   scale_fill_brewer(palette="Set3")+
   theme_bw()+theme(text = element_text(size = 18))+ylab("Percent")+
-  xlab("")+labs(fill = "", color = "",title = "heterochromatin marker increase")
+  xlab("")+labs(fill = "", color = "",title = "Increase")
 
 ggplot(diff_peak_percent[which(diff_peak_percent$Var1 =="Down"),],aes(x=antibody,y=Freq,fill =group))+
   geom_boxplot()+
   # geom_jitter(shape=16,size=1,position = position_jitter(0.2))+
   scale_fill_brewer(palette="Set3")+
   theme_bw()+theme(text = element_text(size = 18))+ylab("Percent")+
-  xlab("")+labs(fill = "", color = "",title = "heterochromatin marker decrease")
+  xlab("")+labs(fill = "", color = "",title = "Decrease")
 
 
 wilcox.test(diff_peak_percent$Freq[which(diff_peak_percent$Var1 =="Up" & diff_peak_percent$antibody %in% c("H3K27me3") & diff_peak_percent$group == "intestine")],

@@ -4,7 +4,8 @@ window_size=1000
 gap_size=3000
 e_value=100
 ref_data=~/ref_data/
-tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum ileum bonemarrow)
+# tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum ileum bonemarrow)
+tissues=(heart thymus)
 antibodys=(H3K27me3 H3K9me3 H3K36me3)
 bin_size=10kb
 for tissue in ${tissues[@]}

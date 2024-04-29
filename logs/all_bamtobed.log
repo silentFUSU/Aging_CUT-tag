@@ -1,0 +1,3528 @@
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_067_S41_L002.nodup.bam *****
+
+
+
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_075_S5_L002.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_067_S41_L002.nodup.bam ***** *****
+
+
+
+*****ERROR: Unrecognized parameter: 
+
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_067_S41_L002.nodup.bam
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter:  **********ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_081_S19_L002.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_067_S41_L002.nodup.bam
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_075_S5_L002.nodup.bam ***** *****
+ *****
+
+
+
+
+
+*****ERROR: Unrecognized parameter: 
+
+Tool:    bedtools bamtobed (aka bamToBed)
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_075_S5_L002.nodup.bam
+
+*****ERROR: Unrecognized parameter:  **********ERROR: Unrecognized parameter: Version: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_075_S5_L002.nodup.bam
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_081_S19_L002.nodup.bamv2.30.0 *****
+ *****
+
+
+
+
+*****ERROR: Unrecognized parameter: 
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_081_S19_L002.nodup.bam
+Tool:    bedtools bamtobed (aka bamToBed)
+*****ERROR: Unrecognized parameter:  *****
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/bam/HJC_081_S19_L002.nodup.bam
+Version: Usage:    *****
+v2.30.0bedtools bamtobed
+
+Tool:    bedtools bamtobed (aka bamToBed)
+ [OPTIONS] -i <bam> 
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Tool:    bedtools bamtobed (aka bamToBed)Version: 
+
+
+v2.30.0
+Options: Version: Usage:   
+v2.30.0
+bedtools bamtobed	-bedpe	Summary: Converts BAM alignments to BED6 or BEDPE format. [OPTIONS] -i <bam> 
+Write BEDPE format.
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+
+		- Requires BAM to be grouped or sorted by query.Usage:   Options: 
+
+bedtools bamtobed
+Usage:   
+ [OPTIONS] -i <bam> 	-bedpe	bedtools bamtobed	-mate1	
+Write BEDPE format. [OPTIONS] -i <bam> When writing BEDPE (-bedpe) format, 
+
+
+
+Options: 		- Requires BAM to be grouped or sorted by query.
+		always report mate one as the first BEDPE "block".
+
+Options: 
+	-bedpe	
+
+
+Write BEDPE format.	-mate1		-bedpe		-bed12	
+When writing BEDPE (-bedpe) format, Write BEDPE format.Write "blocked" BED format (aka "BED12"). Forces -split.		- Requires BAM to be grouped or sorted by query.
+
+
+
+		always report mate one as the first BEDPE "block".		- Requires BAM to be grouped or sorted by query.
+
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1	-mate1	
+
+
+When writing BEDPE (-bedpe) format, 	-bed12		-mate1	
+
+Write "blocked" BED format (aka "BED12"). Forces -split.When writing BEDPE (-bedpe) format, 	-split			always report mate one as the first BEDPE "block".
+
+Report "split" BAM alignments as separate BED entries.
+
+		always report mate one as the first BEDPE "block".
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+		Splits only on N CIGAR operations.	-bed12	
+
+
+Write "blocked" BED format (aka "BED12"). Forces -split.
+	-bed12	
+
+	-split	Write "blocked" BED format (aka "BED12"). Forces -split.	-splitD	
+Report "split" BAM alignments as separate BED entries.
+Split alignments based on N and D CIGAR operators.		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+
+		Splits only on N CIGAR operations.		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1		Forces -split.
+
+
+
+	-split	
+
+
+Report "split" BAM alignments as separate BED entries.	-splitD		-split		-ed	
+Split alignments based on N and D CIGAR operators.Report "split" BAM alignments as separate BED entries.Use BAM edit distance (NM tag) for BED score.		Splits only on N CIGAR operations.
+
+
+
+		Forces -split.		Splits only on N CIGAR operations.		- Default for BED is to use mapping quality.
+
+
+
+	-splitD	
+
+		- Default for BEDPE is to use the minimum ofSplit alignments based on N and D CIGAR operators.	-ed		-splitD	
+
+Use BAM edit distance (NM tag) for BED score.Split alignments based on N and D CIGAR operators.		  the two mapping qualities for the pair.		Forces -split.
+
+
+
+		- Default for BED is to use mapping quality.		Forces -split.		- When -ed is used with -bedpe, the total edit
+
+
+
+	-ed			- Default for BEDPE is to use the minimum of
+		  distance from the two mates is reported.Use BAM edit distance (NM tag) for BED score.
+	-ed	
+
+		  the two mapping qualities for the pair.Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+
+	-tag	
+		- When -ed is used with -bedpe, the total edit		- Default for BED is to use mapping quality.Use other NUMERIC BAM alignment tag for BED score.		- Default for BEDPE is to use the minimum of
+
+
+
+		  distance from the two mates is reported.		- Default for BEDPE is to use the minimum of		- Default for BED is to use mapping quality.		  the two mapping qualities for the pair.
+
+
+
+
+		  the two mapping qualities for the pair.		  Disallowed with BEDPE output.		- When -ed is used with -bedpe, the total edit	-tag	
+
+
+Use other NUMERIC BAM alignment tag for BED score.		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-color	
+		- Default for BED is to use mapping quality.		  distance from the two mates is reported.An R,G,B string for the color used with BED12 format.
+
+
+
+	-tag			  Disallowed with BEDPE output.
+		Default is (255,0,0).Use other NUMERIC BAM alignment tag for BED score.
+	-tag	
+
+
+Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.	-color	
+	-cigar	
+An R,G,B string for the color used with BED12 format.		- Default for BED is to use mapping quality.Add the CIGAR string to the BED entry as a 7th column.		  Disallowed with BEDPE output.
+
+
+
+		Default is (255,0,0).		  Disallowed with BEDPE output.
+
+
+
+	-color	
+
+An R,G,B string for the color used with BED12 format.	-cigar		-color	
+Add the CIGAR string to the BED entry as a 7th column.An R,G,B string for the color used with BED12 format.		Default is (255,0,0).
+
+
+
+		Default is (255,0,0).
+
+	-cigar	
+Add the CIGAR string to the BED entry as a 7th column.	-cigar	
+Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_068_S90_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_076_S175_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_082_S177_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_068_S90_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_076_S175_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_082_S177_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_068_S90_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_076_S175_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_082_S177_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_068_S90_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_076_S175_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/bam/HJC_082_S177_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_066_S40_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_074_S42_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_080_S69_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_066_S40_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_074_S42_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_080_S69_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_066_S40_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_074_S42_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_080_S69_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_066_S40_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_074_S42_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/bam/HJC_080_S69_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_069_S87_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_077_S176_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_083_S178_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_069_S87_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_077_S176_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_083_S178_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_069_S87_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_077_S176_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_083_S178_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_069_S87_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_077_S176_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/bam/HJC_083_S178_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_070_S88_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_078_S67_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_084_S43_L003.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+
+*****ERROR: Unrecognized parameter: 	-bed12	/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_070_S88_L001.nodup.bamWrite "blocked" BED format (aka "BED12"). Forces -split. *****
+
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_078_S67_L002.nodup.bam	-split	 *****Report "split" BAM alignments as separate BED entries.
+
+
+		Splits only on N CIGAR operations.
+
+*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_084_S43_L003.nodup.bam	-splitD	 *****Split alignments based on N and D CIGAR operators.
+
+
+		Forces -split.
+Tool:    bedtools bamtobed (aka bamToBed)
+
+
+Version: 	-ed	v2.30.0Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+
+		  distance from the two mates is reported.Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+
+	-tag	Usage:   Use other NUMERIC BAM alignment tag for BED score.bedtools bamtobed
+ [OPTIONS] -i <bam> 		- Default for BED is to use mapping quality.
+
+
+
+		  Disallowed with BEDPE output.Options: *****ERROR: Unrecognized parameter: 
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_070_S88_L001.nodup.bam
+	-bedpe	 *****	-color	Write BEDPE format.
+An R,G,B string for the color used with BED12 format.
+
+
+		- Requires BAM to be grouped or sorted by query.
+		Default is (255,0,0).
+*****ERROR: Unrecognized parameter: 
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_078_S67_L002.nodup.bam
+	-mate1	 *****	-cigar	When writing BEDPE (-bedpe) format, 
+Add the CIGAR string to the BED entry as a 7th column.
+
+
+		always report mate one as the first BEDPE "block".
+
+
+*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_084_S43_L003.nodup.bam	-bed12	 *****Write "blocked" BED format (aka "BED12"). Forces -split.
+
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+Version: 
+v2.30.0	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	
+Split alignments based on N and D CIGAR operators.Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+		Forces -split.
+
+Usage:   
+bedtools bamtobed	-ed	 [OPTIONS] -i <bam> Use BAM edit distance (NM tag) for BED score.
+
+
+
+		- Default for BED is to use mapping quality.*****ERROR: Unrecognized parameter: Options: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_070_S88_L001.nodup.bam
+		- Default for BEDPE is to use the minimum of *****	-bedpe	
+
+Write BEDPE format.		  the two mapping qualities for the pair.
+
+
+
+		- Requires BAM to be grouped or sorted by query.		- When -ed is used with -bedpe, the total edit*****ERROR: Unrecognized parameter: 
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_078_S67_L002.nodup.bam
+		  distance from the two mates is reported. *****	-mate1	
+
+When writing BEDPE (-bedpe) format, 
+
+
+	-tag	
+		always report mate one as the first BEDPE "block".Use other NUMERIC BAM alignment tag for BED score.*****ERROR: Unrecognized parameter: 
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/bam/HJC_084_S43_L003.nodup.bam
+		- Default for BED is to use mapping quality. *****	-bed12	
+
+Write "blocked" BED format (aka "BED12"). Forces -split.		  Disallowed with BEDPE output.
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1	-color	Version: 
+An R,G,B string for the color used with BED12 format.v2.30.0
+
+	-split			Default is (255,0,0).Report "split" BAM alignments as separate BED entries.
+
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+		Splits only on N CIGAR operations.
+	-cigar	
+
+Add the CIGAR string to the BED entry as a 7th column.
+Usage:   
+	-splitD	bedtools bamtobed
+Split alignments based on N and D CIGAR operators. [OPTIONS] -i <bam> 
+
+		Forces -split.
+
+Options: 
+
+	-ed		-bedpe	Use BAM edit distance (NM tag) for BED score.Write BEDPE format.
+
+		- Default for BED is to use mapping quality.		- Requires BAM to be grouped or sorted by query.
+
+		- Default for BEDPE is to use the minimum of
+
+	-mate1			  the two mapping qualities for the pair.When writing BEDPE (-bedpe) format, 
+
+		- When -ed is used with -bedpe, the total edit		always report mate one as the first BEDPE "block".
+
+		  distance from the two mates is reported.
+
+	-bed12	
+Write "blocked" BED format (aka "BED12"). Forces -split.	-tag	
+Use other NUMERIC BAM alignment tag for BED score.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1		- Default for BED is to use mapping quality.
+
+
+		  Disallowed with BEDPE output.	-split	
+Report "split" BAM alignments as separate BED entries.
+
+	-color			Splits only on N CIGAR operations.An R,G,B string for the color used with BED12 format.
+
+
+		Default is (255,0,0).	-splitD	
+Split alignments based on N and D CIGAR operators.
+
+	-cigar			Forces -split.Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_065_S40_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_073_S66_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_079_S68_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_065_S40_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_073_S66_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_079_S68_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_065_S40_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_073_S66_L002.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_079_S68_L002.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+
+		Splits only on N CIGAR operations.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_065_S40_L001.nodup.bam
+ *****	-splitD	
+Split alignments based on N and D CIGAR operators.
+
+
+		Forces -split.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_073_S66_L002.nodup.bam
+ *****	-ed	
+Use BAM edit distance (NM tag) for BED score.
+
+
+		- Default for BED is to use mapping quality.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/bam/HJC_079_S68_L002.nodup.bam		- Default for BEDPE is to use the minimum of *****
+
+		  the two mapping qualities for the pair.
+
+
+Tool:    bedtools bamtobed (aka bamToBed)		- When -ed is used with -bedpe, the total edit
+
+Version: 		  distance from the two mates is reported.v2.30.0
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+
+		  Disallowed with BEDPE output.Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+
+	-color	Usage:   An R,G,B string for the color used with BED12 format.bedtools bamtobed
+ [OPTIONS] -i <bam> 		Default is (255,0,0).
+
+
+
+Options: 	-cigar	
+Add the CIGAR string to the BED entry as a 7th column.	-bedpe	
+Write BEDPE format.
+
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_101_S5_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_111_S53_L001.nodup.bam
+ *****
+*****ERROR: Unrecognized parameter: 
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_101_S5_L001.nodup.bam *****
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_117_S316_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+
+Version: 
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_111_S53_L001.nodup.bam *****
+v2.30.0
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_117_S316_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+
+Version: Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+v2.30.0	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+*****ERROR: Unrecognized parameter: 
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_101_S5_L001.nodup.bam*****ERROR: Unrecognized parameter: 	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+ *****/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_101_S5_L001.nodup.bam
+
+ *****
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_111_S53_L001.nodup.bam *****
+
+
+
+
+*****ERROR: Unrecognized parameter: 
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_117_S316_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_111_S53_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27ac/bam/HJC_117_S316_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: 
+Version: v2.30.0v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	
+Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_102_S6_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_112_S26_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_118_S317_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_102_S6_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_112_S26_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_118_S317_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_102_S6_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_112_S26_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_118_S317_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_102_S6_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_112_S26_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K27me3/bam/HJC_118_S317_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_100_S4_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_110_S52_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_116_S40_L003.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_100_S4_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_110_S52_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_116_S40_L003.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_100_S4_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_110_S52_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_116_S40_L003.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_100_S4_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_110_S52_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K36me3/bam/HJC_116_S40_L003.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_103_S1_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_113_S54_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_119_S27_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_103_S1_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_113_S54_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_119_S27_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_103_S1_L004.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_113_S54_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_119_S27_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+
+*****ERROR: Unrecognized parameter: Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_103_S1_L004.nodup.bam		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split. *****
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+*****ERROR: Unrecognized parameter: 		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_113_S54_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me1/bam/HJC_119_S27_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_104_S7_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_114_S39_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_120_S28_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_104_S7_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_114_S39_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_120_S28_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_104_S7_L001.nodup.bam *****	-ed	Use BAM edit distance (NM tag) for BED score.
+
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_114_S39_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_120_S28_L004.nodup.bam		- Default for BED is to use mapping quality.
+ *****
+
+*****ERROR: Unrecognized parameter: 
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0		- Default for BEDPE is to use the minimum of/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_104_S7_L001.nodup.bam
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+		  the two mapping qualities for the pair.
+ *****
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+		- When -ed is used with -bedpe, the total edit
+
+
+
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+		  distance from the two mates is reported.
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_114_S39_L003.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K4me3/bam/HJC_120_S28_L004.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+	-split	Report "split" BAM alignments as separate BED entries.
+An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_099_S3_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_109_S11_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_115_S315_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_099_S3_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_109_S11_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_115_S315_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+
+	-cigar	*****ERROR: Unrecognized parameter: Add the CIGAR string to the BED entry as a 7th column./storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_099_S3_L001.nodup.bam
+ *****
+
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_109_S11_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_115_S315_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_099_S3_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_109_S11_L001.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ileum/H3K9me3/bam/HJC_115_S315_L001.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_131.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_139.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_145.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	
+Report "split" BAM alignments as separate BED entries.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_131.nodup.bam		Splits only on N CIGAR operations. *****
+
+
+
+	-splitD	
+Split alignments based on N and D CIGAR operators.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_139.nodup.bam		Forces -split. *****
+
+
+
+	-ed	
+Use BAM edit distance (NM tag) for BED score.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_145.nodup.bam		- Default for BED is to use mapping quality. *****
+
+		- Default for BEDPE is to use the minimum of
+
+
+Tool:    bedtools bamtobed (aka bamToBed)		  the two mapping qualities for the pair.
+
+Version: 		- When -ed is used with -bedpe, the total editv2.30.0
+		  distance from the two mates is reported.
+
+	-tag	
+Use other NUMERIC BAM alignment tag for BED score.
+*****ERROR: Unrecognized parameter: 
+Summary: Converts BAM alignments to BED6 or BEDPE format./storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_131.nodup.bam		- Default for BED is to use mapping quality.
+ *****
+
+
+		  Disallowed with BEDPE output.Usage:   
+
+bedtools bamtobed
+
+ [OPTIONS] -i <bam> *****ERROR: Unrecognized parameter: 	-color	
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_139.nodup.bamAn R,G,B string for the color used with BED12 format.
+ *****
+Options: 
+		Default is (255,0,0).
+
+
+	-bedpe	
+
+Write BEDPE format.*****ERROR: Unrecognized parameter: 	-cigar	
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_145.nodup.bamAdd the CIGAR string to the BED entry as a 7th column.		- Requires BAM to be grouped or sorted by query. *****
+
+
+
+
+
+	-mate1	
+Tool:    bedtools bamtobed (aka bamToBed)When writing BEDPE (-bedpe) format, 
+
+Version: 		always report mate one as the first BEDPE "block".v2.30.0
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+
+Usage:   	-split	bedtools bamtobedReport "split" BAM alignments as separate BED entries. [OPTIONS] -i <bam> 
+
+		Splits only on N CIGAR operations.
+
+Options: 
+
+	-splitD		-bedpe	Split alignments based on N and D CIGAR operators.Write BEDPE format.
+
+		Forces -split.		- Requires BAM to be grouped or sorted by query.
+
+
+
+	-ed		-mate1	Use BAM edit distance (NM tag) for BED score.When writing BEDPE (-bedpe) format, 
+
+		- Default for BED is to use mapping quality.		always report mate one as the first BEDPE "block".
+
+		- Default for BEDPE is to use the minimum of
+
+
+	-bed12			  the two mapping qualities for the pair.*****ERROR: Unrecognized parameter: Write "blocked" BED format (aka "BED12"). Forces -split.
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_131.nodup.bam
+		- When -ed is used with -bedpe, the total edit *****
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1		  distance from the two mates is reported.
+
+
+
+
+
+*****ERROR: Unrecognized parameter: 	-split		-tag	/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_139.nodup.bamReport "split" BAM alignments as separate BED entries.Use other NUMERIC BAM alignment tag for BED score. *****
+
+
+		Splits only on N CIGAR operations.		- Default for BED is to use mapping quality.
+
+
+
+
+	-splitD			  Disallowed with BEDPE output.*****ERROR: Unrecognized parameter: Split alignments based on N and D CIGAR operators.
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27ac/bam/HJC_145.nodup.bam
+
+ *****		Forces -split.	-color	
+
+An R,G,B string for the color used with BED12 format.
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)	-ed			Default is (255,0,0).
+Use BAM edit distance (NM tag) for BED score.
+Version: 
+
+v2.30.0		- Default for BED is to use mapping quality.	-cigar	
+Add the CIGAR string to the BED entry as a 7th column.
+		- Default for BEDPE is to use the minimum of
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+		  the two mapping qualities for the pair.
+
+Usage:   		- When -ed is used with -bedpe, the total editbedtools bamtobed
+ [OPTIONS] -i <bam> 		  distance from the two mates is reported.
+
+
+
+Options: 	-tag	
+Use other NUMERIC BAM alignment tag for BED score.	-bedpe	
+Write BEDPE format.		- Default for BED is to use mapping quality.
+
+		- Requires BAM to be grouped or sorted by query.		  Disallowed with BEDPE output.
+
+
+
+	-mate1		-color	When writing BEDPE (-bedpe) format, An R,G,B string for the color used with BED12 format.
+
+		always report mate one as the first BEDPE "block".		Default is (255,0,0).
+
+
+
+	-bed12		-cigar	Write "blocked" BED format (aka "BED12"). Forces -split.Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_132.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_140.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_146.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_132.nodup.bam		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1 *****
+
+
+
+	-split	
+Report "split" BAM alignments as separate BED entries.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_140.nodup.bam		Splits only on N CIGAR operations. *****
+
+
+
+	-splitD	
+Split alignments based on N and D CIGAR operators.*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_146.nodup.bam		Forces -split. *****
+
+
+
+	-ed	
+Tool:    bedtools bamtobed (aka bamToBed)Use BAM edit distance (NM tag) for BED score.
+
+Version: 		- Default for BED is to use mapping quality.v2.30.0
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+
+		  distance from the two mates is reported.Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+
+	-tag	Usage:   Use other NUMERIC BAM alignment tag for BED score.bedtools bamtobed
+ [OPTIONS] -i <bam> 		- Default for BED is to use mapping quality.
+
+
+		  Disallowed with BEDPE output.Options: 
+
+
+	-bedpe		-color	Write BEDPE format.An R,G,B string for the color used with BED12 format.
+
+		- Requires BAM to be grouped or sorted by query.		Default is (255,0,0).
+
+
+
+	-mate1		-cigar	When writing BEDPE (-bedpe) format, Add the CIGAR string to the BED entry as a 7th column.
+
+		always report mate one as the first BEDPE "block".
+
+
+*****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_132.nodup.bam	-bed12	 *****Write "blocked" BED format (aka "BED12"). Forces -split.
+
+
+
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_140.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_132.nodup.bam
+ ***** *****	-split	
+
+Report "split" BAM alignments as separate BED entries.
+
+
+
+
+		Splits only on N CIGAR operations.*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: 
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_146.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_140.nodup.bam
+ ***** *****	-splitD	
+
+Split alignments based on N and D CIGAR operators.
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+		Forces -split.
+*****ERROR: Unrecognized parameter: 
+Version: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K27me3/bam/HJC_146.nodup.bam
+v2.30.0 *****	-ed	
+Use BAM edit distance (NM tag) for BED score.
+
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+Tool:    bedtools bamtobed (aka bamToBed)		- Default for BED is to use mapping quality.
+
+
+
+Version: 		- Default for BEDPE is to use the minimum ofUsage:   v2.30.0
+bedtools bamtobed		  the two mapping qualities for the pair. [OPTIONS] -i <bam> 
+
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.		- When -ed is used with -bedpe, the total edit
+
+
+Options: 
+		  distance from the two mates is reported.
+Usage:   
+	-bedpe	bedtools bamtobed
+Write BEDPE format. [OPTIONS] -i <bam> 	-tag	
+
+Use other NUMERIC BAM alignment tag for BED score.		- Requires BAM to be grouped or sorted by query.
+
+
+Options: 		- Default for BED is to use mapping quality.
+
+
+	-mate1		-bedpe			  Disallowed with BEDPE output.When writing BEDPE (-bedpe) format, Write BEDPE format.
+
+
+
+		always report mate one as the first BEDPE "block".		- Requires BAM to be grouped or sorted by query.	-color	
+
+An R,G,B string for the color used with BED12 format.
+
+
+	-bed12		-mate1			Default is (255,0,0).Write "blocked" BED format (aka "BED12"). Forces -split.When writing BEDPE (-bedpe) format, 
+
+
+
+
+		always report mate one as the first BEDPE "block".	-cigar			http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+	-bed12	
+	-split	Write "blocked" BED format (aka "BED12"). Forces -split.Report "split" BAM alignments as separate BED entries.
+
+
+		Splits only on N CIGAR operations.		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+
+	-splitD		-split	Split alignments based on N and D CIGAR operators.Report "split" BAM alignments as separate BED entries.
+
+		Forces -split.		Splits only on N CIGAR operations.
+
+
+
+	-ed		-splitD	Use BAM edit distance (NM tag) for BED score.Split alignments based on N and D CIGAR operators.
+
+		- Default for BED is to use mapping quality.		Forces -split.
+
+		- Default for BEDPE is to use the minimum of
+
+	-ed			  the two mapping qualities for the pair.Use BAM edit distance (NM tag) for BED score.
+
+		- When -ed is used with -bedpe, the total edit		- Default for BED is to use mapping quality.
+
+		  distance from the two mates is reported.		- Default for BEDPE is to use the minimum of
+
+
+		  the two mapping qualities for the pair.	-tag	
+Use other NUMERIC BAM alignment tag for BED score.		- When -ed is used with -bedpe, the total edit
+
+		- Default for BED is to use mapping quality.		  distance from the two mates is reported.
+
+		  Disallowed with BEDPE output.
+
+	-tag	
+Use other NUMERIC BAM alignment tag for BED score.	-color	
+An R,G,B string for the color used with BED12 format.		- Default for BED is to use mapping quality.
+
+		Default is (255,0,0).		  Disallowed with BEDPE output.
+
+
+
+	-cigar		-color	Add the CIGAR string to the BED entry as a 7th column.An R,G,B string for the color used with BED12 format.
+
+
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_130.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_138.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_144.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_130.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_138.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_144.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_130.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_138.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_144.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_130.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_138.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K36me3/bam/HJC_144.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_133.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_141.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_147.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_133.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_141.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_147.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_133.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_141.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_147.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_133.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_141.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me1/bam/HJC_147.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_134.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_142.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_148.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_134.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_134.nodup.bam ***** *****
+
+
+
+
+
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_142.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_142.nodup.bam ***** *****
+
+
+
+
+
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_148.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_148.nodup.bam ***** *****
+
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Tool:    bedtools bamtobed (aka bamToBed)
+
+Version: Version: v2.30.0v2.30.0
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+
+Usage:   Usage:   bedtools bamtobedbedtools bamtobed [OPTIONS] -i <bam>  [OPTIONS] -i <bam> 
+
+
+
+Options: Options: 
+
+	-bedpe		-bedpe	Write BEDPE format.Write BEDPE format.
+
+		- Requires BAM to be grouped or sorted by query.		- Requires BAM to be grouped or sorted by query.
+
+
+
+	-mate1		-mate1	When writing BEDPE (-bedpe) format, When writing BEDPE (-bedpe) format, 
+
+		always report mate one as the first BEDPE "block".		always report mate one as the first BEDPE "block".
+
+
+
+	-bed12	
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.*****ERROR: Unrecognized parameter: Write "blocked" BED format (aka "BED12"). Forces -split.
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_134.nodup.bam
+
+ *****
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+
+
+
+	-split	*****ERROR: Unrecognized parameter: 	-split	Report "split" BAM alignments as separate BED entries./storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_142.nodup.bamReport "split" BAM alignments as separate BED entries.
+ *****
+		Splits only on N CIGAR operations.
+		Splits only on N CIGAR operations.
+
+
+
+
+
+	-splitD	*****ERROR: Unrecognized parameter: 	-splitD	Split alignments based on N and D CIGAR operators./storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K4me3/bam/HJC_148.nodup.bamSplit alignments based on N and D CIGAR operators.
+ *****
+		Forces -split.
+		Forces -split.
+
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+	-ed	
+	-ed	Use BAM edit distance (NM tag) for BED score.Version: Use BAM edit distance (NM tag) for BED score.
+v2.30.0
+		- Default for BED is to use mapping quality.		- Default for BED is to use mapping quality.
+
+
+		- Default for BEDPE is to use the minimum ofSummary: Converts BAM alignments to BED6 or BEDPE format.		- Default for BEDPE is to use the minimum of
+
+
+		  the two mapping qualities for the pair.
+		  the two mapping qualities for the pair.
+Usage:   
+		- When -ed is used with -bedpe, the total editbedtools bamtobed		- When -ed is used with -bedpe, the total edit
+ [OPTIONS] -i <bam> 
+		  distance from the two mates is reported.
+		  distance from the two mates is reported.
+
+
+
+Options: 
+	-tag	
+	-tag	Use other NUMERIC BAM alignment tag for BED score.	-bedpe	Use other NUMERIC BAM alignment tag for BED score.
+Write BEDPE format.
+		- Default for BED is to use mapping quality.
+		- Default for BED is to use mapping quality.
+		- Requires BAM to be grouped or sorted by query.
+		  Disallowed with BEDPE output.
+		  Disallowed with BEDPE output.
+
+
+
+	-mate1	
+	-color	When writing BEDPE (-bedpe) format, 	-color	An R,G,B string for the color used with BED12 format.
+An R,G,B string for the color used with BED12 format.
+		always report mate one as the first BEDPE "block".
+		Default is (255,0,0).
+		Default is (255,0,0).
+
+
+
+	-bed12	
+	-cigar	Write "blocked" BED format (aka "BED12"). Forces -split.	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_129.nodup.bam
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_129.nodup.bam ***** **********ERROR: Unrecognized parameter: 
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_129.nodup.bam
+
+ *****
+
+
+*****ERROR: Unrecognized parameter: *****ERROR: Unrecognized parameter: 
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_137.nodup.bam *****/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_137.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_137.nodup.bam
+
+
+*****ERROR: Unrecognized parameter:  ***** *****/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_143.nodup.bam *****
+
+
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+
+
+Version: 
+*****ERROR: Unrecognized parameter: v2.30.0*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_143.nodup.bam/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_143.nodup.bam ***** *****
+
+
+
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Tool:    bedtools bamtobed (aka bamToBed)Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+Version: Version: 
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.v2.30.0v2.30.0
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+Summary: Converts BAM alignments to BED6 or BEDPE format.Summary: Converts BAM alignments to BED6 or BEDPE format.	-split	Report "split" BAM alignments as separate BED entries.
+
+
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+
+
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+Usage:   Usage:   		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+bedtools bamtobedbedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+ [OPTIONS] -i <bam> 
+
+		- Requires BAM to be grouped or sorted by query.
+
+Options: 
+
+	-mate1		-bedpe	When writing BEDPE (-bedpe) format, Write BEDPE format.
+
+		always report mate one as the first BEDPE "block".		- Requires BAM to be grouped or sorted by query.
+
+
+
+	-bed12		-mate1	Write "blocked" BED format (aka "BED12"). Forces -split.When writing BEDPE (-bedpe) format, 
+
+
+		always report mate one as the first BEDPE "block".		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+
+	-bed12		-split	Write "blocked" BED format (aka "BED12"). Forces -split.Report "split" BAM alignments as separate BED entries.
+
+
+		Splits only on N CIGAR operations.		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+
+
+	-splitD		-split	Split alignments based on N and D CIGAR operators.Report "split" BAM alignments as separate BED entries.
+
+		Forces -split.		Splits only on N CIGAR operations.
+
+
+
+	-ed		-splitD	Use BAM edit distance (NM tag) for BED score.Split alignments based on N and D CIGAR operators.
+
+		- Default for BED is to use mapping quality.		Forces -split.
+
+		- Default for BEDPE is to use the minimum of
+
+	-ed			  the two mapping qualities for the pair.Use BAM edit distance (NM tag) for BED score.
+
+		- When -ed is used with -bedpe, the total edit		- Default for BED is to use mapping quality.
+
+		  distance from the two mates is reported.		- Default for BEDPE is to use the minimum of
+
+
+		  the two mapping qualities for the pair.	-tag	
+Use other NUMERIC BAM alignment tag for BED score.		- When -ed is used with -bedpe, the total edit
+
+		- Default for BED is to use mapping quality.		  distance from the two mates is reported.
+
+		  Disallowed with BEDPE output.
+
+	-tag	
+Use other NUMERIC BAM alignment tag for BED score.	-color	
+An R,G,B string for the color used with BED12 format.		- Default for BED is to use mapping quality.
+
+		Default is (255,0,0).		  Disallowed with BEDPE output.
+
+
+
+	-cigar		-color	Add the CIGAR string to the BED entry as a 7th column.An R,G,B string for the color used with BED12 format.
+
+
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_129.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_137.nodup.bam *****
+
+
+*****ERROR: Unrecognized parameter: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/thymus/H3K9me3/bam/HJC_143.nodup.bam *****
+
+
+Tool:    bedtools bamtobed (aka bamToBed)
+Version: v2.30.0
+Summary: Converts BAM alignments to BED6 or BEDPE format.
+
+Usage:   bedtools bamtobed [OPTIONS] -i <bam> 
+
+Options: 
+	-bedpe	Write BEDPE format.
+		- Requires BAM to be grouped or sorted by query.
+
+	-mate1	When writing BEDPE (-bedpe) format, 
+		always report mate one as the first BEDPE "block".
+
+	-bed12	Write "blocked" BED format (aka "BED12"). Forces -split.
+
+		http://genome-test.cse.ucsc.edu/FAQ/FAQformat#format1
+
+	-split	Report "split" BAM alignments as separate BED entries.
+		Splits only on N CIGAR operations.
+
+	-splitD	Split alignments based on N and D CIGAR operators.
+		Forces -split.
+
+	-ed	Use BAM edit distance (NM tag) for BED score.
+		- Default for BED is to use mapping quality.
+		- Default for BEDPE is to use the minimum of
+		  the two mapping qualities for the pair.
+		- When -ed is used with -bedpe, the total edit
+		  distance from the two mates is reported.
+
+	-tag	Use other NUMERIC BAM alignment tag for BED score.
+		- Default for BED is to use mapping quality.
+		  Disallowed with BEDPE output.
+
+	-color	An R,G,B string for the color used with BED12 format.
+		Default is (255,0,0).
+
+	-cigar	Add the CIGAR string to the BED entry as a 7th column.
+

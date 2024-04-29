@@ -19,6 +19,8 @@ library(reshape2)
 
 tissues <- c("spleen","testis","colon","kidney","lung","liver","muscle","Hip","cecum","bonemarrow","brain")
 tissues <- c("bonemarrow")
+tissues <- c("ileum", "heart", "thymus")
+
 bin_size="10kb"
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
@@ -49,7 +51,7 @@ for(i in c(1:length(tissues))){
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),])),x=-1, y=10,colour="#f6416c",size=5)+
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),])),x=1, y=-10,colour="#48466d",size=5)
   dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
-  ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8)
+  ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
   dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/")) 
   write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")], 
               file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"), 
@@ -64,10 +66,12 @@ for(i in c(1:length(tissues))){
               file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"), 
               sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
+tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus")
 peaks_list <-list(second =list(),fourth=list())
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-quadrants <- c("second","fourth")
+quadrants <- c("second")
+
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(quadrants))){
@@ -80,11 +84,98 @@ for(i in c(1:length(tissues))){
                               TxDb=txdb, annoDb="org.Mm.eg.db")
     peaks_list[[j]][[i]]<-peak_anno
     names(peaks_list[[j]])[i] <- tissue
-  }  
+  }
 }
-
-plotAnnoBar(peaks_list[[1]])
+names(peaks_list[[1]]) <- paste0(names(peaks_list[[1]]),"_second_quadrant")
+names(peaks_list[[2]]) <- paste0(names(peaks_list[[2]]),"_fourth_quadrant")
+peaks_list_combined <- c(peaks_list[[1]],peaks_list[[2]])
+plotAnnoBar(peaks_list_combined)
 plotAnnoBar(peaks_list[[2]])
+
+tissues = c("brain","Hip","liver","testis","kidney",
+            "lung","bonemarrow","muscle","thymus","heart",
+            "spleen","colon","cecum","ileum","pancreas")
+antibody <- "H3K27me3"
+H3K27me3_list <- list()
+H3K9me3_list <- list()
+for(i in c(1:length(tissues))){
+  tissue <- tissues[i]
+  H3K27me3 <- read.csv(paste0("data/samples/",tissue,"/H3K27me3/H3K27me3_10kb_bins_diff_after_remove_batch_effect.csv"))
+  H3K9me3 <- read.csv(paste0("data/samples/",tissue,"/H3K9me3/H3K9me3_10kb_bins_diff_after_remove_batch_effect.csv"))
+  H3K27me3$H3K9me3_sig <- "stable"
+  H3K27me3$H3K9me3_sig[which(H3K27me3$Geneid %in% H3K9me3$Geneid[which(H3K9me3$Significant_bar=="Up")])]<-"H3K9me3_increase"
+  H3K27me3$H3K9me3_sig[which(H3K27me3$Geneid %in% H3K9me3$Geneid[which(H3K9me3$Significant_bar=="Down")])]<-"H3K9me3_decrease"
+  
+  H3K9me3$H3K27me3_sig <- "stable"
+  H3K9me3$H3K27me3_sig[which(H3K9me3$Geneid %in% H3K27me3$Geneid[which(H3K27me3$Significant_bar=="Up")])]<-"H3K27me3_increase"
+  H3K9me3$H3K27me3_sig[which(H3K9me3$Geneid %in% H3K27me3$Geneid[which(H3K27me3$Significant_bar=="Down")])]<-"H3K27me3_decrease"
+
+  H3K27me3_list[[i]]<-ggplot()+
+    # 数据、映射、颜色
+    geom_point(data=H3K27me3, mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "grey",alpha=0.5) +
+    geom_point(data=H3K27me3[which(H3K27me3$H3K9me3_sig=="H3K9me3_decrease" & H3K27me3$FDR.old.young <0.05 & H3K27me3$LogFC.old.young<0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "blue",alpha=0.7)+
+    geom_point(data=H3K27me3[which(H3K27me3$H3K9me3_sig=="H3K9me3_increase" & H3K27me3$FDR.old.young <0.05 & H3K27me3$LogFC.old.young<0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "red",alpha=0.7)+
+    geom_point(data=H3K27me3[which(H3K27me3$H3K9me3_sig=="H3K9me3_increase" & H3K27me3$FDR.old.young <0.05 & H3K27me3$LogFC.old.young>0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "red",alpha=0.7)+
+    geom_point(data=H3K27me3[which(H3K27me3$H3K9me3_sig=="H3K9me3_decrease" & H3K27me3$FDR.old.young <0.05 & H3K27me3$LogFC.old.young>0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "blue",alpha=0.7)+
+    # scale_color_manual(values = c("blue","grey")) +
+    # 注释
+    # geom_text_repel(
+    #   data = subset(out,`FDR.FA-noFA` < 0.05 & abs(out$logFC) >= 1),
+    #   aes(label = Geneid),
+    #   size = 5,max.overlaps = 100,
+    #   box.padding = unit(0.35, "lines"),
+    #   point.padding = unit(0.3, "lines")) +
+    # 辅助线
+    geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+    # geom_vline(xintercept=c(-1,1),lty=4,col="red",lwd=0.8)+
+    geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+    ggtitle(tissue)+
+    # 坐标轴
+    labs(x="log2(fold change)",
+         y="-log10 (p-value)") +
+    # xlim(-3,3)+
+    # 图例
+    theme_bw()+
+    theme(text = element_text(size = 30))
+  
+H3K9me3_list[[i]]<-ggplot()+
+    # 数据、映射、颜色
+    geom_point(data=H3K9me3, mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "grey",alpha=0.5) +
+    geom_point(data=H3K9me3[which(H3K9me3$H3K27me3_sig=="H3K27me3_decrease" & H3K9me3$FDR.old.young <0.05 & H3K9me3$LogFC.old.young <0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "blue",alpha=0.7)+
+    geom_point(data=H3K9me3[which(H3K9me3$H3K27me3_sig=="H3K27me3_increase" & H3K9me3$FDR.old.young <0.05 & H3K9me3$LogFC.old.young <0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "red",alpha=0.7)+
+    geom_point(data=H3K9me3[which(H3K9me3$H3K27me3_sig=="H3K27me3_increase" & H3K9me3$FDR.old.young <0.05 & H3K9me3$LogFC.old.young >0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "red",alpha=0.7)+
+    geom_point(data=H3K9me3[which(H3K9me3$H3K27me3_sig=="H3K27me3_decrease" & H3K9me3$FDR.old.young <0.05 & H3K9me3$LogFC.old.young >0),], mapping=aes(`LogFC.old.young`, -log10(`FDR.old.young`)),color = "blue",alpha=0.7)+
+    # scale_color_manual(values = c("blue","grey")) +
+    # 注释
+    # geom_text_repel(
+    #   data = subset(out,`FDR.FA-noFA` < 0.05 & abs(out$logFC) >= 1),
+    #   aes(label = Geneid),
+    #   size = 5,max.overlaps = 100,
+    #   box.padding = unit(0.35, "lines"),
+    #   point.padding = unit(0.3, "lines")) +
+    # 辅助线
+    geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+    # geom_vline(xintercept=c(-1,1),lty=4,col="red",lwd=0.8)+
+    geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+    ggtitle(tissue)+
+    # 坐标轴
+    labs(x="log2(fold change)",
+         y="-log10 (p-value)") +
+    # xlim(-3,3)+
+    # 图例
+    theme_bw()+
+    theme(text = element_text(size = 30))
+}
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols)
+}
+H3K27me3_combined_plot <- plot_a_list(H3K27me3_list[1:13], 3, 5)
+H3K9me3_combined_plot <- plot_a_list(H3K9me3_list, 3, 5)
+ggsave(paste0("result/all/diff/H3K27me3/H3K27me3_with_H3K9me3_bins_valcono_plot.png"),H3K27me3_combined_plot,height = 30,width = 30,type="cairo")
+ggsave(paste0("result/all/diff/H3K9me3/H3K9me3_with_H3K27me3_bins_valcono_plot.png"),H3K9me3_combined_plot,height = 30,width = 30,type="cairo")
+
 # args <- commandArgs(trailingOnly=TRUE)
 # arg_list <- list()
 # for (arg in args) {

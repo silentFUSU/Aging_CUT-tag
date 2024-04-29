@@ -17,7 +17,8 @@ library(limma)
 library(gg.gap)
 library(scales)
 library(colorspace)    
-tissues <-  c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum")
+# tissues <-  c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum")
+tissues <- c("heart","thymus")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
 
 for(i in c(1:length(tissues))){

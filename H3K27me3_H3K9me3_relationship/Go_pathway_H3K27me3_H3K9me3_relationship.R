@@ -14,27 +14,30 @@ library(dplyr)
 library(clusterProfiler)
 library(ggrepel)
 library(limma)
-antibody = "H3K27me3"
-tissue = "brain"
-window_size = "1000"
-gap_size = "3000"
-e_value = "100"
-if(antibody=="H3K27me3"){
-  another_antibody <- "H3K9me3"
-}else{
-  another_antibody <- "H3K27me3"
-}
+
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_merge-W",window_size,"-G",gap_size,"-E",e_value,"_diff_after_remove_batch_effect_relationship_with_",another_antibody,".csv"))
-genelist <- bitr(diff$symbol[which(diff$Significant=="Up" & diff$relationship_between_H3K27me3_H3K9me3==paste0("decrease in ",another_antibody))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-genelist_GO <-enrichGO(genelist$ENTREZID,#GO富集分析
-                           OrgDb = GO_database,
-                           keyType = "ENTREZID",#设定读取的gene ID类型
-                           ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
-                           pvalueCutoff = 0.05,#设定p值阈值
-                           qvalueCutoff = 0.05,#设定q值阈值
-                           readable = T)
-barplot(genelist_GO,font.size=15,label_format = 100)
+tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus")
+peaks_list <-list()
+GO_database <- 'org.Mm.eg.db'
+txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
+quadrants <- c("second","fourth")
+bin_size<-"10kb"
+for(i in c(1:length(tissues))){
+  tissue <- tissues[i]
+  quadrant <-"second"
+  peak <- read.table(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_",quadrant,"_quadrant.bed"))
+  peak_obj <- GRanges(seqnames = peak$V1,   
+                          ranges = IRanges(start = peak$V2, end = peak$V3))
+  peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),
+                                TxDb=txdb, annoDb="org.Mm.eg.db")
+  peak_anno <- unique(as.data.frame(peak_anno))
+  genelist <- bitr(peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+  peaks_list[[i]]<-genelist
+  names(peaks_list)[i] <- tissue
+}
 
-
+ck <- compareCluster(geneCluster = peaks_list, fun = enrichKEGG)
+p<- dotplot(ck,show=3,label_format = 100)+theme(axis.text.x = element_text(angle = 45, hjust = 1)) +labs(x=NULL)
+ck <- compareCluster(geneCluster = peaks_list[[2]], fun = enrichGO,OrgDb = GO_database, keyType = "ENTREZID")
+ggsave(paste0("result/all/diff/",antibody,"/1kb_decrease_promoter_Go_dotplot.png"),p,width = 13,height = 10)

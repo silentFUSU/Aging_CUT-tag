@@ -1,0 +1,525 @@
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/’: File exists
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/chromHMMbed’: File exists
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData’: File exists
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr1_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr2_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrX_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr3_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr5_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr6_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr7_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr10_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr8_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr14_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr9_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr11_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr13_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr12_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr15_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr16_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr17_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrY_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr18_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr19_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr5_JH584299_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrX_GL456233_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrY_JH584301_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr1_GL456211_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_GL456350_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_JH584293_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr1_GL456221_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr5_JH584297_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr5_JH584296_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr5_GL456354_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_JH584294_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr5_JH584298_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrY_JH584300_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr7_GL456219_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr1_GL456210_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrY_JH584303_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrY_JH584302_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr1_GL456212_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_JH584304_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456379_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_GL456216_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456393_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456366_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456367_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456239_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr1_GL456213_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456383_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456385_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456360_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456378_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456389_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456372_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456370_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456381_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456387_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456390_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456394_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456392_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456382_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456359_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456396_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrUn_GL456368_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chrM_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_JH584292_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young1_chr4_JH584295_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr1_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr2_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrX_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr3_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr5_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr6_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr7_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr10_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr8_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr14_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr9_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr11_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr13_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr12_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr15_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr16_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr17_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrY_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr18_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr19_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr5_JH584299_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrX_GL456233_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrY_JH584301_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr1_GL456211_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_GL456350_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_JH584293_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr1_GL456221_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr5_JH584297_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr5_JH584296_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr5_GL456354_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_JH584294_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr5_JH584298_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrY_JH584300_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr7_GL456219_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr1_GL456210_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrY_JH584303_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrY_JH584302_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr1_GL456212_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_JH584304_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456379_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_GL456216_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456393_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456366_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456367_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456239_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr1_GL456213_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456383_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456385_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456360_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456378_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456389_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456372_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456370_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456381_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456387_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456390_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456394_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456392_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456382_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456359_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456396_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrUn_GL456368_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chrM_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_JH584292_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/young2_chr4_JH584295_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr1_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr2_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrX_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr3_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr5_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr6_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr7_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr10_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr8_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr14_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr9_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr11_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr13_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr12_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr15_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr16_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr17_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrY_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr18_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr19_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr5_JH584299_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrX_GL456233_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrY_JH584301_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr1_GL456211_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_GL456350_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_JH584293_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr1_GL456221_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr5_JH584297_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr5_JH584296_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr5_GL456354_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_JH584294_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr5_JH584298_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrY_JH584300_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr7_GL456219_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr1_GL456210_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrY_JH584303_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrY_JH584302_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr1_GL456212_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_JH584304_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456379_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_GL456216_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456393_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456366_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456367_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456239_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr1_GL456213_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456383_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456385_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456360_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456378_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456389_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456372_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456370_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456381_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456387_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456390_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456394_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456392_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456382_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456359_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456396_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrUn_GL456368_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chrM_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_JH584292_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old1_chr4_JH584295_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr1_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr2_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrX_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr3_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr5_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr6_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr7_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr10_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr8_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr14_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr9_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr11_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr13_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr12_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr15_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr16_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr17_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrY_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr18_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr19_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr5_JH584299_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrX_GL456233_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrY_JH584301_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr1_GL456211_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_GL456350_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_JH584293_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr1_GL456221_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr5_JH584297_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr5_JH584296_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr5_GL456354_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_JH584294_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr5_JH584298_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrY_JH584300_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr7_GL456219_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr1_GL456210_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrY_JH584303_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrY_JH584302_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr1_GL456212_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_JH584304_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456379_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_GL456216_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456393_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456366_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456367_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456239_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr1_GL456213_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456383_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456385_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456360_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456378_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456389_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456372_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456370_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456381_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456387_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456390_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456394_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456392_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456382_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456359_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456396_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrUn_GL456368_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chrM_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_JH584292_random_binary.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData/old2_chr4_JH584295_random_binary.txt
+Using 8 threads for Baum-Welch training
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/transitions_20.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/emissions_20.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/emissions_20.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/emissions_20.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/transitions_20.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/transitions_20.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/model_20.txt
+ Iteration  Estimated Log Likelihood     Change    Total Time (secs)
+         1             -15722446.828          -                  5.0
+         2             -14852062.501 870384.326                  7.4
+         3             -14607399.936 244662.565                  9.7
+         4             -14461244.982 146154.954                 12.0
+         5             -14363175.715  98069.267                 14.3
+         6             -14293365.505  69810.209                 16.7
+         7             -14241275.386  52090.120                 19.0
+         8             -14200242.826  41032.560                 21.4
+         9             -14165744.898  34497.928                 23.7
+        10             -14134696.972  31047.926                 26.0
+        11             -14105284.912  29412.060                 28.3
+        12             -14076808.192  28476.720                 30.6
+        13             -14049320.214  27487.978                 33.0
+        14             -14023373.204  25947.010                 35.3
+        15             -13999785.532  23587.672                 37.6
+        16             -13979272.760  20512.772                 39.9
+        17             -13962072.359  17200.401                 42.2
+        18             -13947889.519  14182.840                 44.6
+        19             -13936122.257  11767.262                 46.9
+        20             -13926170.447   9951.810                 49.1
+        21             -13917652.860   8517.587                 51.3
+        22             -13910411.453   7241.407                 53.8
+        23             -13904369.183   6042.270                 56.1
+        24             -13899411.388   4957.795                 58.9
+        25             -13895373.314   4038.074                 61.4
+        26             -13892093.543   3279.771                 63.7
+        27             -13889412.661   2680.882                 66.0
+        28             -13887195.163   2217.498                 68.5
+        29             -13885334.045   1861.118                 70.9
+        30             -13883747.100   1586.945                 73.2
+        31             -13882365.397   1381.702                 75.4
+        32             -13881136.508   1228.889                 77.7
+        33             -13880044.702   1091.806                 80.0
+        34             -13879045.683    999.019                 82.3
+        35             -13878113.021    932.662                 84.8
+        36             -13877225.505    887.516                 87.0
+        37             -13876365.877    859.628                 89.2
+        38             -13875520.649    845.229                 91.5
+        39             -13874680.263    840.385                 93.9
+        40             -13873839.376    840.888                 96.5
+        41             -13872996.965    842.410                 98.8
+        42             -13872155.984    840.982                101.1
+        43             -13871322.424    833.560                103.5
+        44             -13870503.940    818.484                105.8
+        45             -13869708.360    795.581                108.1
+        46             -13868942.412    765.948                110.6
+        47             -13868210.913    731.499                112.9
+        48             -13867516.424    694.489                115.3
+        49             -13866859.325    657.099                117.6
+        50             -13866238.206    621.119                119.9
+        51             -13865650.500    587.706                122.3
+        52             -13865093.178    557.322                124.7
+        53             -13864563.212    529.966                127.0
+        54             -13864057.626    505.586                129.3
+        55             -13863573.466    484.160                131.6
+        56             -13863108.036    465.430                133.9
+        57             -13862659.415    448.621                136.2
+        58             -13862226.939    432.476                138.4
+        59             -13861811.433    415.507                140.7
+        60             -13861415.225    396.208                143.1
+        61             -13861041.931    373.294                145.4
+        62             -13860695.290    346.641                147.8
+        63             -13860377.545    317.745                150.2
+        64             -13860088.928    288.618                152.6
+        65             -13859827.955    260.973                154.8
+        66             -13859591.759    236.196                157.3
+        67             -13859376.745    215.014                159.5
+        68             -13859179.550    197.195                161.7
+        69             -13858995.660    183.890                163.9
+        70             -13858816.089    179.571                166.2
+        71             -13858625.849    190.240                168.4
+        72             -13858424.072    201.777                170.7
+        73             -13858229.767    194.305                173.1
+        74             -13858030.714    199.053                175.5
+        75             -13857823.737    206.976                177.7
+        76             -13857614.311    209.426                180.0
+        77             -13857410.212    204.099                182.3
+        78             -13857217.901    192.311                184.6
+        79             -13857038.344    179.557                186.9
+        80             -13856869.525    168.819                189.1
+        81             -13856710.152    159.373                191.3
+        82             -13856559.500    150.653                193.7
+        83             -13856416.887    142.612                195.9
+        84             -13856282.170    134.718                198.2
+        85             -13856155.506    126.664                200.4
+        86             -13856036.853    118.653                202.8
+        87             -13855925.863    110.990                205.1
+        88             -13855822.107    103.757                207.4
+        89             -13855725.219     96.888                209.7
+        90             -13855634.848     90.371                212.0
+        91             -13855550.538     84.309                214.6
+        92             -13855471.778     78.760                217.0
+        93             -13855398.003     73.776                219.4
+        94             -13855328.678     69.325                221.7
+        95             -13855263.314     65.364                224.1
+        96             -13855201.472     61.842                226.5
+        97             -13855142.767     58.705                228.9
+        98             -13855086.858     55.909                231.3
+        99             -13855033.465     53.394                233.5
+       100             -13854982.329     51.136                235.9
+       101             -13854933.224     49.105                238.1
+       102             -13854885.953     47.272                240.4
+       103             -13854840.335     45.618                242.7
+       104             -13854796.209     44.126                245.0
+       105             -13854753.428     42.781                247.3
+       106             -13854711.862     41.566                249.7
+       107             -13854671.388     40.475                252.0
+       108             -13854631.892     39.495                254.3
+       109             -13854593.272     38.620                256.7
+       110             -13854555.432     37.840                259.0
+       111             -13854518.284     37.148                261.4
+       112             -13854481.745     36.539                263.7
+       113             -13854445.739     36.006                266.1
+       114             -13854410.195     35.544                268.5
+       115             -13854375.049     35.146                270.8
+       116             -13854340.238     34.811                273.1
+       117             -13854305.707     34.531                275.3
+       118             -13854271.403     34.305                277.6
+       119             -13854237.275     34.128                279.8
+       120             -13854203.278     33.997                282.0
+       121             -13854169.369     33.909                284.3
+       122             -13854135.507     33.862                286.6
+       123             -13854101.654     33.854                288.9
+       124             -13854067.772     33.882                291.3
+       125             -13854033.828     33.944                293.5
+       126             -13853999.788     34.040                295.8
+       127             -13853965.622     34.166                298.2
+       128             -13853931.297     34.324                300.7
+       129             -13853896.786     34.512                302.9
+       130             -13853862.057     34.728                304.9
+       131             -13853827.084     34.973                307.1
+       132             -13853791.837     35.246                309.4
+       133             -13853756.291     35.547                311.4
+       134             -13853720.417     35.874                313.4
+       135             -13853684.190     36.227                315.5
+       136             -13853647.585     36.605                317.6
+       137             -13853610.580     37.006                319.6
+       138             -13853573.150     37.429                321.8
+       139             -13853535.278     37.872                323.9
+       140             -13853496.944     38.334                326.0
+       141             -13853458.134     38.810                328.1
+       142             -13853418.835     39.299                330.3
+       143             -13853379.039     39.796                332.3
+       144             -13853338.740     40.299                334.5
+       145             -13853297.938     40.802                336.5
+       146             -13853256.636     41.302                338.8
+       147             -13853214.843     41.793                341.0
+       148             -13853172.572     42.271                343.1
+       149             -13853129.842     42.730                345.2
+       150             -13853086.674     43.168                347.3
+       151             -13853043.096     43.579                349.3
+       152             -13852999.137     43.959                351.3
+       153             -13852954.831     44.306                353.3
+       154             -13852910.215     44.616                355.3
+       155             -13852865.329     44.887                357.3
+       156             -13852820.211     45.118                359.3
+       157             -13852774.902     45.308                361.4
+       158             -13852729.445     45.458                363.4
+       159             -13852683.878     45.567                365.5
+       160             -13852638.241     45.637                367.7
+       161             -13852592.571     45.670                369.7
+       162             -13852546.904     45.667                371.7
+       163             -13852501.274     45.630                373.8
+       164             -13852455.712     45.563                375.8
+       165             -13852410.246     45.466                377.9
+       166             -13852364.904     45.342                380.1
+       167             -13852319.709     45.195                382.2
+       168             -13852274.682     45.027                384.4
+       169             -13852229.843     44.839                386.5
+       170             -13852185.207     44.636                388.6
+       171             -13852140.785     44.421                390.6
+       172             -13852096.588     44.197                392.6
+       173             -13852052.621     43.967                394.7
+       174             -13852008.888     43.733                396.7
+       175             -13851965.389     43.499                398.9
+       176             -13851922.122     43.267                400.9
+       177             -13851879.081     43.041                402.9
+       178             -13851836.259     42.822                405.0
+       179             -13851793.648     42.612                407.0
+       180             -13851751.235     42.413                409.0
+       181             -13851709.008     42.227                411.2
+       182             -13851666.954     42.054                413.3
+       183             -13851625.059     41.895                415.4
+       184             -13851583.311     41.749                417.7
+       185             -13851541.695     41.615                419.8
+       186             -13851500.203     41.492                422.0
+       187             -13851458.825     41.378                424.2
+       188             -13851417.553     41.272                426.4
+       189             -13851376.382     41.171                428.5
+       190             -13851335.307     41.075                430.5
+       191             -13851294.322     40.985                432.6
+       192             -13851253.423     40.899                434.6
+       193             -13851212.601     40.822                436.6
+       194             -13851171.849     40.752                438.8
+       195             -13851131.156     40.693                440.8
+       196             -13851090.508     40.647                442.9
+       197             -13851049.895     40.613                444.9
+       198             -13851009.303     40.592                446.9
+       199             -13850968.719     40.585                449.0
+       200             -13850928.130     40.589                451.2
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old1_20_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/old2_20_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTSS_neighborhood.svg
+Warning could not automatically open in a browser /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/webpage_20.html
