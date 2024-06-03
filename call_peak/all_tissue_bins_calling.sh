@@ -1,7 +1,7 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 ref=mm10  
-tissue=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus)
+tissue=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus stomach skin)
 # tissue=(Hip testis colon kidney lung spleen muscle pancreas cecum bonemarrow ileum heart thymus)
 antibodys=(H3K27me3 H3K9me3 H3K36me3)
 # antibodys=(H3K4me1)

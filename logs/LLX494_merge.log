@@ -1,0 +1,4 @@
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/LLX494/’: File exists
+/storage/zhangyanxiaoLab/fastq/2024/2024-05-17-Jiangbei-LLX/LLX494/LLX494_S1_L003_R1_001.fastq.gz /storage/zhangyanxiaoLab/fastq/2024/2024-05-11-Jiangbei-LLX/LLX494/LLX494_S2_L001_R1_001.fastq.gz /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/LLX494/rawdata/LLX494_R1.fastq.gz combine
+/storage/zhangyanxiaoLab/fastq/2024/2024-05-17-Jiangbei-LLX/LLX494/LLX494_S1_L003_R2_001.fastq.gz /storage/zhangyanxiaoLab/fastq/2024/2024-05-11-Jiangbei-LLX/LLX494/LLX494_S2_L001_R2_001.fastq.gz /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/LLX494/rawdata/LLX494_R2.fastq.gz combine
+all done

@@ -1,5 +1,6 @@
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
-tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus)
+# tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus)
+tissues=(skin stomach)
 # tissue=bonemarrow
 ref=mm10
 quadrants=(first second third fourth)

@@ -33,7 +33,9 @@ jaccard_index_random <-read.csv("result/all/jaccard_index_random.csv")
 conditions<-c("Up","Down")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")
 # tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","ileum")
-tissues <- c("heart","thymus")
+# tissues <- c("heart","thymus")
+# tissues <- c("stomach","skin","aorta","tongue")
+tissues <- c("bladder")
 random_time <- 10000
 pb <- txtProgressBar(min = 0, length(tissues)*length(antibodys)*length(antibodys), style = 3)
 counter <- 0

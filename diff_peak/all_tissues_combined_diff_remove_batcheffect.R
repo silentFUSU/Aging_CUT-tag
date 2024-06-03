@@ -15,8 +15,9 @@ library(clusterProfiler)
 library(ggrepel)
 library(tidyr)
 library(MASS) 
+library(Seurat)
 antibody = "H3K9me3"
-tissue = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus")
+tissue = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin")
 # brain liver testis colon kidney lung spleen muscle pancreas
 window_size = "1000"
 gap_size = "3000"
@@ -231,6 +232,19 @@ bin_size <- "10kb"
 peak_preprocess_bins <- function(tissue,antibody,bin_size){
   tab = read.delim(paste0("data/samples/all/",antibody,"/merge-",bin_size,"_bins.counts"),skip=1)
   counts = tab[,c(7:ncol(tab))]
+  pbmc <- CreateSeuratObject(
+    counts = counts,
+    assay = "peaks"
+  )
+  pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
+  pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
+  pbmc <- ScaleData(pbmc)
+  pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
+  pbmc <- RunUMAP(pbmc, dims = 1:30)
+  pbmc <- FindNeighbors(pbmc, dims = 1:30)
+  pbmc <- FindClusters(pbmc, resolution = 0.5,verbose = FALSE)
+  
+  DimPlot(pbmc, label = T, pt.size = 1.5, label.size = 3,repel = T) 
   rownames(counts)= tab$Geneid
   group <- c()
   batch <- c()
@@ -245,6 +259,8 @@ peak_preprocess_bins <- function(tissue,antibody,bin_size){
     }
     batch <- c(batch,rep(c(rep("batch1", 2), rep("batch2", 2)), 1))
   }
+  pbmc$tissue <- tissue_group
+  DimPlot(pbmc, label = T, pt.size = 1.5, label.size = 3,repel = T,group.by = "tissue") 
   y= DGEList(counts=counts,group=group)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]

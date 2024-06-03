@@ -14,8 +14,9 @@ do
     esac
 done
 
-antibodys=(H3K27ac H3K4me3 H3K4me1)
-# antibodys=(H3K27ac H3K4me1)
+# antibodys=(H4K16ac)
+antibodys=(H3K27ac H3K4me1 H3K4me3)
+# antibodys=(LLY001-LLY004)
 ref=mm
 for antibody in ${antibodys[@]}
 do 

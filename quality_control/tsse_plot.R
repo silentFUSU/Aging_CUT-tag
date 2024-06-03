@@ -19,9 +19,9 @@ library(gg.gap)
 
 tissue_antibody <-function(antibody){
   if(antibody=="ATAC"){
-    return(c("brain_HIP","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum","bonemarrow","ileum","heart","thymus"))
+    return(c("brain_HIP","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","jejunum","aorta","tongue","bladder"))
   }else{
-    return(c("brain_FC","brain_HIP","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","cecum","bonemarrow","ileum","heart","thymus"))
+    return(c("brain_FC","brain_HIP","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","jejunum","aorta","tongue","bladder"))
   }
 }
 antibodys <- c("ATAC","H3K27ac","H3K4me3")
@@ -38,7 +38,8 @@ for(i in c(1:length(antibodys))){
   ggplot(tsse,aes(x=V1,y=V3,fill = batch))+geom_boxplot()+
     scale_fill_brewer(palette="Set3")+guides(fill = FALSE) +
     ggtitle(paste0(antibody," TSSE"))+ylim(0,15)+
-    theme_bw()+theme(text = element_text(size = 18))+xlab("")+labs(fill = "", color = "") +ylab("tsse")
+    theme_bw()+theme(text = element_text(size = 18))+xlab("")+labs(fill = "", color = "") +ylab("tsse")+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  
   ggsave(paste0("result/all/QC/tsse/",antibody,"_tsse.png"),width=15,height = 10,type="cairo")
   
 }

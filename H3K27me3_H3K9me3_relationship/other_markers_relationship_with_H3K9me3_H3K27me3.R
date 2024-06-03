@@ -16,14 +16,14 @@ library(ggrepel)
 library(limma)
 library(patchwork)
 bin_size <- "1kb"
-tissues <- c("brain","Hip","lung",
-             "colon","spleen","thymus","muscle","kidney", 
-             "liver","testis","cecum","bonemarrow","heart")
-antibodys <- c("H3K4me3","H3K4me1")
+tissues <- c("brain","Hip","lung","colon","spleen",
+             "thymus","muscle","bonemarrow","heart","kidney",
+             "skin","liver","stomach","testis","cecum")
+antibodys <- c("H3K27ac","H3K4me3","H3K4me1")
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
-                        nrow = no_of_rows, ncol = no_of_cols)
+                        nrow = no_of_rows, ncol = no_of_cols,axis_titles = "collect")
 }
 
 for(antibody in antibodys){
@@ -154,7 +154,7 @@ for(antibody in antibodys){
         theme_bw()+
         theme(text = element_text(size = 20))
     }
-    
+    if(tissue == "brain") tissue <- "FC"
     p2 <- p2+ggtitle(tissue)
     p_list[[j]] <- p2
     names(p_list)[j] <- tissue
@@ -164,6 +164,6 @@ for(antibody in antibodys){
   #   ggsave(paste0("result/",tissue,"/",antibody,"/diff_",antibody,"_with_H3K27me3_and_H3K9me3_relationship.png"),p,width = 15,height=15,type="cairo")
   }
    combined_plot <- plot_a_list(p_list,3,5)
-   ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_relationship_with_H3K27me3_H3K9me3.png"),combined_plot,width = 30,height = 20,type="cairo")
+   ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_relationship_skin_stomach_with_H3K27me3_H3K9me3.png"),combined_plot,width = 15,height = 10,type="cairo")
 }
 

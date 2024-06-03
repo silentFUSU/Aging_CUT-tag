@@ -14,6 +14,8 @@ library(dplyr)
 library(clusterProfiler)
 library(ggrepel)
 library(limma)
+library(maditr)
+library(tm)
 antibody = "H3K36me3"
 tissue = "ileum"
 # window_size = "1000"
@@ -32,7 +34,7 @@ bin_size <- function(antibody){
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 antibodys <- c("H3K4me3","H3K4me1","H3K27ac")
-tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus")
+tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","skin","aorta","bladder")#27ac tongue，stomach
 for(i in c(1:length(antibodys))){
   antibody <- antibodys[i]
   for(j in c(1:length(tissues))){
@@ -88,28 +90,65 @@ for(i in c(1:length(antibodys))){
   up_anno_result_table<-as.data.frame(table(up_anno_result$ID[which(up_anno_result$p.adjust<0.05)]))
   down_anno_result_table<-as.data.frame(table(down_anno_result$ID[which(down_anno_result$p.adjust<0.05)]))
 
-  up_anno_result_filter <- up_anno_result[which(up_anno_result$ID %in% up_anno_result_table$Var1[which(up_anno_result_table$Freq>=4)]),c("Description","p.adjust","tissue")]
-  up_anno_result_plot <- reshape2::melt(up_anno_result_filter)
-  up_anno_result_plot$value <- -log10(up_anno_result_plot$value)
-  ggplot(up_anno_result_plot, aes(x=tissue, y=Description, fill=value)) +
+  up_anno_result_filter <- up_anno_result[which(up_anno_result$ID %in% up_anno_result_table$Var1[which(up_anno_result_table$Freq>=6)]),c("Description","p.adjust","tissue")]
+  up_anno_result_filter$p.adjust <- -log10(up_anno_result_filter$p.adjust)
+  up_anno_result_filter_data <- dcast(up_anno_result_filter, formula = Description~tissue, value.var = "p.adjust")
+  set.seed(1)
+  kmeans_centers <- 4
+  up_anno_result_filter_data[is.na(up_anno_result_filter_data)] <- 0
+  
+  kmeans <- kmeans(up_anno_result_filter_data[,-1],centers=kmeans_centers)
+  cluster<-as.data.frame(kmeans$cluster)
+  cluster$rownames<-rownames(cluster)
+  cluster<-cluster[order(cluster$`kmeans$cluster`),]
+  up_anno_result_filter_data$rownames <- rownames(up_anno_result_filter_data)
+  cluster<- merge(cluster,up_anno_result_filter_data[,c("Description","rownames")],by="rownames")
+  cluster<-cluster[order(cluster$`kmeans$cluster`),]
+  
+  up_anno_result_filter$Description <- factor(up_anno_result_filter$Description,levels=cluster$Description)
+  up_anno_result_filter <- merge(up_anno_result_filter,cluster[,c(2,3)],by="Description")
+  
+  colnames(up_anno_result_filter)[4]<-"kmeans"
+  p<- ggplot(up_anno_result_filter, aes(x=tissue, y=Description, fill=p.adjust)) +
     geom_tile()+
     scale_fill_gradient2(low="#a8d8ea", high="#990033",mid = "#ffffd2")+
-    theme(axis.text.x = element_text(angle=90, vjust=0.5),axis.text = element_text(size = 12)) +
-    labs(title = paste(antibody,"up"),x=NULL, y=NULL, fill="-log10(p.adjust)")+theme_bw()
-  ggsave(paste0("result/all/diff/",antibody,"/bins_promoter_increase_GO_heatmap.png"),width = 10,height = 15,type="cairo")
-  down_anno_result_filter <- down_anno_result[which(down_anno_result$ID %in% down_anno_result_table$Var1[which(down_anno_result_table$Freq>=4)]),c("Description","p.adjust","tissue")]
-  down_anno_result_plot <- reshape2::melt(down_anno_result_filter)
-  down_anno_result_plot$value <- -log10(down_anno_result_plot$value)
-  ggplot(down_anno_result_plot, aes(x=tissue, y=Description, fill=value)) +
+    facet_grid(rows = vars(kmeans),space="free_y",scales="free_y")+
+    theme_bw()+labs(title = paste(antibody,"up"),x=NULL, y=NULL, fill="-log10(p.adjust)")+
+    theme(axis.text.x = element_text(angle=90, vjust=0.5),axis.text = element_text(size = 15))
+    
+  ggsave(paste0("result/all/diff/",antibody,"/bins_promoter_increase_GO_heatmap.png"),p,width = 15,height = 20,type="cairo")
+  
+  down_anno_result_filter <- down_anno_result[which(down_anno_result$ID %in% down_anno_result_table$Var1[which(down_anno_result_table$Freq>=5)]),c("Description","p.adjust","tissue")]
+  down_anno_result_filter$p.adjust <- -log10(down_anno_result_filter$p.adjust)
+  down_anno_result_filter_data <- dcast(down_anno_result_filter, formula = Description~tissue, value.var = "p.adjust")
+  set.seed(1)
+  kmeans_centers <- 4
+  down_anno_result_filter_data[is.na(down_anno_result_filter_data)] <- 0
+  
+  kmeans <- kmeans(down_anno_result_filter_data[,-1],centers=kmeans_centers)
+  cluster<-as.data.frame(kmeans$cluster)
+  cluster$rownames<-rownames(cluster)
+  cluster<-cluster[order(cluster$`kmeans$cluster`),]
+  down_anno_result_filter_data$rownames <- rownames(down_anno_result_filter_data)
+  cluster<- merge(cluster,down_anno_result_filter_data[,c("Description","rownames")],by="rownames")
+  cluster<-cluster[order(cluster$`kmeans$cluster`),]
+  
+  down_anno_result_filter$Description <- factor(down_anno_result_filter$Description,levels=cluster$Description)
+  down_anno_result_filter <- merge(down_anno_result_filter,cluster[,c(2,3)],by="Description")
+  
+  colnames(down_anno_result_filter)[4]<-"kmeans"
+  p<- ggplot(down_anno_result_filter, aes(x=tissue, y=Description, fill=p.adjust)) +
     geom_tile()+
     scale_fill_gradient2(low="#a8d8ea", high="#990033",mid = "#ffffd2")+
-    theme(axis.text.x = element_text(angle=90, vjust=0.5),axis.text = element_text(size = 12)) +
-    labs(title = paste(antibody,"down"),x=NULL, y=NULL, fill="-log10(p.adjust)")+theme_bw()
-  ggsave(paste0("result/all/diff/",antibody,"/bins_promoter_decrease_GO_heatmap.png"),width = 10,height = 15,type="cairo")
+    facet_grid(rows = vars(kmeans),space="free_y",scales="free_y")+
+    theme_bw()+labs(title = paste(antibody,"down"),x=NULL, y=NULL, fill="-log10(p.adjust)")+
+    theme(axis.text.x = element_text(angle=90, vjust=0.5),axis.text = element_text(size = 15))
+  
+  ggsave(paste0("result/all/diff/",antibody,"/bins_promoter_decrease_GO_heatmap.png"),p,width = 15,height = 20,type="cairo")
   
 }
-
-
+# 27ac up>= 6  down>=5
+# 4me3 up>= 8  down>=6
 
 
 

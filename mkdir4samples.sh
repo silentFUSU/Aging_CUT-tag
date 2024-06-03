@@ -1,5 +1,5 @@
 tissue=$1
-antibodys=(H3K27me3 H3K36me3 H3K27ac H3K9me3 H3K4me3 H3K4me1 H4K16ac)
+antibodys=(H3K27me3 H3K36me3 H3K27ac H3K9me3 H3K4me3 H3K4me1)
 dirs=(bam bed bw)
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 

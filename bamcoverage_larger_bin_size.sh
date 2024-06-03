@@ -2,7 +2,7 @@ data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 # tissues=(brain liver kidney colon testis)
 # tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow)
-tissues=(heart thymus)
+tissues=(bladder aorta tongue)
 antibodys=(H3K36me3 H3K27me3 H3K9me3)
 ref=mm10
 for tissue in ${tissues[@]}

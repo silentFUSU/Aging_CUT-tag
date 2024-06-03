@@ -15,15 +15,21 @@ library(clusterProfiler)
 library(ggrepel)
 library(tidyr)
 library(patchwork)
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols)
+}
 tissues = c("brain","Hip","liver","testis","kidney",
             "lung","bonemarrow","muscle","thymus","heart",
             "spleen","colon","cecum","ileum","pancreas")
-antibody <- "H3K27me3"
+antibody <- "H3K9me3"
 p_list <- list()
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
-  out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_10kb_bins_overlap_peaks_diff_after_remove_batch_effect.csv"))
+  out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_10kb_bins_diff_after_remove_batch_effect.csv"))
   colour<- list(c("grey"),c("grey","red"),c("blue","grey","red"))
+  if(tissue=="brain") tissue<-"FC"
   p_list[[i]]<-ggplot(
     # 数据、映射、颜色
     out, aes(x = `LogFC.old.young`, y = -log10(`FDR.old.young`))) +
@@ -48,12 +54,10 @@ for(i in c(1:length(tissues))){
     # xlim(-3,3)+
     # 图例
     theme_bw()+
-    theme(text = element_text(size = 30))
+    theme(text = element_text(size = 30))+
+    annotate("text", x = min(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Significant_bar=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Significant_bar=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
 }
-plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
-  
-  patchwork::wrap_plots(master_list_with_plots, 
-                        nrow = no_of_rows, ncol = no_of_cols)
-}
+
 combined_plot <- plot_a_list(p_list, 3, 5)
-ggsave(paste0("result/all/diff/",antibody,"/all_tissue_bins_overlap_peaks_valcono_plot.png"),combined_plot,height = 30,width = 30,type="cairo")
+ggsave(paste0("result/all/diff/",antibody,"/all_tissue_bins_valcono_plot.png"),combined_plot,height = 30,width = 30,type="cairo")

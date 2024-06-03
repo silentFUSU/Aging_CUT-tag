@@ -17,11 +17,22 @@ library(limma)
 library(dplyr)
 library(reshape2)
 
-tissues <- c("spleen","testis","colon","kidney","lung","liver","muscle","Hip","cecum","bonemarrow","brain")
-tissues <- c("bonemarrow")
-tissues <- c("ileum", "heart", "thymus")
-
+# tissues <- c("spleen","testis","colon","kidney","lung","liver","muscle","Hip","cecum","bonemarrow","brain")
+# tissues <- c("bonemarrow")
+# tissues <- c("ileum", "heart", "thymus")
+tissues <- c("brain","Hip","lung","muscle","heart",
+             "skin","aorta","kidney","thymus","bladder",
+             "bonemarrow","liver","testis","spleen","colon",
+             "cecum","tongue","stomach","ileum","pancreas")
+# tissues <- c("aorta","tongue")
+# tissues <- c("bladder")
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols)
+}
 bin_size="10kb"
+plist<-list()
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   # peak_preprocess_bin_level(tissue,"H3K27me3","10kb")
@@ -34,7 +45,8 @@ for(i in c(1:length(tissues))){
   # logFC <- logFC[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05),]
   # cor(logFC$logFC_H3K27me3,logFC$logFC_H3K9me3,method = c("pearson"),use = "complete.obs")
   logFC_sig <- logFC[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05),]
-  ggplot() +  
+  if(tissue=="brain") tissue<-"FC"
+  plist[[i]] <- ggplot() +  
     geom_point(data=logFC, mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "grey",alpha=0.5) +  
     geom_point(data=logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),], mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "#f6416c")+
     geom_point(data=logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),], mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "#00b8a9")+
@@ -42,6 +54,7 @@ for(i in c(1:length(tissues))){
     geom_point(data=logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),], mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "#48466d")+
     geom_hline(yintercept = 0, color = "red") +  
     geom_vline(xintercept = 0, color = "red") +
+    ggtitle(tissue)+
     coord_cartesian(xlim = c(-2, 2), ylim = c(-10, 10))+
     labs(x="log2(old/young) H3K9me3",
          y="log2(old/young) H3K27me3") +
@@ -50,22 +63,27 @@ for(i in c(1:length(tissues))){
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),])),x=-1, y=-10,colour="#ff9a00",size=5)+
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),])),x=-1, y=10,colour="#f6416c",size=5)+
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),])),x=1, y=-10,colour="#48466d",size=5)
-  dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
-  ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
-  dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/")) 
-  write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")], 
-              file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"), 
-              sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")], 
-              file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_second_quadrant.bed"), 
-              sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")], 
-              file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_third_quadrant.bed"), 
-              sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")], 
-              file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"), 
-              sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  # dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
+  # ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
+  # dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/"))
+  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
+  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"),
+  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
+  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_second_quadrant.bed"),
+  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
+  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_third_quadrant.bed"),
+  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
+  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"),
+  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
+combined_plot <- plot_a_list(plist, 4, 5)
+# dir.create("result/all/H3K27me3_H3K9me3")
+ggsave("result/all/H3K27me3_H3K9me3/all_tissue_H3K27me3_H3K9me3.png",combined_plot,width = 25,height = 20,type="cairo")
+
+
 tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus")
 peaks_list <-list(second =list(),fourth=list())
 GO_database <- 'org.Mm.eg.db'

@@ -1,0 +1,978 @@
+Using 16 threads for Baum-Welch training
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/transitions_15.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/emissions_15.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/emissions_15.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/emissions_15.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/transitions_15.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/transitions_15.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/model_15.txt
+ Iteration  Estimated Log Likelihood     Change    Total Time (secs)
+         1            -233281028.637          -                 21.0
+         2            -217932991.348 15348037.290                 38.7
+         3            -214382691.729 3550299.619                 55.5
+         4            -212207567.488 2175124.241                 72.6
+         5            -210678036.863 1529530.625                 89.5
+         6            -209564206.662 1113830.201                104.7
+         7            -208712957.794 851248.868                117.0
+         8            -208033229.085 679728.709                129.3
+         9            -207470080.744 563148.341                141.3
+        10            -206984610.635 485470.109                153.0
+        11            -206552732.706 431877.929                164.8
+        12            -206163620.460 389112.246                176.3
+        13            -205809555.396 354065.064                187.9
+        14            -205479237.076 330318.320                200.6
+        15            -205161765.098 317471.978                212.1
+        16            -204859424.929 302340.169                224.2
+        17            -204590771.846 268653.083                235.8
+        18            -204371027.420 219744.426                247.8
+        19            -204198663.658 172363.761                259.5
+        20            -204062434.125 136229.533                271.4
+        21            -203950883.310 111550.816                283.5
+        22            -203855435.155  95448.155                295.3
+        23            -203770199.462  85235.693                306.9
+        24            -203691096.445  79103.017                318.2
+        25            -203615096.667  75999.778                329.6
+        26            -203539701.494  75395.173                341.2
+        27            -203462603.928  77097.566                352.4
+        28            -203381441.982  81161.946                363.6
+        29            -203293514.469  87927.513                374.9
+        30            -203195346.262  98168.207                386.5
+        31            -203082281.909 113064.353                398.0
+        32            -202948997.219 133284.691                409.6
+        33            -202792113.244 156883.975                421.7
+        34            -202614170.387 177942.856                433.5
+        35            -202425026.220 189144.167                445.3
+        36            -202237917.449 187108.772                457.0
+        37            -202063712.587 174204.861                469.6
+        38            -201907627.736 156084.851                481.3
+        39            -201770427.440 137200.296                492.9
+        40            -201653017.549 117409.890                504.5
+        41            -201555974.454  97043.096                516.1
+        42            -201476755.440  79219.013                527.7
+        43            -201411003.626  65751.815                539.1
+        44            -201354857.081  56146.545                551.4
+        45            -201305614.533  49242.548                563.2
+        46            -201261497.137  44117.395                575.0
+        47            -201221344.661  40152.476                586.7
+        48            -201184398.606  36946.055                598.2
+        49            -201150153.433  34245.174                609.9
+        50            -201118257.885  31895.548                621.4
+        51            -201088455.748  29802.137                633.3
+        52            -201060552.280  27903.468                644.8
+        53            -201034394.564  26157.716                656.6
+        54            -201009858.544  24536.019                667.9
+        55            -200986840.151  23018.393                680.2
+        56            -200965248.832  21591.319                692.4
+        57            -200945003.797  20245.035                703.8
+        58            -200926031.287  18972.511                715.4
+        59            -200908262.722  17768.565                727.1
+        60            -200891633.400  16629.322                740.1
+        61            -200876082.473  15550.927                753.0
+        62            -200861554.527  14527.946                764.4
+        63            -200848002.206  13552.321                776.5
+        64            -200835387.151  12615.054                789.1
+        65            -200823676.732  11710.419                801.0
+        66            -200812838.156  10838.576                813.1
+        67            -200802834.566  10003.590                825.3
+        68            -200793625.456   9209.110                836.7
+        69            -200785169.630   8455.826                848.4
+        70            -200777426.327   7743.303                859.4
+        71            -200770353.112   7073.215                871.7
+        72            -200763905.029   6448.083                883.2
+        73            -200758036.274   5868.755                895.3
+        74            -200752701.677   5334.597                907.8
+        75            -200747857.288   4844.390                920.6
+        76            -200743460.835   4396.452                933.4
+        77            -200739471.960   3988.876                945.8
+        78            -200735852.695   3619.264                958.5
+        79            -200732567.730   3284.965                971.0
+        80            -200729584.566   2983.164                983.8
+        81            -200726873.462   2711.104                996.6
+        82            -200724407.820   2465.642               1008.3
+        83            -200722163.377   2244.442               1020.1
+        84            -200720118.518   2044.859               1032.0
+        85            -200718253.934   1864.585               1043.7
+        86            -200716552.395   1701.539               1055.4
+        87            -200714998.525   1553.869               1067.2
+        88            -200713578.587   1419.939               1078.9
+        89            -200712280.278   1298.309               1090.5
+        90            -200711092.558   1187.720               1102.1
+        91            -200710005.486   1087.072               1114.1
+        92            -200709010.088    995.398               1125.6
+        93            -200708098.237    911.852               1137.3
+        94            -200707262.510    835.727               1149.2
+        95            -200706496.276    766.234               1161.0
+        96            -200705793.356    702.920               1173.4
+        97            -200705148.145    645.210               1184.9
+        98            -200704555.515    592.630               1196.8
+        99            -200704010.761    544.755               1208.9
+       100            -200703509.586    501.174               1221.1
+       101            -200703048.037    461.549               1233.4
+       102            -200702622.493    425.544               1246.3
+       103            -200702229.633    392.860               1258.8
+       104            -200701866.411    363.222               1270.4
+       105            -200701530.031    336.380               1282.0
+       106            -200701217.927    312.104               1293.9
+       107            -200700927.740    290.187               1305.9
+       108            -200700657.303    270.438               1317.4
+       109            -200700404.619    252.684               1329.8
+       110            -200700167.829    236.790               1342.0
+       111            -200699945.287    222.542               1354.0
+       112            -200699735.403    209.883               1365.9
+       113            -200699536.723    198.680               1378.0
+       114            -200699347.871    188.852               1390.2
+       115            -200699167.764    180.107               1401.7
+       116            -200698995.188    172.577               1413.8
+       117            -200698829.108    166.079               1425.6
+       118            -200698668.583    160.525               1437.2
+       119            -200698512.758    155.825               1448.8
+       120            -200698360.865    151.893               1460.6
+       121            -200698212.230    148.635               1472.2
+       122            -200698066.260    145.970               1483.7
+       123            -200697922.430    143.830               1495.5
+       124            -200697780.366    142.064               1507.0
+       125            -200697639.713    140.653               1518.7
+       126            -200697500.220    139.493               1530.3
+       127            -200697361.717    138.504               1542.2
+       128            -200697224.103    137.614               1554.4
+       129            -200697087.347    136.755               1566.3
+       130            -200696951.462    135.885               1578.0
+       131            -200696816.561    134.901               1589.7
+       132            -200696682.749    133.812               1601.4
+       133            -200696550.184    132.565               1613.4
+       134            -200696419.065    131.119               1625.7
+       135            -200696289.603    129.461               1637.7
+       136            -200696162.035    127.569               1649.9
+       137            -200696036.609    125.426               1662.0
+       138            -200695913.584    123.025               1674.2
+       139            -200695793.217    120.367               1686.5
+       140            -200695675.771    117.446               1698.9
+       141            -200695561.481    114.290               1711.6
+       142            -200695450.561    110.920               1724.1
+       143            -200695343.197    107.365               1736.5
+       144            -200695239.542    103.655               1748.8
+       145            -200695139.727     99.815               1761.4
+       146            -200695043.861     95.866               1774.2
+       147            -200694952.022     91.839               1787.5
+       148            -200694864.236     87.786               1800.7
+       149            -200694780.454     83.781               1813.8
+       150            -200694700.548     79.907               1826.7
+       151            -200694624.312     76.236               1838.9
+       152            -200694551.486     72.826               1851.5
+       153            -200694481.773     69.713               1864.1
+       154            -200694414.855     66.918               1876.4
+       155            -200694350.395     64.460               1888.9
+       156            -200694288.040     62.355               1900.4
+       157            -200694227.404     60.636               1911.9
+       158            -200694168.056     59.348               1923.4
+       159            -200694109.504     58.551               1935.6
+       160            -200694051.177     58.328               1947.1
+       161            -200693992.385     58.792               1959.2
+       162            -200693932.304     60.081               1971.1
+       163            -200693870.028     62.276               1984.0
+       164            -200693804.773     65.255               1997.2
+       165            -200693736.118     68.654               2009.8
+       166            -200693663.912     72.207               2022.0
+       167            -200693587.862     76.050               2034.6
+       168            -200693507.396     80.466               2046.9
+       169            -200693422.074     85.322               2058.8
+       170            -200693332.084     89.990               2070.9
+       171            -200693237.991     94.093               2083.7
+       172            -200693139.828     98.163               2096.5
+       173            -200693036.676    103.151               2109.1
+       174            -200692926.710    109.967               2122.4
+       175            -200692807.606    119.103               2135.0
+       176            -200692678.512    129.095               2147.2
+       177            -200692541.316    137.196               2159.8
+       178            -200692396.957    144.358               2172.0
+       179            -200692244.412    152.545               2185.2
+       180            -200692082.835    161.578               2199.2
+       181            -200691912.069    170.766               2211.7
+       182            -200691731.287    180.782               2223.9
+       183            -200691540.196    191.091               2237.6
+       184            -200691340.036    200.161               2249.3
+       185            -200691132.083    207.952               2261.3
+       186            -200690916.689    215.394               2273.9
+       187            -200690693.994    222.695               2286.0
+       188            -200690464.489    229.505               2297.9
+       189            -200690229.107    235.382               2309.7
+       190            -200689989.313    239.794               2321.9
+       191            -200689746.716    242.597               2333.7
+       192            -200689502.304    244.412               2345.9
+       193            -200689256.252    246.051               2358.0
+       194            -200689008.287    247.965               2370.2
+       195            -200688757.985    250.302               2382.3
+       196            -200688504.685    253.300               2394.1
+       197            -200688247.133    257.552               2406.5
+       198            -200687983.388    263.745               2418.8
+       199            -200687711.006    272.382               2431.3
+       200            -200687427.100    283.906               2443.5
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/Hip_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/bonemarrow_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/brain_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/cecum_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/colon_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/heart_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/ileum_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/kidney_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/liver_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/lung_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/muscle_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/pancreas_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/spleen_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/stomach_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/testis_young2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_old2_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young1_15_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/thymus_young2_15_RefSeqTSS_neighborhood.svg
+Warning could not automatically open in a browser /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/15/webpage_15.html
