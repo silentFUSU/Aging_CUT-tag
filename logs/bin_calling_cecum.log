@@ -1,0 +1,1850 @@
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX312_S26_L002.nodup.bam                      ||
+||                           o LLX318_S52_L003.nodup.bam                      ||
+||                           o LLX326_S95_L001.nodup.bam                      ||
+||                           o LLX332_S97_L001.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K27me3_10kb_bins.counts                        ||
+||                 Summary : H3K27me3_10kb_bins.counts.summary                ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX312_S26_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23425017                                             ||
+||    Successfully assigned alignments : 21902274 (93.5%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX318_S52_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22327689                                             ||
+||    Successfully assigned alignments : 20776940 (93.1%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX326_S95_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21038505                                             ||
+||    Successfully assigned alignments : 19532288 (92.8%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX332_S97_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27948488                                             ||
+||    Successfully assigned alignments : 25648145 (91.8%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/Hip/H3K27me3/H3K27me3_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX309_S159_L002.nodup.bam                     ||
+||                           o LLX315_S51_L003.nodup.bam                      ||
+||                           o LLX323_S54_L002.nodup.bam                      ||
+||                           o LLX329_S57_L002.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K9me3_10kb_bins.counts                         ||
+||                 Summary : H3K9me3_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX309_S159_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27829537                                             ||
+||    Successfully assigned alignments : 25346019 (91.1%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX315_S51_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 18321789                                             ||
+||    Successfully assigned alignments : 16840913 (91.9%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX323_S54_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26108886                                             ||
+||    Successfully assigned alignments : 23928206 (91.6%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX329_S57_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27518652                                             ||
+||    Successfully assigned alignments : 25097504 (91.2%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/Hip/H3K9me3/H3K9me3_10kb_  ||
+|| bins.counts.summary"                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX310_S48_L003.nodup.bam                      ||
+||                           o LLX316_S52_L003.nodup.bam                      ||
+||                           o LLX324_S55_L002.nodup.bam                      ||
+||                           o LLX330_S58_L002.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K36me3_10kb_bins.counts                        ||
+||                 Summary : H3K36me3_10kb_bins.counts.summary                ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX310_S48_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25966388                                             ||
+||    Successfully assigned alignments : 24613835 (94.8%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX316_S52_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21847871                                             ||
+||    Successfully assigned alignments : 20821673 (95.3%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX324_S55_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27986312                                             ||
+||    Successfully assigned alignments : 26474476 (94.6%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX330_S58_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 32038880                                             ||
+||    Successfully assigned alignments : 30310175 (94.6%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/Hip/H3K36me3/H3K36me3_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX311_S138_L001.nodup.bam                     ||
+||                           o LLX317_S51_L003.nodup.bam                      ||
+||                           o LLX325_S94_L001.nodup.bam                      ||
+||                           o LLX331_S96_L001.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K27ac_10kb_bins.counts                         ||
+||                 Summary : H3K27ac_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX311_S138_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35484713                                             ||
+||    Successfully assigned alignments : 33611389 (94.7%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX317_S51_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24713806                                             ||
+||    Successfully assigned alignments : 23474797 (95.0%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX325_S94_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27762995                                             ||
+||    Successfully assigned alignments : 26202116 (94.4%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX331_S96_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31404080                                             ||
+||    Successfully assigned alignments : 29561824 (94.1%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/Hip/H3K27ac/H3K27ac_10kb_  ||
+|| bins.counts.summary"                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX313_S49_L003.nodup.bam                      ||
+||                           o LLX319_S53_L003.nodup.bam                      ||
+||                           o LLX327_S56_L002.nodup.bam                      ||
+||                           o LLX333_S59_L002.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K4me1_10kb_bins.counts                         ||
+||                 Summary : H3K4me1_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX313_S49_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28323359                                             ||
+||    Successfully assigned alignments : 27169606 (95.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX319_S53_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29175620                                             ||
+||    Successfully assigned alignments : 27837627 (95.4%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX327_S56_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 32774281                                             ||
+||    Successfully assigned alignments : 31176496 (95.1%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX333_S59_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33448220                                             ||
+||    Successfully assigned alignments : 31796504 (95.1%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/Hip/H3K4me1/H3K4me1_10kb_  ||
+|| bins.counts.summary"                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX314_S50_L003.nodup.bam                      ||
+||                           o LLX320_S54_L003.nodup.bam                      ||
+||                           o LLX328_S3_L001.nodup.bam                       ||
+||                           o LLX334_S60_L002.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K4me3_10kb_bins.counts                         ||
+||                 Summary : H3K4me3_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX314_S50_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24260613                                             ||
+||    Successfully assigned alignments : 22740931 (93.7%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX320_S54_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26521700                                             ||
+||    Successfully assigned alignments : 24801437 (93.5%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX328_S3_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28272765                                             ||
+||    Successfully assigned alignments : 26055643 (92.2%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX334_S60_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35826772                                             ||
+||    Successfully assigned alignments : 33434847 (93.3%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/Hip/H3K4me3/H3K4me3_10kb_  ||
+|| bins.counts.summary"                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_062_S14_L001.nodup.bam                     ||
+||                           o HJC_068_S90_L002.nodup.bam                     ||
+||                           o HJC_076_S175_L001.nodup.bam                    ||
+||                           o HJC_082_S177_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : H3K27me3_10kb_bins.counts                        ||
+||                 Summary : H3K27me3_10kb_bins.counts.summary                ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_062_S14_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22807642                                             ||
+||    Successfully assigned alignments : 21541593 (94.4%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_068_S90_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21933863                                             ||
+||    Successfully assigned alignments : 20484400 (93.4%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_076_S175_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25259441                                             ||
+||    Successfully assigned alignments : 23977083 (94.9%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_082_S177_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27452431                                             ||
+||    Successfully assigned alignments : 25852198 (94.2%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27me3/H3K27me3_1  ||
+|| 0kb_bins.counts.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_059_S44_L002.nodup.bam                     ||
+||                           o HJC_065_S40_L001.nodup.bam                     ||
+||                           o HJC_073_S66_L002.nodup.bam                     ||
+||                           o HJC_079_S68_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K9me3_10kb_bins.counts                         ||
+||                 Summary : H3K9me3_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_059_S44_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26281645                                             ||
+||    Successfully assigned alignments : 23419723 (89.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_065_S40_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30897467                                             ||
+||    Successfully assigned alignments : 28371398 (91.8%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_073_S66_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27250348                                             ||
+||    Successfully assigned alignments : 25371742 (93.1%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_079_S68_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25859024                                             ||
+||    Successfully assigned alignments : 23928216 (92.5%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K9me3/H3K9me3_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_060_S38_L002.nodup.bam                     ||
+||                           o HJC_066_S40_L002.nodup.bam                     ||
+||                           o HJC_074_S42_L003.nodup.bam                     ||
+||                           o HJC_080_S69_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K36me3_10kb_bins.counts                        ||
+||                 Summary : H3K36me3_10kb_bins.counts.summary                ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_060_S38_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33357114                                             ||
+||    Successfully assigned alignments : 31357090 (94.0%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_066_S40_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29742188                                             ||
+||    Successfully assigned alignments : 27577238 (92.7%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_074_S42_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25997473                                             ||
+||    Successfully assigned alignments : 24624225 (94.7%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_080_S69_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28920634                                             ||
+||    Successfully assigned alignments : 27173876 (94.0%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K36me3/H3K36me3_1  ||
+|| 0kb_bins.counts.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_061_S39_L002.nodup.bam                     ||
+||                           o HJC_067_S41_L002.nodup.bam                     ||
+||                           o HJC_075_S5_L002.nodup.bam                      ||
+||                           o HJC_081_S19_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K27ac_10kb_bins.counts                         ||
+||                 Summary : H3K27ac_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_061_S39_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33709926                                             ||
+||    Successfully assigned alignments : 32092603 (95.2%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_067_S41_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30398537                                             ||
+||    Successfully assigned alignments : 28714775 (94.5%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_075_S5_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34645587                                             ||
+||    Successfully assigned alignments : 33009448 (95.3%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_081_S19_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27863553                                             ||
+||    Successfully assigned alignments : 26582755 (95.4%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/H3K27ac_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_063_S85_L001.nodup.bam                     ||
+||                           o HJC_069_S87_L001.nodup.bam                     ||
+||                           o HJC_077_S176_L001.nodup.bam                    ||
+||                           o HJC_083_S178_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : H3K4me1_10kb_bins.counts                         ||
+||                 Summary : H3K4me1_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_063_S85_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34091601                                             ||
+||    Successfully assigned alignments : 32587698 (95.6%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_069_S87_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29273431                                             ||
+||    Successfully assigned alignments : 28023357 (95.7%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_077_S176_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31144262                                             ||
+||    Successfully assigned alignments : 30053794 (96.5%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_083_S178_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33605221                                             ||
+||    Successfully assigned alignments : 32286448 (96.1%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/H3K4me1_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_064_S86_L001.nodup.bam                     ||
+||                           o HJC_070_S88_L001.nodup.bam                     ||
+||                           o HJC_078_S67_L002.nodup.bam                     ||
+||                           o HJC_084_S43_L003.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K4me3_10kb_bins.counts                         ||
+||                 Summary : H3K4me3_10kb_bins.counts.summary                 ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_064_S86_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35173771                                             ||
+||    Successfully assigned alignments : 32410491 (92.1%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_070_S88_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29265389                                             ||
+||    Successfully assigned alignments : 27277058 (93.2%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_078_S67_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29449691                                             ||
+||    Successfully assigned alignments : 27872344 (94.6%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_084_S43_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36689031                                             ||
+||    Successfully assigned alignments : 34574848 (94.2%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/H3K4me3_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_061_S39_L002.nodup.bam                     ||
+||                           o HJC_067_S41_L002.nodup.bam                     ||
+||                           o HJC_075_S5_L002.nodup.bam                      ||
+||                           o HJC_081_S19_L002.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K27ac_1kb_bins.counts                          ||
+||                 Summary : H3K27ac_1kb_bins.counts.summary                  ||
+||              Annotation : mm10_1kb_bins.saf (SAF)                          ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_1kb_bins.saf ...                                 ||
+||    Features : 2725532                                                      ||
+||    Meta-features : 2725532                                                 ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_061_S39_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33709926                                             ||
+||    Successfully assigned alignments : 27653006 (82.0%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_067_S41_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30398537                                             ||
+||    Successfully assigned alignments : 24711174 (81.3%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_075_S5_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34645587                                             ||
+||    Successfully assigned alignments : 27910383 (80.6%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_081_S19_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27863553                                             ||
+||    Successfully assigned alignments : 22874369 (82.1%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K27ac/H3K27ac_1kb  ||
+|| _bins.counts.summary"                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_063_S85_L001.nodup.bam                     ||
+||                           o HJC_069_S87_L001.nodup.bam                     ||
+||                           o HJC_077_S176_L001.nodup.bam                    ||
+||                           o HJC_083_S178_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : H3K4me1_1kb_bins.counts                          ||
+||                 Summary : H3K4me1_1kb_bins.counts.summary                  ||
+||              Annotation : mm10_1kb_bins.saf (SAF)                          ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_1kb_bins.saf ...                                 ||
+||    Features : 2725532                                                      ||
+||    Meta-features : 2725532                                                 ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_063_S85_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34091601                                             ||
+||    Successfully assigned alignments : 28994849 (85.0%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_069_S87_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29273431                                             ||
+||    Successfully assigned alignments : 25153469 (85.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_077_S176_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31144262                                             ||
+||    Successfully assigned alignments : 27163215 (87.2%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_083_S178_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33605221                                             ||
+||    Successfully assigned alignments : 28660541 (85.3%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me1/H3K4me1_1kb  ||
+|| _bins.counts.summary"                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_064_S86_L001.nodup.bam                     ||
+||                           o HJC_070_S88_L001.nodup.bam                     ||
+||                           o HJC_078_S67_L002.nodup.bam                     ||
+||                           o HJC_084_S43_L003.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K4me3_1kb_bins.counts                          ||
+||                 Summary : H3K4me3_1kb_bins.counts.summary                  ||
+||              Annotation : mm10_1kb_bins.saf (SAF)                          ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_1kb_bins.saf ...                                 ||
+||    Features : 2725532                                                      ||
+||    Meta-features : 2725532                                                 ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_064_S86_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35173771                                             ||
+||    Successfully assigned alignments : 28014167 (79.6%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_070_S88_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29265389                                             ||
+||    Successfully assigned alignments : 24006656 (82.0%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_078_S67_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29449691                                             ||
+||    Successfully assigned alignments : 24441455 (83.0%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_084_S43_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36689031                                             ||
+||    Successfully assigned alignments : 29479071 (80.3%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/cecum/H3K4me3/H3K4me3_1kb  ||
+|| _bins.counts.summary"                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ079_S68_L003.nodup.bam                      ||
+||                           o SZJ080_S69_L003.nodup.bam                      ||
+||                           o SZJ095_S59_L003.nodup.bam                      ||
+||                           o SZJ096_S60_L003.nodup.bam                      ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ079_S68_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25436041                                             ||
+||    Successfully assigned alignments : 24595373 (96.7%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ080_S69_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28896757                                             ||
+||    Successfully assigned alignments : 28041929 (97.0%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ095_S59_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35225089                                             ||
+||    Successfully assigned alignments : 34261736 (97.3%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ096_S60_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33305715                                             ||
+||    Successfully assigned alignments : 32424198 (97.4%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/testis/ATAC/ATAC_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ093_S30_L001.nodup.bam                      ||
+||                           o SZJ094_S31_L001.nodup.bam                      ||
+||                           o SZJ109_S1_L004.nodup.bam                       ||
+||                           o SZJ110_S2_L004.nodup.bam                       ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ093_S30_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27182188                                             ||
+||    Successfully assigned alignments : 26097859 (96.0%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ094_S31_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25151345                                             ||
+||    Successfully assigned alignments : 24180441 (96.1%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ109_S1_L004.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24093002                                             ||
+||    Successfully assigned alignments : 23167623 (96.2%)                     ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ110_S2_L004.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29222654                                             ||
+||    Successfully assigned alignments : 28098771 (96.2%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/colon/ATAC/ATAC_10kb  ||
+|| _bins.counts.summary"                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ111_S66_L002.nodup.bam                      ||
+||                           o SZJ112_S67_L002.nodup.bam                      ||
+||                           o SZJ133_S43_L001.nodup.bam                      ||
+||                           o SZJ134_S44_L001.nodup.bam                      ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ111_S66_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 38269942                                             ||
+||    Successfully assigned alignments : 36721192 (96.0%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ112_S67_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34112574                                             ||
+||    Successfully assigned alignments : 32733502 (96.0%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ133_S43_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25868896                                             ||
+||    Successfully assigned alignments : 24864584 (96.1%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ134_S44_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30691186                                             ||
+||    Successfully assigned alignments : 29453702 (96.0%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/kidney/ATAC/ATAC_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC029.nodup.bam                               ||
+||                           o HJC030.nodup.bam                               ||
+||                           o HJC043.nodup.bam                               ||
+||                           o HJC044.nodup.bam                               ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC029.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 61385196                                             ||
+||    Successfully assigned alignments : 58678082 (95.6%)                     ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC030.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 54575444                                             ||
+||    Successfully assigned alignments : 52262734 (95.8%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC043.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 43337182                                             ||
+||    Successfully assigned alignments : 41769334 (96.4%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC044.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34811894                                             ||
+||    Successfully assigned alignments : 33649028 (96.7%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/lung/ATAC/ATAC_10kb_  ||
+|| bins.counts.summary"                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX243_S26_L002.nodup.bam                      ||
+||                           o LLX244_S27_L002.nodup.bam                      ||
+||                           o LLX245_S88_L002.nodup.bam                      ||
+||                           o LLX246_S89_L002.nodup.bam                      ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX243_S26_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35742560                                             ||
+||    Successfully assigned alignments : 34346236 (96.1%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX244_S27_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34254223                                             ||
+||    Successfully assigned alignments : 32930154 (96.1%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX245_S88_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36396888                                             ||
+||    Successfully assigned alignments : 34713084 (95.4%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX246_S89_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36240654                                             ||
+||    Successfully assigned alignments : 34599234 (95.5%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/spleen/ATAC/ATAC_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o SZJ161.nodup.bam                               ||
+||                           o SZJ162.nodup.bam                               ||
+||                           o SZJ175.nodup.bam                               ||
+||                           o SZJ176.nodup.bam                               ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file SZJ161.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 40889748                                             ||
+||    Successfully assigned alignments : 39690021 (97.1%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ162.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 43540514                                             ||
+||    Successfully assigned alignments : 42194844 (96.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ175.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 38633426                                             ||
+||    Successfully assigned alignments : 37235079 (96.4%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ176.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 46994150                                             ||
+||    Successfully assigned alignments : 45414681 (96.6%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/pancreas/ATAC/ATAC_1  ||
+|| 0kb_bins.counts.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX275.nodup.bam                               ||
+||                           o LLX276.nodup.bam                               ||
+||                           o LLX277.nodup.bam                               ||
+||                           o LLX278.nodup.bam                               ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX275.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 67854340                                             ||
+||    Successfully assigned alignments : 65428838 (96.4%)                     ||
+||    Running time : 0.27 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX276.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 80625245                                             ||
+||    Successfully assigned alignments : 77801819 (96.5%)                     ||
+||    Running time : 0.32 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX277.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 59391705                                             ||
+||    Successfully assigned alignments : 57475934 (96.8%)                     ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX278.nodup.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 65115025                                             ||
+||    Successfully assigned alignments : 62971797 (96.7%)                     ||
+||    Running time : 0.23 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/muscle/ATAC/ATAC_10k  ||
+|| b_bins.counts.summary"                                                     ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX307_S49_L003.nodup.bam                      ||
+||                           o LLX308_S50_L003.nodup.bam                      ||
+||                           o LLX321_S74_L001.nodup.bam                      ||
+||                           o LLX322_S93_L004.nodup.bam                      ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX307_S49_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27444170                                             ||
+||    Successfully assigned alignments : 26424726 (96.3%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX308_S50_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25021374                                             ||
+||    Successfully assigned alignments : 23982914 (95.8%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX321_S74_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27198619                                             ||
+||    Successfully assigned alignments : 26114031 (96.0%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX322_S93_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30326357                                             ||
+||    Successfully assigned alignments : 29094851 (95.9%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/Hip/ATAC/ATAC_10kb_b  ||
+|| ins.counts.summary"                                                        ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_057_S83_L001.nodup.bam                     ||
+||                           o HJC_058_S84_L001.nodup.bam                     ||
+||                           o HJC_071_S173_L001.nodup.bam                    ||
+||                           o HJC_072_S174_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : ATAC_10kb_bins.counts                            ||
+||                 Summary : ATAC_10kb_bins.counts.summary                    ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_057_S83_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34787988                                             ||
+||    Successfully assigned alignments : 33361412 (95.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_058_S84_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36839736                                             ||
+||    Successfully assigned alignments : 35487669 (96.3%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_071_S173_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31516977                                             ||
+||    Successfully assigned alignments : 30280397 (96.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_072_S174_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30535269                                             ||
+||    Successfully assigned alignments : 29334776 (96.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/cecum/ATAC/ATAC_10kb  ||
+|| _bins.counts.summary"                                                      ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o HJC_057_S83_L001.nodup.bam                     ||
+||                           o HJC_058_S84_L001.nodup.bam                     ||
+||                           o HJC_071_S173_L001.nodup.bam                    ||
+||                           o HJC_072_S174_L001.nodup.bam                    ||
+||                                                                            ||
+||             Output file : ATAC_1kb_bins.counts                             ||
+||                 Summary : ATAC_1kb_bins.counts.summary                     ||
+||              Annotation : mm10_1kb_bins.saf (SAF)                          ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_1kb_bins.saf ...                                 ||
+||    Features : 2725532                                                      ||
+||    Meta-features : 2725532                                                 ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_057_S83_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34787988                                             ||
+||    Successfully assigned alignments : 30696609 (88.2%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_058_S84_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36839736                                             ||
+||    Successfully assigned alignments : 32614679 (88.5%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_071_S173_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31516977                                             ||
+||    Successfully assigned alignments : 27871363 (88.4%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_072_S174_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30535269                                             ||
+||    Successfully assigned alignments : 26910148 (88.1%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/cecum/ATAC/ATAC_1kb_  ||
+|| bins.counts.summary"                                                       ||
+||                                                                            ||
+\\============================================================================//
+

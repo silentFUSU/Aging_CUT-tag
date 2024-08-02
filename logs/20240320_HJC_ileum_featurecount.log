@@ -1,0 +1,214 @@
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 24 BAM files                                     ||
+||                           o HJC_093_S69_L001.nodup.bam                     ||
+||                           o HJC_094_S70_L001.nodup.bam                     ||
+||                           o HJC_095_S71_L001.nodup.bam                     ||
+||                           o HJC_096_S72_L001.nodup.bam                     ||
+||                           o HJC_097_S12_L001.nodup.bam                     ||
+||                           o HJC_098_S395_L003.nodup.bam                    ||
+||                           o HJC_099_S396_L003.nodup.bam                    ||
+||                           o HJC_100_S397_L003.nodup.bam                    ||
+||                           o HJC_101_S398_L003.nodup.bam                    ||
+||                           o HJC_102_S399_L003.nodup.bam                    ||
+||                           o HJC_103_S13_L001.nodup.bam                     ||
+||                           o HJC_104_S290_L001.nodup.bam                    ||
+||                           o HJC_105_S50_L001.nodup.bam                     ||
+||                           o HJC_106_S51_L001.nodup.bam                     ||
+||                           o HJC_107_S25_L004.nodup.bam                     ||
+||                           o HJC_108_S38_L003.nodup.bam                     ||
+||                           o HJC_110_S52_L001.nodup.bam                     ||
+||                           o HJC_111_S53_L001.nodup.bam                     ||
+||                           o HJC_112_S26_L004.nodup.bam                     ||
+||                           o HJC_113_S54_L001.nodup.bam                     ||
+||                           o HJC_114_S39_L003.nodup.bam                     ||
+||                           o HJC_116_S40_L003.nodup.bam                     ||
+||                           o HJC_119_S27_L004.nodup.bam                     ||
+||                           o HJC_120_S28_L004.nodup.bam                     ||
+||                                                                            ||
+||             Output file : merge-10kb_bins.counts                           ||
+||                 Summary : merge-10kb_bins.counts.summary                   ||
+||              Annotation : mm10_10kb_bins.saf (SAF)                         ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file mm10_10kb_bins.saf ...                                ||
+||    Features : 272564                                                       ||
+||    Meta-features : 272564                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file HJC_093_S69_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 4455051                                              ||
+||    Successfully assigned alignments : 3918207 (87.9%)                      ||
+||    Running time : 0.02 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_094_S70_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 5224941                                              ||
+||    Successfully assigned alignments : 4901706 (93.8%)                      ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_095_S71_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 4582156                                              ||
+||    Successfully assigned alignments : 4353755 (95.0%)                      ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_096_S72_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 5029408                                              ||
+||    Successfully assigned alignments : 4806788 (95.6%)                      ||
+||    Running time : 0.02 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_097_S12_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 7061969                                              ||
+||    Successfully assigned alignments : 6697069 (94.8%)                      ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_098_S395_L003.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 6051798                                              ||
+||    Successfully assigned alignments : 5551765 (91.7%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_099_S396_L003.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 7895951                                              ||
+||    Successfully assigned alignments : 7267586 (92.0%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_100_S397_L003.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 8836280                                              ||
+||    Successfully assigned alignments : 8300677 (93.9%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_101_S398_L003.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 8147489                                              ||
+||    Successfully assigned alignments : 7735968 (94.9%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_102_S399_L003.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 7066197                                              ||
+||    Successfully assigned alignments : 6637066 (93.9%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_103_S13_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 7680989                                              ||
+||    Successfully assigned alignments : 7366571 (95.9%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_104_S290_L001.nodup.bam...                            ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 4813560                                              ||
+||    Successfully assigned alignments : 4524263 (94.0%)                      ||
+||    Running time : 0.02 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_105_S50_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26856766                                             ||
+||    Successfully assigned alignments : 25797672 (96.1%)                     ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_106_S51_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33276697                                             ||
+||    Successfully assigned alignments : 32047640 (96.3%)                     ||
+||    Running time : 0.26 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_107_S25_L004.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24837035                                             ||
+||    Successfully assigned alignments : 23929689 (96.3%)                     ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_108_S38_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25754474                                             ||
+||    Successfully assigned alignments : 24784981 (96.2%)                     ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_110_S52_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25605255                                             ||
+||    Successfully assigned alignments : 24471284 (95.6%)                     ||
+||    Running time : 0.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_111_S53_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22872774                                             ||
+||    Successfully assigned alignments : 21729523 (95.0%)                     ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_112_S26_L004.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 19994021                                             ||
+||    Successfully assigned alignments : 18823717 (94.1%)                     ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_113_S54_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25213819                                             ||
+||    Successfully assigned alignments : 24110171 (95.6%)                     ||
+||    Running time : 0.12 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_114_S39_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 18286258                                             ||
+||    Successfully assigned alignments : 16814263 (92.0%)                     ||
+||    Running time : 0.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_116_S40_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22418668                                             ||
+||    Successfully assigned alignments : 21024407 (93.8%)                     ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_119_S27_L004.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30216708                                             ||
+||    Successfully assigned alignments : 28977570 (95.9%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file HJC_120_S28_L004.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26815103                                             ||
+||    Successfully assigned alignments : 25016710 (93.3%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/raw_data//20240320_HJC_all_ileum/  ||
+|| merge-10kb_bins.counts.summary"                                            ||
+||                                                                            ||
+\\============================================================================//
+

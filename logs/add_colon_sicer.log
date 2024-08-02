@@ -1,0 +1,480 @@
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K27me3/bed/merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K27me3/bed/merge-W1000-G3000-E100.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 16 BAM files                                     ||
+||                           o LLX148_S7_L003.nodup.bam                       ||
+||                           o LLX154_S2_L001.nodup.bam                       ||
+||                           o LLX160_S13_L001.nodup.bam                      ||
+||                           o LLX166_S36_L002.nodup.bam                      ||
+||                           o LLX180_S271_L001.nodup.bam                     ||
+||                           o LLX186_S118_L002.nodup.bam                     ||
+||                           o LLX192_S68_L001.nodup.bam                      ||
+||                           o LLX198_S33_L001.nodup.bam                      ||
+||                           o SZJ081_S70_L003.nodup.bam                      ||
+||                           o SZJ087_S72_L003.nodup.bam                      ||
+||                           o SZJ097_S12_L003.nodup.bam                      ||
+||                           o SZJ103_S32_L001.nodup.bam                      ||
+||                           o LLX204_S47_L002.nodup.bam                      ||
+||                           o LLX210_S65_L003.nodup.bam                      ||
+||                           o LLX216_S1_L001.nodup.bam                       ||
+||                           o LLX222_S3_L001.nodup.bam                       ||
+||                                                                            ||
+||             Output file : merge-W1000-G3000-E100.counts                    ||
+||                 Summary : merge-W1000-G3000-E100.counts.summary            ||
+||              Annotation : merge-W1000-G3000-E100.saf (SAF)                 ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file merge-W1000-G3000-E100.saf ...                        ||
+||    Features : 30496                                                        ||
+||    Meta-features : 30496                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX148_S7_L003.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34636341                                             ||
+||    Successfully assigned alignments : 27268356 (78.7%)                     ||
+||    Running time : 0.32 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX154_S2_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22994719                                             ||
+||    Successfully assigned alignments : 15716953 (68.4%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX160_S13_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 17870882                                             ||
+||    Successfully assigned alignments : 13865066 (77.6%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX166_S36_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20295045                                             ||
+||    Successfully assigned alignments : 13551604 (66.8%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX180_S271_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 18220678                                             ||
+||    Successfully assigned alignments : 13493695 (74.1%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX186_S118_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 19725932                                             ||
+||    Successfully assigned alignments : 14200254 (72.0%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX192_S68_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28459647                                             ||
+||    Successfully assigned alignments : 21780393 (76.5%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX198_S33_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25243967                                             ||
+||    Successfully assigned alignments : 17821847 (70.6%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ081_S70_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 20950446                                             ||
+||    Successfully assigned alignments : 14319824 (68.4%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ087_S72_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22421256                                             ||
+||    Successfully assigned alignments : 14984861 (66.8%)                     ||
+||    Running time : 0.21 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ097_S12_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21805814                                             ||
+||    Successfully assigned alignments : 15118168 (69.3%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ103_S32_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28728246                                             ||
+||    Successfully assigned alignments : 18862980 (65.7%)                     ||
+||    Running time : 0.21 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX204_S47_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23783067                                             ||
+||    Successfully assigned alignments : 19519906 (82.1%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX210_S65_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24647788                                             ||
+||    Successfully assigned alignments : 19929978 (80.9%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX216_S1_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22407440                                             ||
+||    Successfully assigned alignments : 18501781 (82.6%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX222_S3_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22456557                                             ||
+||    Successfully assigned alignments : 18363520 (81.8%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K27me3/merge-W1000-  ||
+|| G3000-E100.counts.summary"                                                 ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K9me3/bed/merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K9me3/bed/merge-W1000-G3000-E100.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 16 BAM files                                     ||
+||                           o LLX145_S3_L001.nodup.bam                       ||
+||                           o LLX151_S1_L001.nodup.bam                       ||
+||                           o LLX157_S102_L003.nodup.bam                     ||
+||                           o LLX163_S105_L003.nodup.bam                     ||
+||                           o LLX177_S270_L001.nodup.bam                     ||
+||                           o LLX183_S273_L001.nodup.bam                     ||
+||                           o LLX189_S33_L001.nodup.bam                      ||
+||                           o LLX195_S76_L003.nodup.bam                      ||
+||                           o SZJ082_S92_L001.nodup.bam                      ||
+||                           o SZJ088_S91_L004.nodup.bam                      ||
+||                           o SZJ098_S10_L002.nodup.bam                      ||
+||                           o SZJ104_S33_L001.nodup.bam                      ||
+||                           o LLX201_S44_L002.nodup.bam                      ||
+||                           o LLX207_S63_L003.nodup.bam                      ||
+||                           o LLX213_S234_L001.nodup.bam                     ||
+||                           o LLX219_S238_L001.nodup.bam                     ||
+||                                                                            ||
+||             Output file : merge-W1000-G3000-E100.counts                    ||
+||                 Summary : merge-W1000-G3000-E100.counts.summary            ||
+||              Annotation : merge-W1000-G3000-E100.saf (SAF)                 ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file merge-W1000-G3000-E100.saf ...                        ||
+||    Features : 67291                                                        ||
+||    Meta-features : 67291                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX145_S3_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26504237                                             ||
+||    Successfully assigned alignments : 17121191 (64.6%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX151_S1_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22410631                                             ||
+||    Successfully assigned alignments : 14168239 (63.2%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX157_S102_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29055952                                             ||
+||    Successfully assigned alignments : 19299469 (66.4%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX163_S105_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26073708                                             ||
+||    Successfully assigned alignments : 17318881 (66.4%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX177_S270_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24986155                                             ||
+||    Successfully assigned alignments : 16220143 (64.9%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX183_S273_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23993958                                             ||
+||    Successfully assigned alignments : 15150330 (63.1%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX189_S33_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 19226608                                             ||
+||    Successfully assigned alignments : 12220500 (63.6%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX195_S76_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 17729308                                             ||
+||    Successfully assigned alignments : 10765012 (60.7%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ082_S92_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 16511299                                             ||
+||    Successfully assigned alignments : 9908431 (60.0%)                      ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ088_S91_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 14738459                                             ||
+||    Successfully assigned alignments : 8749026 (59.4%)                      ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ098_S10_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21756663                                             ||
+||    Successfully assigned alignments : 13817240 (63.5%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ104_S33_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25379033                                             ||
+||    Successfully assigned alignments : 15486574 (61.0%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX201_S44_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27268046                                             ||
+||    Successfully assigned alignments : 17621923 (64.6%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX207_S63_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22588053                                             ||
+||    Successfully assigned alignments : 14996786 (66.4%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX213_S234_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28294041                                             ||
+||    Successfully assigned alignments : 18320857 (64.8%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX219_S238_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27120961                                             ||
+||    Successfully assigned alignments : 17592927 (64.9%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K9me3/merge-W1000-G  ||
+|| 3000-E100.counts.summary"                                                  ||
+||                                                                            ||
+\\============================================================================//
+
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K36me3/bed/merge-W1000-G3000-E100.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K36me3/bed/merge-W1000-G3000-E100.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 16 BAM files                                     ||
+||                           o LLX146_S9_L004.nodup.bam                       ||
+||                           o LLX152_S10_L003.nodup.bam                      ||
+||                           o LLX158_S103_L003.nodup.bam                     ||
+||                           o LLX164_S106_L003.nodup.bam                     ||
+||                           o LLX178_S44_L004.nodup.bam                      ||
+||                           o LLX184_S116_L002.nodup.bam                     ||
+||                           o LLX190_S66_L001.nodup.bam                      ||
+||                           o LLX196_S31_L001.nodup.bam                      ||
+||                           o SZJ084_S71_L003.nodup.bam                      ||
+||                           o SZJ090_S73_L003.nodup.bam                      ||
+||                           o SZJ100_S43_L002.nodup.bam                      ||
+||                           o SZJ106_S11_L002.nodup.bam                      ||
+||                           o LLX202_S45_L002.nodup.bam                      ||
+||                           o LLX208_S35_L001.nodup.bam                      ||
+||                           o LLX214_S64_L001.nodup.bam                      ||
+||                           o LLX220_S2_L001.nodup.bam                       ||
+||                                                                            ||
+||             Output file : merge-W1000-G3000-E100.counts                    ||
+||                 Summary : merge-W1000-G3000-E100.counts.summary            ||
+||              Annotation : merge-W1000-G3000-E100.saf (SAF)                 ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file merge-W1000-G3000-E100.saf ...                        ||
+||    Features : 35253                                                        ||
+||    Meta-features : 35253                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX146_S9_L004.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33117431                                             ||
+||    Successfully assigned alignments : 21886187 (66.1%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX152_S10_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28590042                                             ||
+||    Successfully assigned alignments : 18720500 (65.5%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX158_S103_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30890377                                             ||
+||    Successfully assigned alignments : 19797408 (64.1%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX164_S106_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26779238                                             ||
+||    Successfully assigned alignments : 15737380 (58.8%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX178_S44_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24577568                                             ||
+||    Successfully assigned alignments : 18852405 (76.7%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX184_S116_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26720190                                             ||
+||    Successfully assigned alignments : 20102536 (75.2%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX190_S66_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28072205                                             ||
+||    Successfully assigned alignments : 21309815 (75.9%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX196_S31_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30846748                                             ||
+||    Successfully assigned alignments : 22726515 (73.7%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ084_S71_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24763834                                             ||
+||    Successfully assigned alignments : 17736434 (71.6%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ090_S73_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25719792                                             ||
+||    Successfully assigned alignments : 17247287 (67.1%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ100_S43_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21970362                                             ||
+||    Successfully assigned alignments : 15809594 (72.0%)                     ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ106_S11_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31815194                                             ||
+||    Successfully assigned alignments : 21804713 (68.5%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX202_S45_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25814272                                             ||
+||    Successfully assigned alignments : 20183753 (78.2%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX208_S35_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 17714471                                             ||
+||    Successfully assigned alignments : 13879302 (78.4%)                     ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX214_S64_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25602941                                             ||
+||    Successfully assigned alignments : 20576080 (80.4%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX220_S2_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25194866                                             ||
+||    Successfully assigned alignments : 20045893 (79.6%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K36me3/merge-W1000-  ||
+|| G3000-E100.counts.summary"                                                 ||
+||                                                                            ||
+\\============================================================================//
+

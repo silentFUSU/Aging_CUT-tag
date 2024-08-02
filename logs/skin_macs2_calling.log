@@ -1,0 +1,9 @@
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/skin/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/skin/H3K27ac/bed/H3K27ac_macs_narrowpeak.saf
+done
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/skin/H3K4me3/bed/H3K4me3_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/skin/H3K4me3/bed/H3K4me3_macs_narrowpeak.saf
+done
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/skin/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/skin/H3K4me1/bed/H3K4me1_macs_narrowpeak.saf
+done

@@ -1,0 +1,12 @@
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27ac/bed/H3K27ac_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27ac/bed/H3K27ac_macs_narrowpeak_rm_blacklist.saf
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me3/bed/H3K4me3_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me3/bed/H3K4me3_macs_narrowpeak_rm_blacklist.saf
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me1/bed/H3K4me1_macs_narrowpeak_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K4me1/bed/H3K4me1_macs_narrowpeak_rm_blacklist.saf
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K27me3/bed/H3K27me3_merge-W1000-G3000-E100_rm_blacklist.saf
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K9me3/bed/H3K9me3_merge-W1000-G3000-E100_rm_blacklist.saf
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/bonemarrow/H3K36me3/bed/H3K36me3_merge-W1000-G3000-E100_rm_blacklist.saf

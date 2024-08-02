@@ -1,0 +1,372 @@
+INFO  @ Wed, 17 Jan 2024 11:26:20: 
+# Command line: callpeak -t /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/tmp.merge.bam -f BAMPE -n H3K27ac --outdir /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/peaks/macs_narrowpeak -g mm --nomodel -q 0.0001 --keep-dup all
+# ARGUMENTS LIST:
+# name = H3K27ac
+# format = BAMPE
+# ChIP-seq file = ['/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/tmp.merge.bam']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 1.00e-04
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is on
+ 
+INFO  @ Wed, 17 Jan 2024 11:26:20: #1 read fragment files... 
+INFO  @ Wed, 17 Jan 2024 11:26:20: #1 read treatment fragments... 
+INFO  @ Wed, 17 Jan 2024 11:26:23:  1000000 
+INFO  @ Wed, 17 Jan 2024 11:26:26:  2000000 
+INFO  @ Wed, 17 Jan 2024 11:26:29:  3000000 
+INFO  @ Wed, 17 Jan 2024 11:26:32:  4000000 
+INFO  @ Wed, 17 Jan 2024 11:26:35:  5000000 
+INFO  @ Wed, 17 Jan 2024 11:26:37:  6000000 
+INFO  @ Wed, 17 Jan 2024 11:26:40:  7000000 
+INFO  @ Wed, 17 Jan 2024 11:26:43:  8000000 
+INFO  @ Wed, 17 Jan 2024 11:26:46:  9000000 
+INFO  @ Wed, 17 Jan 2024 11:26:49:  10000000 
+INFO  @ Wed, 17 Jan 2024 11:26:52:  11000000 
+INFO  @ Wed, 17 Jan 2024 11:26:55:  12000000 
+INFO  @ Wed, 17 Jan 2024 11:26:57:  13000000 
+INFO  @ Wed, 17 Jan 2024 11:27:00:  14000000 
+INFO  @ Wed, 17 Jan 2024 11:27:03:  15000000 
+INFO  @ Wed, 17 Jan 2024 11:27:06:  16000000 
+INFO  @ Wed, 17 Jan 2024 11:27:09:  17000000 
+INFO  @ Wed, 17 Jan 2024 11:27:12:  18000000 
+INFO  @ Wed, 17 Jan 2024 11:27:14:  19000000 
+INFO  @ Wed, 17 Jan 2024 11:27:17:  20000000 
+INFO  @ Wed, 17 Jan 2024 11:27:20:  21000000 
+INFO  @ Wed, 17 Jan 2024 11:27:23:  22000000 
+INFO  @ Wed, 17 Jan 2024 11:27:26:  23000000 
+INFO  @ Wed, 17 Jan 2024 11:27:29:  24000000 
+INFO  @ Wed, 17 Jan 2024 11:27:32:  25000000 
+INFO  @ Wed, 17 Jan 2024 11:27:34:  26000000 
+INFO  @ Wed, 17 Jan 2024 11:27:37:  27000000 
+INFO  @ Wed, 17 Jan 2024 11:27:40:  28000000 
+INFO  @ Wed, 17 Jan 2024 11:27:43:  29000000 
+INFO  @ Wed, 17 Jan 2024 11:27:46:  30000000 
+INFO  @ Wed, 17 Jan 2024 11:27:49:  31000000 
+INFO  @ Wed, 17 Jan 2024 11:27:52:  32000000 
+INFO  @ Wed, 17 Jan 2024 11:27:54:  33000000 
+INFO  @ Wed, 17 Jan 2024 11:27:57:  34000000 
+INFO  @ Wed, 17 Jan 2024 11:28:00:  35000000 
+INFO  @ Wed, 17 Jan 2024 11:28:03:  36000000 
+INFO  @ Wed, 17 Jan 2024 11:28:06:  37000000 
+INFO  @ Wed, 17 Jan 2024 11:28:09:  38000000 
+INFO  @ Wed, 17 Jan 2024 11:28:11:  39000000 
+INFO  @ Wed, 17 Jan 2024 11:28:14:  40000000 
+INFO  @ Wed, 17 Jan 2024 11:28:17:  41000000 
+INFO  @ Wed, 17 Jan 2024 11:28:20:  42000000 
+INFO  @ Wed, 17 Jan 2024 11:28:23:  43000000 
+INFO  @ Wed, 17 Jan 2024 11:28:27: 43772774 fragments have been read. 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #1 mean fragment size is determined as 350.2 bp from treatment 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #1 fragment size = 350.2 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #1  total fragments in treatment: 43772774 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #1 finished! 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #2 Build Peak Model... 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #2 Skipped... 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #3 Call peaks... 
+INFO  @ Wed, 17 Jan 2024 11:28:45: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Wed, 17 Jan 2024 11:30:29: #3 Call peaks for each chromosome... 
+INFO  @ Wed, 17 Jan 2024 11:31:33: #4 Write output xls file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/peaks/macs_narrowpeak/H3K27ac_peaks.xls 
+INFO  @ Wed, 17 Jan 2024 11:31:33: #4 Write peak in narrowPeak format file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/peaks/macs_narrowpeak/H3K27ac_peaks.narrowPeak 
+INFO  @ Wed, 17 Jan 2024 11:31:33: #4 Write summits bed file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/peaks/macs_narrowpeak/H3K27ac_summits.bed 
+INFO  @ Wed, 17 Jan 2024 11:31:33: Done! 
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/bed/H3K27ac_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 2 BAM files                                      ||
+||                           o LLX225_S53_L003.nodup.bam                      ||
+||                           o LLX227_S60_L002.nodup.bam                      ||
+||                                                                            ||
+||             Output file : H3K27ac_macs_narrowpeak.counts                   ||
+||                 Summary : H3K27ac_macs_narrowpeak.counts.summary           ||
+||              Annotation : H3K27ac_macs_narrowpeak.saf (SAF)                ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K27ac_macs_narrowpeak.saf ...                       ||
+||    Features : 35714                                                        ||
+||    Meta-features : 35714                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX225_S53_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 25501974                                             ||
+||    Successfully assigned alignments : 4265546 (16.7%)                      ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX227_S60_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21789239                                             ||
+||    Successfully assigned alignments : 3049027 (14.0%)                      ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K27ac/H3K27ac  ||
+|| _macs_narrowpeak.counts.summary"                                           ||
+||                                                                            ||
+\\============================================================================//
+
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/FA_vs_noFA/spleen’: File exists
+usage: plotProfile [--matrixFile MATRIXFILE] --outFileName OUTFILENAME
+                   [--outFileSortedRegions FILE]
+                   [--outFileNameData OUTFILENAMEDATA] [--dpi DPI]
+                   [--kmeans KMEANS] [--hclust HCLUST] [--silhouette] [--help]
+                   [--version] [--averageType {mean,median,min,max,std,sum}]
+                   [--plotHeight PLOTHEIGHT] [--plotWidth PLOTWIDTH]
+                   [--plotType {lines,fill,se,std,overlapped_lines,heatmap}]
+                   [--colors COLORS [COLORS ...]]
+                   [--numPlotsPerRow NUMPLOTSPERROW]
+                   [--clusterUsingSamples CLUSTERUSINGSAMPLES [CLUSTERUSINGSAMPLES ...]]
+                   [--startLabel STARTLABEL] [--endLabel ENDLABEL]
+                   [--refPointLabel REFPOINTLABEL]
+                   [--labelRotation LABEL_ROTATION]
+                   [--regionsLabel REGIONSLABEL [REGIONSLABEL ...]]
+                   [--samplesLabel SAMPLESLABEL [SAMPLESLABEL ...]]
+                   [--plotTitle PLOTTITLE] [--yAxisLabel YAXISLABEL]
+                   [--yMin YMIN [YMIN ...]] [--yMax YMAX [YMAX ...]]
+                   [--legendLocation {best,upper-right,upper-left,upper-center,lower-left,lower-right,lower-center,center,center-left,center-right,none}]
+                   [--perGroup] [--plotFileFormat] [--verbose]
+plotProfile: error: argument --outFileName/-out/-o: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/FA_vs_noFA/spleen/deeptools/H3K27ac_merge_macs2_narrowpeak_each_sample.pdf file can't be opened for writing
+usage: plotProfile [--matrixFile MATRIXFILE] --outFileName OUTFILENAME
+                   [--outFileSortedRegions FILE]
+                   [--outFileNameData OUTFILENAMEDATA] [--dpi DPI]
+                   [--kmeans KMEANS] [--hclust HCLUST] [--silhouette] [--help]
+                   [--version] [--averageType {mean,median,min,max,std,sum}]
+                   [--plotHeight PLOTHEIGHT] [--plotWidth PLOTWIDTH]
+                   [--plotType {lines,fill,se,std,overlapped_lines,heatmap}]
+                   [--colors COLORS [COLORS ...]]
+                   [--numPlotsPerRow NUMPLOTSPERROW]
+                   [--clusterUsingSamples CLUSTERUSINGSAMPLES [CLUSTERUSINGSAMPLES ...]]
+                   [--startLabel STARTLABEL] [--endLabel ENDLABEL]
+                   [--refPointLabel REFPOINTLABEL]
+                   [--labelRotation LABEL_ROTATION]
+                   [--regionsLabel REGIONSLABEL [REGIONSLABEL ...]]
+                   [--samplesLabel SAMPLESLABEL [SAMPLESLABEL ...]]
+                   [--plotTitle PLOTTITLE] [--yAxisLabel YAXISLABEL]
+                   [--yMin YMIN [YMIN ...]] [--yMax YMAX [YMAX ...]]
+                   [--legendLocation {best,upper-right,upper-left,upper-center,lower-left,lower-right,lower-center,center,center-left,center-right,none}]
+                   [--perGroup] [--plotFileFormat] [--verbose]
+plotProfile: error: argument --outFileName/-out/-o: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/FA_vs_noFA/spleen/deeptools/H3K27ac_merge_macs2_narrowpeak.pdf file can't be opened for writing
+INFO  @ Wed, 17 Jan 2024 11:34:43: 
+# Command line: callpeak -t /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/tmp.merge.bam -f BAMPE -n H3K4me1 --outdir /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/peaks/macs_narrowpeak -g mm --nomodel -q 0.0001 --keep-dup all
+# ARGUMENTS LIST:
+# name = H3K4me1
+# format = BAMPE
+# ChIP-seq file = ['/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/tmp.merge.bam']
+# control file = None
+# effective genome size = 1.87e+09
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 1.00e-04
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 10000 bps
+# Broad region calling is off
+# Paired-End mode is on
+ 
+INFO  @ Wed, 17 Jan 2024 11:34:43: #1 read fragment files... 
+INFO  @ Wed, 17 Jan 2024 11:34:43: #1 read treatment fragments... 
+INFO  @ Wed, 17 Jan 2024 11:34:46:  1000000 
+INFO  @ Wed, 17 Jan 2024 11:34:48:  2000000 
+INFO  @ Wed, 17 Jan 2024 11:34:51:  3000000 
+INFO  @ Wed, 17 Jan 2024 11:34:54:  4000000 
+INFO  @ Wed, 17 Jan 2024 11:34:57:  5000000 
+INFO  @ Wed, 17 Jan 2024 11:35:00:  6000000 
+INFO  @ Wed, 17 Jan 2024 11:35:03:  7000000 
+INFO  @ Wed, 17 Jan 2024 11:35:06:  8000000 
+INFO  @ Wed, 17 Jan 2024 11:35:08:  9000000 
+INFO  @ Wed, 17 Jan 2024 11:35:11:  10000000 
+INFO  @ Wed, 17 Jan 2024 11:35:14:  11000000 
+INFO  @ Wed, 17 Jan 2024 11:35:17:  12000000 
+INFO  @ Wed, 17 Jan 2024 11:35:20:  13000000 
+INFO  @ Wed, 17 Jan 2024 11:35:23:  14000000 
+INFO  @ Wed, 17 Jan 2024 11:35:26:  15000000 
+INFO  @ Wed, 17 Jan 2024 11:35:28:  16000000 
+INFO  @ Wed, 17 Jan 2024 11:35:31:  17000000 
+INFO  @ Wed, 17 Jan 2024 11:35:34:  18000000 
+INFO  @ Wed, 17 Jan 2024 11:35:37:  19000000 
+INFO  @ Wed, 17 Jan 2024 11:35:40:  20000000 
+INFO  @ Wed, 17 Jan 2024 11:35:43:  21000000 
+INFO  @ Wed, 17 Jan 2024 11:35:45:  22000000 
+INFO  @ Wed, 17 Jan 2024 11:35:48:  23000000 
+INFO  @ Wed, 17 Jan 2024 11:35:51:  24000000 
+INFO  @ Wed, 17 Jan 2024 11:35:54:  25000000 
+INFO  @ Wed, 17 Jan 2024 11:35:57:  26000000 
+INFO  @ Wed, 17 Jan 2024 11:36:00:  27000000 
+INFO  @ Wed, 17 Jan 2024 11:36:03:  28000000 
+INFO  @ Wed, 17 Jan 2024 11:36:05:  29000000 
+INFO  @ Wed, 17 Jan 2024 11:36:08:  30000000 
+INFO  @ Wed, 17 Jan 2024 11:36:11:  31000000 
+INFO  @ Wed, 17 Jan 2024 11:36:14:  32000000 
+INFO  @ Wed, 17 Jan 2024 11:36:17:  33000000 
+INFO  @ Wed, 17 Jan 2024 11:36:20:  34000000 
+INFO  @ Wed, 17 Jan 2024 11:36:22:  35000000 
+INFO  @ Wed, 17 Jan 2024 11:36:25:  36000000 
+INFO  @ Wed, 17 Jan 2024 11:36:28:  37000000 
+INFO  @ Wed, 17 Jan 2024 11:36:31:  38000000 
+INFO  @ Wed, 17 Jan 2024 11:36:34:  39000000 
+INFO  @ Wed, 17 Jan 2024 11:36:37:  40000000 
+INFO  @ Wed, 17 Jan 2024 11:36:40:  41000000 
+INFO  @ Wed, 17 Jan 2024 11:36:42:  42000000 
+INFO  @ Wed, 17 Jan 2024 11:36:45:  43000000 
+INFO  @ Wed, 17 Jan 2024 11:36:48:  44000000 
+INFO  @ Wed, 17 Jan 2024 11:36:51:  45000000 
+INFO  @ Wed, 17 Jan 2024 11:36:54:  46000000 
+INFO  @ Wed, 17 Jan 2024 11:36:57:  47000000 
+INFO  @ Wed, 17 Jan 2024 11:37:00:  48000000 
+INFO  @ Wed, 17 Jan 2024 11:37:02:  49000000 
+INFO  @ Wed, 17 Jan 2024 11:37:05:  50000000 
+INFO  @ Wed, 17 Jan 2024 11:37:08:  51000000 
+INFO  @ Wed, 17 Jan 2024 11:37:11:  52000000 
+INFO  @ Wed, 17 Jan 2024 11:37:14:  53000000 
+INFO  @ Wed, 17 Jan 2024 11:37:17:  54000000 
+INFO  @ Wed, 17 Jan 2024 11:37:20:  55000000 
+INFO  @ Wed, 17 Jan 2024 11:37:22: 55415642 fragments have been read. 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #1 mean fragment size is determined as 371.3 bp from treatment 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #1 fragment size = 371.3 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #1  total fragments in treatment: 55415642 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #1 finished! 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #2 Build Peak Model... 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #2 Skipped... 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #3 Call peaks... 
+INFO  @ Wed, 17 Jan 2024 11:37:47: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Wed, 17 Jan 2024 11:40:06: #3 Call peaks for each chromosome... 
+INFO  @ Wed, 17 Jan 2024 11:41:22: #4 Write output xls file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/peaks/macs_narrowpeak/H3K4me1_peaks.xls 
+INFO  @ Wed, 17 Jan 2024 11:41:22: #4 Write peak in narrowPeak format file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/peaks/macs_narrowpeak/H3K4me1_peaks.narrowPeak 
+INFO  @ Wed, 17 Jan 2024 11:41:23: #4 Write summits bed file... /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/peaks/macs_narrowpeak/H3K4me1_summits.bed 
+INFO  @ Wed, 17 Jan 2024 11:41:23: Done! 
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/bed/H3K4me1_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 2 BAM files                                      ||
+||                           o LLX226_S402_L001.nodup.bam                     ||
+||                           o LLX228_S403_L001.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K4me1_macs_narrowpeak.counts                   ||
+||                 Summary : H3K4me1_macs_narrowpeak.counts.summary           ||
+||              Annotation : H3K4me1_macs_narrowpeak.saf (SAF)                ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K4me1_macs_narrowpeak.saf ...                       ||
+||    Features : 44033                                                        ||
+||    Meta-features : 44033                                                   ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX226_S402_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 32364988                                             ||
+||    Successfully assigned alignments : 10379032 (32.1%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX228_S403_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27755009                                             ||
+||    Successfully assigned alignments : 8416189 (30.3%)                      ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/FA_vs_noFA/spleen/H3K4me1/H3K4me1  ||
+|| _macs_narrowpeak.counts.summary"                                           ||
+||                                                                            ||
+\\============================================================================//
+
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/FA_vs_noFA/spleen’: File exists
+usage: plotProfile [--matrixFile MATRIXFILE] --outFileName OUTFILENAME
+                   [--outFileSortedRegions FILE]
+                   [--outFileNameData OUTFILENAMEDATA] [--dpi DPI]
+                   [--kmeans KMEANS] [--hclust HCLUST] [--silhouette] [--help]
+                   [--version] [--averageType {mean,median,min,max,std,sum}]
+                   [--plotHeight PLOTHEIGHT] [--plotWidth PLOTWIDTH]
+                   [--plotType {lines,fill,se,std,overlapped_lines,heatmap}]
+                   [--colors COLORS [COLORS ...]]
+                   [--numPlotsPerRow NUMPLOTSPERROW]
+                   [--clusterUsingSamples CLUSTERUSINGSAMPLES [CLUSTERUSINGSAMPLES ...]]
+                   [--startLabel STARTLABEL] [--endLabel ENDLABEL]
+                   [--refPointLabel REFPOINTLABEL]
+                   [--labelRotation LABEL_ROTATION]
+                   [--regionsLabel REGIONSLABEL [REGIONSLABEL ...]]
+                   [--samplesLabel SAMPLESLABEL [SAMPLESLABEL ...]]
+                   [--plotTitle PLOTTITLE] [--yAxisLabel YAXISLABEL]
+                   [--yMin YMIN [YMIN ...]] [--yMax YMAX [YMAX ...]]
+                   [--legendLocation {best,upper-right,upper-left,upper-center,lower-left,lower-right,lower-center,center,center-left,center-right,none}]
+                   [--perGroup] [--plotFileFormat] [--verbose]
+plotProfile: error: argument --outFileName/-out/-o: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/FA_vs_noFA/spleen/deeptools/H3K4me1_merge_macs2_narrowpeak_each_sample.pdf file can't be opened for writing
+usage: plotProfile [--matrixFile MATRIXFILE] --outFileName OUTFILENAME
+                   [--outFileSortedRegions FILE]
+                   [--outFileNameData OUTFILENAMEDATA] [--dpi DPI]
+                   [--kmeans KMEANS] [--hclust HCLUST] [--silhouette] [--help]
+                   [--version] [--averageType {mean,median,min,max,std,sum}]
+                   [--plotHeight PLOTHEIGHT] [--plotWidth PLOTWIDTH]
+                   [--plotType {lines,fill,se,std,overlapped_lines,heatmap}]
+                   [--colors COLORS [COLORS ...]]
+                   [--numPlotsPerRow NUMPLOTSPERROW]
+                   [--clusterUsingSamples CLUSTERUSINGSAMPLES [CLUSTERUSINGSAMPLES ...]]
+                   [--startLabel STARTLABEL] [--endLabel ENDLABEL]
+                   [--refPointLabel REFPOINTLABEL]
+                   [--labelRotation LABEL_ROTATION]
+                   [--regionsLabel REGIONSLABEL [REGIONSLABEL ...]]
+                   [--samplesLabel SAMPLESLABEL [SAMPLESLABEL ...]]
+                   [--plotTitle PLOTTITLE] [--yAxisLabel YAXISLABEL]
+                   [--yMin YMIN [YMIN ...]] [--yMax YMAX [YMAX ...]]
+                   [--legendLocation {best,upper-right,upper-left,upper-center,lower-left,lower-right,lower-center,center,center-left,center-right,none}]
+                   [--perGroup] [--plotFileFormat] [--verbose]
+plotProfile: error: argument --outFileName/-out/-o: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/FA_vs_noFA/spleen/deeptools/H3K4me1_merge_macs2_narrowpeak.pdf file can't be opened for writing

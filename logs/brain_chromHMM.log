@@ -1,0 +1,250 @@
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/': File exists
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/chromHMMbed': File exists
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/binarizedData': File exists
+Exception in thread "main" htsjdk.samtools.SAMFormatException: Error parsing text SAM file. Not enough fields; File /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/combined_analysis_enhancer/chromHMMbed/LLX147.bed; Line 1
+Line: chr10	3100602	3100751	A00133:913:HNYK7DSX7:4:1359:27561:23610/2	1	+
+	at htsjdk.samtools.SAMLineParser.reportFatalErrorParsingLine(SAMLineParser.java:432)
+	at htsjdk.samtools.SAMLineParser.parseLine(SAMLineParser.java:217)
+	at htsjdk.samtools.SAMTextReader$RecordIterator.parseLine(SAMTextReader.java:248)
+	at htsjdk.samtools.SAMTextReader$RecordIterator.next(SAMTextReader.java:236)
+	at htsjdk.samtools.SAMTextReader$RecordIterator.next(SAMTextReader.java:212)
+	at htsjdk.samtools.SamReader$AssertingIterator.next(SamReader.java:544)
+	at htsjdk.samtools.SamReader$AssertingIterator.next(SamReader.java:518)
+	at edu.mit.compbio.ChromHMM.Preprocessing.loadGrid(Preprocessing.java:328)
+	at edu.mit.compbio.ChromHMM.Preprocessing.makeBinaryDataFromBed(Preprocessing.java:1188)
+	at edu.mit.compbio.ChromHMM.ChromHMM.main(ChromHMM.java:13270)
+mkdir: cannot create directory '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20': File exists
+Using 16 threads for Baum-Welch training
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/transitions_20.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/emissions_20.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/emissions_20.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/emissions_20.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/transitions_20.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/transitions_20.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/model_20.txt
+ Iteration  Estimated Log Likelihood     Change    Total Time (secs)
+         1              -6581181.904          -                  2.2
+         2              -6220665.534 360516.370                  4.4
+         3              -6098967.305 121698.229                  5.4
+         4              -6024788.294  74179.011                  6.3
+         5              -5976774.001  48014.294                  7.3
+         6              -5943591.738  33182.263                  8.1
+         7              -5919155.250  24436.488                  9.1
+         8              -5900220.740  18934.509                 10.1
+         9              -5884425.360  15795.381                 11.0
+        10              -5870194.359  14231.001                 11.9
+        11              -5856699.333  13495.026                 12.8
+        12              -5843680.523  13018.810                 13.9
+        13              -5831278.820  12401.703                 14.8
+        14              -5819894.676  11384.144                 15.6
+        15              -5809922.278   9972.398                 16.5
+        16              -5801490.373   8431.904                 17.6
+        17              -5794440.901   7049.472                 18.7
+        18              -5788454.767   5986.134                 19.5
+        19              -5783308.396   5146.370                 20.3
+        20              -5778972.773   4335.624                 21.1
+        21              -5775449.587   3523.186                 22.2
+        22              -5772624.286   2825.302                 23.0
+        23              -5770281.585   2342.701                 23.8
+        24              -5768192.979   2088.606                 24.8
+        25              -5766219.432   1973.547                 26.1
+        26              -5764368.219   1851.213                 27.4
+        27              -5762702.993   1665.226                 28.2
+        28              -5761233.143   1469.850                 29.0
+        29              -5759918.148   1314.994                 29.8
+        30              -5758708.694   1209.455                 30.5
+        31              -5757564.449   1144.245                 31.5
+        32              -5756455.515   1108.934                 32.3
+        33              -5755359.979   1095.535                 33.1
+        34              -5754260.980   1098.999                 33.9
+        35              -5753138.651   1122.329                 34.6
+        36              -5751959.488   1179.164                 35.4
+        37              -5750736.129   1223.358                 36.3
+        38              -5749500.442   1235.688                 37.2
+        39              -5748267.518   1232.924                 37.9
+        40              -5747049.595   1217.922                 38.7
+        41              -5745855.636   1193.959                 39.4
+        42              -5744694.913   1160.723                 40.1
+        43              -5743575.871   1119.042                 40.8
+        44              -5742505.368   1070.503                 41.6
+        45              -5741489.555   1015.813                 42.4
+        46              -5740534.093    955.462                 43.1
+        47              -5739642.537    891.556                 43.8
+        48              -5738814.904    827.633                 44.6
+        49              -5738048.310    766.594                 45.3
+        50              -5737338.476    709.834                 46.1
+        51              -5736680.645    657.831                 47.0
+        52              -5736070.002    610.643                 47.6
+        53              -5735501.932    568.070                 48.3
+        54              -5734972.240    529.692                 49.1
+        55              -5734477.284    494.956                 49.9
+        56              -5734014.035    463.248                 50.6
+        57              -5733580.077    433.959                 51.4
+        58              -5733173.641    406.435                 52.1
+        59              -5732793.610    380.032                 52.9
+        60              -5732439.124    354.486                 53.7
+        61              -5732109.322    329.801                 54.4
+        62              -5731803.355    305.967                 55.0
+        63              -5731520.326    283.029                 55.8
+        64              -5731259.197    261.129                 56.5
+        65              -5731018.795    240.401                 57.2
+        66              -5730797.960    220.835                 58.0
+        67              -5730595.636    202.324                 58.7
+        68              -5730410.730    184.906                 59.5
+        69              -5730241.984    168.746                 60.2
+        70              -5730088.021    153.963                 60.9
+        71              -5729947.415    140.607                 61.6
+        72              -5729818.730    128.685                 62.4
+        73              -5729700.528    118.201                 63.2
+        74              -5729591.376    109.153                 64.0
+        75              -5729490.012    101.363                 64.7
+        76              -5729395.660     94.353                 65.5
+        77              -5729307.850     87.810                 66.3
+        78              -5729226.068     81.782                 67.0
+        79              -5729149.742     76.326                 67.7
+        80              -5729078.305     71.438                 68.4
+        81              -5729011.219     67.086                 69.1
+        82              -5728947.991     63.228                 69.9
+        83              -5728888.175     59.816                 70.6
+        84              -5728831.373     56.802                 71.3
+        85              -5728777.233     54.141                 72.0
+        86              -5728725.440     51.793                 72.7
+        87              -5728675.716     49.724                 73.5
+        88              -5728627.807     47.908                 74.2
+        89              -5728581.492     46.316                 74.9
+        90              -5728536.573     44.918                 75.6
+        91              -5728492.888     43.686                 76.4
+        92              -5728450.296     42.592                 77.1
+        93              -5728408.682     41.614                 77.7
+        94              -5728367.947     40.735                 78.5
+        95              -5728328.005     39.942                 79.2
+        96              -5728288.779     39.226                 79.9
+        97              -5728250.197     38.581                 80.6
+        98              -5728212.198     37.999                 81.3
+        99              -5728174.729     37.469                 82.0
+       100              -5728137.749     36.980                 82.7
+       101              -5728101.234     36.516                 83.4
+       102              -5728065.171     36.063                 84.2
+       103              -5728029.558     35.613                 84.9
+       104              -5727994.397     35.161                 85.6
+       105              -5727959.687     34.710                 86.3
+       106              -5727925.422     34.266                 87.1
+       107              -5727891.587     33.835                 87.8
+       108              -5727858.162     33.424                 88.5
+       109              -5727825.124     33.038                 89.2
+       110              -5727792.443     32.681                 90.0
+       111              -5727760.090     32.354                 90.8
+       112              -5727728.032     32.058                 91.5
+       113              -5727696.239     31.793                 92.2
+       114              -5727664.679     31.559                 93.1
+       115              -5727633.324     31.355                 93.8
+       116              -5727602.143     31.181                 94.5
+       117              -5727571.111     31.033                 95.2
+       118              -5727540.200     30.910                 95.9
+       119              -5727509.389     30.811                 96.6
+       120              -5727478.657     30.733                 97.3
+       121              -5727447.985     30.672                 98.0
+       122              -5727417.358     30.626                 98.8
+       123              -5727386.766     30.592                 99.5
+       124              -5727356.198     30.568                100.3
+       125              -5727325.645     30.553                100.9
+       126              -5727295.099     30.545                101.7
+       127              -5727264.552     30.547                102.3
+       128              -5727233.991     30.561                103.1
+       129              -5727203.408     30.583                103.8
+       130              -5727172.791     30.617                104.5
+       131              -5727142.137     30.653                105.3
+       132              -5727111.459     30.678                105.9
+       133              -5727080.781     30.678                106.6
+       134              -5727050.137     30.643                107.3
+       135              -5727019.564     30.573                108.1
+       136              -5726989.090     30.474                108.8
+       137              -5726958.737     30.353                109.6
+       138              -5726928.521     30.217                110.3
+       139              -5726898.446     30.074                111.0
+       140              -5726868.524     29.923                111.8
+       141              -5726838.751     29.773                112.6
+       142              -5726809.125     29.625                113.5
+       143              -5726779.643     29.482                114.2
+       144              -5726750.298     29.345                114.9
+       145              -5726721.080     29.218                115.6
+       146              -5726691.983     29.096                116.3
+       147              -5726662.997     28.986                117.1
+       148              -5726634.112     28.885                117.8
+       149              -5726605.319     28.793                118.5
+       150              -5726576.614     28.705                119.2
+       151              -5726547.993     28.621                120.0
+       152              -5726519.459     28.534                120.7
+       153              -5726491.018     28.441                121.4
+       154              -5726462.680     28.338                122.1
+       155              -5726434.461     28.220                122.8
+       156              -5726406.377     28.084                123.5
+       157              -5726378.449     27.928                124.3
+       158              -5726350.697     27.753                125.0
+       159              -5726323.138     27.558                125.7
+       160              -5726295.791     27.347                126.4
+       161              -5726268.668     27.123                127.4
+       162              -5726241.779     26.889                128.0
+       163              -5726215.128     26.651                128.7
+       164              -5726188.715     26.413                129.5
+       165              -5726162.536     26.179                130.3
+       166              -5726136.582     25.954                131.0
+       167              -5726110.841     25.741                131.8
+       168              -5726085.295     25.545                132.6
+       169              -5726059.927     25.369                133.3
+       170              -5726034.709     25.218                134.1
+       171              -5726009.612     25.097                134.8
+       172              -5725984.598     25.014                135.4
+       173              -5725959.619     24.979                136.1
+       174              -5725934.613     25.006                137.0
+       175              -5725909.502     25.111                137.7
+       176              -5725884.166     25.335                138.4
+       177              -5725858.429     25.737                139.1
+       178              -5725831.994     26.435                139.9
+       179              -5725804.319     27.674                140.6
+       180              -5725774.317     30.002                141.4
+       181              -5725739.629     34.689                142.1
+       182              -5725694.972     44.657                142.8
+       183              -5725628.943     66.029                143.5
+       184              -5725519.060    109.883                144.2
+       185              -5725327.021    192.039                145.0
+       186              -5725007.864    319.157                145.7
+       187              -5724531.427    476.437                146.4
+       188              -5723891.122    640.306                147.1
+       189              -5723128.900    762.222                147.8
+       190              -5722317.222    811.678                148.5
+       191              -5721545.020    772.203                149.2
+       192              -5720887.772    657.248                149.9
+       193              -5720340.804    546.968                150.6
+       194              -5719921.538    419.266                151.3
+       195              -5719599.712    321.826                152.0
+       196              -5719345.075    254.637                152.7
+       197              -5719139.516    205.559                153.4
+       198              -5718969.833    169.683                154.1
+       199              -5718826.044    143.789                154.8
+       200              -5718700.714    125.330                155.6
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_segments.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_dense.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_expanded.bed
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young1_20_RefSeqTSS_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_overlap.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_overlap.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_overlap.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTES_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTES_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTES_neighborhood.svg
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTSS_neighborhood.txt
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTSS_neighborhood.png
+Writing to file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/young2_20_RefSeqTSS_neighborhood.svg
+Warning could not automatically open in a browser /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/ChromHMM/20/webpage_20.html

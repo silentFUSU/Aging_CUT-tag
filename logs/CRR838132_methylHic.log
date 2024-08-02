@@ -1,0 +1,232 @@
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+0 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 100000 ...
+1 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 0 ...
+324 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 200000 ...
+324 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 0 ...
+[M::mem_process_seqs] Processed 100001 reads in 100.278 CPU sec, 5.096 real sec
+[M::mem_process_seqs] Processed 100001 reads in 99.666 CPU sec, 5.011 real sec
+[M::mem_process_seqs] Processed 100001 reads in 103.122 CPU sec, 5.202 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.691 CPU sec, 5.178 real sec
+42405 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 300000 ...
+42405 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 199732 ...
+49937 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 400000 ...
+49937 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 199732 ...
+[M::mem_process_seqs] Processed 100001 reads in 92.570 CPU sec, 4.653 real sec
+[M::mem_process_seqs] Processed 100001 reads in 90.479 CPU sec, 4.555 real sec
+[M::mem_process_seqs] Processed 100001 reads in 90.435 CPU sec, 4.545 real sec
+[M::mem_process_seqs] Processed 100001 reads in 87.111 CPU sec, 4.382 real sec
+87238 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 500000 ...
+87239 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 399424 ...
+94322 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 600000 ...
+94323 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 399424 ...
+[M::mem_process_seqs] Processed 100001 reads in 100.088 CPU sec, 5.037 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.630 CPU sec, 5.161 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.212 CPU sec, 5.146 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.117 CPU sec, 5.133 real sec
+134658 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 700000 ...
+134658 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 599170 ...
+142249 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 800000 ...
+142250 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 599170 ...
+[M::mem_process_seqs] Processed 100001 reads in 98.340 CPU sec, 4.942 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.068 CPU sec, 5.138 real sec
+[M::mem_process_seqs] Processed 100001 reads in 103.391 CPU sec, 5.208 real sec
+[M::mem_process_seqs] Processed 100001 reads in 101.125 CPU sec, 5.100 real sec
+181208 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 900000 ...
+181208 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 798864 ...
+188737 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1000000 ...
+188737 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 798864 ...
+[M::mem_process_seqs] Processed 100001 reads in 99.282 CPU sec, 5.003 real sec
+[M::mem_process_seqs] Processed 100001 reads in 98.444 CPU sec, 4.954 real sec
+[M::mem_process_seqs] Processed 100001 reads in 98.885 CPU sec, 4.972 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.673 CPU sec, 5.170 real sec
+227978 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1100000 ...
+227979 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 998564 ...
+236089 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1200000 ...
+236089 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 998564 ...
+[M::mem_process_seqs] Processed 100001 reads in 98.981 CPU sec, 4.991 real sec
+[M::mem_process_seqs] Processed 100001 reads in 99.508 CPU sec, 5.013 real sec
+[M::mem_process_seqs] Processed 100001 reads in 101.727 CPU sec, 5.114 real sec
+[M::mem_process_seqs] Processed 100001 reads in 85.785 CPU sec, 4.316 real sec
+273396 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1300000 ...
+273397 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1198246 ...
+280246 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1400000 ...
+280246 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1198246 ...
+[M::mem_process_seqs] Processed 100001 reads in 96.816 CPU sec, 4.875 real sec
+[M::mem_process_seqs] Processed 100001 reads in 99.450 CPU sec, 5.007 real sec
+[M::mem_process_seqs] Processed 100001 reads in 98.059 CPU sec, 4.931 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.435 CPU sec, 5.151 real sec
+318659 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1500000 ...
+318659 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1397868 ...
+326660 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1600000 ...
+326660 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1397868 ...
+[M::mem_process_seqs] Processed 100001 reads in 95.021 CPU sec, 4.783 real sec
+[M::mem_process_seqs] Processed 100001 reads in 98.540 CPU sec, 4.966 real sec
+[M::mem_process_seqs] Processed 100001 reads in 101.781 CPU sec, 5.117 real sec
+[M::mem_process_seqs] Processed 100001 reads in 101.898 CPU sec, 5.138 real sec
+363753 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1700000 ...
+363753 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1597596 ...
+370647 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1800000 ...
+370647 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1597596 ...
+[M::mem_process_seqs] Processed 100001 reads in 99.062 CPU sec, 4.982 real sec
+[M::mem_process_seqs] Processed 100001 reads in 95.963 CPU sec, 4.826 real sec
+[M::mem_process_seqs] Processed 100001 reads in 101.425 CPU sec, 5.101 real sec
+[M::mem_process_seqs] Processed 100001 reads in 90.367 CPU sec, 4.545 real sec
+407188 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 1900000 ...
+407188 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1797320 ...
+414155 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2000000 ...
+414155 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1797320 ...
+[M::mem_process_seqs] Processed 100001 reads in 99.336 CPU sec, 4.994 real sec
+[M::mem_process_seqs] Processed 100001 reads in 96.712 CPU sec, 4.861 real sec
+[M::mem_process_seqs] Processed 100001 reads in 100.951 CPU sec, 5.082 real sec
+[M::mem_process_seqs] Processed 100001 reads in 103.647 CPU sec, 5.226 real sec
+452879 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2100000 ...
+452879 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1997048 ...
+460804 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2200000 ...
+460804 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 1997048 ...
+[M::mem_process_seqs] Processed 100001 reads in 100.644 CPU sec, 5.064 real sec
+[M::mem_process_seqs] Processed 100001 reads in 99.007 CPU sec, 4.979 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.057 CPU sec, 5.137 real sec
+[M::mem_process_seqs] Processed 100001 reads in 102.761 CPU sec, 5.180 real sec
+498682 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2300000 ...
+498683 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 2196778 ...
+505534 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2400000 ...
+505535 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 2196778 ...
+[M::mem_process_seqs] Processed 100001 reads in 98.484 CPU sec, 4.951 real sec
+[M::mem_process_seqs] Processed 100001 reads in 97.057 CPU sec, 4.895 real sec
+[M::mem_process_seqs] Processed 100001 reads in 100.791 CPU sec, 5.068 real sec
+[M::mem_process_seqs] Processed 100001 reads in 101.712 CPU sec, 5.111 real sec
+544408 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2500000 ...
+544408 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 2396482 ...
+551341 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Processing reads 2600000 ...
+551341 [main] INFO main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem  - Unique mapped and paired reads 2396482 ...
+methy_Hic_preprocess.sh: line 18: 4159427 Killed                  java -Xmx20G -Djava.library.path=${software_path}bisulfitehic/jbwa/src/main/native/ -cp "${software_path}bisulfitehic/target/bisulfitehic-0.38-jar-with-dependencies.jar:${software_path}bisulfitehic/jbwa/jbwa.jar" main.java.edu.mit.compbio.bisulfitehic.mapping.Bhmem ${ref_data}${ref}/${ref}.fa ${data_path}${sample}/bam/${sample}.bam ${f1} ${f2} -t 20 -rgId ${sample} -rgSm ${sample} -outputMateDiffChr -buffer 100000
+[W::bam_hdr_read] EOF marker is absent. The input is probably truncated
+[E::bgzf_read] Read block operation failed with error 4 after 177 of 203 bytes
+samtools sort: truncated file. Aborting
+[bam_mating_core] ERROR: Couldn't read header
+samtools sort: failed to read header from "-"
+[markdup] error reading header
+samtools index: "/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/bam/CRR838132.calmd.bam" is in a format that cannot be usefully indexed
+[Fri Apr 19 00:11:21 CST 2024] picard.sam.markduplicates.MarkDuplicates INPUT=[/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/bam/CRR838132.calmd.bam] OUTPUT=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/bam/CRR838132.calmd.nodup.bam METRICS_FILE=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/bam/CRR838132.dup.qc REMOVE_DUPLICATES=true ASSUME_SORTED=true TMP_DIR=[/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/tmp] VALIDATION_STRINGENCY=LENIENT    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 TAG_DUPLICATE_SET_MEMBERS=false REMOVE_SEQUENCING_DUPLICATES=false TAGGING_POLICY=DontTag DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 VERBOSITY=INFO QUIET=false COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Fri Apr 19 00:11:21 CST 2024] Executing as suzhuojie@heterochromatin.localdomain on Linux 4.18.0-348.7.1.el8_5.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_152-release-1056-b12; Picard version: 2.9.3-SNAPSHOT
+INFO	2024-04-19 00:11:21	MarkDuplicates	Start of doWork freeMemory: 2042345336; totalMemory: 2058354688; maxMemory: 11453595648
+INFO	2024-04-19 00:11:21	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2024-04-19 00:11:21	MarkDuplicates	Will retain up to 41498534 data points before spilling to disk.
+INFO	2024-04-19 00:11:21	MarkDuplicates	Read 0 records. 0 pairs never matched.
+INFO	2024-04-19 00:11:22	MarkDuplicates	After buildSortedReadEndLists freeMemory: 1714229408; totalMemory: 2058354688; maxMemory: 11453595648
+INFO	2024-04-19 00:11:22	MarkDuplicates	Will retain up to 357924864 duplicate indices before spilling to disk.
+INFO	2024-04-19 00:11:23	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2024-04-19 00:11:23	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2024-04-19 00:11:23	MarkDuplicates	Sorting list of duplicate records.
+INFO	2024-04-19 00:11:23	MarkDuplicates	After generateDuplicateIndexes freeMemory: 2046766688; totalMemory: 4922015744; maxMemory: 11453595648
+INFO	2024-04-19 00:11:23	MarkDuplicates	Marking 0 records as duplicates.
+INFO	2024-04-19 00:11:23	MarkDuplicates	Found 0 optical duplicate clusters.
+INFO	2024-04-19 00:11:23	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2024-04-19 00:11:23	MarkDuplicates	Before output close freeMemory: 4909821424; totalMemory: 4922015744; maxMemory: 11453595648
+INFO	2024-04-19 00:11:23	MarkDuplicates	After output close freeMemory: 4909838264; totalMemory: 4922015744; maxMemory: 11453595648
+[Fri Apr 19 00:11:23 CST 2024] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.04 minutes.
+Runtime.totalMemory()=4922015744
+INFO  00:11:24,709 HelpFormatter - ------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+INFO  00:11:24,710 HelpFormatter - The BisSNP-1.0.0, Compiled 2018/02/19 05:43:50 
+INFO  00:11:24,711 HelpFormatter - Based on The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef (prebuild GATK package could be download here: https://github.com/broadgsa/gatk-protected/releases) 
+INFO  00:11:24,711 HelpFormatter - Copyright (c) 2011 USC Epigenome Center 
+INFO  00:11:24,711 HelpFormatter - Please view our documentation at http://epigenome.usc.edu/publicationdata/bissnp2011/ 
+INFO  00:11:24,711 HelpFormatter - For support, please send email to lyping1986@gmail.com or benbfly@gmail.com 
+INFO  00:11:24,713 HelpFormatter - Program Args: -R /storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10/mm10.fa -I /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/bam/CRR838132.calmd.nodup.bam -T BisulfiteGenotyper -vfn1 /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/vcf/CRR838132.calmd.nodup.cpg.raw.vcf -C CG,1 -C CH,1 -out_modes EMIT_ALL_CPG -stand_call_conf 20 -nt 30 -minConv 1 -vcfCache 1000000 -mmq 30 -mbq 5 
+INFO  00:11:24,721 HelpFormatter - Executing as suzhuojie@heterochromatin.localdomain on Linux 4.18.0-348.7.1.el8_5.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_152-release-1056-b12. 
+INFO  00:11:24,721 HelpFormatter - Date/Time: 2024/04/19 00:11:24 
+INFO  00:11:24,721 HelpFormatter - ------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+INFO  00:11:24,721 HelpFormatter - ------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+INFO  00:11:24,736 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/storage/zhangyanxiaoLab/suzhuojie/software/Bis-tools/Bis-SNP/BisSNP-1.0.0.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  00:11:24,748 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  00:11:24,749 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  00:11:24,749 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  00:11:24,823 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  00:11:24,826 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  00:11:24,839 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+##### ERROR ------------------------------------------------------------------------------------------
+##### ERROR A USER ERROR has occurred (version 3.8-1-0-gf15c1c3ef): 
+##### ERROR
+##### ERROR This means that one or more arguments or inputs in your command are incorrect.
+##### ERROR The error message below tells you what is the problem.
+##### ERROR
+##### ERROR If the problem is an invalid argument, please check the online documentation guide
+##### ERROR (or rerun your command with --help) to view allowable command-line arguments for this tool.
+##### ERROR
+##### ERROR Visit our website and forum for extensive documentation and answers to 
+##### ERROR commonly asked questions https://software.broadinstitute.org/gatk
+##### ERROR
+##### ERROR Please do NOT post this error to the GATK forum unless you have really tried to fix it yourself.
+##### ERROR
+##### ERROR MESSAGE: SAM/BAM/CRAM file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/bam/CRR838132.calmd.nodup.bam is malformed. Please see https://software.broadinstitute.org/gatk/documentation/article?id=1317for more information. Error details: SAM file doesn't have any read groups defined in the header.  The GATK no longer supports SAM files without read groups
+##### ERROR ------------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/methy_Hic/correct_vcf.py", line 5, in <module>
+    with open(input_vcf_file, 'r') as file:  
+FileNotFoundError: [Errno 2] No such file or directory: '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/vcf/CRR838132.calmd.nodup.cpg.raw.vcf'
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Can not open /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/vcf/corrected_CRR838132.calmd.nodup.cpg.raw.vcf: No such file or directory at /storage/zhangyanxiaoLab/suzhuojie/software/Bis-tools/utils/sortByRefAndCor.pl line 75.
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+finished!
+finished!
+Traceback (most recent call last):
+  File "/storage/zhangyanxiaoLab/suzhuojie/software/bisulfitehic/src/python/sam2juicer_new.py", line 53, in <module>
+    main()
+  File "/storage/zhangyanxiaoLab/suzhuojie/software/bisulfitehic/src/python/sam2juicer_new.py", line 19, in main
+    bam = pysam.AlignmentFile(args.sam, "r")
+  File "pysam/libcalignmentfile.pyx", line 751, in pysam.libcalignmentfile.AlignmentFile.__cinit__
+  File "pysam/libcalignmentfile.pyx", line 1000, in pysam.libcalignmentfile.AlignmentFile._open
+ValueError: file has no sequences defined (mode='r') - is it SAM/BAM format? Consider opening with check_sq=False
+Start preprocess
+Writing header
+Writing body
+java.lang.RuntimeException: No reads in Hi-C contact matrices. This could be because the MAPQ filter is set too high (-q) or because all reads map to the same fragment.
+	at juicebox.tools.utils.original.Preprocessor$MatrixZoomDataPP.mergeAndWriteBlocks(Preprocessor.java:1650)
+	at juicebox.tools.utils.original.Preprocessor$MatrixZoomDataPP.access$000(Preprocessor.java:1419)
+	at juicebox.tools.utils.original.Preprocessor.writeMatrix(Preprocessor.java:832)
+	at juicebox.tools.utils.original.Preprocessor.writeBody(Preprocessor.java:582)
+	at juicebox.tools.utils.original.Preprocessor.preprocess(Preprocessor.java:346)
+	at juicebox.tools.clt.old.PreProcessing.run(PreProcessing.java:116)
+	at juicebox.tools.HiCTools.main(HiCTools.java:96)
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+6: Setting LC_PAPER failed, using "C" 
+7: Setting LC_MEASUREMENT failed, using "C" 
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.1.4          v readr     2.1.5     
+v forcats   1.0.0          v stringr   1.5.0     
+v ggplot2   3.5.0.9000     v tibble    3.2.1     
+v lubridate 1.9.3          v tidyr     1.3.1     
+v purrr     1.0.2          
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Error in read.table(file_path, header = F, comment.char = "#") : 
+  no lines available in input
+Execution halted
+mv: cannot stat '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/CRA012043_methylHiC/CRR838132/vcf/*MethySummarizeList.txt': No such file or directory

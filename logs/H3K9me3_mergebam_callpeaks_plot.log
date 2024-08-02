@@ -1,0 +1,492 @@
+Running SICER with given arguments 
+
+Preprocess the tmp.merge.bed file to remove redundancy with threshold of 1 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          7124330                  5513303                  7124490                  5515226         
+chr2          5995362                  4617321                  5991930                  4618551         
+chr3          5784632                  4489521                  5782899                  4487813         
+chr4          5922583                  4451209                  5922652                  4453276         
+chr5          5366019                  4154560                  5365781                  4153204         
+chr6          5282959                  4125766                  5283596                  4128173         
+chr7          6481816                  4789495                  6482859                  4790357         
+chr8          4638557                  3594947                  4638865                  3594586         
+chr9          4562331                  3261379                  4563369                  3257655         
+chr10         4476280                  3487248                  4475552                  3485735         
+chr11         3504661                  2777779                  3504954                  2778612         
+chr12         5037784                  3709000                  5036150                  3711029         
+chr13         4774386                  3615361                  4774788                  3613135         
+chr14         4816554                  3628647                  4816699                  3631062         
+chr15         3460059                  2727859                  3460418                  2728233         
+chr16         3211160                  2521451                  3211691                  2522288         
+chr17         3531790                  2623469                  3532195                  2627319         
+chr18         3053903                  2401542                  3054063                  2401317         
+chr19         1788772                  1424030                  1788296                  1424601         
+chrX          4265355                  3394234                  4264986                  3393502         
+chrY          3419837                  2680517                  3420023                  2681512         
+chrM           9747                     6481                     9678                     6349           
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 11028529
+Total count of chr2 tags: 9235872
+Total count of chr3 tags: 8977334
+Total count of chr4 tags: 8904485
+Total count of chr5 tags: 8307764
+Total count of chr6 tags: 8253939
+Total count of chr7 tags: 9579852
+Total count of chr8 tags: 7189533
+Total count of chr9 tags: 6519034
+Total count of chr10 tags: 6972983
+Total count of chr11 tags: 5556391
+Total count of chr12 tags: 7420029
+Total count of chr13 tags: 7228496
+Total count of chr14 tags: 7259709
+Total count of chr15 tags: 5456092
+Total count of chr16 tags: 5043739
+Total count of chr17 tags: 5250788
+Total count of chr18 tags: 4802859
+Total count of chr19 tags: 2848631
+Total count of chrX tags: 6787736
+Total count of chrY tags: 5362029
+Total count of chrM tags: 12818
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  5000
+Gap size:  10000
+E value is: 100
+Total read count: 147996997
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 339.37569157656134
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  356
+
+Determining the score threshold from random background...
+The score threshold is: 43.128
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  16971
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+mkdir: cannot create directory ‘/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/brain/deeptools’: File exists
+mm10
+Running SICER with given arguments 
+
+Preprocess the LLX145_S3_L001.nodup.bed file to remove redundancy with threshold of 1 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          1874924                  1712726                  1874950                  1713317         
+chr2          1589968                  1438239                  1588934                  1438374         
+chr3          1525321                  1399413                  1524999                  1398796         
+chr4          1517531                  1373507                  1517326                  1373642         
+chr5          1384266                  1269503                  1384039                  1269535         
+chr6          1401622                  1288033                  1401820                  1288368         
+chr7          1597186                  1443843                  1597577                  1445016         
+chr8          1219604                  1114904                  1219590                  1114002         
+chr9          1179248                  1005045                  1179446                  1003615         
+chr10         1172443                  1075229                  1172608                  1074953         
+chr11         911701                   842029                   911734                   842596          
+chr12         1265530                  1139905                  1265096                  1140951         
+chr13         1226755                  1113935                  1226710                  1112884         
+chr14         1261186                  1130726                  1261133                  1132452         
+chr15         905978                   837371                   905963                   837662          
+chr16         833749                   769179                   833966                   769917          
+chr17         896929                   801009                   897049                   802522          
+chr18         797191                   734732                   797254                   734805          
+chr19         459835                   427092                   459570                   426900          
+chrX          1080919                  1005874                  1080764                  1005736         
+chrY          690294                   649647                   690419                   649756          
+chrM           1664                     1446                     1666                     1416           
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 3426043
+Total count of chr2 tags: 2876613
+Total count of chr3 tags: 2798209
+Total count of chr4 tags: 2747149
+Total count of chr5 tags: 2539038
+Total count of chr6 tags: 2576401
+Total count of chr7 tags: 2888859
+Total count of chr8 tags: 2228906
+Total count of chr9 tags: 2008660
+Total count of chr10 tags: 2150182
+Total count of chr11 tags: 1684625
+Total count of chr12 tags: 2280856
+Total count of chr13 tags: 2226819
+Total count of chr14 tags: 2263178
+Total count of chr15 tags: 1675033
+Total count of chr16 tags: 1539096
+Total count of chr17 tags: 1603531
+Total count of chr18 tags: 1469537
+Total count of chr19 tags: 853992
+Total count of chrX tags: 2011610
+Total count of chrY tags: 1299403
+Total count of chrM tags: 2861
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  5000
+Gap size:  10000
+E value is: 100
+Total read count: 45150236
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 103.53515867180032
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  113
+
+Determining the score threshold from random background...
+The score threshold is: 37.914
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  12834
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+LLX145_S3_L001 done
+Running SICER with given arguments 
+
+Preprocess the LLX151_S1_L001.nodup.bed file to remove redundancy with threshold of 1 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          1588257                  1487124                  1588536                  1486992         
+chr2          1360820                  1253945                  1360264                  1254598         
+chr3          1303255                  1221808                  1302925                  1221555         
+chr4          1284290                  1192198                  1284399                  1191825         
+chr5          1176248                  1104713                  1176129                  1104509         
+chr6          1192245                  1119522                  1192292                  1119995         
+chr7          1323582                  1227294                  1323613                  1228580         
+chr8          1028630                  964296                   1028965                  964218          
+chr9          996881                   867636                   997034                   866458          
+chr10         1011143                  947772                   1010953                  947941          
+chr11         770243                   727146                   770448                   727683          
+chr12         1062159                  983387                   1061725                  983585          
+chr13         1060828                  985988                   1060990                  985386          
+chr14         1042960                  957889                   1043113                  959097          
+chr15         778176                   734268                   778228                   733957          
+chr16         721005                   679105                   720866                   679074          
+chr17         743246                   683740                   743366                   685151          
+chr18         685748                   644801                   686012                   645185          
+chr19         388537                   368051                   388607                   368356          
+chrX          894535                   848882                   894627                   848935          
+chrY          581712                   554966                   581611                   554949          
+chrM           3133                     2643                     3133                     2607           
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 2974116
+Total count of chr2 tags: 2508543
+Total count of chr3 tags: 2443363
+Total count of chr4 tags: 2384023
+Total count of chr5 tags: 2209222
+Total count of chr6 tags: 2239517
+Total count of chr7 tags: 2455874
+Total count of chr8 tags: 1928514
+Total count of chr9 tags: 1734094
+Total count of chr10 tags: 1895713
+Total count of chr11 tags: 1454829
+Total count of chr12 tags: 1966972
+Total count of chr13 tags: 1971374
+Total count of chr14 tags: 1916986
+Total count of chr15 tags: 1468225
+Total count of chr16 tags: 1358179
+Total count of chr17 tags: 1368891
+Total count of chr18 tags: 1289986
+Total count of chr19 tags: 736407
+Total count of chrX tags: 1697817
+Total count of chrY tags: 1109915
+Total count of chrM tags: 5244
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  5000
+Gap size:  10000
+E value is: 100
+Total read count: 39117191
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 89.70062918342485
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  99
+
+Determining the score threshold from random background...
+The score threshold is: 35.313
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  12518
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+LLX151_S1_L001 done
+Running SICER with given arguments 
+
+Preprocess the LLX157_S102_L003.nodup.bed file to remove redundancy with threshold of 1 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          1924544                  1716456                  1924428                  1716159         
+chr2          1592818                  1415729                  1592243                  1415897         
+chr3          1538258                  1379248                  1537523                  1380111         
+chr4          1648121                  1437221                  1648160                  1437862         
+chr5          1473302                  1316475                  1473388                  1316196         
+chr6          1412437                  1269979                  1412520                  1271352         
+chr7          1923690                  1657474                  1923981                  1656399         
+chr8          1266800                  1131023                  1266899                  1129985         
+chr9          1235777                  1035813                  1236213                  1035385         
+chr10         1194197                  1069219                  1193832                  1068105         
+chr11         969072                   869653                   969152                   870005          
+chr12         1444630                  1239533                  1444339                  1239873         
+chr13         1303263                  1145359                  1303348                  1144393         
+chr14         1335106                  1168882                  1335251                  1170135         
+chr15         928388                   840606                   928561                   840179          
+chr16         863014                   775422                   863332                   776294          
+chr17         1006978                  859685                   1007180                  861100          
+chr18         816996                   737048                   816907                   736668          
+chr19         496439                   449819                   496327                   449575          
+chrX          1217857                  1098143                  1217713                  1097659         
+chrY          1196114                  1067330                  1196166                  1067279         
+chrM           3132                     2554                     3116                     2542           
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 3432615
+Total count of chr2 tags: 2831626
+Total count of chr3 tags: 2759359
+Total count of chr4 tags: 2875083
+Total count of chr5 tags: 2632671
+Total count of chr6 tags: 2541331
+Total count of chr7 tags: 3313873
+Total count of chr8 tags: 2261008
+Total count of chr9 tags: 2071198
+Total count of chr10 tags: 2137324
+Total count of chr11 tags: 1739658
+Total count of chr12 tags: 2479406
+Total count of chr13 tags: 2289752
+Total count of chr14 tags: 2339017
+Total count of chr15 tags: 1680785
+Total count of chr16 tags: 1551716
+Total count of chr17 tags: 1720785
+Total count of chr18 tags: 1473716
+Total count of chr19 tags: 899394
+Total count of chrX tags: 2195802
+Total count of chrY tags: 2134609
+Total count of chrM tags: 5093
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  5000
+Gap size:  10000
+E value is: 100
+Total read count: 47365034
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 108.61396850030235
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  118
+
+Determining the score threshold from random background...
+The score threshold is: 39.392
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  12624
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+LLX157_S102_L003 done
+Running SICER with given arguments 
+
+Preprocess the LLX163_S105_L003.nodup.bed file to remove redundancy with threshold of 1 
+
+---------------------------------------------------------------------------------------------------------
+chrom    Total plus reads        Retained plus reads       Total minus reads      Retained minus reads   
+---------------------------------------------------------------------------------------------------------
+chr1          1736605                  1559420                  1736576                  1560064         
+chr2          1451756                  1284795                  1450489                  1285183         
+chr3          1417798                  1273139                  1417452                  1272382         
+chr4          1472641                  1291553                  1472767                  1292710         
+chr5          1332203                  1194292                  1332225                  1194252         
+chr6          1276655                  1151133                  1276964                  1151654         
+chr7          1637358                  1426404                  1637688                  1426842         
+chr8          1123523                  1009777                  1123411                  1009995         
+chr9          1150425                  946539                   1150676                  945217          
+chr10         1098497                  985336                   1098159                  985255          
+chr11         853645                   769648                   853620                   769431          
+chr12         1265465                  1098194                  1264990                  1098167         
+chr13         1183540                  1045333                  1183740                  1044575         
+chr14         1177302                  1032998                  1177202                  1034324         
+chr15         847517                   766725                   847666                   767222          
+chr16         793392                   714603                   793527                   714632          
+chr17         884637                   761844                   884600                   763523          
+chr18         753968                   680029                   753890                   680294          
+chr19         443961                   402617                   443792                   402716          
+chrX          1072044                  975392                   1071882                  974757          
+chrY          951717                   860599                   951827                   860979          
+chrM           1818                     1628                     1763                     1544           
+
+
+Partition the genome in windows and generate summary files... 
+
+Total count of chr1 tags: 3119484
+Total count of chr2 tags: 2569978
+Total count of chr3 tags: 2545521
+Total count of chr4 tags: 2584263
+Total count of chr5 tags: 2388544
+Total count of chr6 tags: 2302787
+Total count of chr7 tags: 2853246
+Total count of chr8 tags: 2019772
+Total count of chr9 tags: 1891756
+Total count of chr10 tags: 1970591
+Total count of chr11 tags: 1539079
+Total count of chr12 tags: 2196361
+Total count of chr13 tags: 2089908
+Total count of chr14 tags: 2067322
+Total count of chr15 tags: 1533947
+Total count of chr16 tags: 1429235
+Total count of chr17 tags: 1525367
+Total count of chr18 tags: 1360323
+Total count of chr19 tags: 805333
+Total count of chrX tags: 1950149
+Total count of chrY tags: 1721578
+Total count of chrM tags: 3166
+
+
+Normalizing graphs by total island filitered reads per million and generating summary WIG file...
+
+Finding candidate islands exhibiting clustering...
+
+Species:  mm10
+Window_size:  5000
+Gap size:  10000
+E value is: 100
+Total read count: 42467292
+Genome Length:  2725537669
+Effective genome Length:  2180430135
+Window average: 97.38283130085249
+Window pvalue: 0.2
+Minimum num of tags in a qualified window:  107
+
+Determining the score threshold from random background...
+The score threshold is: 35.834
+Generating the enriched probscore summary graph and filtering the summary graph to eliminate ineligible windows... 
+Total number of islands:  14115
+
+
+End of SICER
+Removing temporary directory and all files in it.
+
+Program Finished Running
+LLX163_S105_L003 done
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K9me3/bed/H3K9me3_merge4counts_rm_blacklist.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K9me3/bed/H3K9me3_merge4counts_rm_blacklist.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o LLX145_S3_L001.nodup.bam                       ||
+||                           o LLX151_S1_L001.nodup.bam                       ||
+||                           o LLX157_S102_L003.nodup.bam                     ||
+||                           o LLX163_S105_L003.nodup.bam                     ||
+||                                                                            ||
+||             Output file : H3K9me3_merge.counts                             ||
+||                 Summary : H3K9me3_merge.counts.summary                     ||
+||              Annotation : H3K9me3_merge4counts_rm_blacklist.saf (SAF)      ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file H3K9me3_merge4counts_rm_blacklist.saf ...             ||
+||    Features : 11301                                                        ||
+||    Meta-features : 11301                                                   ||
+||    Chromosomes/contigs : 20                                                ||
+||                                                                            ||
+|| Process BAM file LLX145_S3_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26504237                                             ||
+||    Successfully assigned alignments : 7746440 (29.2%)                      ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX151_S1_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 22410631                                             ||
+||    Successfully assigned alignments : 6444065 (28.8%)                      ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX157_S102_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29055952                                             ||
+||    Successfully assigned alignments : 8415228 (29.0%)                      ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX163_S105_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26073708                                             ||
+||    Successfully assigned alignments : 7783662 (29.9%)                      ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K9me3/H3K9me3_mer  ||
+|| ge.counts.summary"                                                         ||
+||                                                                            ||
+\\============================================================================//
+

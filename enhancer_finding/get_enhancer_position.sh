@@ -1,0 +1,1 @@
+for file in *_20_dense.bed; do awk '$4 == 6' "$file" > "${file%.*}_enhancer.bed"; done  

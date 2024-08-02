@@ -1,0 +1,402 @@
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K27ac/bam/LLX147_S10_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K27ac/bam/LLX153_S11_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K27ac/bam/LLX159_S26_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K27ac/bam/LLX165_S2_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K27ac/bam/LLX179_S45_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K27ac/bam/LLX185_S117_L002.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K27ac/bam/LLX191_S67_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K27ac/bam/LLX197_S32_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K27ac/bam/SZJ083_S88_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K27ac/bam/SZJ089_S93_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K27ac/bam/SZJ099_S42_L002.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K27ac/bam/SZJ105_S34_L001.nodup.bam
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K27ac/bed/H3K27ac_macs_narrowpeak.bed
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K27ac/bed/merge_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K27ac/bed/merge_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 12 BAM files                                     ||
+||                           o LLX147_S10_L004.nodup.bam                      ||
+||                           o LLX153_S11_L003.nodup.bam                      ||
+||                           o LLX159_S26_L001.nodup.bam                      ||
+||                           o LLX165_S2_L003.nodup.bam                       ||
+||                           o LLX179_S45_L004.nodup.bam                      ||
+||                           o LLX185_S117_L002.nodup.bam                     ||
+||                           o LLX191_S67_L001.nodup.bam                      ||
+||                           o LLX197_S32_L001.nodup.bam                      ||
+||                           o SZJ083_S88_L004.nodup.bam                      ||
+||                           o SZJ089_S93_L001.nodup.bam                      ||
+||                           o SZJ099_S42_L002.nodup.bam                      ||
+||                           o SZJ105_S34_L001.nodup.bam                      ||
+||                                                                            ||
+||             Output file : merge_macs_narrowpeak.counts                     ||
+||                 Summary : merge_macs_narrowpeak.counts.summary             ||
+||              Annotation : merge_macs_narrowpeak.saf (SAF)                  ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file merge_macs_narrowpeak.saf ...                         ||
+||    Features : 156664                                                       ||
+||    Meta-features : 156664                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX147_S10_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34957575                                             ||
+||    Successfully assigned alignments : 17079254 (48.9%)                     ||
+||    Running time : 0.23 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX153_S11_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29255511                                             ||
+||    Successfully assigned alignments : 14611245 (49.9%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX159_S26_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29319730                                             ||
+||    Successfully assigned alignments : 12406268 (42.3%)                     ||
+||    Running time : 0.21 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX165_S2_L003.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 18954139                                             ||
+||    Successfully assigned alignments : 8238278 (43.5%)                      ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX179_S45_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23467680                                             ||
+||    Successfully assigned alignments : 15810091 (67.4%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX185_S117_L002.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 21304074                                             ||
+||    Successfully assigned alignments : 13547350 (63.6%)                     ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX191_S67_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31903123                                             ||
+||    Successfully assigned alignments : 22471847 (70.4%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX197_S32_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 33230337                                             ||
+||    Successfully assigned alignments : 21553009 (64.9%)                     ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ083_S88_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29365385                                             ||
+||    Successfully assigned alignments : 10796916 (36.8%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ089_S93_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27956682                                             ||
+||    Successfully assigned alignments : 10156742 (36.3%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ099_S42_L002.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28669450                                             ||
+||    Successfully assigned alignments : 8131098 (28.4%)                      ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ105_S34_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34370195                                             ||
+||    Successfully assigned alignments : 9505060 (27.7%)                      ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K27ac/merge_macs_na  ||
+|| rrowpeak.counts.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me3/bam/LLX150_S9_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me3/bam/LLX156_S4_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me3/bam/LLX162_S14_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me3/bam/LLX168_S108_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me3/bam/LLX182_S272_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me3/bam/LLX188_S6_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me3/bam/LLX194_S75_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me3/bam/LLX200_S35_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me3/bam/SZJ085_S89_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me3/bam/SZJ091_S92_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me3/bam/SZJ101_S51_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me3/bam/SZJ107_S53_L004.nodup.bam
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me3/bed/H3K4me3_macs_narrowpeak.bed /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me3/bed/H3K4me3_macs_narrowpeak.bed /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me3/bed/H3K4me3_macs_narrowpeak.bed
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K4me3/bed/merge_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K4me3/bed/merge_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 12 BAM files                                     ||
+||                           o LLX150_S9_L003.nodup.bam                       ||
+||                           o LLX156_S4_L001.nodup.bam                       ||
+||                           o LLX162_S14_L001.nodup.bam                      ||
+||                           o LLX168_S108_L003.nodup.bam                     ||
+||                           o LLX182_S272_L001.nodup.bam                     ||
+||                           o LLX188_S6_L003.nodup.bam                       ||
+||                           o LLX194_S75_L003.nodup.bam                      ||
+||                           o LLX200_S35_L001.nodup.bam                      ||
+||                           o SZJ085_S89_L004.nodup.bam                      ||
+||                           o SZJ091_S92_L004.nodup.bam                      ||
+||                           o SZJ101_S51_L004.nodup.bam                      ||
+||                           o SZJ107_S53_L004.nodup.bam                      ||
+||                                                                            ||
+||             Output file : merge_macs_narrowpeak.counts                     ||
+||                 Summary : merge_macs_narrowpeak.counts.summary             ||
+||              Annotation : merge_macs_narrowpeak.saf (SAF)                  ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file merge_macs_narrowpeak.saf ...                         ||
+||    Features : 171367                                                       ||
+||    Meta-features : 171367                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX150_S9_L003.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36517989                                             ||
+||    Successfully assigned alignments : 19237532 (52.7%)                     ||
+||    Running time : 0.24 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX156_S4_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27466039                                             ||
+||    Successfully assigned alignments : 13951091 (50.8%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX162_S14_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 28762973                                             ||
+||    Successfully assigned alignments : 13027795 (45.3%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX168_S108_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 24156933                                             ||
+||    Successfully assigned alignments : 10936570 (45.3%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX182_S272_L001.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26628038                                             ||
+||    Successfully assigned alignments : 16693982 (62.7%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX188_S6_L003.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29176137                                             ||
+||    Successfully assigned alignments : 17524664 (60.1%)                     ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX194_S75_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35555185                                             ||
+||    Successfully assigned alignments : 24078793 (67.7%)                     ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX200_S35_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 36659596                                             ||
+||    Successfully assigned alignments : 24013431 (65.5%)                     ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ085_S89_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 29662256                                             ||
+||    Successfully assigned alignments : 14009697 (47.2%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ091_S92_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34045746                                             ||
+||    Successfully assigned alignments : 15237282 (44.8%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ101_S51_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 23252406                                             ||
+||    Successfully assigned alignments : 9472721 (40.7%)                      ||
+||    Running time : 0.13 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ107_S53_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 26328301                                             ||
+||    Successfully assigned alignments : 10030493 (38.1%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K4me3/merge_macs_na  ||
+|| rrowpeak.counts.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me1/bam/LLX149_S8_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me1/bam/LLX155_S3_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me1/bam/LLX161_S104_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me1/bam/LLX167_S107_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me1/bam/LLX181_S46_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me1/bam/LLX187_S5_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me1/bam/LLX193_S74_L003.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me1/bam/LLX199_S34_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me1/bam/SZJ086_S90_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me1/bam/SZJ092_S94_L001.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me1/bam/SZJ102_S52_L004.nodup.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me1/bam/SZJ108_S54_L004.nodup.bam
+/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/brain/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/liver/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/testis/H3K4me1/bed/H3K4me1_macs_narrowpeak.bed
+input file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K4me1/bed/merge_macs_narrowpeak.bed
+output file: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K4me1/bed/merge_macs_narrowpeak.saf
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 12 BAM files                                     ||
+||                           o LLX149_S8_L003.nodup.bam                       ||
+||                           o LLX155_S3_L001.nodup.bam                       ||
+||                           o LLX161_S104_L003.nodup.bam                     ||
+||                           o LLX167_S107_L003.nodup.bam                     ||
+||                           o LLX181_S46_L004.nodup.bam                      ||
+||                           o LLX187_S5_L003.nodup.bam                       ||
+||                           o LLX193_S74_L003.nodup.bam                      ||
+||                           o LLX199_S34_L001.nodup.bam                      ||
+||                           o SZJ086_S90_L004.nodup.bam                      ||
+||                           o SZJ092_S94_L001.nodup.bam                      ||
+||                           o SZJ102_S52_L004.nodup.bam                      ||
+||                           o SZJ108_S54_L004.nodup.bam                      ||
+||                                                                            ||
+||             Output file : merge_macs_narrowpeak.counts                     ||
+||                 Summary : merge_macs_narrowpeak.counts.summary             ||
+||              Annotation : merge_macs_narrowpeak.saf (SAF)                  ||
+||      Dir for temp files : /storage/zhangyanxiaoLab/suzhuojie/projects/ ... ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file merge_macs_narrowpeak.saf ...                         ||
+||    Features : 210138                                                       ||
+||    Meta-features : 210138                                                  ||
+||    Chromosomes/contigs : 21                                                ||
+||                                                                            ||
+|| Process BAM file LLX149_S8_L003.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34616115                                             ||
+||    Successfully assigned alignments : 13625832 (39.4%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX155_S3_L001.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27356633                                             ||
+||    Successfully assigned alignments : 10079193 (36.8%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX161_S104_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 34739349                                             ||
+||    Successfully assigned alignments : 13191774 (38.0%)                     ||
+||    Running time : 0.20 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX167_S107_L003.nodup.bam...                             ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31623757                                             ||
+||    Successfully assigned alignments : 11122423 (35.2%)                     ||
+||    Running time : 0.19 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX181_S46_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 30183795                                             ||
+||    Successfully assigned alignments : 13132370 (43.5%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX187_S5_L003.nodup.bam...                               ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 27709790                                             ||
+||    Successfully assigned alignments : 10878158 (39.3%)                     ||
+||    Running time : 0.14 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX193_S74_L003.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 40430405                                             ||
+||    Successfully assigned alignments : 19093394 (47.2%)                     ||
+||    Running time : 0.21 minutes                                             ||
+||                                                                            ||
+|| Process BAM file LLX199_S34_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 37351838                                             ||
+||    Successfully assigned alignments : 16365309 (43.8%)                     ||
+||    Running time : 0.21 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ086_S90_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31314833                                             ||
+||    Successfully assigned alignments : 10453800 (33.4%)                     ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ092_S94_L001.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 35267182                                             ||
+||    Successfully assigned alignments : 11327397 (32.1%)                     ||
+||    Running time : 0.17 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ102_S52_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 31146460                                             ||
+||    Successfully assigned alignments : 9439497 (30.3%)                      ||
+||    Running time : 0.15 minutes                                             ||
+||                                                                            ||
+|| Process BAM file SZJ108_S54_L004.nodup.bam...                              ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 38073170                                             ||
+||    Successfully assigned alignments : 11462626 (30.1%)                     ||
+||    Running time : 0.18 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/storage/zhangyanxiaoLa  ||
+|| b/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/H3K4me1/merge_macs_na  ||
+|| rrowpeak.counts.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
