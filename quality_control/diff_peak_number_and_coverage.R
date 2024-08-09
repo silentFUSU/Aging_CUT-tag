@@ -95,6 +95,8 @@ write.csv(diff_peak_percent,"data/samples/all/diff_bins_percent.csv",row.names =
 write.csv(diff_peak_coverage,"data/samples/all/diff_bins_coverage.csv",row.names = F)
 
 ############### bins overlap with peaks #######################
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
+
 diff_peak_number <-data.frame(Var1 = character(),  
                               Freq = numeric(),  
                               tissue = character(),  
@@ -115,7 +117,7 @@ for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
     antibody<-antibodys[j]
-    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_10kb_bins_overlap_old_only_peaks_diff_after_remove_batch_effect.csv"))
+    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_10kb_bins_overlap_young_old_peaks_diff_after_remove_batch_effect.csv"))
     sig <- data.frame(Var1=c("Up","Stable","Down"),Freq=c(0,0,0))
     t_sig<-as.data.frame(table(diff$Significant_bar))
     sig <- merge(sig, t_sig, by="Var1", all.x=TRUE) 
@@ -140,7 +142,7 @@ for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
     antibody<-antibodys[j]
-    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_overlap_peaks_diff_after_remove_batch_effect.csv"))
+    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_overlap_young_old_peaks_diff_after_remove_batch_effect.csv"))
     sig <- data.frame(Var1=c("Up","Stable","Down"),Freq=c(0,0,0))
     t_sig<-as.data.frame(table(diff$Significant_bar))
     sig <- merge(sig, t_sig, by="Var1", all.x=TRUE) 

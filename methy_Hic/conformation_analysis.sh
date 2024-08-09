@@ -82,5 +82,45 @@ hic2cool convert ${data_path2}aligned/inter_30.hic ${data_path2}architecture/com
 hicConvertFormat -m ${data_path2}architecture/compartments/HiCExplorer/inter_30_5000.cool --inputFormat cool --outputFormat h5 -o ${data_path2}architecture/compartments/HiCExplorer/inter_30_5000.h5 --correction_name KR
 hicConvertFormat -m ${data_path2}architecture/compartments/HiCExplorer/inter_30_5000.cool --inputFormat cool --outputFormat homer -o ${data_path2}architecture/compartments/HiCExplorer/inter_30_5000.homer --correction_name KR
 
+hic2cool convert ${data_path2}aligned/inter_30.hic ${data_path2}architecture/inter_30_100000.cool -r 100000
+hicConvertFormat -m ${data_path2}architecture/inter_30_100000.cool --inputFormat cool --outputFormat h5 -o ${data_path2}architecture/inter_30_100000.h5 --correction_name KR
+## HICexplorer
+
+hicFindTADs -m ${data_path2}architecture/inter_30_5000.h5 \
+     --outPrefix ${data_path2}architecture/TAD/HiCExplorer/inter_30_5000 \
+     --correctForMultipleTesting fdr \
+     -p 20
+
+hicPlotTADs --tracks ${data_path2}architecture/TAD/HiCExplorer/tracks.ini --region chr14:40000000-44500000  -o  ${data_path2}architecture/TAD/HiCExplorer/TAD_calling_comparison.png
+hicPlotTADs --tracks ${data_path2}architecture/TAD/HiCExplorer/tracks.ini --region chr1:4000000-20000000  -o  ${data_path2}architecture/TAD/HiCExplorer/TAD_calling_chr1_4mb_20mb.png
+
+hicPCA --matrix ${data_path2}architecture/inter_30_100000.h5 -o ${data_path2}architecture/compartments/HiCExplorer/pca1_100000.bw ${data_path2}architecture/compartments/HiCExplorer/pca2_100000.bw --chromosomes chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chrX chrY 2>&1>${data_path2}architecture/compartments/hicexplorerPCA.log
+
+
+## domaincaller
+cooler balance ${data_path2}architecture/inter_30_5000.cool
+domaincaller --uri ${data_path2}architecture/inter_30_5000.cool -O ${data_path2}architecture/TAD/domaincaller/inter_30_5000.output \
+     -D ${data_path2}architecture/TAD/domaincaller/inter_30_5000.DI -p 1 \
+     --exclude chrM chrL chrM chr1_GL456210_random chr1_GL456211_random chr1_GL456212_random chr1_GL456213_random chr1_GL456221_random chr4_GL456216_random chr4_GL456350_random chr4_JH584292_random chr4_JH584293_random chr4_JH584294_random chr4_JH584295_random chr5_GL456354_random chr5_JH584296_random chr5_JH584297_random chr5_JH584298_random chr5_JH584299_random chr7_GL456219_random chrX_GL456233_random chrY_JH584300_random chrY_JH584301_random chrY_JH584302_random chrY_JH584303_random chrUn_GL456239 chrUn_GL456359 chrUn_GL456360 chrUn_GL456366 chrUn_GL456367 chrUn_GL456368 chrUn_GL456370 chrUn_GL456372 chrUn_GL456378 chrUn_GL456379 chrUn_GL456381 chrUn_GL456382 chrUn_GL456383 chrUn_GL456385 chrUn_GL456387 chrUn_GL456389 chrUn_GL456390 chrUn_GL456392 chrUn_GL456393 chrUn_GL456394 chrUn_GL456396 chrUn_JH584304 \
+     --logFile ${data_path2}architecture/TAD/domaincaller/domaincaller.log
+awk -F',' '{print $1 "\t" $2 "\t" $3}' ${data_path2}architecture/TAD/domaincaller/inter_30_5000.output > ${data_path2}architecture/TAD/domaincaller/inter_30_5000.bed
+
+hicPlotTADs --tracks ${data_path2}architecture/TAD/HiCExplorer/tracks.ini --region chr14:40000000-44500000  -o  ${data_path2}architecture/TAD/domaincaller/TAD_calling_domaincaller.png
+
+## homer
+hicConvertFormat -m ${data_path2}architecture/inter_30_100000.cool --inputFormat cool --outputFormat homer -o ${data_path2}architecture/inter_30_100000.homer --correction_name KR
+
+## FanC
+fancplot -o ${data_path2}architecture/TAD/FanC/fanc_50kb_tads.png chr14:40000000-44500000 \
+     -p triangular ${data_path2}aligned/inter_30.hic@50kb  -m 10000000  -vmin 0 -vmax 100
+
+fanc insulation ${data_path2}aligned/inter_30.hic@50kb \
+     ${data_path2}architecture/TAD/FanC/fanc_50kb.insulation \
+     -w 1000000 1500000 2000000 2500000 3000000 3500000 4000000
+
+fancplot -o ${data_path}architecture/TAD/FanC/fanc_50kb_tads_insulation.png  chr14:40000000-44500000 \
+     -p triangular ${data_path}aligned/inter_30.hic@50kb -m 10000000  -vmin 0 -vmax 100  \
+     -p scores ${data_path}architecture/TAD/FanC/fanc_50kb.insulation
+     
 nohup java -jar -Xmx48000m  -Djava.awt.headless=true -jar /storage/zhangyanxiaoLab/suzhuojie/software/juicer/scripts/common/juicer_tools.jar arrowhead \
     --threads 8 -k KR -m 2000 -r 5000 ${data_path}aligned/inter_30.hic ${data_path}architecture/TAD/juicer_TAD_5000 2>&1>>${data_path}juicer_TAD.log &

@@ -15,6 +15,7 @@ library(clusterProfiler)
 library(ggrepel)
 library(limma)
 library(patchwork)
+
 peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   tab = read.delim(paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins.counts"),skip=1)
   counts = tab[,c(7:10)]
@@ -141,7 +142,8 @@ for (i in c(1:length(tissues))){
 
 
 bin_size <- "1kb"
-tissues <- c("Hip","testis", "colon", "kidney", "lung", "spleen", "muscle", "cecum","bonemarrow","heart","thymus","aorta","tongue","skin","stomach","bladder")
+tissues <- c()
+tissues <- c("skin","thymus","lung","uterus","aorta","spleen","bladder","Hip","bonemarrow","muscle","stomach","testis","tongue","colon","cecum","jejunum","heart","liver","kidney","ovary","brain","CB")
 p_list <- list()
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
@@ -205,8 +207,8 @@ for(k in c(1:length(tissues))){
       # 图例
       theme_bw()+
       theme(text = element_text(size = 10))+
-      annotate("text", x = min(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Geneid %in%quadrants_peaks[["second"]] & out$LogFC.old.young<0),]), vjust = 5, hjust = 0,colour="blue",size=8)+
-      annotate("text", x = max(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Geneid %in%quadrants_peaks[["second"]] & out$LogFC.old.young>0),]), vjust = 5, hjust = 1.5,colour="red",size=8)
+      annotate("text", x = min(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Geneid %in%quadrants_peaks[["second"]] & out$LogFC.old.young<0 & out$FDR.old.young < 0.05),]), vjust = 5, hjust = 0,colour="blue",size=8)+
+      annotate("text", x = max(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Geneid %in%quadrants_peaks[["second"]] & out$LogFC.old.young>0 & out$FDR.old.young < 0.05),]), vjust = 5, hjust = 1.5,colour="red",size=8)
     
   }else{
     p2<-ggplot() +
@@ -284,8 +286,8 @@ for(k in c(1:length(tissues))){
   p_list[[k]] <- p2
   # ggsave(paste0("result/",tissue,"/ATAC/diff_ATAC_with_H3K27me3_and_H3K9me3_relationship.png"),p,width = 4,height=4,type="cairo")
 }
-combined_plot <- plot_a_list(p_list, 4, 4)
-ggsave(paste0("result/all/H3K27me3_H3K9me3/all_tissue_diff_ATAC_with_H3K27me3_and_H3K9me3_relationship.png"),combined_plot,width = 12,height=12,type="cairo")
+combined_plot <- plot_a_list(p_list, 4, 6)
+ggsave(paste0("result/all/H3K27me3_H3K9me3/all_tissue_diff_ATAC_with_H3K27me3_and_H3K9me3_relationship.png"),combined_plot,width = 18,height=12,type="cairo")
 
 bin_size <- "1kb"
 tissues <- c("Hip","testis", "colon", "kidney", "lung", "spleen", "muscle", "cecum","bonemarrow","heart","thymus","aorta","tongue","skin","stomach","bladder")

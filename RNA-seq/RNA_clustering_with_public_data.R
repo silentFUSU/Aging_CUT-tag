@@ -39,7 +39,7 @@ tab_ourdata <- read.table("data/samples/RNA/combined-chrM.counts",header = T)
 rownames(tab_ourdata) <- tab_ourdata$Geneid
 tab_ourdata <- tab_ourdata[,-1]
 colnames <- colnames(tab_ourdata)[6:ncol(tab_ourdata)]
-pattern <- ".*bam\\.(LLX[0-9]+).*"
+pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
 new_colnames <- gsub(pattern, "\\1", colnames)
 sorted_index <- order(new_colnames)
 order_colnames <- new_colnames[sorted_index] 
@@ -55,14 +55,15 @@ count_merge[] <- lapply(count_merge, as.numeric)
 pbmc <- CreateSeuratObject(count=count_merge)
 group_info <- tab[,c(54353:54355)]
 group_info$source.name <- sub("_(\\w+)_\\d*|_(\\w+)$", "\\1",  group_info$source.name)  
-group_info$source.name <- paste0("TMR-",group_info$source.name)
-group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = '\t')
+group_info$source.name <- paste0("TMS-",group_info$source.name)
+group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
 group <- group[order(group$SampleID),]
-group <- group$TissueName
-age <- rep(c("3m","24m"),ncol(counts)/2)
+tissue <- group$TissueName
+
+age <- group$Age
 
 
-new_row <- data.frame(source.name=group,characteristics..age=age,characteristics..sex="m")
+new_row <- data.frame(source.name=tissue,characteristics..age=age,characteristics..sex="m")
 # rownames(new_row) <- paste0(new_row$source.name,"-",new_row$characteristics..age,"-",rep(c("rep1","rep2"),7))
 group_info <- rbind(group_info,new_row)
 

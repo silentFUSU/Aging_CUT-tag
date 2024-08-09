@@ -1,14 +1,18 @@
 data_path=$1
 # data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/GSE119171_methyl_hic/fastq/
 software_path=/storage/zhangyanxiaoLab/suzhuojie/software/
-ref_data=/storage/zhangyanxiaoLab/suzhuojie/ref_data/
+ref_data=/storage/zhangyanxiaoLab/suzhuojie/ref_data/for_methylHiC/
 MARKDUP="/storage/zhangyanxiaoLab/share/Pipelines/atac-seq-pipeline-snakemake/dependencies/picard.jar MarkDuplicates"
 sample=$2
 ref=$3
+echo $ref
 # ref=mm10
 # sample=SRR7770796
-f1=${data_path}${sample}/*1.f*q.gz
-f2=${data_path}${sample}/*2.f*q.gz
+f1=${data_path}${sample}/*R1*.f*q.gz
+f2=${data_path}${sample}/*R2*.f*q.gz
+echo $f1
+echo $f2
+
 cd ${data_path}${sample}
 mkdir ${data_path}${sample}/bam
 mkdir ${data_path}${sample}/tmp/
@@ -24,24 +28,14 @@ java -Xmx12G -jar ${MARKDUP} TMP_DIR=${data_path}${sample}/tmp/ INPUT=${data_pat
 samtools index -@ 10 ${data_path}${sample}/bam/${sample}.calmd.nodup.bam
 
 mkdir ${data_path}${sample}/vcf
-# java -Xmx5G -jar ${software_path}Bis-tools/Bis-SNP/BisSNP-1.0.0.jar -R /storage/zhangyanxiaoLab/suzhuojie/ref_data/${ref}/${ref}.fa \
-#     -I  ${data_path}${sample}/bam/${sample}.calmd.bam -D /storage/zhangyanxiaoLab/suzhuojie/ref_data/dbsnp/dbsnp_138.b37.vcf.gz \
-#     -T BisulfiteGenotyper -vfn1 ${data_path}${sample}/vcf/${sample}.calmd.cpg.default.raw.vcf -vfn2 ${data_path}${sample}/vcf/${sample}.calmd.snp.default.raw.vcf -C CG,1 -C CH,1 \
-#     -out_modes DEFAULT_FOR_TCGA -stand_call_conf 20 -nt 30 -minConv 1 -vcfCache 1000000 -mmq 30 -mbq 5 
 
-
-java -Xmx5G -jar ${software_path}Bis-tools/Bis-SNP/BisSNP-1.0.0.jar -R /storage/zhangyanxiaoLab/suzhuojie/ref_data/${ref}/${ref}.fa \
+java -Xmx5G -jar ${software_path}Bis-tools/Bis-SNP/BisSNP-1.0.0.jar -R ${ref_data}${ref}/${ref}.fa \
     -I  ${data_path}${sample}/bam/${sample}.calmd.nodup.bam -T BisulfiteGenotyper -vfn1 ${data_path}${sample}/vcf/${sample}.calmd.nodup.cpg.raw.vcf \
     -C CG,1 -C CH,1 -out_modes EMIT_ALL_CPG -stand_call_conf 20 -nt 30 -minConv 1 -vcfCache 1000000 -mmq 30 -mbq 5 
 
 python /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/methy_Hic/correct_vcf.py ${data_path}${sample}/vcf/${sample}.calmd.nodup.cpg.raw.vcf
 perl ${software_path}Bis-tools/utils/sortByRefAndCor.pl --k 1 --c 2 --tmp ./ ${data_path}${sample}/vcf/corrected_${sample}.calmd.nodup.cpg.raw.vcf ${ref_data}${ref}/${ref}.fa.fai > ${data_path}${sample}/vcf/${sample}.calmd.nodup.cpg.raw.sort.vcf 
-# perl ${software_path}Bis-tools/utils/sortByRefAndCor.pl --k 1 --c 2 --tmp ./ ${data_path}${sample}/${sample}.calmd.snp.raw.vcf ~/ref_data/${ref}/${ref}.fa.fai > ${data_path}${sample}/${sample}.calmd.snp.raw.sort.vcf 
 
-# java -Xmx5G -jar ${software_path}Bis-tools/Bis-SNP/BisSNP-1.0.0.jar -R ${ref_data}${ref}/${ref}.fa -T VCFpostprocess -qual 20 -C CG -C CH -oldVcf ${data_path}${sample}/${sample}.calmd.cpg.raw.sort.vcf -snpVcf ${data_path}${sample}/${sample}.calmd.snp.raw.sort.vcf -newVcf ${data_path}${sample}/${sample}.calmd.cpg.filtered.sort.vcf -o ${data_path}${sample}/${sample}.calmd.cpg.filtered.sort.vcf.cpgSummary.txt -minCT 1
-# java -Xmx5G -jar ${software_path}Bis-tools/Bis-SNP/BisSNP-1.0.0.jar -R ${ref_data}${ref}/${ref}.fa -T VCFpostprocess -qual 20 -C CG -C CH -oldVcf ${data_path}${sample}/${sample}.calmd.snp.raw.sort.vcf -snpVcf ${data_path}${sample}/${sample}.calmd.snp.raw.sort.vcf -newVcf ${data_path}${sample}/${sample}.calmd.snp.filtered.sort.vcf -o ${data_path}${sample}/${sample}.calmd.snp.filtered.sort.vcf.cpgSummary.txt 
-
-# perl ${software_path}Bis-tools/utils/vcf2bedGraph.pl ${data_path}${sample}/${sample}.calmd.cpg.filtered.sort.vcf CG 
 perl ${software_path}Bis-tools/utils/vcf2bed6plus2.pl --only_good_call ${data_path}${sample}/vcf/${sample}.calmd.nodup.cpg.raw.sort.vcf CG &
 perl ${software_path}Bis-tools/utils/vcf2wig.pl ${data_path}${sample}/vcf/${sample}.calmd.nodup.cpg.raw.sort.vcf CG &
 # perl ${software_path}Bis-tools/utils/vcf2coverage.pl  ${data_path}${sample}/${sample}.calmd.cpg.filtered.sort.vcf CG 

@@ -15,8 +15,8 @@ library(tidyr)
 library(UpSetR)
 library(ChIPseeker)
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-
-tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum")
+GO_database <- 'org.Mm.eg.db'
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","ileum","pancreas")
 bin_size <- function(antibody){
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
     return ("10kb")
@@ -24,7 +24,7 @@ bin_size <- function(antibody){
     return("1kb")
   }  
 }
-antibody <- "H3K27ac"
+antibody <- "H3K4me3"
 peaks<-data.frame(Geneid = character(),  
                   Chr = character(),
                   Start = numeric(),
@@ -53,16 +53,28 @@ increase_tissue <- increase %>%
   summarise(tissue_content = paste(unique(tissue), collapse = "/"))  
 increase_count <- merge(increase_count,increase_tissue,by="Geneid")
 increase_count <- merge(increase_count,bin_file,by="Geneid")
+increase_count <- increase_count[which(increase_count$n>=8),]
 peak_obj <- GRanges(seqnames = increase_count$V1,   
                     ranges = IRanges(start = increase_count$V2, end = increase_count$V3))
 peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),
                           TxDb=txdb, annoDb="org.Mm.eg.db")
 peak_anno <- unique(as.data.frame(peak_anno))
+genelist_up <- bitr(peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+genelist_up_GO <- enrichGO( genelist_up$ENTREZID,#GO富集分析
+                            OrgDb = GO_database,
+                            keyType = "ENTREZID",#设定读取的gene ID类型
+                            ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
+                            pvalueCutoff = 0.05,#设定p值阈值
+                            qvalueCutoff = 0.05,#设定q值阈值
+                            readable = T)
+barplot(genelist_up_GO)
+
+
 increase_count$label <- paste0(increase_count$V1,"-",increase_count$V2,"-",increase_count$V3)
 peak_anno$label <- paste0(peak_anno$seqnames,"-",peak_anno$start,"-",peak_anno$end)
 increase_count <- merge(increase_count,peak_anno[,6:ncol(peak_anno)],by="label")
 
-decrease <- peaks[which(peaks$Significant_bar=="Up"),]
+decrease <- peaks[which(peaks$Significant_bar=="Down"),]
 decrease_count <- decrease %>%   
   count(Geneid)
 decrease_tissue <- decrease %>%   
@@ -70,11 +82,22 @@ decrease_tissue <- decrease %>%
   summarise(tissue_content = paste(unique(tissue), collapse = "/"))  
 decrease_count <- merge(decrease_count,decrease_tissue,by="Geneid")
 decrease_count <- merge(decrease_count,bin_file,by="Geneid")
+decrease_count <- decrease_count[which(decrease_count$n>=20),]
 peak_obj <- GRanges(seqnames = decrease_count$V1,   
                     ranges = IRanges(start = decrease_count$V2, end = decrease_count$V3))
 peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),
                           TxDb=txdb, annoDb="org.Mm.eg.db")
 peak_anno <- unique(as.data.frame(peak_anno))
+genelist_down <- bitr(peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+genelist_down_GO <- enrichGO( genelist_down$ENTREZID,#GO富集分析
+                            OrgDb = GO_database,
+                            keyType = "ENTREZID",#设定读取的gene ID类型
+                            ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
+                            pvalueCutoff = 0.05,#设定p值阈值
+                            qvalueCutoff = 0.05,#设定q值阈值
+                            readable = T)
+barplot(genelist_down_GO,showCategory = 10,label_format = 100)
+
 decrease_count$label <- paste0(decrease_count$V1,"-",decrease_count$V2,"-",decrease_count$V3)
 peak_anno$label <- paste0(peak_anno$seqnames,"-",peak_anno$start,"-",peak_anno$end)
 decrease_count <- merge(decrease_count,peak_anno[,6:ncol(peak_anno)],by="label")

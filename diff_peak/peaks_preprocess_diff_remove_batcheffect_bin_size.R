@@ -19,8 +19,14 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins.counts"),skip=1)
   counts = tab[,c(7:10)]
   rownames(counts)= tab$Geneid
-  colnames(counts) = c("young_1","old_1","young_2","old_2")
-  group =c("young","old","young","old")
+  if (tissues=="ovary"){
+    colnames(counts) = c("old_1","young_1","old_2","young_2")
+    group =c("old","young","old","young")
+  }else{
+    colnames(counts) = c("young_1","old_1","young_2","old_2")
+    group =c("young","old","young","old")
+  }
+
   y= DGEList(counts=counts,group=group)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
@@ -29,23 +35,9 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   y$samples$year <- factor(y$samples$year,c("young","old"))
   y <- calcNormFactors(y)
   logCPMs <- cpm(y, log = TRUE)
-  rv <- apply(logCPMs, 1, var)
-  o <- order(rv, decreasing=TRUE)
-  # top1000 <- head(o, 1000)
-  # logCPM_top1000 <- logCPMs[top1000,]
-  pca <- prcomp(t(logCPMs))
-  to_plot <- data.frame(pca$x, y$samples)
-  percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
-  use.pcs <- c(1,2)
-  labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
-  ggplot(to_plot, aes(x=PC1, y=PC2, color=batch, shape=year)) + 
-    geom_point(size=5) +theme_bw()+
-    xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))
-  # ggsave(paste0("result/",tissue,"/pca/",antibody,"_",bin_size,"_bins.png"),width = 5,height =5)
   
   batch <- factor(y$samples$batch)
   logCPMs_corrected <- limma::removeBatchEffect(logCPMs, batch = batch)
-  # logCPM_corrected_top1000 <- logCPMs_corrected[top1000,]
   pca <- prcomp(t(logCPMs_corrected))
   to_plot <- data.frame(pca$x, y$samples)
   percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
@@ -54,19 +46,14 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   
   ggplot(to_plot, aes(x=PC1, y=PC2, color=batch, shape=year)) + 
     geom_point(size=5) +theme_bw()+
-    xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))
-  # ggsave(paste0("result/",tissue,"/pca/",antibody,"_",bin_size,"_bins_pca_plot_after_remove_batch_effect.png"),width = 5,height =5)
-  
+
   design <- model.matrix(~batch+year, y$samples)
-  # y <- estimateDisp(y, design)
-  
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
   lrt = glmLRT(fit_tag, coef = 3)
   tab<-tab[keep,]
-  # fit <- glmQLFit(y, design)
-  # fit  <- glmQLFTest(fit, coef = 3)
+
   out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion),
               "PValue.old-young"=lrt$table$PValue,"FDR.old-young"= p.adjust(lrt$table$PValue,method="BH"),
               "LogFC.old-young"=lrt$table$logFC)
@@ -115,8 +102,8 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant_bar=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   # ggsave(paste0("result/",tissue,"/diffpeaks/",antibody,"_merge-W",window_size,"-G",gap_size,"-E",e_value,"_volcano_plot_after_remove_batch_effect.png"),width = 10,height = 10)
   write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"),row.names = F)
-  outup <- out[which(out$Significant=="Up"),]
-  outdown <- out[which(out$Significant=="Down"),]
+  outup <- out[which(out$Significant_bar=="Up"),]
+  outdown <- out[which(out$Significant_bar=="Down"),]
   write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
   write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
