@@ -1,0 +1,12 @@
+[dupsifter] processing mode: paired-end
+[dupsifter] number of individual reads processed: 2081905
+[dupsifter] number of reads with both reads mapped: 998977
+[dupsifter] number of reads with only one read mapped to the forward strand: 369
+[dupsifter] number of reads with only one read mapped to the reverse strand: 349
+[dupsifter] number of reads with both reads marked as duplicates: 170877
+[dupsifter] number of reads on the forward strand marked as duplicates: 19
+[dupsifter] number of reads on the reverse strand marked as duplicates: 18
+[dupsifter] number of individual primary-alignment reads: 2000000
+[dupsifter] number of individual secondary- and supplementary-alignment reads: 81905
+[dupsifter] number of reads with no reads mapped: 305
+[dupsifter] number of reads with no primary reads: 0

@@ -8,7 +8,6 @@ library(GenomeInfoDb)
 library(EnsDb.Hsapiens.v86)
 library(ggplot2)
 library(patchwork)
-library(patchwork)
 library(stringr)
 library(dplyr)
 library(tidyr)
@@ -24,7 +23,7 @@ bin_size <- function(antibody){
     return("1kb")
   }  
 }
-antibody <- "H3K4me3"
+antibody <- "H3K27me3"
 peaks<-data.frame(Geneid = character(),  
                   Chr = character(),
                   Start = numeric(),
@@ -54,6 +53,7 @@ increase_tissue <- increase %>%
 increase_count <- merge(increase_count,increase_tissue,by="Geneid")
 increase_count <- merge(increase_count,bin_file,by="Geneid")
 increase_count <- increase_count[which(increase_count$n>=8),]
+# increase_count <- increase_count[which(increase_count$tissue_content=="CB"),]
 peak_obj <- GRanges(seqnames = increase_count$V1,   
                     ranges = IRanges(start = increase_count$V2, end = increase_count$V3))
 peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),

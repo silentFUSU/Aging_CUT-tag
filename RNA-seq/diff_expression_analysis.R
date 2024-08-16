@@ -57,29 +57,4 @@ plot_volcano <- function(tissue){
     annotate("text", x = min(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
 }
-tissue <- "skin"
-txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-GO_database <- 'org.Mm.eg.db'
-GO_pathway_analysis <- function(tissue){
-  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"),row.names = 1)
-  genelist_up <- bitr(rownames(df)[which(df$Significant=="Up")],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-  genelist_up_GO <- enrichGO( genelist_up$ENTREZID,#GO富集分析
-                              OrgDb = GO_database,
-                              keyType = "ENTREZID",#设定读取的gene ID类型
-                              ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
-                              pvalueCutoff = 0.05,#设定p值阈值
-                              qvalueCutoff = 0.05,#设定q值阈值
-                              readable = T)
-  barplot(genelist_up_GO)
-  
-  genelist_down <- bitr(rownames(df)[which(df$Significant=="Down")],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-  genelist_down_GO <- enrichGO( genelist_down$ENTREZID,#GO富集分析
-                              OrgDb = GO_database,
-                              keyType = "ENTREZID",#设定读取的gene ID类型
-                              ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
-                              pvalueCutoff = 0.05,#设定p值阈值
-                              qvalueCutoff = 0.05,#设定q值阈值
-                              readable = T)
-  barplot(genelist_down_GO)
-}
 

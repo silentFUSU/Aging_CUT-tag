@@ -75,8 +75,8 @@ bin_size <- function(antibody){
 #   EntrezGene
 # )
 
-antibody<-"H3K27ac"
-tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","ileum","heart","thymus")
+antibody<-"H3K4me1"
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","ileum","pancreas")
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 geneup_list <- list()
@@ -84,39 +84,60 @@ genedown_list <- list()
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
-  peak <- GRanges(seqnames = out$Chr,   
-                  ranges = IRanges(start = out$Start, end = out$End))
-  peak_anno <- annotatePeak(peak, tssRegion=c(-3000, 3000),
-                            TxDb=txdb, annoDb="org.Mm.eg.db")
-  peak_anno <- unique(as.data.frame(peak_anno))
-  genelist <- bitr(peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-  background <- genelist$ENTREZID
+  # peak <- GRanges(seqnames = out$Chr,   
+  #                 ranges = IRanges(start = out$Start, end = out$End))
+  # peak_anno <- annotatePeak(peak, tssRegion=c(-3000, 3000),
+  #                           TxDb=txdb, annoDb="org.Mm.eg.db")
+  # peak_anno <- unique(as.data.frame(peak_anno))
+  # genelist <- bitr(peak_anno$SYMBOL,fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+  # background <- genelist$ENTREZID
   out_up <- out[which(out$Significant_bar=="Up"),]
-  up_peak <- GRanges(seqnames = out_up$Chr,   
-                     ranges = IRanges(start = out_up$Start, end = out_up$End))
-  up_peak_anno <- annotatePeak(up_peak, tssRegion=c(-3000, 3000),
-                               TxDb=txdb, annoDb="org.Mm.eg.db")
-  up_peak_anno <- unique(as.data.frame(up_peak_anno))
-  genelist_up <- bitr(up_peak_anno$SYMBOL[which(str_detect(up_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-  geneup_list[[i]] <- genelist_up$ENTREZID
-  names(geneup_list)[i] <- tissue
+  if(nrow(out_up) > 0){
+    up_peak <- GRanges(seqnames = out_up$Chr,   
+                       ranges = IRanges(start = out_up$Start, end = out_up$End))
+    up_peak_anno <- annotatePeak(up_peak, tssRegion=c(-3000, 3000),
+                                 TxDb=txdb, annoDb="org.Mm.eg.db")
+    up_peak_anno <- unique(as.data.frame(up_peak_anno))
+    genelist_up <- bitr(up_peak_anno$SYMBOL[which(str_detect(up_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+    geneup_list[[i]] <- genelist_up$ENTREZID
+    names(geneup_list)[i] <- tissue
+  }
+  
   out_down <- out[which(out$Significant_bar=="Down"),]
-  down_peak <- GRanges(seqnames = out_down$Chr,   
-                     ranges = IRanges(start = out_down$Start, end = out_down$End))
-  down_peak_anno <- annotatePeak(down_peak, tssRegion=c(-3000, 3000),
-                               TxDb=txdb, annoDb="org.Mm.eg.db")
-  down_peak_anno <- unique(as.data.frame(down_peak_anno))
-  genelist_down <- bitr(down_peak_anno$SYMBOL[which(str_detect(down_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-  genedown_list[[i]] <- genelist_down$ENTREZID
-  names(genedown_list)[i] <- tissue
-
+  if(nrow(out_down) > 0){
+    down_peak <- GRanges(seqnames = out_down$Chr,   
+                         ranges = IRanges(start = out_down$Start, end = out_down$End))
+    down_peak_anno <- annotatePeak(down_peak, tssRegion=c(-3000, 3000),
+                                   TxDb=txdb, annoDb="org.Mm.eg.db")
+    down_peak_anno <- unique(as.data.frame(down_peak_anno))
+    genelist_down <- bitr(down_peak_anno$SYMBOL[which(str_detect(down_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
+    genedown_list[[i]] <- genelist_down$ENTREZID
+    names(genedown_list)[i] <- tissue
+  }
 }
+
 ck <- compareCluster(geneCluster = geneup_list, fun = enrichGO,OrgDb = GO_database, keyType = "ENTREZID",pvalueCutoff = 0.05,qvalueCutoff = 0.05)
-p<- dotplot(ck,show=3,label_format = 100)+theme(axis.text.x = element_text(angle = 45, hjust = 1)) +labs(x=NULL)
-ggsave(paste0("result/all/diff/",antibody,"/1kb_increase_promoter_Go_dotplot.png"),p,width = 13,height = 10)
+p<- dotplot(ck,show=4,label_format = 100)+    
+  theme(  
+  axis.text.x = element_text(angle = 45, hjust = 1, size = 12),  
+  axis.text.y = element_text(size = 12),                           
+  axis.title = element_text(size = 14),                           
+  plot.title = element_text(size = 16),                          
+  legend.text = element_text(size = 12),                         
+  legend.title = element_text(size = 14)                        
+) +labs(x=NULL)
+ggsave(paste0("result/all/diff/",antibody,"/1kb_increase_promoter_Go_dotplot.png"),p,width = 20,height = 15)
 ck <- compareCluster(geneCluster = genedown_list, fun = enrichGO,OrgDb = GO_database, keyType = "ENTREZID",pvalueCutoff = 0.05,qvalueCutoff = 0.05)
-p<- dotplot(ck,show=3,label_format = 100)+theme(axis.text.x = element_text(angle = 45, hjust = 1)) +labs(x=NULL)
-ggsave(paste0("result/all/diff/",antibody,"/1kb_decrease_promoter_Go_dotplot.png"),p,width = 13,height = 10)
+p<- dotplot(ck,show=4,label_format = 100)+    
+  theme(  
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 12),  
+    axis.text.y = element_text(size = 12),                           
+    axis.title = element_text(size = 14),                           
+    plot.title = element_text(size = 16),                          
+    legend.text = element_text(size = 12),                         
+    legend.title = element_text(size = 14)                        
+  ) +labs(x=NULL)
+ggsave(paste0("result/all/diff/",antibody,"/1kb_decrease_promoter_Go_dotplot.png"),p,width = 20,height = 15)
 
 # cnetplot(ck)
 # Input <- list()

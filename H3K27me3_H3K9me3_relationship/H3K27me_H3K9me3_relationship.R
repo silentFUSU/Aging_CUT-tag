@@ -17,20 +17,34 @@ library(limma)
 library(dplyr)
 library(reshape2)
 
-# tissues <- c("spleen","testis","colon","kidney","lung","liver","muscle","Hip","cecum","bonemarrow","brain")
-# tissues <- c("bonemarrow")
-# tissues <- c("ileum", "heart", "thymus")
-tissues <- c("brain","Hip","lung","muscle","heart",
-             "skin","aorta","kidney","thymus","bladder",
-             "bonemarrow","liver","testis","spleen","colon",
-             "cecum","tongue","stomach","ileum","pancreas")
-# tissues <- c("aorta","tongue")
-# tissues <- c("bladder")
+
+
+tissues <- c("CB","lung","kidney","aorta","brain","spleen",
+             "thymus","skin","bladder","bonemarrow","Hip","heart",
+             "muscle","jejunum","uterus","ovary","liver","tongue",
+             "cecum","colon","testis","stomach","ileum","pancreas")
+
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols)
 }
+tissue_label_change <- function(tissue){
+  if(tissue=="brain"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }
+  }
+  return(tissue_label)
+} 
+
 bin_size="10kb"
 plist<-list()
 for(i in c(1:length(tissues))){
@@ -45,7 +59,6 @@ for(i in c(1:length(tissues))){
   # logFC <- logFC[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05),]
   # cor(logFC$logFC_H3K27me3,logFC$logFC_H3K9me3,method = c("pearson"),use = "complete.obs")
   logFC_sig <- logFC[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05),]
-  if(tissue=="brain") tissue<-"FC"
   plist[[i]] <- ggplot() +  
     geom_point(data=logFC, mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "grey",alpha=0.5) +  
     geom_point(data=logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),], mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "#f6416c")+
@@ -54,7 +67,7 @@ for(i in c(1:length(tissues))){
     geom_point(data=logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),], mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "#48466d")+
     geom_hline(yintercept = 0, color = "red") +  
     geom_vline(xintercept = 0, color = "red") +
-    ggtitle(tissue)+
+    ggtitle(tissue_label_change(tissue))+
     coord_cartesian(xlim = c(-2, 2), ylim = c(-10, 10))+
     labs(x="log2(old/young) H3K9me3",
          y="log2(old/young) H3K27me3") +
@@ -79,9 +92,9 @@ for(i in c(1:length(tissues))){
   #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"),
   #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
-combined_plot <- plot_a_list(plist, 4, 5)
+combined_plot <- plot_a_list(plist, 4, 6)
 # dir.create("result/all/H3K27me3_H3K9me3")
-ggsave("result/all/H3K27me3_H3K9me3/all_tissue_H3K27me3_H3K9me3.png",combined_plot,width = 25,height = 20,type="cairo")
+ggsave("result/all/H3K27me3_H3K9me3/all_tissue_H3K27me3_H3K9me3.png",combined_plot,width = 30,height = 20,type="cairo")
 
 
 tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus")

@@ -14,13 +14,14 @@ library(dplyr)
 library(clusterProfiler)
 library(ggrepel)
 library(limma)
-tab = read.delim("data/samples/jejunum/all_test_10kb_bins.counts",skip=1)
+tab = read.delim("data/samples/iWAT/10kb_bins.counts",skip=1)
 colnames <- colnames(tab)[7:length(tab)]
-new_colnames <- str_extract(colnames, "SZJ\\d+")
-new_colnames[5] <- "SZJ198_NuoHe"
-new_colnames[6] <- "SZJ198_JiangBei"
+new_colnames <- str_extract(colnames, "CKJ\\d+")
+# new_colnames[5] <- "SZJ198_NuoHe"
+# new_colnames[6] <- "SZJ198_JiangBei"
 counts <- tab[7:length(tab)]
 colnames(counts) <- new_colnames
+counts <- counts[which(colnames(counts) %in% c("CKJ043","CKJ045","CKJ051","CKJ057"))]
 y= DGEList(counts=counts)
 keep = which(rowSums(cpm(y)>1)>=2)
 y = y[keep,]

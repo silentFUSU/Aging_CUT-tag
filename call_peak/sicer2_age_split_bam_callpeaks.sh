@@ -10,13 +10,22 @@ do
     declare -a old
     young=()
     old=()
-    young+=("${bam[0]}")
-    young+=("${bam[2]}")
-    old+=("${bam[1]}")
-    old+=("${bam[3]}")
-
-    samtools merge -o ${data_path}${tissue}/${antibody}/tmp.young.merge.bam ${young} -@ 16 &
-    samtools merge -o ${data_path}${tissue}/${antibody}/tmp.old.merge.bam ${old} -@ 16 &
+    if [ $tissue = "ovary" ]; then
+        old+=("${bam[0]}")
+        old+=("${bam[2]}")
+        young+=("${bam[1]}")
+        young+=("${bam[3]}")   
+    else
+        young+=("${bam[0]}")
+        young+=("${bam[2]}")
+        old+=("${bam[1]}")
+        old+=("${bam[3]}")
+    fi
+    echo ${young[@]}
+    echo ${old[@]}
+    
+    samtools merge -o ${data_path}${tissue}/${antibody}/tmp.young.merge.bam ${young[@]} -@ 16 &
+    samtools merge -o ${data_path}${tissue}/${antibody}/tmp.old.merge.bam ${old[@]} -@ 16 &
     wait
     samtools index ${data_path}${tissue}/${antibody}/tmp.young.merge.bam -@ 16 &
     samtools index ${data_path}${tissue}/${antibody}/tmp.old.merge.bam -@ 16 &
@@ -33,6 +42,7 @@ do
     awk '{OFS="\t"} {print $1, $2, $3, "peaks"NR, $4}' ${data_path}${tissue}/${antibody}/peaks/tmp.old.merge-W${window_size}-G${gap_size}.scoreisland |Rscript /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/keep_regular_chroms.r > ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed  
     rm ${data_path}${tissue}/${antibody}/tmp*
     bedtools subtract -a ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed -b ${data_path}${tissue}/${antibody}/bed/${antibody}_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed > ${data_path}${tissue}/${antibody}/bed/${antibody}_old_only_merge-W${window_size}-G${gap_size}-E${e_value}.bed
+    bedtools intersect -a ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed -b ${data_path}${tissue}/${antibody}/bed/${antibody}_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed >  ${data_path}${tissue}/${antibody}/bed/${antibody}_young_old_intersect-W${window_size}-G${gap_size}-E${e_value}.bed
     cat  ${data_path}${tissue}/${antibody}/bed/${antibody}_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed | \
         sort -k1,1 -k2,2n | \
         bedtools merge  > ${data_path}${tissue}/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed
