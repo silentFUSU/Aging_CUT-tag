@@ -16,7 +16,7 @@ library(ggrepel)
 library(limma)
 library(gg.gap)
 # antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K4me1")
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","BAT","mammarygland")
 FRiP<-data.frame(tissue = character(),  
                   sample_name = character(),
                   antibody = character(),
@@ -66,6 +66,8 @@ FRiP$tissue[which(FRiP$tissue=="Hip")] <- "Hippocampus"
 FRiP$tissue[which(FRiP$tissue=="CB")] <- "Cerebellum"
 FRiP <- FRiP %>% mutate(tissue = str_to_title(tissue))  
 FRiP$tissue[which(FRiP$tissue=="Bonemarrow")] <- "Bone Marrow"
+FRiP$tissue[which(FRiP$tissue=="Bat")] <- "BAT"
+FRiP$tissue[which(FRiP$tissue=="Mammarygland")] <- "Mammary Gland"
 FRiP$age <- factor(FRiP$age,levels=c("3m","24m"))
 for (i in c(1:length(antibodys))){
   antibody <- antibodys[i]

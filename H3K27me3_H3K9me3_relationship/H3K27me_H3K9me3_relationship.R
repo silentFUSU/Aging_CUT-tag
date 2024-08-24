@@ -2,24 +2,18 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
-library("AnnotationDbi")
-library(org.Mm.eg.db)
-library(edgeR)
 library(ggplot2)
-library(ChIPseeker)
-library(EnsDb.Mmusculus.v79)
 library(tidyr)
 library(stringr)
 library(dplyr)
 library(clusterProfiler)
 library(ggrepel)
 library(limma)
-library(dplyr)
 library(reshape2)
 
 
 
-tissues <- c("CB","lung","kidney","aorta","brain","spleen",
+tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
              "thymus","skin","bladder","bonemarrow","Hip","heart",
              "muscle","jejunum","uterus","ovary","liver","tongue",
              "cecum","colon","testis","stomach","ileum","pancreas")
@@ -40,6 +34,10 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label == "Mammarygland"){
+      tissue_label <- "Mammary Gland"
     }
   }
   return(tissue_label)
@@ -76,25 +74,25 @@ for(i in c(1:length(tissues))){
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),])),x=-1, y=-10,colour="#ff9a00",size=5)+
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),])),x=-1, y=10,colour="#f6416c",size=5)+
     annotate("text",label = paste0(nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),])),x=1, y=-10,colour="#48466d",size=5)
-  # dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
-  # ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
-  # dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/"))
-  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
-  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"),
-  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
-  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_second_quadrant.bed"),
-  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
-  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_third_quadrant.bed"),
-  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
-  #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"),
-  #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    # dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
+    # ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
+    # dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/"))
+    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
+    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"),
+    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
+    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_second_quadrant.bed"),
+    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
+    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_third_quadrant.bed"),
+    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
+    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"),
+    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
-combined_plot <- plot_a_list(plist, 4, 6)
+combined_plot <- plot_a_list(plist, 4, 7)
 # dir.create("result/all/H3K27me3_H3K9me3")
-ggsave("result/all/H3K27me3_H3K9me3/all_tissue_H3K27me3_H3K9me3.png",combined_plot,width = 30,height = 20,type="cairo")
+ggsave("result/all/H3K27me3_H3K9me3/all_tissue_H3K27me3_H3K9me3.png",combined_plot,width = 35,height = 20,type="cairo")
 
 
 tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus")

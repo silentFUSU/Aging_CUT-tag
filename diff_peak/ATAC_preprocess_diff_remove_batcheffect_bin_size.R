@@ -48,9 +48,6 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   }else{
     design <- model.matrix(~batch+group, y$samples)
   }
-
-
-  
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)

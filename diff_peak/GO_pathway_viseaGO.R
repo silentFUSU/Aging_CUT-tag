@@ -75,7 +75,7 @@ bin_size <- function(antibody){
 #   EntrezGene
 # )
 
-antibody<-"H3K4me1"
+antibody<-"ATAC"
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","ileum","pancreas")
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
@@ -83,7 +83,11 @@ geneup_list <- list()
 genedown_list <- list()
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
-  out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
+  if(antibody == "ATAC"){
+    out <- read.csv(paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
+  }else{
+    out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
+  }
   # peak <- GRanges(seqnames = out$Chr,   
   #                 ranges = IRanges(start = out$Start, end = out$End))
   # peak_anno <- annotatePeak(peak, tssRegion=c(-3000, 3000),
@@ -116,6 +120,7 @@ for(i in c(1:length(tissues))){
   }
 }
 
+geneup_list <- Filter(Negate(is.null), geneup_list)  
 ck <- compareCluster(geneCluster = geneup_list, fun = enrichGO,OrgDb = GO_database, keyType = "ENTREZID",pvalueCutoff = 0.05,qvalueCutoff = 0.05)
 p<- dotplot(ck,show=4,label_format = 100)+    
   theme(  
@@ -127,6 +132,8 @@ p<- dotplot(ck,show=4,label_format = 100)+
   legend.title = element_text(size = 14)                        
 ) +labs(x=NULL)
 ggsave(paste0("result/all/diff/",antibody,"/1kb_increase_promoter_Go_dotplot.png"),p,width = 20,height = 15)
+
+genedown_list <- Filter(Negate(is.null), genedown_list)  
 ck <- compareCluster(geneCluster = genedown_list, fun = enrichGO,OrgDb = GO_database, keyType = "ENTREZID",pvalueCutoff = 0.05,qvalueCutoff = 0.05)
 p<- dotplot(ck,show=4,label_format = 100)+    
   theme(  

@@ -59,3 +59,12 @@ trim_galore --length 20 --stringency 3 --cores 8 --gzip \
     ${target_path}${sample}_R2.fastq.gz 2>/dev/null  
 mv XX315_R2_trimmed.fq.gz XX315_R2_5_trimmed_10.fastq.gz
 mv XX315_R2.fastq.gz_trimming_report.txt XX315_R2.fastq.gz_5_trimming_10_report.txt
+
+data_path=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/SZJ/20240818
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240818_DYQ_WGBS/fastq/
+samples=(DYQ001 DYQ002 DYQ003 DYQ004 DYQ005 DYQ006)
+for sample in ${samples[@]}
+do
+    ln -s ${data_path}/${sample}/${sample}*_R1*.fastq.gz ${target_path}${sample}_R1.fastq.gz
+    ln -s ${data_path}/${sample}/${sample}*_R2*.fastq.gz ${target_path}${sample}_R2.fastq.gz
+done

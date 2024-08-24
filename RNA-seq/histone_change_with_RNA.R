@@ -9,8 +9,8 @@ library(ChIPseeker)
 library(EnsDb.Hsapiens.v86)
 library(GenomeInfoDb)
 library(dplyr)
-tissue <- "CB"
-antibody <- "H3K27me3"
+tissue <- "BAT"
+antibody <- "H3K36me3"
 bin_size <- function(antibody){
   if(antibody %in% c("H3K9me3","H3K27me3","H3K36me3")){
     return("10kb")
@@ -98,7 +98,7 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
 
 tissues <-c("thymus","CB","uterus","lung","muscle","skin","spleen","bonemarrow","heart","liver","kidney","testis","Hip","brain", "ileum","aorta","tongue","bladder","stomach","jejunum","colon","cecum")
 
-antibody <- "ATAC"
+antibody <- "H3K27ac"
 p_list <- list()
 sort_table <- data.frame(tissue = as.character(),
                          count = as.numeric())

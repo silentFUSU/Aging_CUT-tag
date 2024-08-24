@@ -1,8 +1,9 @@
-rm(list=ls())
+rm(list=ls())     
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
+library(stringr)
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -14,6 +15,10 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
     }
   }
   return(tissue_label)
@@ -54,7 +59,7 @@ for(i in c(1:length(antibodys))){
   ggsave(paste0("result/all/QC/dup/per_antibody/",antibody,"_dup_age_dotplot.png"),p2,width = 15,height = 10,type="cairo")
 }
 
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","mammarygland","BAT")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   p1 <- ggplot(search_table[which(search_table$tissue==tissue_label_change(tissue)),],aes(x=antibody,y=map*100,color = age))+    

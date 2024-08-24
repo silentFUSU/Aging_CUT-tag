@@ -1,0 +1,8 @@
+ln -s /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/muscle/H3K36me3/bam/* /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K36me3/bam/
+ln -s /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/muscle/H3K4me3/bam/* /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K4me3/bam/
+ln -s /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240813_CKJ_CUTTAG/bam/CKJ{060,061,062,063}* /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K36me3/bam/
+ln -s /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240813_CKJ_CUTTAG/bam/CKJ{064,065,066,067}* /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K4me3/bam/
+files=$(ls /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K36me3/bam/*.bam)
+featureCounts -p -a /storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10_10kb_bins.saf -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K36me3/10kb_bins.counts ${files} -F SAF -T 8 
+files=$(ls /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K4me3/bam/*.bam)
+featureCounts -p -a /storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10_1kb_bins.saf -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/muscle_cut_tag_test/H3K4me3/1kb_bins.counts ${files} -F SAF -T 8 

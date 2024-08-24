@@ -17,10 +17,14 @@ diff_expression_analysis <- function(tissue){
   order_colnames <- new_colnames[sorted_index] 
   counts <- tab[,order_colnames]   
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
-  age <- group[which(group$SampleID %in% colnames(counts)),"Age"]
+  search_table <- read.csv("data/samples/all/RNA_search_table.csv")
+  colnames(group)[1] <- "sample_name"
+  group <- merge(group,search_table,by="sample_name")
+  age <- group[which(group$sample_name %in% colnames(counts)),"Age"]
   age[which(age=="3m")] <- "young"
   age[which(age=="24m")] <- "old"
-  
+  mouse_ID <- group[which(group$sample_name %in% colnames(counts)),"mouse_ID"]
+  colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
   y= DGEList(counts=counts,group=age)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
@@ -36,8 +40,15 @@ diff_expression_analysis <- function(tissue){
   out = cbind(cpm(y),lrt$table, "fdr"=p.adjust(lrt$table$PValue,method="BH"))
   out$Significant <- ifelse(out$fdr< 0.05 & abs(out$logFC) >= 0, 
                             ifelse(out$logFC > 0, "Up", "Down"), "Stable")
-  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"))
+  # write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"))
+  write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene_nodup.csv"))
 }
+tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
+for(tissue in tissues){
+  diff_expression_analysis(tissue)
+}
+
+
 colour<- c("blue","grey","red")
 plot_volcano <- function(tissue){
   df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"),row.names = 1)

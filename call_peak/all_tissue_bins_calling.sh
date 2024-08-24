@@ -25,3 +25,13 @@ do
     done  
     featureCounts -p -a /storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10_1kb_bins.saf -o ${data_path}all/${antibody}/merge-1kb_bins.counts ${bam[@]} -F SAF -T 8 
 done
+
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
+antibody=ATAC
+tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus stomach skin aorta tongue bladder CB jejunum uterus ovary)
+bam=()  
+for t in ${tissues[@]}
+do  
+    bam+=($(ls ${data_path}${t}/${antibody}/bam/*.bam))  
+done  
+featureCounts -p -a /storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10_1kb_bins.saf -o ${data_path}all/${antibody}/merge-1kb_bins.counts ${bam[@]} -F SAF -T 16

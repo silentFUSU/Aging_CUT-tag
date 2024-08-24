@@ -1,12 +1,12 @@
-tissue=bladder
+tissue=mammarygland
 #创建相关目录，并把bam和bigwig文件转移到目标目录下
 bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/mkdir4samples.sh ${tissue}
 CUT_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 ATAC_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240510_SZJ/
-# antibodys=(ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3)
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240808_0809_LLX_CUTTAG/
+antibodys=(ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3)
 # antibodys=(ATAC ATAC H3K27ac H3K9me3 H3K27me3 H3K36me3 H3K4me3 H3K4me1 H3K27ac H3K9me3 H3K27me3 H3K36me3 H3K4me3 H3K4me1)
-antibodys=(ATAC ATAC H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 ATAC ATAC H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1)
+# antibodys=(ATAC ATAC H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 ATAC ATAC H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1)
 samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/_.*//'  | sort) 
 # antibodys=(ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3)
 # samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/\(^[^_]*_[^_]*\).*$/\1/'  | sort)
@@ -42,7 +42,7 @@ do
 done  
 
 #call peak
-bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/call_peak/bins_calling.sh ${tissue} 2>&1>/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/logs/${tissue}_bin_calling.log &
+nohup bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/call_peak/bins_calling.sh ${tissue} 2>&1>/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/logs/${tissue}_bin_calling.log &
 bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/call_peak/sicer2_mergebam_callpeaks_plot.sh -i /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ \
     -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/ -t ${tissue} 2>&1>/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/logs/${tissue}_sicer2_calling.log &
 bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/call_peak/macs2_mergebam_callpeaks_plot.sh -i /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ \

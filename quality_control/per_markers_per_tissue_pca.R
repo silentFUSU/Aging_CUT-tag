@@ -28,6 +28,10 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
     }
   }
   return(tissue_label)
@@ -134,7 +138,6 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
   combined_plot <- plot_a_list(p_list,2,3)
   ggsave(paste0("result/all/pca/per_tissue_plot_remove_batch_effect/",tissue_label_change(tissue),"_all_Histone_modification_PCA.png"),combined_plot,width = 18,height = 10,type="cairo")
 }
-
 
 for(tissue in tissues){
   per_tissue_PCA(tissue,antibodys)

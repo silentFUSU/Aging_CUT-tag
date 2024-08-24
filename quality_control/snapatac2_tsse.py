@@ -9,7 +9,8 @@ antibodys =['ATAC','H3K27ac','H3K4me3']
 # tissues = ["brain","liver", "testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas"]
 # tissues = ["brain"]
 # tissues = ["testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas"]
-tissues = ["bladder"]
+# tissues = ["BAT"]
+tissues = ["mammarygland"]
 
 
 for antibody in antibodys:

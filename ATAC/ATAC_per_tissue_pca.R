@@ -23,6 +23,10 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
     }
   }
   return(tissue_label)

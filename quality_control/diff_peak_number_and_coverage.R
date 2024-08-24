@@ -19,28 +19,33 @@ library(scales)
 library(colorspace) 
 library(ggsci)
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder")
+tissues <- c("BAT")
+tissues <- c("mammarygland")
 # tissues <- c("Hip","testis", "colon", "kidney", "lung", "spleen", "muscle", "pancreas","cecum","bonemarrow","ileum","heart","thymus")
 # antibodys <- c("ATAC")
 ############## all bins ########################
-diff_peak_number <-data.frame(Var1 = character(),  
-                         Freq = numeric(),  
-                         tissue = character(),  
-                         antibody = character(),  
-                         stringsAsFactors = FALSE)  
-diff_peak_percent <-data.frame(Var1 = character(),  
-                              Freq = numeric(),  
-                              tissue = character(),  
-                              antibody = character(),  
-                              stringsAsFactors = FALSE)  
-diff_peak_coverage <-data.frame(Var1 = character(),  
-                               Freq = numeric(),  
-                               tissue = character(),  
-                               antibody = character(),  
-                               stringsAsFactors = FALSE)  
+# diff_peak_number <-data.frame(Var1 = character(),  
+#                          Freq = numeric(),  
+#                          tissue = character(),  
+#                          antibody = character(),  
+#                          stringsAsFactors = FALSE)  
+# diff_peak_percent <-data.frame(Var1 = character(),  
+#                               Freq = numeric(),  
+#                               tissue = character(),  
+#                               antibody = character(),  
+#                               stringsAsFactors = FALSE)  
+# diff_peak_coverage <-data.frame(Var1 = character(),  
+#                                Freq = numeric(),  
+#                                tissue = character(),  
+#                                antibody = character(),  
+#                                stringsAsFactors = FALSE)  
 
 mm10_10k <- read.delim("~/ref_data/mm10_10kb_bins.bed")
 mm10_1k <- read.delim("~/ref_data/mm10_1kb_bins.bed")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
+diff_peak_number <- read.csv("data/samples/all/diff_bins_number.csv")
+diff_peak_coverage <- read.csv("data/samples/all/diff_bins_coverage.csv")
+diff_peak_percent <- read.csv("data/samples/all/diff_bins_percent.csv")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
@@ -95,8 +100,8 @@ write.csv(diff_peak_percent,"data/samples/all/diff_bins_percent.csv",row.names =
 write.csv(diff_peak_coverage,"data/samples/all/diff_bins_coverage.csv",row.names = F)
 
 ############### bins overlap with peaks #######################
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
-
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","BAT")
+tissues <- c("mammarygland")
 diff_peak_number <-data.frame(Var1 = character(),  
                               Freq = numeric(),  
                               tissue = character(),  
@@ -113,6 +118,11 @@ diff_peak_coverage <-data.frame(Var1 = character(),
                                 antibody = character(),  
                                 stringsAsFactors = FALSE)  
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3")
+mm10_10k <- read.delim("~/ref_data/mm10_10kb_bins.bed")
+mm10_1k <- read.delim("~/ref_data/mm10_1kb_bins.bed")
+diff_peak_number <- read.csv("data/samples/all/diff_bins_overlap_peaks_number.csv")
+diff_peak_coverage <- read.csv("data/samples/all/diff_bins_overlap_peaks_coverage.csv")
+diff_peak_percent <- read.csv("data/samples/all/diff_bins_overlap_peaks_percent.csv")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
@@ -162,29 +172,37 @@ for(i in c(1:length(tissues))){
     diff_peak_coverage <- rbind(diff_peak_coverage,sig)
   }
 }
-write.csv(diff_peak_number,"data/samples/all/diff_bins_overlap_peaks_number.csv",row.names = F)
-write.csv(diff_peak_percent,"data/samples/all/diff_bins_overlap_peaks_percent.csv",row.names = F)
-write.csv(diff_peak_coverage,"data/samples/all/diff_bins_overlap_peaks_coverage.csv",row.names = F)
+write.csv(diff_peak_number,"data/samples/all/diff_bins_overlap_young_old_peaks_number.csv",row.names = F)
+write.csv(diff_peak_percent,"data/samples/all/diff_bins_overlap_young_old_peaks_percent.csv",row.names = F)
+write.csv(diff_peak_coverage,"data/samples/all/diff_bins_overlap_young_old_peaks_coverage.csv",row.names = F)
 
 
 ##################### PLOT ######################
-custom_colors <- c("#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#800000", "#008000", "#000080", "#808000", "#800080", "#008080", "#C0C0C0", "#808080", "#FFA500", "#FF1493", "#00FF00")  
-diff_peak_coverage$tissue[which(diff_peak_coverage$tissue=="brain")] <- "brain_FC"
-diff_peak_coverage$tissue[which(diff_peak_coverage$tissue=="Hip")] <- "brain_Hip"
-
-diff_peak_number$tissue[which(diff_peak_number$tissue=="brain")] <- "brain_FC"
-diff_peak_number$tissue[which(diff_peak_number$tissue=="Hip")] <- "brain_Hip"
-
-diff_peak_percent$tissue[which(diff_peak_percent$tissue=="brain")] <- "brain_FC"
-diff_peak_percent$tissue[which(diff_peak_percent$tissue=="Hip")] <- "brain_Hip"
-
+color <- read.table("data/samples/30_distinct_color.txt")
+color <- color$V1
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","BAT","mammarygland")
+tissues[which(tissues=="brain")] <- "Cortex"
+tissues[which(tissues=="Hip")] <- "Hippocampus"
+tissues[which(tissues=="CB")] <- "Cerebellum"
+tissues <- str_to_title(tissues)
+tissues[which(tissues=="Bonemarrow")] <- "Bone Marrow"
+tissues[which(tissues=="Bat")] <- "BAT"
+tissues[which(tissues=="Mammarygland")] <- "Mammary Gland"
+color <- setNames(color,tissues)
+diff_peak_number$tissue[which(diff_peak_number$tissue=="brain")] <- "Cortex"
+diff_peak_number$tissue[which(diff_peak_number$tissue=="Hip")] <- "Hippocampus"
+diff_peak_number$tissue[which(diff_peak_number$tissue=="CB")] <- "Cerebellum"
+diff_peak_number$tissue <- str_to_title(diff_peak_number$tissue)
+diff_peak_number$tissue[which(diff_peak_number$tissue=="Bonemarrow")] <- "Bone Marrow"
+diff_peak_number$tissue[which(diff_peak_number$tissue=="Bat")] <- "BAT"
+diff_peak_number$tissue[which(diff_peak_number$tissue=="Mammarygland")] <- "Mammary Gland"
 ggplot(diff_peak_number[which(diff_peak_number$Var1 =="Down"),],mapping = aes(x=antibody,y=Freq,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Bins")+ggtitle(paste0("Decrease"))+
-  theme(text = element_text(size = 18))+ scale_fill_d3("category20")
+  theme(text = element_text(size = 18))+ scale_fill_manual(values = color)+ylim(0,80000)
 
 ggplot(diff_peak_number[which(diff_peak_number$Var1 =="Up"),],mapping = aes(x=antibody,y=Freq,fill = tissue))+
   geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+xlab("")+ylab("Bins")+ggtitle(paste0("Increase"))+
-  theme(text = element_text(size = 18))+scale_fill_d3("category20")
+  theme(text = element_text(size = 18))+scale_fill_manual(values = color)+ylim(0,80000)
 
 
 

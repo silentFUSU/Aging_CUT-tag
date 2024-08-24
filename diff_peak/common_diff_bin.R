@@ -2,10 +2,7 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/","/usr/local/lib64/R/library"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
-library(Signac)
-library(Seurat)
 library(GenomeInfoDb)
-library(EnsDb.Hsapiens.v86)
 library(ggplot2)
 library(patchwork)
 library(stringr)
@@ -23,7 +20,7 @@ bin_size <- function(antibody){
     return("1kb")
   }  
 }
-antibody <- "H3K27me3"
+antibody <- "H3K4me1"
 peaks<-data.frame(Geneid = character(),  
                   Chr = character(),
                   Start = numeric(),
@@ -106,12 +103,13 @@ decrease_count <- merge(decrease_count,peak_anno[,6:ncol(peak_anno)],by="label")
 
 write.csv(increase,paste0("data/samples/all/",antibody,"/common_increase_",bin_size,"_bins.csv"))
 write.csv(decrease,paste0("data/samples/all/",antibody,"/common_decrease_",bin_size,"_bins.csv"))
+
 increase_upset <- list()
 decrease_upset <- list()
 
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]
-  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv")) 
+  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv")) 
   df <- df[which(df$Significant_bar!="Stable"),c("Geneid","Chr","Start","End","Significant_bar")]
   if(nrow(df) >0){
     df$tissue <- tissue

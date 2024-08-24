@@ -1,5 +1,5 @@
-# antibodys=(H3K27ac H3K4me1 H3K4me3 ATAC)
-antibodys=(ATAC)
+antibodys=(H3K27ac H3K4me1 H3K4me3 ATAC)
+# antibodys=(ATAC)
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 tissue=$1
 ref=mm
@@ -33,13 +33,16 @@ do
     fi
     echo ${young[@]}
     echo ${old[@]}
+    echo "samtools merge -f -o ${data_path}${tissue}/${antibody}/tmp.young.merge.bam ${young[@]} -@ 16"
+    echo "samtools merge -f -o ${data_path}${tissue}/${antibody}/tmp.old.merge.bam ${old[@]} -@ 16"
+    
     samtools merge -f -o ${data_path}${tissue}/${antibody}/tmp.young.merge.bam ${young[@]} -@ 16 &
     samtools merge -f -o ${data_path}${tissue}/${antibody}/tmp.old.merge.bam ${old[@]} -@ 16 &
     wait
     samtools index ${data_path}${tissue}/${antibody}/tmp.young.merge.bam -@ 16 &
     samtools index ${data_path}${tissue}/${antibody}/tmp.old.merge.bam -@ 16 &
     wait
-
+    mkdir ${data_path}${tissue}/${antibody}/peaks/
     mkdir ${data_path}${tissue}/${antibody}/peaks/macs_narrowpeak
     macs2 callpeak -t ${data_path}${tissue}/${antibody}/tmp.young.merge.bam  -f BAMPE -n ${antibody}_young --outdir ${data_path}${tissue}/${antibody}/peaks/macs_narrowpeak -g ${ref} --nomodel -q 0.0001  --keep-dup all &
     macs2 callpeak -t ${data_path}${tissue}/${antibody}/tmp.old.merge.bam  -f BAMPE -n ${antibody}_old --outdir ${data_path}${tissue}/${antibody}/peaks/macs_narrowpeak -g ${ref} --nomodel -q 0.0001  --keep-dup all &
