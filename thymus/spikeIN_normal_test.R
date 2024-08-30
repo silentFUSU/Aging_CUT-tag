@@ -16,14 +16,15 @@ library(reshape2)
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 GO_database <- 'org.Mm.eg.db'
 
-antibody <- "H3K36me3"
+antibody <- "H3K4me3"
 bin_size <- ifelse(antibody %in% c("H3K36me3","H3K9me3","H3K27me3"), "10kb", "1kb")
-tab <- read.table(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+rownames(tab) <- tab$Geneid
 counts <- tab[,c(7:ncol(tab))]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
 colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
-samples <- c("228","229","116","117","101","110","102","111")
-age <- c("3m","3m","24m","24m","3m","24m","3m","24m")
+samples <- c("116","117","224","225","228","229","101","110","102","111")
+age <- c("24m","24m","24m","24m","3m","3m","3m","24m","3m","24m")
 
 group <- paste0(colnames(counts),"-",samples,"-",age)
 y= DGEList(counts=counts,group = group)
@@ -31,15 +32,15 @@ y$samples$age <- age
 keep = which(rowSums(cpm(y)>1)>=4)
 y = y[keep,]
 logCPMs <- cpm(y, log = TRUE)
-logCPMs_corrected <- limma::removeBatchEffect(logCPMs,
-                                              batch = c("batch1","batch1","batch1","batch1","batch2","batch2","batch3","batch3"))
-
-pca <- prcomp(t(logCPMs_corrected))
+logCPMs_corrected <- limma::removeBatchEffect(logCPMs,batch = c("batch1","batch1","batch1","batch1","batch1","batch1","batch2","batch2","batch3","batch3"))
+colnames(logCPMs_corrected) <- paste0(colnames(logCPMs_corrected),"-",samples,"-",age)
+pca <- prcomp(t(logCPMs))
 to_plot <- data.frame(pca$x, tissue = paste0(y$samples$group))
 to_plot$rownames <- rownames(to_plot)
 percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
 use.pcs <- c(1,2)
 labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
+age <- factor(age,levels=c("3m","24m"))
 ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) + 
   geom_point(size=5) +theme_bw()+
   xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+
@@ -50,10 +51,10 @@ ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) +
     box.padding = unit(0.35, "lines"),  
     point.padding = unit(0.3, "lines")  
   )
-cor_matrix <- cor(logCPMs_corrected)
+cor_matrix <- cor(logCPMs)
 pheatmap::pheatmap(cor_matrix)
 
-pca <- prcomp(t(logCPMs))
+pca <- prcomp(t(logCPMs_corrected))
 to_plot <- data.frame(pca$x, tissue = paste0(y$samples$group))
 to_plot$rownames <- rownames(to_plot)
 percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
@@ -69,49 +70,49 @@ ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) +
                   box.padding = unit(0.35, "lines"),  
                   point.padding = unit(0.3, "lines")  
   )
-cor_matrix <- cor(logCPMs)
+cor_matrix <- cor(logCPMs_corrected)
 pheatmap::pheatmap(cor_matrix)
 
 
 
-previous <- read.csv(paste0("data/samples/muscle/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
-tab <- tab[keep,c(1:6)]
-logCPMs_corrected <- cbind(tab,logCPMs_corrected)
+previous <- read.csv(paste0("data/samples/thymus/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
 increase <- previous$Geneid[which(previous$Significant_bar=="Up")]
-logCPMs_corrected_increase <- logCPMs_corrected[which(logCPMs_corrected$Geneid %in% increase),]
-logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(1:10,11,13,12,14)]
-pheatmap::pheatmap(logCPMs_corrected_increase[,c(7:ncol(logCPMs_corrected_increase))],cluster_rows = T,cluster_cols = F,show_rownames = F,main = paste0(antibody," previous increase"))
+logCPMs_corrected_increase <- logCPMs_corrected[which(rownames(logCPMs_corrected) %in% increase),]
+logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(5:6,1:4,7:10)]
+pheatmap::pheatmap(logCPMs_corrected_increase,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous increase"))
 
 decrease <- previous$Geneid[which(previous$Significant_bar=="Down")]
-logCPMs_corrected_decrease <- logCPMs_corrected[which(logCPMs_corrected$Geneid %in% decrease),]
-logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(1:10,11,13,12,14)]
-pheatmap::pheatmap(logCPMs_corrected_decrease[,c(7:ncol(logCPMs_corrected_decrease))],cluster_rows = T,cluster_cols = F,show_rownames = F,main = paste0(antibody," previous decrease"))
-to_plot <- logCPMs_corrected_decrease[,c(1,7:ncol(logCPMs_corrected_decrease))]
+logCPMs_corrected_decrease <- logCPMs_corrected[which(rownames(logCPMs_corrected) %in% decrease),]
+logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(5:6,1:4,7:10)]
+pheatmap::pheatmap(logCPMs_corrected_decrease,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous decrease"))
+
+to_plot <- logCPMs_corrected_decrease
 to_plot <- melt(to_plot)
-to_plot$variable <- factor(to_plot$variable, levels =unique(to_plot$variable))
+to_plot$Var2 <- factor(to_plot$Var2, levels =unique(to_plot$Var2))
 to_plot$age <- "young"
-to_plot$age[which(to_plot$variable %in% unique(to_plot$variable)[c(3,4,7,8)])] <- "old"
+to_plot$age[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(3,4,5,6,8,10)])] <- "old"
 to_plot$age <- factor(to_plot$age,levels=c("young","old"))
-ggplot(to_plot, aes(x = variable, y = value,fill=age)) +  
+ggplot(to_plot, aes(x = Var2, y = value,fill=age)) +  
   geom_boxplot() +  
-  labs(title = "previous H3K36me3 decrease site",  
+  labs(title = paste0("previous ",antibody," decrease site"),  
        x = NULL,  
        y = "log2(CPM)") +
   theme_bw() +
   theme(  
     axis.text.x = element_text(angle = 45, hjust = 1)  
   ) 
-t.test(to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(2)] & to_plot$age == "young")],
-       to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(3)] & to_plot$age == "old")])
-t.test(to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(5:8)] & to_plot$age == "young")],
-       to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(5:8)] & to_plot$age == "old")])
+t.test(to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(1,2)] & to_plot$age == "young")],
+       to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(3,4,5,6)] & to_plot$age == "old")])
+t.test(to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(7,9)] & to_plot$age == "young")],
+       to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(8,10)] & to_plot$age == "old")])
 
-tab <- read.table(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+rownames(tab) <- tab$Geneid
 counts <- tab[,c(7:ncol(tab))]
-counts <- counts[,c(1:4)]
+counts <- counts[,c(1:6)]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
 colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
-age <- c("young","young","old","old")
+age <- c("old","old","old","old","young","young")
 y= DGEList(counts=counts,group=age)
 keep = which(rowSums(cpm(y)>1)>=2)
 y = y[keep,]
@@ -129,7 +130,23 @@ out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion
             "LogFC.old-young"=lrt$table$logFC)
 out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= 0, 
                           ifelse(out$`LogFC.old-young` > 0, "Up", "Down"), "Stable")
+colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+ggplot(
+  out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
+  geom_point(aes(color = Significant), size=2) +
+  scale_color_manual(values = colour) +
+  geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+  geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+  labs(x="log2(fold change)",
+       y="-log10 (p-value)") +
+  theme_bw()+
+  theme(text = element_text(size = 20))+
+  annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+  annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+
 table(out$Significant)
+
+
 increase <- out$Geneid[which(out$Significant=="Up")]
 logCPMs_corrected_increase <- logCPMs_corrected[which(logCPMs_corrected$Geneid %in% increase),]
 logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(1:10,11,13,12,14)]
@@ -160,7 +177,7 @@ logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(1:10,11,13,12,14)]
 pheatmap::pheatmap(logCPMs_corrected_decrease[,c(7:ncol(logCPMs_corrected_decrease))],cluster_rows = T,cluster_cols = F,show_rownames = F,main = paste0(antibody," decrease"))
 
 
-tab <- read.table(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
 counts <- tab[,c(7:ncol(tab))]
 counts <- counts[,c(3,4,6,8)]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -233,7 +250,7 @@ ggplot(
   annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
 
 
-tab <- read.table(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
 counts <- tab[,c(7:ncol(tab))]
 counts <- counts[,c(1,2,5,7)]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -311,26 +328,26 @@ FRiP<-data.frame(sample_name = character(),
                  antibody = character(),
                  FRiP = numeric(),
                  stringsAsFactors = FALSE)  
-antibody <- "H3K4me3"
+antibody <- "H3K36me3"
 bin_size <- ifelse(antibody %in% c("H3K36me3","H3K9me3","H3K27me3"), "10kb", "1kb")
-tab <- read.table(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
 counts <- tab[,c(7:ncol(tab))]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
 colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
 samples <- colnames(counts)
 for(sample in samples){
-  df <- read.delim(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/featurecount/",sample,"_remove_blacklist.counts.summary"),row.names = 1)
+  df <- read.delim(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/featurecount/",sample,"_remove_blacklist.counts.summary"),row.names = 1)
   t_FRiP<-data.frame(sample_name = sample,
                      antibody = antibody,
                      FRiP = df[1,1]/sum(df[,1]),
                      stringsAsFactors = FALSE)  
   FRiP <- rbind(FRiP,t_FRiP)
 }
-FRiP$age <- c("3m","3m","24m","24m","3m","24m","3m","24m")
+FRiP$age <- c("24m","24m","24m","24m","3m","3m","3m","24m","3m","24m")
 FRiP$FRiP <- FRiP$FRiP*100
 FRiP$age <- factor(FRiP$age,levels=c("3m","24m"))
-FRiP$condition <- c("ConA","ConA","ConA","ConA","Paired_CT","Paired_CT","Paired_CT","Paired_CT")
-FRiP$mouse_ID <-  c("228","229","116","117","101","110","102","111")
+FRiP$condition <- c("ConA","ConA","ConA","ConA","ConA","ConA","Paired_CT","Paired_CT","Paired_CT","Paired_CT")
+FRiP$mouse_ID <-  c("116","117","224","225","228","229","101","110","102","111")
 ggplot(FRiP,aes(x=condition,y=FRiP,color = age))+
   geom_jitter(position = position_jitter(width = 0.2), size = 2, alpha = 0.7)+
   geom_text(aes(label = mouse_ID), position = position_jitter(width = 0.2), vjust = -1, size = 3) +

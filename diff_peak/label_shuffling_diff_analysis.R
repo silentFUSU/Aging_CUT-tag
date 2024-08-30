@@ -7,8 +7,8 @@ library(ggplot2)
 library(ggrepel)
 library(patchwork)
 library(stringr)
-tissue <- "ileum"
-antibody <- "H3K9me3"
+tissue <- "cecum"
+antibody <- "H3K4me3"
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
@@ -49,13 +49,13 @@ label_shuffling_diff_analysis <- function(tissue,antibody){
   y= DGEList(counts=counts,group=group)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
-  y$samples$batch <- rep(c(rep("batch1", 2), rep("batch2", 2)), 1)
+  # y$samples$batch <- rep(c(rep("batch1", 2), rep("batch2", 2)), 1)
   y <- calcNormFactors(y)
-  design <- model.matrix(~batch+group, y$samples)
+  design <- model.matrix(~group, y$samples)
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
-  lrt = glmLRT(fit_tag, coef = 3)
+  lrt = glmLRT(fit_tag, coef = 2)
   tab<-tab[keep,]
   
   out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion),

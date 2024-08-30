@@ -1,0 +1,20 @@
+rm(list=ls())
+.libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
+setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
+set.seed(1)
+library(edgeR)
+library(ggplot2)
+library(ggrepel)
+library(patchwork)
+library(stringr)
+library(ChIPseeker)
+library(clusterProfiler)
+H3K27ac <- read.csv("data/samples/jejunum/H3K27ac/H3K27ac_10kb_bins_diff_after_remove_batch_effect.csv")
+H3K4me1 <- read.csv("data/samples/jejunum/H3K4me1/H3K4me1_10kb_bins_diff_after_remove_batch_effect.csv")
+H3K27ac <- H3K27ac[which(H3K27ac$Significant_bar != "Stable"),]
+colnames(H3K27ac)[7:10] <- paste0("H3K27ac_",colnames(H3K27ac)[7:10])
+H3K4me1 <- H3K4me1[which(H3K4me1$Significant_bar != "Stable"),]
+colnames(H3K4me1)[7:10] <- paste0("H3K4me1_",colnames(H3K4me1)[7:10])
+
+df <- merge(H3K27ac[,c(1,7:10)],H3K4me1[,c(1,7:10)],by="Geneid")
+pheatmap::pheatmap(df[,c(2,3,6,7,4,5,8,9)],scale = "row",cluster_cols = F,show_rownames = F)

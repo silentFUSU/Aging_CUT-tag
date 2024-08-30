@@ -40,8 +40,8 @@ diff_expression_analysis <- function(tissue){
   out = cbind(cpm(y),lrt$table, "fdr"=p.adjust(lrt$table$PValue,method="BH"))
   out$Significant <- ifelse(out$fdr< 0.05 & abs(out$logFC) >= 0, 
                             ifelse(out$logFC > 0, "Up", "Down"), "Stable")
-  # write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"))
-  write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene_nodup.csv"))
+  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"))
+  # write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene_nodup.csv"))
 }
 tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
 for(tissue in tissues){
@@ -49,10 +49,10 @@ for(tissue in tissues){
 }
 
 
-colour<- c("blue","grey","red")
+
 plot_volcano <- function(tissue){
   df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"),row.names = 1)
-  colour=c("blue","grey","red")
+  colour=setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   ggplot(
     # 数据、映射、颜色
     out, aes(x = logFC, y = -log10(fdr))) +

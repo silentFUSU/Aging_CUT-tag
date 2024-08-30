@@ -57,6 +57,7 @@ group_info <- tab[,c(54353:54355)]
 group_info$source.name <- sub("_(\\w+)_\\d*|_(\\w+)$", "\\1",  group_info$source.name)  
 group_info$source.name <- paste0("TMS-",group_info$source.name)
 group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
+group <- group[which(group$SampleID %in% rownames(pbmc@meta.data)),]
 group <- group[order(group$SampleID),]
 tissue <- group$TissueName
 

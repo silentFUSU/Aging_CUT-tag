@@ -79,6 +79,7 @@ antibodys <- c("ATAC")
 # tissues <- c("stomach","skin")
 # tissues <- c("aorta","tongue")
 tissues <- c("bladder")
+tissues <- c("BAT","mammarygland")
 bin_size <-"10kb"
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]

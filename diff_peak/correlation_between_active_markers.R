@@ -53,6 +53,7 @@ correlation_between_active_markers <- function(tissue,antibodys){
   dev.off()
 }
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
+tissues <- c("BAT","mammarygland")
 for(tissue in tissues){
   correlation_between_active_markers(tissue,antibodys)
 }

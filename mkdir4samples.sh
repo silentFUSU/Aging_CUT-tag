@@ -14,7 +14,7 @@ do
 done
 
 antibodys=(ATAC)
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/ 
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
 
 mkdir ${data_path}${tissue}
 for antibody in ${antibodys[@]}

@@ -69,6 +69,7 @@ PCA_per_tissue <- function(tissue){
       point.padding = unit(0.3, "lines")  
     ) +
     ggtitle(tissue_label_change(tissue))
+ print(p)
   return(p)
 }
 

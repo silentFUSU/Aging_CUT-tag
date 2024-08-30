@@ -19,8 +19,8 @@ library(Matrix)
 library(dplyr)
 library(tidyr)
 library(Polychrome)
-tab_ourdata <- read.table("data/samples/RNA/combined-chrM.counts",header = T)
-new_tissues <- c("Skin")
+tab_ourdata <- read.table("data/samples/RNA/combined-chrM.nodup.counts",header = T)
+new_tissues <- c("Pancreas")
 rownames(tab_ourdata) <- tab_ourdata$Geneid
 tab_ourdata <- tab_ourdata[,-1]
 colnames <- colnames(tab_ourdata)[6:length(tab_ourdata)]
@@ -31,34 +31,31 @@ sorted_index <- order(new_colnames)
 order_colnames <- new_colnames[sorted_index] 
 counts <- tab_ourdata[,order_colnames] 
 
-group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
-group <- group[order(group$SampleID),]
-tissue <- group$TissueName
-age <- group$Age 
+search_table <- read.csv("data/samples/all/RNA_search_table.csv")
 counts[] <- lapply(counts, as.numeric)  
-y= DGEList(counts=counts,group = tissue)
-y$age <- age
+y= DGEList(counts=counts)
 # y$samples$group[which(rownames(y$samples)=="LLX501")] <- "colon"
 # y$samples$group[which(rownames(y$samples)=="LLX505")] <- "cecum"
 keep = which(rowSums(cpm(y)>1)>=2)
 y = y[keep,]
 logCPMs <- cpm(y, log = TRUE)
 pca <- prcomp(t(logCPMs))
-to_plot <- data.frame(pca$x, tissue = paste0(y$samples$group))
-to_plot$rownames <- rownames(to_plot)
-
+to_plot <- data.frame(pca$x)
+to_plot$sample_name <- rownames(to_plot)
+to_plot <- merge(to_plot,search_table,by="sample_name")
+to_plot$age <- factor(to_plot$age,levels = c("3m","24m"))
 percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
 use.pcs <- c(1,2)
 labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
 color <-alphabet.colors(26)
-color <- setNames(color,unique(tissue))
-ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue)) + 
+color <- setNames(color,unique(to_plot$tissue))
+ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) + 
   geom_point(size=5) +theme_bw()+
   scale_color_manual(values = color) +
   xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+    
   geom_text_repel(  
     data = subset(to_plot, to_plot$tissue %in% new_tissues),  
-    aes(x = PC1, y = PC2, label = rownames, color = tissue),  
+    aes(x = PC1, y = PC2, label = sample_name, color = tissue),  
     size = 5,  
     box.padding = unit(0.35, "lines"),  
     point.padding = unit(0.3, "lines")  
