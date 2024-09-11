@@ -19,8 +19,8 @@ library(Matrix)
 library(dplyr)
 library(tidyr)
 library(Polychrome)
-tab_ourdata <- read.table("data/samples/RNA/combined-chrM.nodup.counts",header = T)
-new_tissues <- c("Pancreas")
+tab_ourdata <- read.table("data/samples/RNA/combined-chrM.counts",header = T)
+new_tissues <- c("Mammary gland")
 rownames(tab_ourdata) <- tab_ourdata$Geneid
 tab_ourdata <- tab_ourdata[,-1]
 colnames <- colnames(tab_ourdata)[6:length(tab_ourdata)]
@@ -67,4 +67,5 @@ ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) +
     box.padding = unit(0.35, "lines"),  
     point.padding = unit(0.3, "lines")  
   ) 
+
 

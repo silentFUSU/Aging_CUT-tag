@@ -9,11 +9,12 @@ library(ChIPseeker)
 library(EnsDb.Hsapiens.v86)
 library(GenomeInfoDb)
 library(dplyr)
-tissue <- "CB"
+tissue <- "colon"
 antibody <- "H3K4me3"
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 GO_database <- 'org.Mm.eg.db'
-histone <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff_after_remove_batch_effect.csv"))
+# histone <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff_after_remove_batch_effect.csv"))
+histone <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff.csv"))
 rna <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"))
 
 rna_gene_change <- rna$X[which(rna$Significant != "Stable")]

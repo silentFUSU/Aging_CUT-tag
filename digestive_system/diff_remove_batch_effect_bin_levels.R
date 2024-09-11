@@ -47,7 +47,7 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   }else{
     bin_size <- "1kb"
   }
-  tab = read.delim(paste0("data/samples/intestine/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins.counts"),skip=1)
+  tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins.counts"),skip=1)
   counts = tab[,c(7:10)]
   rownames(counts)= tab$Geneid
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -61,21 +61,21 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   y= DGEList(counts=counts,group=group)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
-  if(tissue=="colon"){
-    y$samples$batch <- c("batch1","batch1","batch2","batch2")
-  }else if(tissue=="cecum"){
-    y$samples$batch <- c("batch1","batch2","batch2","batch1")
-  }
+  # if(tissue=="colon"){
+  #   y$samples$batch <- c("batch1","batch2","batch3","batch3")
+  # }else if(tissue=="cecum"){
+  #   y$samples$batch <- c("batch1","batch2","batch2","batch3")
+  # }
 
   y$samples$year <- group
   y$samples$year <- factor(y$samples$year,c("young","old"))
   y <- calcNormFactors(y)
   batch <- factor(y$samples$batch)
-  design <- model.matrix(~batch+year, y$samples)
+  design <- model.matrix(~year, y$samples)
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
-  lrt = glmLRT(fit_tag, coef = 3)
+  lrt = glmLRT(fit_tag, coef = 2)
   tab<-tab[keep,]
   
   out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion),

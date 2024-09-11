@@ -1,0 +1,140 @@
+rm(list=ls())
+.libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
+setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
+set.seed(1)
+library(edgeR)
+library(ggplot2)
+library(ggrepel)
+library(tidyr) 
+library(dplyr)
+library(stringr)
+library(reshape2)
+library(biomaRt)  
+tissue <- "pancreas"
+gtf <- "/storage/zhangyanxiaoLab/share/gtf/mm10.gencode.vM25.annotation.gtf"
+gtf_lines <- readLines(gtf)
+gene_id_list <- list()  
+gene_name_list <- list()  
+for (line in gtf_lines) {  
+  if (grepl("^#", line)) next  # 跳过注释行  
+  fields <- strsplit(line, "\t")[[1]]  
+  if (fields[3] == "gene") {  # 仅处理类型为 gene 的行  
+    attributes <- strsplit(fields[9], ";")[[1]]  
+    gene_id <- sub('gene_id "([^"]+)".*', '\\1', attributes[grep('gene_id', attributes)])  
+    gene_name <- sub('.*gene_name "([^"]+)".*', '\\1', attributes[grep('gene_name', attributes)])  
+    if (length(gene_id) > 0 && length(gene_name) > 0) {  
+      gene_id_list[[gene_id]] <- gene_name  
+    }  
+  }  
+}  
+gene_id_vector <- as.vector(names(gene_id_list))  
+gene_name_vector <- as.vector(unlist(gene_id_list)) 
+gene_id_map <- setNames(gene_name_vector, gene_id_vector) 
+
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols)
+}
+tissue_label_change <- function(tissue){
+  if(tissue=="FC"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label == "Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }else if (tissue_label == "Iwat"){
+      tissue_label <- "iWAT"
+    }
+  }
+  return(tissue_label)
+} 
+
+TE_diff_analysis <- function(tissue){
+  tab <- read.delim(paste0("data/samples/RNA/",tissue,"/TEcount/combined.cntTable"),row.names = 1)
+  counts <- tab
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SRR[0-9]+).*"
+  colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
+  search_table <- read.csv("data/samples/all/RNA_search_table.csv")
+  search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
+  search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
+  search_table <- search_table[order(search_table$sample_name),]
+  age <- search_table$age
+  mouse_ID <- search_table$mouse_ID
+  colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
+  age[which(age=="3m")] <- "young"
+  age[which(age=="24m")] <- "old"
+  
+  y= DGEList(counts=counts,group=age)
+  keep = which(rowSums(cpm(y)>1)>=2)
+  y = y[keep,]
+  y$samples$group <- factor(y$samples$group, levels=c("young","old"))
+  design <- model.matrix(~group, y$samples)
+  y <- calcNormFactors(y)
+  y<-estimateCommonDisp(y)
+  y<-estimateGLMTagwiseDisp(y,design)
+  fit_tag = glmFit(y,design)
+  lrt = glmLRT(fit_tag, coef = 2)
+  tab<-tab[keep,]
+  
+  out = cbind(cpm(y),lrt$table, "fdr"=p.adjust(lrt$table$PValue,method="BH"))
+  
+  out$Significant <- ifelse(out$fdr< 0.05 & abs(out$logFC) >= 0, 
+                            ifelse(out$logFC > 0, "Up", "Down"), "Stable")
+  out$Significant[which(!grepl("^ENSMUSG", rownames(out)) & out$Significant=="Down") ] <- "TE-Down"
+  out$Significant[which(!grepl("^ENSMUSG", rownames(out)) & out$Significant=="Up") ] <- "TE-Up"
+  colour <- setNames(c("grey","#3490de","#ea5455", "blue","red"),c("Stable","Down","Up","TE-Down","TE-Up"))
+  top_TE_Down <- out %>%  
+    filter(Significant == "TE-Down") %>%  
+    arrange(fdr) %>%  
+    head(20)  
+  split_names <- strsplit(rownames(top_TE_Down), ":")  
+  split_df <- do.call(rbind, split_names) 
+  top_TE_Down <- cbind(top_TE_Down, split_df)
+  colnames(top_TE_Down)[ncol(top_TE_Down)-2] <- "gene"
+  
+  top_TE_Up <- out %>%  
+    filter(Significant == "TE-Up") %>%  
+    arrange(fdr) %>%  
+    head(20)  
+  split_names <- strsplit(rownames(top_TE_Up), ":")  
+  split_df <- do.call(rbind, split_names) 
+  top_TE_Up <- cbind(top_TE_Up, split_df)
+  colnames(top_TE_Up)[ncol(top_TE_Up)-2] <- "gene"
+  out <- out[which(!grepl("^ENSMUSG", rownames(out))), ]
+  p <-ggplot() +
+    geom_point(data=out[which(out$Significant=="Stable"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2)+
+    geom_point(data=out[which(out$Significant=="Down"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2) +  
+    geom_point(data=out[which(out$Significant=="Up"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2) +
+    geom_point(data=out[which(out$Significant=="TE-Down"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2) +
+    geom_point(data=out[which(out$Significant=="TE-Up"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2) +
+    scale_color_manual(values = colour) +
+    geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+    geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+    labs(x="log2(fold change)",
+         y="-log10 (fdr)") +
+    theme_bw()+
+    theme(text = element_text(size = 20))+
+    ggtitle(tissue_label_change(tissue))
+  p <- p+geom_text_repel(data=top_TE_Down, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=3) +  
+    geom_text_repel(data=top_TE_Up, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=3)  
+  return(p)
+  # annotate("text", x = min(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    # annotate("text", x = max(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+  }
+tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas"))
+p_list <- list()
+for (i in c(1:length(tissues))){
+  p_list[[i]] <- TE_diff_analysis(tissues[i])
+}
+combined_plot <- plot_a_list(p_list, no_of_rows = 5,no_of_cols = 5)
+ggsave("result/RNA/TE/TE_volcano_all_tissues.png",combined_plot, width = 30,height = 25, type="cairo")
+

@@ -18,6 +18,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols)
 }
+
 save_pheatmap_pdf <- function(x, filename, width=7, height=7) {
   stopifnot(!missing(x))
   stopifnot(!missing(filename))
@@ -44,7 +45,8 @@ tissue_label_change <- function(tissue){
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","ileum","pancreas")
 plist <- list()
 count=1
-dir.create("result/all/ChromHMM/until_ovary/16_until_ovary/state_transfer/")
+state_num=15
+dir.create(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/"))
 colors <- read.table("data/samples/20_distinct_color.txt")
 
 for(i in c(1:length(tissues))){
@@ -54,11 +56,11 @@ for(i in c(1:length(tissues))){
                                 old_state = character(),  
                                 Freq = numeric(),  
                                 stringsAsFactors = FALSE)  
-  young1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_young1_16_segments_1k.bed"),header = F)
-  young2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_young2_16_segments_1k.bed"),header = F)
+  young1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_young1_",state_num,"_segments_1k.bed"),header = F)
+  young2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_young2_",state_num,"_segments_1k.bed"),header = F)
   young <- intersect(young1,young2)
-  old1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_old1_16_segments_1k.bed"),header = F)
-  old2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_old2_16_segments_1k.bed"),header = F)
+  old1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_old1_",state_num,"_segments_1k.bed"),header = F)
+  old2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_old2_",state_num,"_segments_1k.bed"),header = F)
   old <- intersect(old1,old2)
   young$label <- paste0(young$V1,"-",young$V2,"-",young$V3)
   old$label <- paste0(old$V1,"-",old$V2,"-",old$V3)
@@ -87,7 +89,7 @@ for(i in c(1:length(tissues))){
   count=count+1
 }
 combined_plot <- plot_a_list(plist, 4, 6)
-ggsave(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/state_transfer/all_tissue_state_transfer_only_transfer.png"),combined_plot,width = 40,height = 40,type="cairo")
+ggsave(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/all_tissue_state_transfer_only_transfer.png"),combined_plot,width = 40,height = 40,type="cairo")
 
 
 
@@ -96,14 +98,20 @@ transfer_matrix <- data.frame(tissue = character(),
                               old_state = character(),  
                               Freq = numeric(),  
                               stringsAsFactors = FALSE)  
+tissues <- c("brain","liver","testis","kidney","lung","spleen","muscle","Hip","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","pancreas")
+state_num <- "15"
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
-  young1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_young1_16_segments_1k.bed"),header = F)
-  young2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_young2_16_segments_1k.bed"),header = F)
-  young <- intersect(young1,young2)
-  old1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_old1_16_segments_1k.bed"),header = F)
-  old2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/16_until_ovary/split_1k/",tissue,"_old2_16_segments_1k.bed"),header = F)
-  old <- intersect(old1,old2)
+  young1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_young1_",state_num,"_segments_1k.bed"),header = F)
+  young2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_young2_",state_num,"_segments_1k.bed"),header = F)
+  young1$label <- paste0(young1$V1,"-",young1$V2,"-",young1$V3,"-",young1$V4)
+  young2$label <- paste0(young2$V1,"-",young2$V2,"-",young2$V3,"-",young2$V4)
+  young <- young1[which(young1$label %in% young2$label),]
+  old1 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_old1_",state_num,"_segments_1k.bed"),header = F)
+  old2 <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_old2_",state_num,"_segments_1k.bed"),header = F)
+  old1$label <- paste0(old1$V1,"-",old1$V2,"-",old1$V3,"-",old1$V4)
+  old2$label <- paste0(old2$V1,"-",old2$V2,"-",old2$V3,"-",old2$V4)
+  old <- old1[which(old1$label %in% old2$label),]
   young$label <- paste0(young$V1,"-",young$V2,"-",young$V3)
   old$label <- paste0(old$V1,"-",old$V2,"-",old$V3)
   young <- young[which(young$label %in% old$label),]  
@@ -123,7 +131,7 @@ for(i in c(1:length(tissues))){
   transfer_matrix$young_state <- factor(transfer_matrix$young_state, levels=c(paste0("E",c(1:length(states)))))
 }
 
-# write.csv(transfer_matrix,"result/all/ChromHMM/15_until_skin/state_transfer/state_transfer.csv",row.names = F)
+# write.csv(transfer_matrix,paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/state_transfer.csv"),row.names = F)
 result_transfer_matrix <- transfer_matrix %>%
   group_by(young_state, old_state) %>%
   summarise(mean_freq = mean(Freq, na.rm = TRUE))
@@ -159,26 +167,26 @@ pheatmap::pheatmap(result_transfer_matrix_to_plot,
                    display_numbers = T,labels_row = labels,
                    labels_col = labels,fontsize = 10)
 
-# transfer_matrix <- read.csv("result/all/ChromHMM/16_until_skin/state_transfer/state_transfer.csv")
-# transfer_matrix$old_state <- factor(transfer_matrix$old_state, levels=c(paste0("E",1:16)))
-# transfer_matrix$young_state <- factor(transfer_matrix$young_state, levels=c(paste0("E",1:16)))
-# dir.create(paste0("result/all/ChromHMM/16_until_skin/state_transfer/each_tissue_transfer/"))
-# for(i in c(1:length(tissues))){
-#   tissue <- tissues[i]
-#   t_transfer_matrix <- transfer_matrix[which(transfer_matrix$tissue==tissue),]
-#   result_transfer_matrix <- t_transfer_matrix %>%
-#     group_by(young_state, old_state) %>%
-#     summarise(mean_freq = mean(Freq, na.rm = TRUE))
-#   result_transfer_matrix2 <- result_transfer_matrix %>%
-#     group_by(young_state) %>%
-#     mutate(percent_freq = mean_freq/sum(mean_freq))
-#   result_transfer_matrix_to_plot <- dcast(result_transfer_matrix2, formula = young_state~old_state, value.var = "percent_freq") 
-#   labels <-as.character(result_transfer_matrix_to_plot$young_state)
-#   result_transfer_matrix_to_plot <- result_transfer_matrix_to_plot[,-1]
-#   if(tissue=="brain") tissue <- "FC"
-#   p<-pheatmap::pheatmap(result_transfer_matrix_to_plot,cluster_rows = F,
-#                      cluster_cols = F, breaks = seq(0, 0.2, length.out = 101),
-#                      display_numbers = T,labels_row = labels,labels_col = labels,
-#                      fontsize = 10,main=tissue,fontsize_number = 10)
-#   save_pheatmap_pdf(p,paste0("result/all/ChromHMM/16_until_skin/state_transfer/each_tissue_transfer/",tissue,"_state_transfer.pdf"),width=7, height=7)
-#   }
+transfer_matrix <- read.csv(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/state_transfer.csv"))
+transfer_matrix$old_state <- factor(transfer_matrix$old_state, levels=c(paste0("E",1:state_num)))
+transfer_matrix$young_state <- factor(transfer_matrix$young_state, levels=c(paste0("E",1:state_num)))
+dir.create(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/each_tissue_transfer/"))
+for(i in c(1:length(tissues))){
+  tissue <- tissues[i]
+  t_transfer_matrix <- transfer_matrix[which(transfer_matrix$tissue==tissue_label_change(tissue)),]
+  result_transfer_matrix <- t_transfer_matrix %>%
+    group_by(young_state, old_state) %>%
+    summarise(mean_freq = mean(Freq, na.rm = TRUE))
+  result_transfer_matrix2 <- result_transfer_matrix %>%
+    group_by(young_state) %>%
+    mutate(percent_freq = mean_freq/sum(mean_freq))
+  result_transfer_matrix_to_plot <- dcast(result_transfer_matrix2, formula = young_state~old_state, value.var = "percent_freq")
+  labels <-as.character(result_transfer_matrix_to_plot$young_state)
+  result_transfer_matrix_to_plot <- result_transfer_matrix_to_plot[,-1]
+  result_transfer_matrix_to_plot[is.na(result_transfer_matrix_to_plot)] <- 0
+  p<-pheatmap::pheatmap(result_transfer_matrix_to_plot,cluster_rows = F,
+                     cluster_cols = F, breaks = seq(0, 0.2, length.out = 101),
+                     display_numbers = T,labels_row = labels,labels_col = labels,
+                     fontsize = 10,main=tissue_label_change(tissue),fontsize_number = 10)
+  save_pheatmap_pdf(p,paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/each_tissue_transfer/",tissue,"_state_transfer.pdf"),width=7, height=7)
+  }

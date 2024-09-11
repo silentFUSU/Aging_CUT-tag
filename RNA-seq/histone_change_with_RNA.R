@@ -9,8 +9,8 @@ library(ChIPseeker)
 library(EnsDb.Hsapiens.v86)
 library(GenomeInfoDb)
 library(dplyr)
-tissue <- "BAT"
-antibody <- "H3K36me3"
+tissue <- "colon"
+antibody <- "H3K4me3"
 bin_size <- function(antibody){
   if(antibody %in% c("H3K9me3","H3K27me3","H3K36me3")){
     return("10kb")
@@ -53,7 +53,8 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   }else{
     data_path <- "data/samples/"
   }
-  histone <- read.csv(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
+  # histone <- read.csv(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
+  histone <- read.csv(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff.csv"))
   rna <- read.csv(paste0("data/samples/RNA/",rna_name(tissue),"/diff_expression_gene_nodup.csv"))
   
   rna_gene_change <- rna$X[which(rna$Significant != "Stable")]
@@ -71,8 +72,8 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   peak_anno <- merge(peak_anno,histone[,c("LogFC.old.young","label","Significant_bar")],by="label")
   peak_anno <- merge(peak_anno,rna[,c("SYMBOL","logFC")],by="SYMBOL")
   peak_anno <- peak_anno[which(peak_anno$Significant_bar != "Stable" & peak_anno$distanceToTSS==0),]
-  t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),]))
-  sort_table <<- rbind(sort_table,t_sort_table)
+  # t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),]))
+  # sort_table <<- rbind(sort_table,t_sort_table)
   p<- ggplot() +
     geom_point(data=peak_anno, mapping=aes(logFC, LogFC.old.young),color = "grey",alpha=0.5) +  
     # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#48466d") +
@@ -98,7 +99,7 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
 
 tissues <-c("thymus","CB","uterus","lung","muscle","skin","spleen","bonemarrow","heart","liver","kidney","testis","Hip","brain", "ileum","aorta","tongue","bladder","stomach","jejunum","colon","cecum")
 
-antibody <- "H3K27ac"
+antibody <- "H3K36me3"
 p_list <- list()
 sort_table <- data.frame(tissue = as.character(),
                          count = as.numeric())

@@ -106,6 +106,8 @@ t.test(to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(1,2)] & to_p
 t.test(to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(7,9)] & to_plot$age == "young")],
        to_plot$value[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(8,10)] & to_plot$age == "old")])
 
+antibody <- "H3K4me3"
+bin_size <- "1kb"
 tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
 rownames(tab) <- tab$Geneid
 counts <- tab[,c(7:ncol(tab))]
@@ -130,6 +132,9 @@ out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion
             "LogFC.old-young"=lrt$table$logFC)
 out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= 0, 
                           ifelse(out$`LogFC.old-young` > 0, "Up", "Down"), "Stable")
+write.csv(out,paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",antibody,"_",bin_size,"_bins_diff_ConA.csv"),row.names = F)
+
+
 colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
 ggplot(
   out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
@@ -354,3 +359,57 @@ ggplot(FRiP,aes(x=condition,y=FRiP,color = age))+
   scale_fill_brewer(palette="Set3")+
   ggtitle(paste0(antibody," FRiP"))+ylim(0,100)+
   theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("FRiP(%)")
+
+
+data_path <- "data/raw_data/thymus_cut_tag_test/"
+tissue <- "thymus"
+rna_name <- function(tissue){
+  if(tissue=="brain"){
+    return("FC")
+  }
+  return(tissue)
+}
+Histone_relationship_with_RNA <- function(antibody,tissue){
+  txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
+  GO_database <- 'org.Mm.eg.db'
+  bin_size <- ifelse(antibody %in% c("H3K36me3","H3K9me3","H3K27me3"), "10kb", "1kb")
+  histone <- read.csv(paste0(data_path,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_ConA.csv"))
+  rna <- read.csv(paste0("data/samples/RNA/",rna_name(tissue),"/diff_expression_gene_nodup.csv"))
+  
+  rna_gene_change <- rna$X[which(rna$Significant != "Stable")]
+  colnames(rna)[1]<-"SYMBOL"
+  peak_obj <- GRanges(seqnames = histone$Chr,   
+                      ranges = IRanges(start = histone$Start, end = histone$End))
+  peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),
+                            TxDb=txdb, annoDb="org.Mm.eg.db")
+  peak_anno <- unique(as.data.frame(peak_anno))
+  peak_anno <- peak_anno[which(str_detect(peak_anno$annotation,"Promoter")),]
+  peak_anno <- peak_anno[which(peak_anno$SYMBOL %in% rna_gene_change),]
+  
+  peak_anno$label <- paste0(peak_anno$seqnames,"-",peak_anno$start,"-",peak_anno$end)
+  histone$label <- paste0(histone$Chr,"-",histone$Start,"-",histone$End)
+  peak_anno <- merge(peak_anno,histone[,c("LogFC.old.young","label","Significant")],by="label")
+  peak_anno <- merge(peak_anno,rna[,c("SYMBOL","logFC")],by="SYMBOL")
+  peak_anno <- peak_anno[which(peak_anno$Significant != "Stable" & peak_anno$distanceToTSS==0),]
+  p<- ggplot() +
+    geom_point(data=peak_anno, mapping=aes(logFC, LogFC.old.young),color = "grey",alpha=0.5) +  
+    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#48466d") +
+    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#00b8a9") +
+    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),], mapping=aes(logFC, LogFC.old.young),color = "#ff9a00") +
+    # 坐标轴
+    labs(x="RNA log2(Fold Change)",
+         y=paste0(antibody," log2(Fold Change)")) +
+    geom_point(color="grey")+
+    theme(legend.position = "bottom",panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())+
+    theme_bw()+theme(text = element_text(size = 18))+
+    ggtitle(tissue)+
+    geom_vline(xintercept = 0, linetype = "dashed", color = "red") + 
+    geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+    annotate("text",label = paste0(nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),])),x=10, y=4,colour="#00b8a9",size=5)+
+    annotate("text",label = paste0(nrow(peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),])),x=-5, y=-4,colour="#ff9a00",size=5)+
+    annotate("text",label = paste0(nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC<0),])),x=-5, y=4,colour="#f6416c",size=5)+
+    annotate("text",label = paste0(nrow(peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),])),x=10, y=-4,colour="#48466d",size=5)
+  print(p)
+  return(p)
+}

@@ -15,44 +15,48 @@ library(clusterProfiler)
 library(ggrepel)
 library(limma)
 library(maditr)
-state <- c("E13")
-target_state <- "E6"
+state <- c("E5")
+state_num <- 15
+target_state <- "E9"
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin") 
-dir.create(paste0("result/all/ChromHMM/15_until_skin/state_transfer/",paste0(state, collapse="-"),"_to_",target_state))
-dir.create(paste0("result/all/ChromHMM/15_until_skin/state_transfer/",paste0(state, collapse="-"),"_to_",target_state,"/bed"))
+dir.create(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/",paste0(state, collapse="-"),"_to_",target_state))
+dir.create(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/",paste0(state, collapse="-"),"_to_",target_state,"/bed"))
 peaks_anno_list <-list()
 GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 peaks_list <- list()
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]
-  young1_bed <- read.delim(paste0("result/all/ChromHMM/15_until_skin/split_1k/",tissue,"_young1_15_segments_1k.bed"),header = F)
-  young2_bed <- read.delim(paste0("result/all/ChromHMM/15_until_skin/split_1k/",tissue,"_young2_15_segments_1k.bed"),header = F)
-  old1_bed <- read.delim(paste0("result/all/ChromHMM/15_until_skin/split_1k/",tissue,"_old1_15_segments_1k.bed"),header = F)
-  old2_bed <- read.delim(paste0("result/all/ChromHMM/15_until_skin/split_1k/",tissue,"_old2_15_segments_1k.bed"),header = F)
+  young1_bed <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_young1_",state_num,"_segments_1k.bed"),header = F)
+  young2_bed <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_young2_",state_num,"_segments_1k.bed"),header = F)
+  old1_bed <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_old1_",state_num,"_segments_1k.bed"),header = F)
+  old2_bed <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/split_1k/",tissue,"_old2_",state_num,"_segments_1k.bed"),header = F)
   young1_bed <- young1_bed[which(young1_bed$V4%in%state),]
   young2_bed <- young2_bed[which(young2_bed$V4%in%state),]
-  young_bed <- intersect(young1_bed,young2_bed)
+  young1_bed$label <- paste0(young1_bed$V1,"-",young1_bed$V2,"-",young1_bed$V3)
+  young2_bed$label <- paste0(young2_bed$V1,"-",young2_bed$V2,"-",young2_bed$V3)
+  young_bed <- young1_bed[which(young1_bed$label %in% young2_bed$label),]
   old1_bed <- old1_bed[which(old1_bed$V4==target_state),]
   old2_bed <- old2_bed[which(old2_bed$V4==target_state),]
-  old_bed <- intersect(old1_bed,old2_bed)
-  young_bed$label <- paste0(young_bed$V1,"-",young_bed$V2,"-",young_bed$V3)
-  old_bed$label <- paste0(old_bed$V1,"-",old_bed$V2,"-",old_bed$V3)
+  old1_bed$label <- paste0(old1_bed$V1,"-",old1_bed$V2,"-",old1_bed$V3)
+  old2_bed$label <- paste0(old2_bed$V1,"-",old2_bed$V2,"-",old2_bed$V3)
+  old_bed <- old1_bed[which(old1_bed$label %in% old2_bed$label),]
+
   region_interest <- merge(young_bed,old_bed,by="label")
   region_interest <- young_bed[which(young_bed$label %in% old_bed$label),c(1:3)]
   write.table(region_interest,
-              file=paste0(paste0("result/all/ChromHMM/15_until_skin/state_transfer/",paste0(state, collapse="-"),"_to_",target_state,"/bed/",tissue,".bed")),
+              file=paste0(paste0("result/all/ChromHMM/until_ovary/",state_num,"_until_ovary/state_transfer/",paste0(state, collapse="-"),"_to_",target_state,"/bed/",tissue,".bed")),
               sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  peaks_list[[i]] <- region_interest
-  peaks_list[[i]]$label <- paste0(peaks_list[[i]]$V1,"-",peaks_list[[i]]$V2,"-",peaks_list[[i]]$V3)
-  peaks_list[[i]]$tissue <- tissue
-  names(peaks_list)[[i]] <- tissue
-  peak_obj <- GRanges(seqnames = region_interest$V1,   
-                      ranges = IRanges(start = region_interest$V2, end = region_interest$V3))
-  peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),
-                            TxDb=txdb, annoDb="org.Mm.eg.db")
-  peaks_anno_list[[i]] <- peak_anno
-  names(peaks_anno_list)[[i]] <- tissue
+  # peaks_list[[i]] <- region_interest
+  # peaks_list[[i]]$label <- paste0(peaks_list[[i]]$V1,"-",peaks_list[[i]]$V2,"-",peaks_list[[i]]$V3)
+  # peaks_list[[i]]$tissue <- tissue
+  # names(peaks_list)[[i]] <- tissue
+  # peak_obj <- GRanges(seqnames = region_interest$V1,   
+  #                     ranges = IRanges(start = region_interest$V2, end = region_interest$V3))
+  # peak_anno <- annotatePeak(peak_obj, tssRegion=c(-3000, 3000),
+  #                           TxDb=txdb, annoDb="org.Mm.eg.db")
+  # peaks_anno_list[[i]] <- peak_anno
+  # names(peaks_anno_list)[[i]] <- tissue
   }
 names(peaks_anno_list)[[1]] <- "FC"
 peaks_anno_list$FC@annoStat$Feature <- as.vector(peaks_anno_list$FC@annoStat$Feature)

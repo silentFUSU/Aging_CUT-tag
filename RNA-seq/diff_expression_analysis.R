@@ -4,9 +4,9 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(edgeR)
 library(ggplot2)
-tissue <- "skin"
+tissue <- "mammarygland"
 diff_expression_analysis <- function(tissue){
-  tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.nodup.counts"),skip=1)
+  tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
@@ -40,7 +40,7 @@ diff_expression_analysis <- function(tissue){
   out = cbind(cpm(y),lrt$table, "fdr"=p.adjust(lrt$table$PValue,method="BH"))
   out$Significant <- ifelse(out$fdr< 0.05 & abs(out$logFC) >= 0, 
                             ifelse(out$logFC > 0, "Up", "Down"), "Stable")
-  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"))
+  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
   # write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene_nodup.csv"))
 }
 tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
@@ -51,7 +51,7 @@ for(tissue in tissues){
 
 
 plot_volcano <- function(tissue){
-  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"),row.names = 1)
+  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"),row.names = 1)
   colour=setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   ggplot(
     # 数据、映射、颜色

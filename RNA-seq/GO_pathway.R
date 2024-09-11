@@ -24,6 +24,8 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Mammarygland"){
+      tissue_label <- "Mammary gland"
     }
   }
   return(tissue_label)
@@ -31,7 +33,7 @@ tissue_label_change <- function(tissue){
 dir.create("result/RNA/GO/plot")
 dir.create("result/RNA/GO/table")
 GO_pathway_analysis <- function(tissue){
-  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_nodup.csv"),row.names = 1)
+  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"),row.names = 1)
   genelist_up <- bitr(rownames(df)[which(df$Significant=="Up")],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
   genelist_up_GO <- enrichGO( genelist_up$ENTREZID,#GO富集分析
                               OrgDb = GO_database,

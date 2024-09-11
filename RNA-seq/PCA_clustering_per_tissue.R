@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(edgeR)
 library(ggplot2)
-tissue<-"jejunum"
+tissue<-"mammarygland"
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
@@ -28,7 +28,7 @@ tissue_label_change <- function(tissue){
 
 search_table <- read.csv("data/samples/all/RNA_search_table.csv")
 PCA_per_tissue <- function(tissue){
-  tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.nodup.counts"),skip=1)
+  tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
@@ -49,10 +49,10 @@ PCA_per_tissue <- function(tissue){
   
   logCPMs <- cpm(y, log = TRUE)
   pca <- prcomp(t(logCPMs))
-  to_plot <- data.frame(pca$x, age = paste0(y$samples$group))
-  to_plot$rownames <- rownames(to_plot)
-  table <- search_table[which(search_table$sample_name %in% to_plot$rownames),]
-  to_plot$rownames <- paste0(table$sample_name,"-",table$mouse_ID,"-",table$age)
+  to_plot <- data.frame(pca$x)
+  to_plot$sample_name <- rownames(to_plot)
+  to_plot <- merge(to_plot,search_table,by="sample_name")
+  to_plot$rownames <- paste0(to_plot$sample_name,"-",to_plot$mouse_ID,"-",to_plot$age)
   to_plot$age <- factor(to_plot$age,levels=c("3m","24m"))
   percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
   use.pcs <- c(1,2)
@@ -70,6 +70,7 @@ PCA_per_tissue <- function(tissue){
     ) +
     ggtitle(tissue_label_change(tissue))
  print(p)
+  # ggsave(paste0("result/RNA/mammarygland/PCA.png"),p,width = 6,height = 5,type="cairo")
   return(p)
 }
 
