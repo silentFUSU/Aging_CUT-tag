@@ -9,8 +9,8 @@ library(ChIPseeker)
 library(EnsDb.Hsapiens.v86)
 library(GenomeInfoDb)
 library(dplyr)
-tissue <- "colon"
-antibody <- "H3K4me3"
+tissue <- "brain"
+antibody <- "ATAC"
 bin_size <- function(antibody){
   if(antibody %in% c("H3K9me3","H3K27me3","H3K36me3")){
     return("10kb")
@@ -69,9 +69,9 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   
   peak_anno$label <- paste0(peak_anno$seqnames,"-",peak_anno$start,"-",peak_anno$end)
   histone$label <- paste0(histone$Chr,"-",histone$Start,"-",histone$End)
-  peak_anno <- merge(peak_anno,histone[,c("LogFC.old.young","label","Significant_bar")],by="label")
+  peak_anno <- merge(peak_anno,histone[,c("LogFC.old.young","label","Significant")],by="label")
   peak_anno <- merge(peak_anno,rna[,c("SYMBOL","logFC")],by="SYMBOL")
-  peak_anno <- peak_anno[which(peak_anno$Significant_bar != "Stable" & peak_anno$distanceToTSS==0),]
+  peak_anno <- peak_anno[which(peak_anno$Significant != "Stable" & peak_anno$distanceToTSS==0),]
   # t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),]))
   # sort_table <<- rbind(sort_table,t_sort_table)
   p<- ggplot() +

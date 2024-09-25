@@ -1,7 +1,7 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240830_LLX_RNA/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240918_LLX727_RNA/
 target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/RNA/
 samples=$(find ${data_path}featureCounts -type f -name "*.counts" -exec basename {} \; | sed 's/\.counts//' | sort)  
-tissues=(mammarygland mammarygland mammarygland mammarygland)
+tissues=(ovary)
 # tissues=(jejunum)
 # tissues=(cecum cecum cecum cecum colon colon colon colon)
 i=0

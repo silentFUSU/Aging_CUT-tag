@@ -41,24 +41,22 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols)
 }
-search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
+
 per_tissue_PCA <- function(tissue,antibodys){
   p_list <- list()  
   for(i in c(1:length(antibodys))){
+    search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
     antibody <- antibodys[i]
     tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
-    pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY_[0-9]+).*"
-    colnames <- colnames(tab)[7:length(tab)]
-    new_colnames <- gsub(pattern, "\\1", colnames)
-    colnames(tab)[7:length(tab)] <- new_colnames
-    sorted_index <- order(new_colnames)
-    order_colnames <- new_colnames[sorted_index] 
-    counts <- tab[,order_colnames] 
-    if(tissue=="ovary"){
-      age <- c("old","young","old","young")
-    }else{
-      age <- c("young","old","young","old")
-    }
+    pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
+    colnames(tab)[7:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
+    counts <- tab[7:length(tab)]
+    search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
+    # search_table <- search_table[which(search_table$mouse_ID != "110"),]
+    # counts <- counts[,which(colnames(counts) %in% search_table$sample_name)]
+    search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
+    search_table <- search_table[order(search_table$sample_name),]
+    age <- search_table$age
     y= DGEList(counts=counts,group = age)
     keep = which(rowSums(cpm(y)>1)>=2)
     y = y[keep,]
@@ -72,7 +70,7 @@ per_tissue_PCA <- function(tissue,antibodys){
     
     table <- search_table[which(search_table$sample_name  %in% to_plot$rownames),c(3:5)]
     to_plot$rownames <- paste0(table$sample_name,"-",table$mouse_ID,"-",table$age)
-    
+    to_plot$age <- factor(to_plot$age, levels = c("3m","24m"))
     p_list[[i]] <-
       ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) + 
       geom_point(size=5) +theme_bw()+

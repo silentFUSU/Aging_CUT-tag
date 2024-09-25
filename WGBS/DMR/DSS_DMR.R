@@ -9,14 +9,21 @@ library(tidyr)
 library(stringr)
 library(data.table)  
 library(DSS)
-tissue <- "liver"
+
+args <- commandArgs(trailingOnly = TRUE)  
+if (length(args) < 1) {  
+  stop("No tissue argument provided")  
+}  
+tissue <- args[1]  
+print(paste("Tissue is:", tissue))  
+
 bdg2dsstxt <- function(tissue){
-  data_path <- "data/raw_data/20240905_DYQ_005-018_WGBS/"
+  data_path <- paste0("data/samples/WGBS/",tissue,"/")
   dir.create(paste0(data_path,"DSS_table"))
   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
   search_table <- search_table[which(search_table$tissue == tissue),]
   for(sample in search_table$sample_name){
-    df <- fread(paste0(data_path,"bed/",sample,"_CpG.bdg"),sep="\t")
+    df <- fread(paste0(data_path,"bdg/",sample,"_CpG.bdg"),sep="\t")
     df <- df[,c(1,2,5,4)]  
     colnames(df) <- c("chr", "pos", "N", "X")
     fwrite(df,paste0(data_path,"/DSS_table/",sample,".txt"), sep = "\t")  
@@ -25,7 +32,7 @@ bdg2dsstxt <- function(tissue){
 bdg2dsstxt(tissue)
 
 DSS_DMR <- function(tissue){
-  data_path <- "data/raw_data/20240905_DYQ_005-018_WGBS/"
+  data_path <- paste0("data/samples/WGBS/",tissue,"/")
   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
   search_table <- search_table[which(search_table$tissue == tissue),]
   young <- search_table$sample_name[which(search_table$age=="3M")]
@@ -52,18 +59,19 @@ DSS_DMR <- function(tissue){
   merge_list <- append(young_list,old_list)
   BSobj = makeBSseqData( merge_list,append(age_young,age_old))
   dmlTest.sm = DMLtest(BSobj, group1=age_old, group2=age_young, smoothing=TRUE,ncores=10)                   
-  dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0.1)
-  write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML.txt"), row.names=F, sep='\t', quote=F)
+  # dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0.1)
+  dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0)
+  write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta0.txt"), row.names=F, sep='\t', quote=F)
   
-  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0.1)
-  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR.txt"), row.names=F, sep='\t', quote=F)
+  # dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0.1)
+  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0)
+  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta0.txt"), row.names=F, sep='\t', quote=F)
   
-  saveRDS(BSobj,paste0(data_path,"/DSS_table/",tissue,"_Bsobj.rds"))
-  saveRDS(dmlTest.sm,paste0(data_path,"/DSS_table/",tissue,"_dmlTest.rds"))
+  saveRDS(BSobj,paste0(data_path,"/DSS_table/",tissue,"_Bsobj_delta0.rds"))
+  saveRDS(dmlTest.sm,paste0(data_path,"/DSS_table/",tissue,"_dmlTest_delta0.rds"))
   # increase <- DMR[which(DMR$areaStat > 0),c("chr","start","end")]
   # write.table(increase, file=paste0(data_path,"/DSS_table/bed/DMR_increase.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
   # decrease <- DMR[which(DMR$areaStat < 0),c("chr","start","end")]
   # write.table(decrease, file=paste0(data_path,"DSS_table/bed/DMR_decrease.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
-
   }
 DSS_DMR(tissue)

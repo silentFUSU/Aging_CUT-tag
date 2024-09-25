@@ -4,26 +4,27 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(edgeR)
 library(ggplot2)
-tissue <- "mammarygland"
+tissue <- "FC"
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
-  new_colnames <- gsub(pattern, "\\1", colnames)
-  colnames(tab)[6:length(tab)] <- new_colnames
-  sorted_index <- order(new_colnames)
-  order_colnames <- new_colnames[sorted_index] 
-  counts <- tab[,order_colnames]   
+  colnames(tab)[6:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[6:length(tab)] )
+  counts <- tab[6:length(tab)]
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
   search_table <- read.csv("data/samples/all/RNA_search_table.csv")
   colnames(group)[1] <- "sample_name"
   group <- merge(group,search_table,by="sample_name")
-  age <- group[which(group$sample_name %in% colnames(counts)),"Age"]
+  group <- group[which(group$sample_name %in% colnames(counts)),]
+  group$sample_name <- factor(group$sample_name,levels = colnames(counts))
+  group <- group[order(group$sample_name),]
+  age <- group$Age
   age[which(age=="3m")] <- "young"
   age[which(age=="24m")] <- "old"
-  mouse_ID <- group[which(group$sample_name %in% colnames(counts)),"mouse_ID"]
+  mouse_ID <- group$mouse_ID
+  
   colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
   y= DGEList(counts=counts,group=age)
   keep = which(rowSums(cpm(y)>1)>=2)
@@ -36,14 +37,13 @@ diff_expression_analysis <- function(tissue){
   fit_tag = glmFit(y,design)
   lrt = glmLRT(fit_tag, coef = 2)
   tab<-tab[keep,]
-  
   out = cbind(cpm(y),lrt$table, "fdr"=p.adjust(lrt$table$PValue,method="BH"))
   out$Significant <- ifelse(out$fdr< 0.05 & abs(out$logFC) >= 0, 
                             ifelse(out$logFC > 0, "Up", "Down"), "Stable")
   write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
   # write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene_nodup.csv"))
 }
-tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
+tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","ovary","mammarygland")
 for(tissue in tissues){
   diff_expression_analysis(tissue)
 }
@@ -55,7 +55,7 @@ plot_volcano <- function(tissue){
   colour=setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   ggplot(
     # 数据、映射、颜色
-    out, aes(x = logFC, y = -log10(fdr))) +
+    df, aes(x = logFC, y = -log10(fdr))) +
     geom_point(aes(color = Significant), size=2) +
     scale_color_manual(values = colour) +
     geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
@@ -65,7 +65,7 @@ plot_volcano <- function(tissue){
     theme_bw()+
     theme(text = element_text(size = 20))+
     ggtitle(tissue)+
-    annotate("text", x = min(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
-    annotate("text", x = max(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+    annotate("text", x = min(df$logFC), y = max(-log10(df$fdr)), label = nrow(df[which(df$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(df$logFC), y = max(-log10(df$fdr)), label = nrow(df[which(df$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
 }
 

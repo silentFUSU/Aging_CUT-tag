@@ -79,20 +79,20 @@ do
     zcat ${data_path}${sample}/${sample}*R2*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}_R2.fastq.gz &
 done
 
-data_path=/storage/zhangyanxiaoLab/fastq/2024/2024-09-02-Jiangbei-DYQ/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240902_DYQ_WGBS/fastq/
-samples=(DYQ009 DYQ010 DYQ011 DYQ012 DYQ019 DYQ020 DYQ021 DYQ022 DYQ023 DYQ024 DYQ025 DYQ026)
+data_path=/storage/zhangyanxiaoLab/suzhuojie/software/obsutil_linux_amd64_5.2.10/tmp/SZJ/20240923/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240923_DYQ_WGBS/fastq/
+samples=$(find ${data_path} -mindepth 1 -maxdepth 1 -type d -printf '%f\n')  
 for sample in ${samples[@]}
 do
     ln -s ${data_path}/${sample}/${sample}*_R1*.fastq.gz ${target_path}${sample}_R1.fastq.gz
     ln -s ${data_path}/${sample}/${sample}*_R2*.fastq.gz ${target_path}${sample}_R2.fastq.gz
 done
 
-data_path=/storage/zhangyanxiaoLab/suzhuojie/software/obsutil_linux_amd64_5.2.10/tmp/SZJ/20240909/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240909_DYQ035_WGBS_test/20240909_DYQ035_4M_WGBS/fastq/
-samples=(DYQ035)
+data_path=/storage/zhangyanxiaoLab/fastq/2024/2024-09-13-Jiangbei-DYQ/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240916_DYQ_pipeline_test_WGBS/fastq/
+samples=(DYQ053 DYQ054 DYQ055 DYQ056 DYQ057 DYQ058 DYQ059 DYQ060 DYQ061 DYQ062 DYQ063 DYQ064)
 for sample in ${samples[@]}
 do
-    zcat ${data_path}${sample}/${sample}*R1*.fastq.gz | tail -n 16000000 | gzip > ${target_path}${sample}_R1.fastq.gz &
-    zcat ${data_path}${sample}/${sample}*R2*.fastq.gz | tail -n 16000000 | gzip > ${target_path}${sample}_R2.fastq.gz &
+    zcat ${data_path}${sample}/${sample}*R1*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}_R1.fastq.gz &
+    zcat ${data_path}${sample}/${sample}*R2*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}_R2.fastq.gz &
 done

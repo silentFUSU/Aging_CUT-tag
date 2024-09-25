@@ -28,11 +28,11 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
-tissue <- "liver"
+tissue <- "Hip"
 search_table <- search_table[which(search_table$tissue == tissue),]
 df_list <- list()
 for(i in c(1:nrow(search_table))){
-  df_list[[i]] <- read.delim(paste0("data/raw_data/20240905_DYQ_005-018_WGBS/bed/",search_table$sample_name[i],"_CpG.bdg"),head=F)
+  df_list[[i]] <- data.frame(fread(paste0("data/samples/WGBS/",tissue,"/bdg/",search_table$sample_name[i],"_CpG.bdg"),sep = "\t"))
   df_list[[i]]$depth <- df_list[[i]]$V5
   # df_list[[i]] <- df_list[[i]][which(df_list[[i]]$depth >15),]
   df_list[[i]]$percent <- df_list[[i]]$V4/df_list[[i]]$V5*100
@@ -89,6 +89,8 @@ variable_order <- paste0(search_table$variable,"-",search_table$mouse_ID,"-",sea
 merge_df_to_plot <- merge(merge_df_to_plot, search_table, by = "variable" )
 merge_df_to_plot$variable_label <- paste0(merge_df_to_plot$variable, "-", merge_df_to_plot$mouse_ID, "-", merge_df_to_plot$age)
 merge_df_to_plot$variable_label <- factor(merge_df_to_plot$variable_label, levels = variable_order)
+t <- t.test(merge_df_to_plot$value[which(merge_df_to_plot$age=="3M")],merge_df_to_plot$value[which(merge_df_to_plot$age=="24M")])
+
 ggplot(merge_df_to_plot, aes(x = variable_label, y = value, fill= age)) +  
   geom_violin(adjust = 2.5) +          
   scale_fill_brewer(palette = "Pastel1") +
@@ -97,8 +99,9 @@ ggplot(merge_df_to_plot, aes(x = variable_label, y = value, fill= age)) +
   ggtitle(tissue_label_change(tissue))+
   theme(text = element_text(size = 20),legend.position = "none")+
   labs(x = NULL,y = "CpG%") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  annotate("text", x = Inf, y = -Inf, label = paste("p-value =",  format(t$p.value, scientific = TRUE, digits = 3)  ),   
+           hjust = 1.1, vjust = -1.1, size = 5, colour = "red")
 
 merge_df_pca <- Reduce(function(x, y) merge(x, y, by = "label"), merge_list)  
 pca <- prcomp(t(merge_df_pca[,-1]))

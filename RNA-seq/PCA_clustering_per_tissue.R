@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(edgeR)
 library(ggplot2)
-tissue<-"mammarygland"
+tissue<-"ovary"
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 

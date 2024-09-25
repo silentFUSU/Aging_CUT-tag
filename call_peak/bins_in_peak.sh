@@ -42,6 +42,18 @@ do
     done
 done
 
+antibodys=(ATAC)
+bin_size=1kb
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
+for tissue in ${tissues[@]}
+do
+    for antibody in ${antibodys[@]}
+    do
+        bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+            -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_young_old_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_old_merge_macs_narrowpeak.bed
+    done
+done
+
 # bin_size=10kb
 # for tissue in ${tissues[@]}
 # do

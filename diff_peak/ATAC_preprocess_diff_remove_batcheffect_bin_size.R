@@ -17,6 +17,25 @@ library(limma)
 library(patchwork)
 bin_size <-"1kb"
 antibody <- "ATAC"
+tissue_label_change <- function(tissue){
+  if(tissue=="brain"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }
+  }
+  return(tissue_label)
+}
 peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   tab = read.delim(paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins.counts"),skip=1)
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -30,8 +49,8 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
     age <- c("old","young","old","young")
     colnames(counts) <- c("old_1","young_1","old_2","young_2")
   }else if(tissue=="brain"){
-    age <- c("young","young","old","old")
-    colnames(counts) <- c("young_1","young_2","old_1","old_2")
+    age <- c("old","old","young","young")
+    colnames(counts) <- c("old_1","old_2","young_1","young_2")
   }else{
     age <- c("young","old","young","old")
     colnames(counts) <- c("young_1","old_1","young_2","old_2")
@@ -39,24 +58,13 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   y= DGEList(counts=counts,group=age)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
-  y$samples$batch <- rep(c(rep("batch1", 2), rep("batch2", 2)), 1)
   y$samples$group <- factor(y$samples$group,c("young","old"))
   y <- calcNormFactors(y)
-  batch <- factor(y$samples$batch)
-  if(tissue=="brain"){
-    design <- model.matrix(~group, y$samples)
-  }else{
-    design <- model.matrix(~batch+group, y$samples)
-  }
+  design <- model.matrix(~group, y$samples)
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
-  if(tissue=="brain"){
-    lrt = glmLRT(fit_tag, coef = 2)
-  }else{
-    lrt = glmLRT(fit_tag, coef = 3)
-  }
-
+  lrt = glmLRT(fit_tag, coef = 2)
   tab<-tab[keep,]
   out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion),
               "PValue.old-young"=lrt$table$PValue,"FDR.old-young"= p.adjust(lrt$table$PValue,method="BH"),
@@ -68,12 +76,26 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 > 1.2) & (out$old_2/out$young_2 > 1.2))] <- "Up"
   out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 < 0.8) & (out$old_2/out$young_2 < 0.8))] <- "Down"
   
-  write.csv(out,paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(out,paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"),row.names = F)
   outup <- out[which(out$Significant_bar=="Up"),]
   outdown <- out[which(out$Significant_bar=="Down"),]
-  write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-}
+  write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+  colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+  ggplot(
+    out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
+    geom_point(aes(color = Significant_bar), size=2) +
+    scale_color_manual(values = colour) +
+    geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+    geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+    labs(x="log2(fold change)",
+         y="-log10 (p-value)") +
+    theme_bw()+
+    theme(text = element_text(size = 20),legend.position = "none")+
+    ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
+    annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant_bar=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant_bar=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+  }
 
 antibodys <- c("ATAC")
 # tissues <- c("stomach","skin")

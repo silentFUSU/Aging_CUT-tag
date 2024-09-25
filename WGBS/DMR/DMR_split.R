@@ -3,13 +3,15 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 DMR_split <- function(tissue){
-  DMR <- read.table(paste0("data/raw_data/20240905_DYQ_005-018_WGBS/DSS_table/",tissue,"_DMR.txt"),header = T)
-  dir.create(paste0("data/raw_data/20240905_DYQ_005-018_WGBS/DSS_table/bed/"))
-  
+  DMR <- read.table(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta0.txt"),header = T)
+  dir.create(paste0("data/samples/WGBS/",tissue,"/DSS_table/bed/"))
   increase <- DMR[which(DMR$areaStat > 0),c("chr","start","end")]
-  write.table(increase, file=paste0("data/raw_data/20240905_DYQ_005-018_WGBS/DSS_table/bed/",tissue,"_DMR_increase.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
+  write.table(increase, file=paste0("data/samples/WGBS/",tissue,"/DSS_table/bed/",tissue,"_DMR_increase_delta0.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
   decrease <- DMR[which(DMR$areaStat < 0),c("chr","start","end")]
-  write.table(decrease, file=paste0("data/raw_data/20240905_DYQ_005-018_WGBS/DSS_table/bed/",tissue,"_DMR_decrease.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
+  write.table(decrease, file=paste0("data/samples/WGBS/",tissue,"/DSS_table/bed/",tissue,"_DMR_decrease_delta0.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
 }
-tissue <-"liver"
-DMR_split(tissue)
+tissues <- c("ileum","Hip","liver","lung","mammarygland","kidney")
+for( tissue in tissues) {
+  DMR_split(tissue)
+}
+

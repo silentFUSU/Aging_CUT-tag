@@ -10,7 +10,7 @@ library(dplyr)
 library(stringr)
 library(reshape2)
 library(biomaRt)  
-tissue <- "pancreas"
+tissue <- "ovary"
 gtf <- "/storage/zhangyanxiaoLab/share/gtf/mm10.gencode.vM25.annotation.gtf"
 gtf_lines <- readLines(gtf)
 gene_id_list <- list()  

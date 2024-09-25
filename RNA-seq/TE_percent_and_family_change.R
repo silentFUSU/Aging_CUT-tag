@@ -153,7 +153,7 @@ TE_percent <- function(tissue){
   return(p_list)
   }
 
-tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas"))
+tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas","mammarygland","ovary"))
 percent_plot <- list()
 CPM_plot <- list()
 logCPM_plot <- list()
@@ -170,12 +170,42 @@ ggsave("result/RNA/TE/TE_percent_all_tissues.png",percent_plot_combined, width =
 ggsave("result/RNA/TE/TE_family_change_CPM_all_tissues.png",CPM_plot_combined, width = 50,height = 40, type="cairo",limitsize = FALSE)
 ggsave("result/RNA/TE/TE_family_change_logCPM_all_tissues.png",logCPM_plot_combined,width = 50,height = 40, type="cairo",limitsize = FALSE)
 
-# search_table <- read.csv("data/public_data/GSE132040/GSE132040_MACA_Bulk_metadata.csv")
-# colnames(search_table)[11] <- "sample"
-# tab <- read.delim(paste0("data/public_data/GSE132040/Pancreas/TEcount/combined.cntTable"),row.names = 1)
-# 
-# to_plot$label <- paste0(to_plot$sample,"-",to_plot$characteristics..age)
-# to_plot_long$characteristics..age <- as.numeric(to_plot_long$characteristics..age)  
-# to_plot_long <- to_plot_long[order(to_plot_long$characteristics..age), ]
-# levels=to_plot_long$label
-# to_plot_long$label <- factor(to_plot_long$label,levels=unique(levels))
+TE_percent_summary <- function(tissue){
+  tab <- read.delim(paste0("data/samples/RNA/",tissue,"/TEcount/combined.cntTable"),row.names = 1)
+  counts <- tab
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SRR[0-9]+).*"
+  colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
+  y= DGEList(counts=counts)
+  keep = which(rowSums(cpm(y)>1)>=2)
+  y = y[keep,]
+  CPMs <-  cpm(y, log = F)
+  ens_sums <- list()  
+  non_ens_sums <- list()  
+  for(col in colnames(CPMs)){
+    ens_sum <- sum(CPMs[grep("^ENSMUSG", rownames(CPMs)), col])  
+    non_ens_sum <- sum(CPMs[!grepl("^ENSMUSG", rownames(CPMs)), col])  
+    ens_sums[[col]] <- ens_sum  
+    non_ens_sums[[col]] <- non_ens_sum
+  }
+  ens_sums <- as.data.frame(ens_sums)
+  non_ens_sums <- as.data.frame(non_ens_sums)
+  rownames(ens_sums) <- "gene_sum"
+  rownames(non_ens_sums) <- "TE_sum"
+  ens_sums <- as.data.frame(ens_sums)
+  non_ens_sums <- as.data.frame(non_ens_sums)
+  rownames(ens_sums) <- "gene_sum"
+  rownames(non_ens_sums) <- "TE_sum"
+  summary <- rbind(ens_sums,non_ens_sums)
+  summary <- as.data.frame(t(summary))
+  summary$total_sum <- summary$gene_sum + summary$TE_sum  
+  summary$gene_sum_ratio <- summary$gene_sum / summary$total_sum  
+  summary$TE_sum_ratio <- summary$TE_sum / summary$total_sum  
+  return(summary)
+}
+tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas","mammarygland","ovary"))
+summary <- data.frame()
+for (tissue in tissues){
+  t_summary <- TE_percent_summary(tissue)
+  summary <- rbind(summary,t_summary)
+}
+write.csv(summary,"data/samples/all/TE_percent_summary.csv")

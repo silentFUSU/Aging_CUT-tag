@@ -15,6 +15,12 @@ do
         old+=("${bam[2]}")
         young+=("${bam[1]}")
         young+=("${bam[3]}")   
+    elif [ $tissue = "lung" ]; then
+        young+=("${bam[0]}")
+        young+=("${bam[2]}")
+        old+=("${bam[1]}")
+        old+=("${bam[3]}")
+        old+=("${bam[4]}")
     else
         young+=("${bam[0]}")
         young+=("${bam[2]}")

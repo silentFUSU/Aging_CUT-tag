@@ -15,6 +15,6 @@ def extract_bam_info(input_bam, output_txt):
                 outfile.write(f"{read_name}\t{read_length}\t{chromosome}\t{position}\t{cigar}\t{strand}\n")
     bamfile.close()  
 
-bam_file_path = "WGBS.bam"  
-output_txt = "WGBS_reads_info.txt"  
+bam_file_path = "DYQ035_mapped_unique.bam"  
+output_txt = "DYQ035_mapped_unique.txt"  
 extract_bam_info(bam_file_path,output_txt)

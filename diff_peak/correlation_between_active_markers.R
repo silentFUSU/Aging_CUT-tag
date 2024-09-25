@@ -5,7 +5,7 @@ set.seed(1)
 library(edgeR)
 library(ggplot2)
 library(corrplot)  
-tissue <- "thymus"
+tissue <- "brain"
 antibodys <- c("H3K27ac","H3K4me3","H3K4me1","ATAC")
 
 tissue_label_change <- function(tissue){
@@ -29,9 +29,9 @@ correlation_between_active_markers <- function(tissue,antibodys){
   for(i in c(1:length(antibodys))){
     antibody <- antibodys[i]
     if(antibody == "ATAC"){
-      t_df <- read.csv(paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff_after_remove_batch_effect.csv"))
+      t_df <- read.csv(paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff.csv"))
     }else{
-      t_df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff_after_remove_batch_effect.csv"))
+      t_df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_1kb_bins_diff.csv"))
     }
     t_df <- t_df[,c("Geneid","LogFC.old.young")]  
     colnames(t_df) <- c("Geneid",paste0(antibody
