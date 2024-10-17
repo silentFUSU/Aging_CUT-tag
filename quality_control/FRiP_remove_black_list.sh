@@ -2,7 +2,8 @@ data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/QC/FRiP/
 # tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus stomach skin aorta tongue bladder CB jejunum uterus ovary)
 # tissues=(BAT)
-tissues=(lung)
+# tissues=(lung)
+tissues=(iWAT)
 ref=mm
 blacklist=~/ref_data/mm10-blacklist.v2.bed
 

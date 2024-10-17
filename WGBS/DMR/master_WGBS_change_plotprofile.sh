@@ -1,4 +1,4 @@
-tissues=(mammarygland)
+tissues=(skin colon jejunum ovary bonemarrow CB)
 code_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/WGBS/DMR/
 for tissue in ${tissues[@]}
 do

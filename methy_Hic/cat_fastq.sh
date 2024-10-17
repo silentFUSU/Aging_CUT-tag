@@ -1,12 +1,11 @@
-data_path=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/XX/20240804-1/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240804_WGBS/bhmem_1M/
-samples=(XX315 XX316)
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241012_WJH_HiC/fastq/WJH-106-Lung-Hi-C/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241012_WJH_test_HiC/fastq/
+samples=(WJH-106-Lung)
 for sample in ${samples[@]}
 do
     mkdir ${target_path}${sample}
-    mkdir ${target_path}${sample}/fastq
-    zcat ${data_path}${sample}/*R1*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}/fastq/${sample}_R1_001.fastq.gz &
-    zcat ${data_path}${sample}/*R2*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}/fastq/${sample}_R2_001.fastq.gz &
+    zcat ${data_path}${sample}*R1*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}/${sample}_R1.fastq.gz &
+    zcat ${data_path}${sample}*R2*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}/${sample}_R2.fastq.gz &
 done
 
 data_path=/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/public_data/GSE119171_NMethod_methylHiC/fastq/
@@ -79,8 +78,8 @@ do
     zcat ${data_path}${sample}/${sample}*R2*.fastq.gz | head -n 4000000 | gzip > ${target_path}${sample}_R2.fastq.gz &
 done
 
-data_path=/storage/zhangyanxiaoLab/suzhuojie/software/obsutil_linux_amd64_5.2.10/tmp/SZJ/20240923/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240923_DYQ_WGBS/fastq/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/software/obsutil_linux_amd64_5.2.10/tmp/SZJ/20241014/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241014_DYQ_WGBS/fastq/
 samples=$(find ${data_path} -mindepth 1 -maxdepth 1 -type d -printf '%f\n')  
 for sample in ${samples[@]}
 do

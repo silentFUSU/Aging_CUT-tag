@@ -44,6 +44,7 @@ compress_to_gene_body <- function(tissue){
   write.csv(bin_summary,paste0("data/samples/WGBS/",tissue,"/compress2bin/gene_body_region_all_depth.csv"),row.names = F)
 }
 tissues <- c("liver","lung","mammarygland","kidney","Hip","ileum")
+tissues <- c("skin","ovary","colon","jejunum","bonemarrow","CB")
 for(tissue in tissues){
   compress_to_gene_body(tissue)
 }

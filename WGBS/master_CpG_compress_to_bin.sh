@@ -1,4 +1,6 @@
-tissues=(liver lung mammarygland kidney ileum Hip)
+# tissues=(liver lung mammarygland kidney ileum Hip)
+# tissues=(skin bonemarrow jejunum colon ovary CB)
+tissues=(thymus BAT testis)
 max_jobs=2
 current_jobs() {  
     jobs -rp | wc -l  

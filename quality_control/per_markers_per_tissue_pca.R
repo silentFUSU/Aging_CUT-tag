@@ -8,7 +8,7 @@ library(edgeR)
 library(MASS) 
 library(gridExtra)
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
-antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")
+antibodys <- c("H3K27me3","H3K9me3","H3K36me3","ATAC","H3K27ac","H3K4me1","H3K4me3")
 bin_size <- function(antibody){
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
     return("10kb")
@@ -32,6 +32,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "IWAT"
     }
   }
   return(tissue_label)
@@ -45,9 +47,15 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 per_tissue_PCA <- function(tissue,antibodys){
   p_list <- list()  
   for(i in c(1:length(antibodys))){
-    search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
     antibody <- antibodys[i]
-    tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
+    if (antibody == "ATAC"){
+      search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
+      data_path <- "data/samples/ATAC/"
+    }else{
+      search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
+      data_path <- "data/samples/"
+    }
+    tab = read.delim(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
     pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
     colnames(tab)[7:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
     counts <- tab[7:length(tab)]
@@ -84,27 +92,31 @@ per_tissue_PCA <- function(tissue,antibodys){
       ) +
       ggtitle(paste(tissue_label_change(tissue), antibody))
   }
-  combined_plot <- plot_a_list(p_list,2,3)
-  ggsave(paste0("result/all/pca/per_tissue_plot/",tissue_label_change(tissue),"_all_Histone_modification_PCA.png"),combined_plot,width = 18,height = 10,type="cairo")
+  combined_plot <- plot_a_list(p_list,2,4)
+  ggsave(paste0("result/all/pca/per_tissue_plot/",tissue_label_change(tissue),"_all_Histone_modification_PCA.png"),combined_plot,width = 24,height = 10,type="cairo")
 }
 
 per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
   p_list <- list()  
   for(i in c(1:length(antibodys))){
     antibody <- antibodys[i]
-    tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
-    pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+).*"
-    colnames <- colnames(tab)[7:length(tab)]
-    new_colnames <- gsub(pattern, "\\1", colnames)
-    colnames(tab)[7:length(tab)] <- new_colnames
-    sorted_index <- order(new_colnames)
-    order_colnames <- new_colnames[sorted_index] 
-    counts <- tab[,order_colnames] 
-    if(tissue=="ovary"){
-      age <- c("old","young","old","young")
+    if (antibody == "ATAC"){
+      search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
+      data_path <- "data/samples/ATAC/"
     }else{
-      age <- c("young","old","young","old")
+      search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
+      data_path <- "data/samples/"
     }
+    tab = read.delim(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
+    pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
+    colnames(tab)[7:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
+    counts <- tab[7:length(tab)]
+    search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
+    # search_table <- search_table[which(search_table$mouse_ID != "110"),]
+    # counts <- counts[,which(colnames(counts) %in% search_table$sample_name)]
+    search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
+    search_table <- search_table[order(search_table$sample_name),]
+    age <- search_table$age
     y= DGEList(counts=counts,group = age)
     keep = which(rowSums(cpm(y)>1)>=2)
     y = y[keep,]
@@ -133,8 +145,8 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
       ) +
       ggtitle(paste(tissue_label_change(tissue), antibody))
   }
-  combined_plot <- plot_a_list(p_list,2,3)
-  ggsave(paste0("result/all/pca/per_tissue_plot_remove_batch_effect/",tissue_label_change(tissue),"_all_Histone_modification_PCA.png"),combined_plot,width = 18,height = 10,type="cairo")
+  combined_plot <- plot_a_list(p_list,2,4)
+  ggsave(paste0("result/all/pca/per_tissue_plot_remove_batch_effect/",tissue_label_change(tissue),"_all_Histone_modification_PCA.png"),combined_plot,width = 24,height = 10,type="cairo")
 }
 
 for(tissue in tissues){

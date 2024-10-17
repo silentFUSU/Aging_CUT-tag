@@ -34,7 +34,7 @@ gene_id_map <- setNames(gene_name_vector, gene_id_vector)
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
-                        nrow = no_of_rows, ncol = no_of_cols)
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
 tissue_label_change <- function(tissue){
   if(tissue=="FC"){
@@ -95,7 +95,7 @@ TE_diff_analysis <- function(tissue){
   top_TE_Down <- out %>%  
     filter(Significant == "TE-Down") %>%  
     arrange(fdr) %>%  
-    head(20)  
+    head(5)  
   split_names <- strsplit(rownames(top_TE_Down), ":")  
   split_df <- do.call(rbind, split_names) 
   top_TE_Down <- cbind(top_TE_Down, split_df)
@@ -104,12 +104,13 @@ TE_diff_analysis <- function(tissue){
   top_TE_Up <- out %>%  
     filter(Significant == "TE-Up") %>%  
     arrange(fdr) %>%  
-    head(20)  
+    head(5)  
   split_names <- strsplit(rownames(top_TE_Up), ":")  
   split_df <- do.call(rbind, split_names) 
   top_TE_Up <- cbind(top_TE_Up, split_df)
   colnames(top_TE_Up)[ncol(top_TE_Up)-2] <- "gene"
   out <- out[which(!grepl("^ENSMUSG", rownames(out))), ]
+  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_TE.csv"))
   p <-ggplot() +
     geom_point(data=out[which(out$Significant=="Stable"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2)+
     geom_point(data=out[which(out$Significant=="Down"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2) +  
@@ -124,17 +125,18 @@ TE_diff_analysis <- function(tissue){
     theme_bw()+
     theme(text = element_text(size = 20))+
     ggtitle(tissue_label_change(tissue))
-  p <- p+geom_text_repel(data=top_TE_Down, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=3) +  
-    geom_text_repel(data=top_TE_Up, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=3)  
+  p <- p+geom_text_repel(data=top_TE_Down, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=4) +  
+    geom_text_repel(data=top_TE_Up, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=4)  
   return(p)
   # annotate("text", x = min(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     # annotate("text", x = max(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
-  }
-tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas"))
+} 
+
+tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas","ovary","mammarygland"))
 p_list <- list()
 for (i in c(1:length(tissues))){
   p_list[[i]] <- TE_diff_analysis(tissues[i])
 }
-combined_plot <- plot_a_list(p_list, no_of_rows = 5,no_of_cols = 5)
-ggsave("result/RNA/TE/TE_volcano_all_tissues.png",combined_plot, width = 30,height = 25, type="cairo")
+combined_plot <- plot_a_list(p_list, no_of_rows = 4,no_of_cols = 7)
+ggsave("result/RNA/TE/TE_volcano_all_tissues.png",combined_plot,width = 30,height = 20,type="cairo")
 

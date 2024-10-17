@@ -9,6 +9,7 @@ library(ChIPseeker)
 library(EnsDb.Hsapiens.v86)
 library(GenomeInfoDb)
 library(dplyr)
+library(stringr)
 tissue <- "brain"
 antibody <- "ATAC"
 bin_size <- function(antibody){
@@ -35,10 +36,16 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
-} 
+}
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
@@ -55,7 +62,7 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   }
   # histone <- read.csv(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
   histone <- read.csv(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff.csv"))
-  rna <- read.csv(paste0("data/samples/RNA/",rna_name(tissue),"/diff_expression_gene_nodup.csv"))
+  rna <- read.csv(paste0("data/samples/RNA/",rna_name(tissue),"/diff_expression_gene.csv"))
   
   rna_gene_change <- rna$X[which(rna$Significant != "Stable")]
   colnames(rna)[1]<-"SYMBOL"
@@ -72,13 +79,13 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   peak_anno <- merge(peak_anno,histone[,c("LogFC.old.young","label","Significant")],by="label")
   peak_anno <- merge(peak_anno,rna[,c("SYMBOL","logFC")],by="SYMBOL")
   peak_anno <- peak_anno[which(peak_anno$Significant != "Stable" & peak_anno$distanceToTSS==0),]
-  # t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),]))
-  # sort_table <<- rbind(sort_table,t_sort_table)
+  t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),]))
+  sort_table <<- rbind(sort_table,t_sort_table)
   p<- ggplot() +
     geom_point(data=peak_anno, mapping=aes(logFC, LogFC.old.young),color = "grey",alpha=0.5) +  
-    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#48466d") +
-    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#00b8a9") +
-    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),], mapping=aes(logFC, LogFC.old.young),color = "#ff9a00") +
+    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#48466d") +
+    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#00b8a9") +
+    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),], mapping=aes(logFC, LogFC.old.young),color = "#ff9a00") +
     # 坐标轴
     labs(x="RNA log2(Fold Change)",
          y=paste0(antibody," log2(Fold Change)")) +
@@ -96,10 +103,9 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   print(p)
   return(p)
 }
-
-tissues <-c("thymus","CB","uterus","lung","muscle","skin","spleen","bonemarrow","heart","liver","kidney","testis","Hip","brain", "ileum","aorta","tongue","bladder","stomach","jejunum","colon","cecum")
-
-antibody <- "H3K36me3"
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+antibody <- "H3K27me3"
 p_list <- list()
 sort_table <- data.frame(tissue = as.character(),
                          count = as.numeric())
@@ -111,8 +117,8 @@ for(i in c(1:length(tissues))){
 }
 sort_table_order <- sort_table[order(-sort_table$count),]
 p_list_order <- p_list[sort_table_order$tissue]
-combined_plot <- plot_a_list(p_list_order, 4, 6)
-ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_relationship_with_RNA.png"),combined_plot,width = 30,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list_order, 4, 7)
+ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_relationship_with_RNA.png"),combined_plot,width = 42,height = 24,type="cairo")
 
 p_list <- list()
 antibodys <- c("H3K27ac","H3K4me3","ATAC")

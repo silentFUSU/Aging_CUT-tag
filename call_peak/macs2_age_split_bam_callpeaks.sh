@@ -26,11 +26,29 @@ do
         young+=("${bam[1]}")
         young+=("${bam[3]}")   
     elif [ $tissue = "lung" ]; then
+        if [ $antibody = "ATAC" ]; then
+            young+=("${bam[0]}")
+            old+=("${bam[1]}")
+            young+=("${bam[2]}")
+            old+=("${bam[3]}")
+            young+=("${bam[4]}")
+            old+=("${bam[5]}")
+        else
+            young+=("${bam[0]}")
+            young+=("${bam[2]}")
+            old+=("${bam[1]}")
+            old+=("${bam[3]}")
+            old+=("${bam[4]}")
+        fi
+    elif [ $tissue = "BAT" ]; then
         young+=("${bam[0]}")
-        young+=("${bam[2]}")
         old+=("${bam[1]}")
-        old+=("${bam[3]}")
-        old+=("${bam[4]}")
+        young+=("${bam[2]}")
+        old+=("${bam[3]}")   
+        young+=("${bam[4]}")
+        young+=("${bam[5]}")     
+        old+=("${bam[6]}")
+        old+=("${bam[7]}")
     else
         young+=("${bam[0]}")
         young+=("${bam[2]}")

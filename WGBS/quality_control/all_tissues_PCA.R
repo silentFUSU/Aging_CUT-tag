@@ -9,8 +9,29 @@ library(tidyr)
 library(stringr)
 library(data.table)
 library(Polychrome)
-tissues <- c("mammarygland","lung","liver","kidney","ileum","Hip")
-bin_size <- "10kb"
+tissues <- c("mammarygland","lung","liver","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis")
+bin_size <- "1kb"
+
+tissue_label_change <- function(tissue){
+  if(tissue=="brain"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }
+  }
+  return(tissue_label)
+}
+
 all_tissues_PCA <- function(tissues,bin_size){
   for(i in c(1:length(tissues))){
     tissue <- tissues[i]
@@ -30,7 +51,12 @@ all_tissues_PCA <- function(tissues,bin_size){
   to_plot <- data.frame(pca$x)
   to_plot$sample_name <- rownames(to_plot)
   to_plot <- merge(to_plot,search_table,by="sample_name")
-  to_plot$age <- factor(to_plot$age,levels = c("3M","24M"))
+  to_plot$age[which(to_plot$age == "3M")] <- "young"
+  to_plot$age[which(to_plot$age == "24M")] <- "old"
+  to_plot$age <- factor(to_plot$age,levels = c("young","old"))
+  for(j in c(1:nrow(to_plot))){
+    to_plot$tissue[j] <- tissue_label_change(to_plot$tissue[j])
+  }
   
   percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
   use.pcs <- c(1,2)
@@ -38,7 +64,7 @@ all_tissues_PCA <- function(tissues,bin_size){
   color <-alphabet.colors(26)
   color <- setNames(color,unique(to_plot$tissue))
   
-  p <- ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) + 
+  p<- ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) + 
     geom_point(size=5) +theme_bw()+
     scale_color_manual(values = color) +
     xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+

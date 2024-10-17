@@ -33,21 +33,31 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 
-tissue <- "mammarygland"
+tissue <- "testis"
 CpG_overview <- function(tissue){
   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
   search_table <- search_table[which(search_table$tissue == tissue),]
   df_list <- list()
+  cpg_sum <- data_frame(CG = as.numeric(),
+                        depth = as.numeric(),
+                        sample = as.character())
+  depth_threshold <- 5
   for(i in c(1:nrow(search_table))){
-    df_list[[i]] <- data.frame(fread(paste0("data/samples/WGBS/",tissue,"/bdg/",search_table$sample_name[i],"_CpG.bdg"),sep = "\t"))
-    df_list[[i]]$depth <- df_list[[i]]$V5
-    df_list[[i]]$percent <- df_list[[i]]$V4/df_list[[i]]$V5*100
-    df_list[[i]]$label <- paste0(df_list[[i]]$V1,"-",df_list[[i]]$V2,"-",df_list[[i]]$V3)
+    df_list[[i]] <- fread(paste0("data/samples/WGBS/",tissue,"/bdg/",search_table$sample_name[i],"_CpG.bdg"),sep = "\t")
+    df_list[[i]] <- df_list[[i]][which(df_list[[i]]$V1 %in% paste0("chr",c(c(1:19),"X","Y"))),]
+    colnames(df_list[[i]])[5] <- "depth"
+    df_list[[i]]$percent <- df_list[[i]]$V4/df_list[[i]]$depth*100
+    df_list[[i]][, label := paste0(V1, "-", V2, "-", V3)]
     names(df_list)[i] <- search_table$sample_name[i]
+    t_cpg_sum <- data_frame(CG=sum(df_list[[i]]$V4[which(df_list[[i]]$depth > depth_threshold)]),
+                            depth=sum(df_list[[i]]$depth[which(df_list[[i]]$depth > depth_threshold)]),
+                            sample=search_table$sample_name[i])
+    cpg_sum <- rbind(cpg_sum,t_cpg_sum)
   }
+  cpg_sum$CG_percent <- 100*cpg_sum$CG/cpg_sum$depth
   merge_list <- lapply(names(df_list), function(name) {  
     df_list[[name]] %>%  
-      filter(depth > 15) %>%  
+      filter(depth > depth_threshold) %>%  
       select(label, !!name := percent)
   }) 
   merge_list <- setNames(merge_list, names(df_list))
@@ -55,14 +65,17 @@ CpG_overview <- function(tissue){
   merge_df_to_plot <- reshape2::melt(merge_df)
   merge_df_to_plot <- merge_df_to_plot %>%  
     filter(!is.na(value))  
-  search_table$age <- factor(search_table$age, levels= c("3M","24M"))
+  search_table$age[which(search_table$age == "3M")] <- "young"
+  search_table$age[which(search_table$age == "24M")] <- "old"
+  search_table$age <- factor(search_table$age, levels= c("young","old"))
   search_table <- search_table[order(search_table$age),]
   colnames(search_table)[3] <- "variable"
   variable_order <- paste0(search_table$variable,"-",search_table$mouse_ID,"-",search_table$age)
   merge_df_to_plot <- merge(merge_df_to_plot, search_table, by = "variable" )
   merge_df_to_plot$variable_label <- paste0(merge_df_to_plot$variable, "-", merge_df_to_plot$mouse_ID, "-", merge_df_to_plot$age)
   merge_df_to_plot$variable_label <- factor(merge_df_to_plot$variable_label, levels = variable_order)
-  t <- t.test(merge_df_to_plot$value[which(merge_df_to_plot$age=="24M")],merge_df_to_plot$value[which(merge_df_to_plot$age=="3M")])
+  t <- t.test(merge_df_to_plot$value[which(merge_df_to_plot$age=="old")],merge_df_to_plot$value[which(merge_df_to_plot$age=="young")])
+  
   p <- ggplot(merge_df_to_plot, aes(x = variable_label, y = value, fill= age)) +  
     geom_violin(adjust = 2.5) +          
     scale_fill_brewer(palette = "Pastel1") +
@@ -74,18 +87,21 @@ CpG_overview <- function(tissue){
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
     annotate("text", x = Inf, y = -Inf, label = paste("p-value =",  format(t$p.value, scientific = TRUE, digits = 3)  ),   
              hjust = 1.1, vjust = -1.1, size = 5, colour = "red") +
-    annotate("text", x = Inf, y = Inf, label = paste("old mean =",  round(t$estimate[[1]],2)  ),   
+    annotate("text", x = Inf, y = Inf, label = paste("old mean =",  round(mean(cpg_sum$CG_percent[which(cpg_sum$sample%in%search_table$variable[which(search_table$age=="old")])]),2)),   
            hjust = 1.1, vjust = 1.1, size = 5, colour = "red") +
-    annotate("text", x = -Inf, y = Inf, label = paste("young mean =",  round(t$estimate[[2]],2)  ),   
+    annotate("text", x = -Inf, y = Inf, label = paste("young mean =",  round(mean(cpg_sum$CG_percent[which(cpg_sum$sample%in%search_table$variable[which(search_table$age=="young")])]),2)),   
              hjust = 0, vjust = 1.1, size = 5, colour = "red")
-  return(p)
+  ggsave(paste0("result/WGBS/",tissue,"/CpG_overview.png"),p,width = 5,height = 7,type="cairo")
+  # return(p)
 }
-tissues <- c("liver","lung","mammarygland","kidney","ileum","Hip")
+tissues <- c("liver","lung","mammarygland","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis")
 p_list <- list()
 i <- 1
 for (tissue in tissues){
-  p_list[[i]] <- CpG_overview(tissue)
-  i <- i+1
+  # p_list[[i]] <- CpG_overview(tissue)
+  # i <- i+1
+  CpG_overview(tissue)
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = 2,no_of_cols = 3)
-ggsave("result/WGBS/all_tissues_CpG_overview.png",combined_plot,width = 15,height = 14,type="cairo")
+# combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
+# saveRDS(combined_plot,"result/WGBS/all_tissues_CpG_overview.rds")
+# ggsave("result/WGBS/all_tissues_CpG_overview.png",combined_plot,width = 20,height = 14,type="cairo")

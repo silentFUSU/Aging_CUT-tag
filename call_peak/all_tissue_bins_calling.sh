@@ -1,10 +1,8 @@
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 ref=mm10  
-tissue=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus stomach skin)
-# tissue=(Hip testis colon kidney lung spleen muscle pancreas cecum bonemarrow ileum heart thymus)
+tissue=(aorta BAT bladder bonemarrow brain CB cecum colon heart Hip ileum jejunum kidney liver lung muscle ovary pancreas skin spleen stomach testis thymus tongue uterus mammarygland iWAT)
 antibodys=(H3K27me3 H3K9me3 H3K36me3)
-# antibodys=(H3K4me1)
 for antibody in ${antibodys[@]}
 do 
     bam=()  
@@ -28,7 +26,7 @@ done
 
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
 antibody=ATAC
-tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus stomach skin aorta tongue bladder CB jejunum uterus ovary)
+tissues=(aorta BAT bladder bonemarrow brain CB cecum colon heart Hip ileum jejunum kidney liver lung muscle ovary pancreas skin spleen stomach testis thymus tongue uterus mammarygland iWAT)
 bam=()  
 for t in ${tissues[@]}
 do  

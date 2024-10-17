@@ -45,7 +45,8 @@ compress_to_TSS_1kb <- function(tissue){
   }
   write.csv(bin_summary,paste0("data/samples/WGBS/",tissue,"/compress2bin/TSS_region_1kb_all_depth.csv"),row.names = F)
 }
-tissues <- c("liver","lung","mammarygland","kidney","Hip","ileum")
+# tissues <- c("liver","lung","mammarygland","kidney","Hip","ileum")
+tissues <- c("skin","ovary","colon","jejunum","bonemarrow","CB")
 for(tissue in tissues){
   compress_to_TSS_1kb(tissue)
 }

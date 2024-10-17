@@ -21,10 +21,16 @@ tissue_label_change <- function(tissue){
     tissue_label <- str_to_title(tissue)
     if(tissue_label == "Bonemarrow"){
       tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "IWAT"
     }
   }
   return(tissue_label)
-} 
+}
 
 search_table <- read.csv("data/samples/all/RNA_search_table.csv")
 PCA_per_tissue <- function(tissue){
@@ -69,17 +75,17 @@ PCA_per_tissue <- function(tissue){
       point.padding = unit(0.3, "lines")  
     ) +
     ggtitle(tissue_label_change(tissue))
- print(p)
+ # print(p)
   # ggsave(paste0("result/RNA/mammarygland/PCA.png"),p,width = 6,height = 5,type="cairo")
   return(p)
 }
 
-tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
+tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas","ovary","mammarygland")
 p_list <- list()
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   p_list[[i]] <- PCA_per_tissue(tissue)
 }
-combined_plot <- plot_a_list(p_list,4,6)
-ggsave(paste0("result/RNA/per_tissue_PCA_nodup.png"),combined_plot,width = 35,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,4,7)
+ggsave(paste0("result/RNA/per_tissue_PCA.png"),combined_plot,width = 40,height = 20,type="cairo")
 

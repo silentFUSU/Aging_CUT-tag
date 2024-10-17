@@ -23,6 +23,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label == "Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label == "Iwat"){
+      tissue_label <- "IWAT"
     }
   }
   return(tissue_label)

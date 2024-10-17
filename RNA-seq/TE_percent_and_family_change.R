@@ -163,11 +163,11 @@ for(i in c(1:length(tissues))){
   CPM_plot[[i]] <- p_list[[2]]
   logCPM_plot[[i]] <- p_list[[3]]
 }
-percent_plot_combined <- plot_a_list(percent_plot, no_of_rows = 5,no_of_cols = 5)
-CPM_plot_combined <- plot_a_list(CPM_plot, no_of_rows = 5,no_of_cols = 5)
-logCPM_plot_combined <- plot_a_list(logCPM_plot, no_of_rows = 5,no_of_cols = 5)
-ggsave("result/RNA/TE/TE_percent_all_tissues.png",percent_plot_combined, width = 30,height = 25, type="cairo")
-ggsave("result/RNA/TE/TE_family_change_CPM_all_tissues.png",CPM_plot_combined, width = 50,height = 40, type="cairo",limitsize = FALSE)
+percent_plot_combined <- plot_a_list(percent_plot, no_of_rows = 4,no_of_cols = 7)
+CPM_plot_combined <- plot_a_list(CPM_plot, no_of_rows = 4,no_of_cols = 7)
+logCPM_plot_combined <- plot_a_list(logCPM_plot, no_of_rows = 4,no_of_cols = 7)
+ggsave("result/RNA/TE/TE_percent_all_tissues.png",percent_plot_combined, width = 35,height = 25, type="cairo")
+ggsave("result/RNA/TE/TE_family_change_CPM_all_tissues.png",CPM_plot_combined, width = 60,height = 40, type="cairo",limitsize = FALSE)
 ggsave("result/RNA/TE/TE_family_change_logCPM_all_tissues.png",logCPM_plot_combined,width = 50,height = 40, type="cairo",limitsize = FALSE)
 
 TE_percent_summary <- function(tissue){

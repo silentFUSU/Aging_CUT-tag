@@ -20,6 +20,7 @@ library(dplyr)
 library(tidyr)
 library(Polychrome)
 tab_ourdata <- read.table("data/samples/RNA/combined-chrM.counts",header = T)
+tab_ourdata <- tab_ourdata[!grepl("chrY", tab_ourdata$Chr), ] 
 new_tissues <- c("Ovary")
 rownames(tab_ourdata) <- tab_ourdata$Geneid
 tab_ourdata <- tab_ourdata[,-1]
@@ -47,12 +48,17 @@ to_plot$age <- factor(to_plot$age,levels = c("3m","24m"))
 percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
 use.pcs <- c(1,2)
 labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
+
+to_plot$tissue[which(to_plot$tissue=="Bat")] <-"BAT"
+to_plot$tissue[which(to_plot$tissue=="Iwat")] <-"iWAT"
+to_plot$tissue[which(to_plot$tissue=="Mammary gland")] <-"Mammary Gland"
 color <- read.table("data/samples/30_distinct_color.txt")
-color <- setNames(color$V1,unique(to_plot$tissue))
+color <- setNames(color$V1,sort(unique(to_plot$tissue)))
 ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) + 
   geom_point(size=5) +theme_bw()+
   scale_color_manual(values = color) +
-  xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+    
+  xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+ 
+  ggtitle("RNA")+
   geom_text_repel(  
     data = subset(to_plot, to_plot$tissue %in% new_tissues),  
     aes(x = PC1, y = PC2, label = sample_name, color = tissue),  

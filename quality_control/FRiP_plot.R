@@ -2,21 +2,13 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
-library("AnnotationDbi")
-library(org.Mm.eg.db)
-library(edgeR)
-library(ggplot2)
-library(ChIPseeker)
-library(EnsDb.Mmusculus.v79)
 library(tidyr)
 library(stringr)
 library(dplyr)
 library(clusterProfiler)
 library(ggrepel)
-library(limma)
-library(gg.gap)
 # antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K4me1")
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","BAT","mammarygland")
+tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","BAT","mammarygland","iWAT")
 FRiP<-data.frame(tissue = character(),  
                   sample_name = character(),
                   antibody = character(),
@@ -68,6 +60,7 @@ FRiP <- FRiP %>% mutate(tissue = str_to_title(tissue))
 FRiP$tissue[which(FRiP$tissue=="Bonemarrow")] <- "Bone Marrow"
 FRiP$tissue[which(FRiP$tissue=="Bat")] <- "BAT"
 FRiP$tissue[which(FRiP$tissue=="Mammarygland")] <- "Mammary Gland"
+FRiP$tissue[which(FRiP$tissue=="Iwat")] <- "iWAT"
 FRiP$age <- factor(FRiP$age,levels=c("3m","24m"))
 for (i in c(1:length(antibodys))){
   antibody <- antibodys[i]

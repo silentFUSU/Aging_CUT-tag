@@ -3,7 +3,7 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 library(ggplot2)
 set.seed(1)
-tissues <- c("liver","lung","mammarygland","kidney","ileum","Hip")
+tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis")
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -41,6 +41,9 @@ DMR_percent <- function(tissues){
                                 tissue = c(tissue_label,tissue_label)) 
     DMR_summary <- rbind(DMR_summary,t_DMR_percent)
   }
+  sort <- DMR_summary[which(DMR_summary$condition=="Increase"),]
+  sort <- sort[order(sort$percent),]
+  DMR_summary$tissue <- factor(DMR_summary$tissue,levels = sort$tissue)
   p1 <- ggplot(DMR_summary, aes(x = tissue, y = count, fill = condition)) +  
     geom_bar(stat = 'identity') +   
     theme_minimal() +   

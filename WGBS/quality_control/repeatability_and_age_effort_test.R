@@ -28,7 +28,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
-tissue <- "Hip"
+tissue <- "testis"
 search_table <- search_table[which(search_table$tissue == tissue),]
 df_list <- list()
 for(i in c(1:nrow(search_table))){

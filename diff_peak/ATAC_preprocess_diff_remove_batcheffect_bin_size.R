@@ -32,6 +32,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "IWAT"
     }
   }
   return(tissue_label)
@@ -39,22 +41,17 @@ tissue_label_change <- function(tissue){
 peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   tab = read.delim(paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins.counts"),skip=1)
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
-  colnames <- colnames(tab)[7:length(tab)]
-  new_colnames <- gsub(pattern, "\\1", colnames)
-  colnames(tab)[7:length(tab)] <- new_colnames
-  sorted_index <- order(new_colnames)
-  order_colnames <- new_colnames[sorted_index] 
-  counts <- tab[,order_colnames] 
-  if(tissue=="ovary"){
-    age <- c("old","young","old","young")
-    colnames(counts) <- c("old_1","young_1","old_2","young_2")
-  }else if(tissue=="brain"){
-    age <- c("old","old","young","young")
-    colnames(counts) <- c("old_1","old_2","young_1","young_2")
-  }else{
-    age <- c("young","old","young","old")
-    colnames(counts) <- c("young_1","old_1","young_2","old_2")
-  }
+  colnames(tab)[7:length(tab)] <-  gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
+  counts <- tab[7:length(tab)]
+  search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
+  search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
+  search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
+  search_table <- search_table[order(search_table$sample_name),]
+  age <- search_table$age
+  mouse_ID <- search_table$mouse_ID
+  age[which(age=="3m")] <- "young"
+  age[which(age=="24m")] <- "old"
+  colnames(counts) <- paste0(colnames(counts),"-",age,"-",mouse_ID)
   y= DGEList(counts=counts,group=age)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
@@ -72,10 +69,10 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= 0, 
                             ifelse(out$`LogFC.old-young` > 0, "Up", "Down"), "Stable")
-  out$Significant_bar <- "Stable"
-  out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 > 1.2) & (out$old_2/out$young_2 > 1.2))] <- "Up"
-  out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 < 0.8) & (out$old_2/out$young_2 < 0.8))] <- "Down"
-  
+  # out$Significant_bar <- "Stable"
+  # out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 > 1.2) & (out$old_2/out$young_2 > 1.2))] <- "Up"
+  # out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 < 0.8) & (out$old_2/out$young_2 < 0.8))] <- "Down"
+  # 
   write.csv(out,paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"),row.names = F)
   outup <- out[which(out$Significant_bar=="Up"),]
   outdown <- out[which(out$Significant_bar=="Down"),]
@@ -84,7 +81,7 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
-    geom_point(aes(color = Significant_bar), size=2) +
+    geom_point(aes(color = Significant), size=2) +
     scale_color_manual(values = colour) +
     geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
     geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
@@ -93,8 +90,8 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
     theme_bw()+
     theme(text = element_text(size = 20),legend.position = "none")+
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
-    annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant_bar=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
-    annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant_bar=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+    annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   }
 
 antibodys <- c("ATAC")
@@ -102,6 +99,7 @@ antibodys <- c("ATAC")
 # tissues <- c("aorta","tongue")
 tissues <- c("bladder")
 tissues <- c("BAT","mammarygland")
+tissues <- c("iWAT")
 bin_size <-"10kb"
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]

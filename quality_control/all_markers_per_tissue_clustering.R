@@ -10,7 +10,7 @@ library(Seurat)
 library(gridExtra)
 library(ggrepel)
 library(stringr)
-tissue <- "skin"
+tissue <- "iWAT"
 CUTTag_search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
 ATAC_search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
 search_table <- rbind(CUTTag_search_table,ATAC_search_table)

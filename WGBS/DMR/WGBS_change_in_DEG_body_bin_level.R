@@ -14,7 +14,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols)
 }
-tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland")
+tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","ovary","jejunum","colon","bonemarrow","CB")
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -78,5 +78,5 @@ for(tissue in tissues){
   i <- i+1
   
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = length(p_list)/2,no_of_cols = 2)
-ggsave("result/WGBS/all_tissues_change_in_DEG_gene_body.png",combined_plot,width = 14,height = 6*length(p_list)/2, type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = length(p_list)/4,no_of_cols = 4)
+ggsave("result/WGBS/all_tissues_change_in_DEG_gene_body.png",combined_plot,width = 28,height = 6*length(p_list)/4, type="cairo")

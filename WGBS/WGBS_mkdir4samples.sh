@@ -1,4 +1,4 @@
-tissue=Hip
+tissue=$1
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/WGBS/
 mkdir ${data_path}${tissue}
 files=(bdg bw)

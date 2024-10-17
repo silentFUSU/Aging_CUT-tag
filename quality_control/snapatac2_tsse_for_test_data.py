@@ -3,7 +3,7 @@ import glob
 import os  
 import anndata as ad
 import gzip
-data_path = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240919_LLX_CUTTAG/tsse/'
+data_path = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241004_LLX_CUTTAG/tsse/'
 result_path = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/'
 antibody ='test'
 

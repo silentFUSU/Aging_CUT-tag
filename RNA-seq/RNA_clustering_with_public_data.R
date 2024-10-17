@@ -78,7 +78,7 @@ pbmc <- FindNeighbors(pbmc, dims = 1:30)
 pbmc <- FindClusters(pbmc, resolution = 0.5,verbose = FALSE)
 # pbmc <- subset(pbmc, cells = rownames(pbmc@meta.data)[which(pbmc$group %in% c("colon","cecum","jejunum","ileum","SmallIntestine"))])
 pbmc$rownames <- rownames(pbmc@meta.data)
-DimPlot(pbmc, label = T, pt.size = 1.5, label.size = 3,group.by = "group",repel = T) 
+DimPlot(pbmc,label = T, pt.size = 1.5, label.size = 3,group.by = "group",repel = T) +ggtitle(NULL)
 DimPlot(pbmc, label = T, pt.size = 1.5, label.size = 3,group.by = "rownames",repel = T) 
 
 ggsave("result/RNA/test_clustering_public_data_umap.png",width = 30,height = 30,type="cairo")

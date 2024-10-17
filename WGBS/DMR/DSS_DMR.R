@@ -26,6 +26,7 @@ bdg2dsstxt <- function(tissue){
     df <- fread(paste0(data_path,"bdg/",sample,"_CpG.bdg"),sep="\t")
     df <- df[,c(1,2,5,4)]  
     colnames(df) <- c("chr", "pos", "N", "X")
+    df <- df[which(df$chr %in% paste0("chr",c(c(1:19),"X","Y"))),]
     fwrite(df,paste0(data_path,"/DSS_table/",sample,".txt"), sep = "\t")  
     }
 }
@@ -57,21 +58,37 @@ DSS_DMR <- function(tissue){
   }
   
   merge_list <- append(young_list,old_list)
-  BSobj = makeBSseqData( merge_list,append(age_young,age_old))
-  dmlTest.sm = DMLtest(BSobj, group1=age_old, group2=age_young, smoothing=TRUE,ncores=10)                   
-  # dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0.1)
+  BSobj = makeBSseqData(merge_list,append(age_young,age_old))
+  dmlTest.sm = DMLtest(BSobj, group1=age_old, group2=age_young, smoothing=TRUE,ncores=10)
+  saveRDS(BSobj,paste0("data/samples/WGBS/",tissue,"/DSS_table/Bsobj.rds"))
+  saveRDS(dmlTest.sm,paste0("data/samples/WGBS/",tissue,"/DSS_table/dmlTest.sm.rds"))
   dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0)
   write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta0.txt"), row.names=F, sep='\t', quote=F)
-  
-  # dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0.1)
+  dmls <- callDML(dmlTest.sm, p.threshold = 1, delta=0)
+  write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta0_pvalue1.txt"), row.names=F, sep='\t', quote=F)  
   dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0)
   write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta0.txt"), row.names=F, sep='\t', quote=F)
-  
-  saveRDS(BSobj,paste0(data_path,"/DSS_table/",tissue,"_Bsobj_delta0.rds"))
-  saveRDS(dmlTest.sm,paste0(data_path,"/DSS_table/",tissue,"_dmlTest_delta0.rds"))
-  # increase <- DMR[which(DMR$areaStat > 0),c("chr","start","end")]
-  # write.table(increase, file=paste0(data_path,"/DSS_table/bed/DMR_increase.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
-  # decrease <- DMR[which(DMR$areaStat < 0),c("chr","start","end")]
-  # write.table(decrease, file=paste0(data_path,"DSS_table/bed/DMR_decrease.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE) 
+
+  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0.1)
+  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta01.txt"), row.names=F, sep='\t', quote=F)
+  dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0.1)
+  write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta01.txt"), row.names=F, sep='\t', quote=F)
   }
 DSS_DMR(tissue)
+
+# ######## test
+# dmlTest.sm <- readRDS("data/samples/WGBS/skin/DSS_table/dmlTest.sm.rds")
+# dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0)
+# dmls$label <- paste0(dmls$chr,"-",dmls$pos)
+# for(i in c(1:length(merge_list))){
+#   # merge_list[[i]]$label <- paste0(merge_list[[i]]$chr,"-",merge_list[[i]]$pos)
+#   colnames(merge_list[[i]])[3] <- names(merge_list)[i]
+#   dmls <- merge(dmls,merge_list[[i]][,c(3,5)],by="label",all.x = TRUE)
+# }
+# # dmls_sort <- dmls[order(dmls$fdr),]
+# dmls_cleaned <- na.omit(dmls)
+# n <- ncol( dmls_cleaned)  
+# 
+# last_four_columns <-  dmls_cleaned[, (n-3):n]  
+# 
+# filtered_rows <- dmls_cleaned[rowSums(last_four_columns > 4) == 4, ] 
