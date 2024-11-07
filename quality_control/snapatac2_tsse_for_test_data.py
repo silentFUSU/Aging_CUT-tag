@@ -3,7 +3,7 @@ import glob
 import os  
 import anndata as ad
 import gzip
-data_path = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241004_LLX_CUTTAG/tsse/'
+data_path = '/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/data/20241105_LLX_CUTTAG/bam/'
 result_path = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/'
 antibody ='test'
 
@@ -11,7 +11,7 @@ if not os.path.exists("{}{}/tsse".format(result_path,antibody)):
     os.makedirs("{}{}/tsse".format(result_path,antibody))
 
 outfile = "{}{}/tsse/tsse.txt".format(result_path,antibody)
-glob_path=data_path + "*.bam"
+glob_path=data_path + "*.nodup.bam"
 for f in glob.glob(glob_path):
     f_name = f.rsplit('/',1)[-1].split('.')[0]
     input_fragment_file="{}{}/tsse/{}.tsv".format(result_path,antibody,f_name)

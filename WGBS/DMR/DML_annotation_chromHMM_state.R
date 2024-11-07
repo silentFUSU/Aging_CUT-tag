@@ -11,7 +11,30 @@ library(ggsci)
 library(gridExtra)
 library(data.table)
 tissue <- "ovary"
-
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
+tissue_label_change <- function(tissue){
+  if(tissue=="brain"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }
+  }
+  return(tissue_label)
+}
 annotation_chromHMM_state <- function(tissue){
   DML <- readRDS(paste0("data/samples/WGBS/",tissue,"/DSS_table/dmlTest.sm.rds"))
   DML <- DML[,c("chr","pos","fdr","diff")]
@@ -95,6 +118,9 @@ for(i in c(1:length(tissues))){
   p_list[[i]] <- annotation_chromHMM_state(tissue = tissues[i])
 }
 saveRDS(p_list,"result/all/ChromHMM/until_ovary/15_until_ovary/p_list.rds")
-# bin <- read.delim("/storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10_1kb_bins.bed",header=F)
-# bin_df <- chromHMM_young1[which( paste0(chromHMM_young1$V1,"-",chromHMM_young1$V2,"-",chromHMM_young1$V3) %in% paste0(bin$V1,"-",bin$V2,"-",bin$V3) ),]
 p_list <- readRDS("result/all/ChromHMM/until_ovary/15_until_ovary/p_list.rds")
+for(i in c(1:length(p_list))){
+  p_list[[i]] <- p_list[[i]] + ggtitle(tissue_label_change(tissues[i]))
+}
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
+ggsave("result/WGBS/all_tissue_DML_in_chromHMM_state.png",combined_plot,width = 15,height = 15,type="cairo")

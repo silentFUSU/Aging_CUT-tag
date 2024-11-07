@@ -17,6 +17,11 @@ library(limma)
 library(patchwork)
 bin_size <-"1kb"
 antibody <- "ATAC"
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols)
+}
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -74,32 +79,32 @@ peak_preprocess_bin_level <- function(tissue,antibody,bin_size){
   # out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 < 0.8) & (out$old_2/out$young_2 < 0.8))] <- "Down"
   # 
   write.csv(out,paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"),row.names = F)
-  outup <- out[which(out$Significant_bar=="Up"),]
-  outdown <- out[which(out$Significant_bar=="Down"),]
+  outup <- out[which(out$Significant=="Up"),]
+  outdown <- out[which(out$Significant=="Down"),]
   write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
   write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/ATAC/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
-  ggplot(
+  p <- ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
     geom_point(aes(color = Significant), size=2) +
     scale_color_manual(values = colour) +
     geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
     geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
     labs(x="log2(fold change)",
-         y="-log10 (p-value)") +
+         y="-log10 (fdr)") +
     theme_bw()+
     theme(text = element_text(size = 20),legend.position = "none")+
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+  return(p)
   }
 
 antibodys <- c("ATAC")
 # tissues <- c("stomach","skin")
 # tissues <- c("aorta","tongue")
-tissues <- c("bladder")
-tissues <- c("BAT","mammarygland")
-tissues <- c("iWAT")
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 bin_size <-"10kb"
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]
@@ -109,10 +114,11 @@ for (i in c(1:length(tissues))){
   }
 }
 bin_size <-"1kb"
+p_list <- list()
 for (i in c(1:length(tissues))){
   tissue <- tissues[i]
-  for(j in c(1:length(antibodys))){
-    antibody <- antibodys[j]
-    peak_preprocess_bin_level(tissue,antibody,bin_size)
-  }
+  p_list[[i]] <- peak_preprocess_bin_level(tissue,antibody,bin_size)
 }
+combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 7)
+ggsave("result/all/ATAC/all_tissues_bins_diff.png",combined_plot,width = 35,height = 20,type="cairo")
+

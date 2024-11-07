@@ -28,7 +28,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
-tissue <- "testis"
+tissue <- "muscle"
 search_table <- search_table[which(search_table$tissue == tissue),]
 df_list <- list()
 for(i in c(1:nrow(search_table))){
@@ -44,7 +44,7 @@ young <- search_table$sample_name[which(search_table$age=="3M")]
 young_list <- setNames(lapply(young, function(name) df_list[[name]]), young)
 young_list <- lapply(names(young_list), function(name) {  
   young_list[[name]] %>%  
-    filter(depth > 15) %>%  
+    filter(depth > 5) %>%  
     select(label, !!name := percent)
 })  
 young_df <- Reduce(function(x, y) merge(x, y, by = "label"), young_list)  
@@ -53,7 +53,7 @@ old <- search_table$sample_name[which(search_table$age=="24M")]
 old_list <- setNames(lapply(old, function(name) df_list[[name]]), old)
 old_list <- lapply(names(old_list), function(name) {  
   old_list[[name]] %>%  
-    filter(depth > 15) %>%  
+    filter(depth > 5) %>%  
     select(label, !!name := percent)
 })  
 old_df <- Reduce(function(x, y) merge(x, y, by = "label"), old_list)  
@@ -74,7 +74,7 @@ mtext(paste0("r = ", round(cor(old_df[,2],old_df[,3]),2)), side = 1, line = -1.5
 
 merge_list <- lapply(names(df_list), function(name) {  
   df_list[[name]] %>%  
-    filter(depth > 15) %>%  
+    filter(depth > 5) %>%  
     select(label, !!name := percent)
 }) 
 merge_list <- setNames(merge_list, names(df_list))

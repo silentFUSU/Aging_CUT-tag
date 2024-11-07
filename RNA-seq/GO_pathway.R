@@ -8,9 +8,10 @@ library(edgeR)
 library(ggplot2)
 library(clusterProfiler)
 library(stringr)
-tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
-# tissues <- c("bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum")
-
+tissues <-  c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
+              "thymus","skin","bladder","bonemarrow","Hip","heart",
+              "muscle","jejunum","uterus","ovary","liver","tongue",
+              "cecum","colon","testis","stomach","pancreas","iWAT","ileum")
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 GO_database <- 'org.Mm.eg.db'
 tissue_label_change <- function(tissue){

@@ -1,0 +1,1 @@
+/storage/zhangyanxiaoLab/suzhuojie/software/HiC-Pro_3.1.0/bin/utils/digest_genome.py /storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/mm10/mm10.fa -r C^TNAG ^GATC -o /storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/restriction_sites/mm10_dpnii_ddel.bed

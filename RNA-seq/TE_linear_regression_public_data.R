@@ -39,7 +39,7 @@ for(tissue in tissues){
   ages <- metadata$characteristics..age[match(colnames(organ_cpm), metadata$raw.file)]
   organ_cpm <- rbind(organ_cpm, ages)
   rownames(organ_cpm)[nrow(organ_cpm)] <- 'age'
-  positive_correlation_TE <- character()
+  positive_correlation_TE <- data.frame()
   for (i in 1:(nrow(organ_cpm) - 1)) { 
     current_row <- rownames(organ_cpm)[i]
     current_data <- as.numeric(t(organ_cpm[i, -which(rownames(organ_cpm) == "age")]))
@@ -49,7 +49,8 @@ for(tissue in tissues){
       model <- lm(current_row ~ age, data = model_data)
       p_value <- summary(model)$coefficients["age", "Pr(>|t|)"]
       if (coef(model)["age"] > 0 && p_value < p_value_threshold) {
-        positive_correlation_TE <- c(positive_correlation_TE, current_row)
+        positive_correlation_TE <- rbind(positive_correlation_TE,data.frame(TE = current_row,p_value = p_value))
+        # positive_correlation_TE <- c(positive_correlation_TE, current_row)
       }
     }, error = function(e) {
       cat("ERROR: Unable to fit linear regression for", current_row, ":", conditionMessage(e), "\n")
@@ -57,7 +58,7 @@ for(tissue in tissues){
   }
   positive_TE_list[[tissue]]  <-  positive_correlation_TE
   
-  negative_correlation_TE <- character()
+  negative_correlation_TE <- data.frame()
   for (i in 1:(nrow(organ_cpm) - 1)) {  
     current_row <- rownames(organ_cpm)[i]
     current_data <- as.numeric(t(organ_cpm[i, -which(rownames(organ_cpm) == "age")]))
@@ -67,7 +68,8 @@ for(tissue in tissues){
       model <- lm(current_row ~ age, data = model_data)
       p_value <- summary(model)$coefficients["age", "Pr(>|t|)"]
       if (coef(model)["age"] < 0 && p_value < p_value_threshold) {
-        negative_correlation_TE <- c(negative_correlation_TE, current_row)
+        negative_correlation_TE <- rbind(negative_correlation_TE,data.frame(TE = current_row,p_value = p_value))
+        # negative_correlation_TE <- c(negative_correlation_TE, current_row)
       }
     }, error = function(e) {
       cat("ERROR: Unable to fit linear regression for", current_row, ":", conditionMessage(e), "\n")
@@ -78,14 +80,14 @@ for(tissue in tissues){
 
 count_list <- list()
 for (organ in names(positive_TE_list)) {
-  count <- length(positive_TE_list[[organ]])
+  count <- nrow(positive_TE_list[[organ]])
   count_list[[organ]] <- count
 }
 count_df_positive <- data.frame(organ = names(count_list), count = unlist(count_list))
 
 count_list <- list()
 for (organ in names(negative_TE_list)) {
-  count <- length(negative_TE_list[[organ]])
+  count <- nrow(negative_TE_list[[organ]])
   count_list[[organ]] <- count
 }
 count_df_negative <- data.frame(organ = names(count_list), count = unlist(count_list))
@@ -123,7 +125,7 @@ ggplot(count_df_combined, aes(x = organ, y = ifelse(type == "Positive", count, -
   geom_text(data =count_df_combined,   
             aes(label = count, y = position),   
             color = "black", size = 5, vjust = 0.5) + 
-  scale_fill_manual(values = c("Positive" = "skyblue", "Negative" = "salmon"), name = NULL)  
+  scale_fill_manual(values = c("Negative" = "skyblue",  "Positive"= "salmon"), name = NULL)  
 
 saveRDS(negative_TE_list, paste0("data/public_data/GSE132040/TE/negative_TE_list_pvalue005.rds"))
 saveRDS(positive_TE_list, paste0("data/public_data/GSE132040/TE/positive_TE_list_pvalue005.rds"))

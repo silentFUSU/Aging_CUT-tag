@@ -6,7 +6,8 @@ library(ggplot2)
 library(patchwork)
 library(edgeR)
 library(MASS) 
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
+tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT"))
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
@@ -27,6 +28,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -35,31 +38,27 @@ search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
 per_tissue_PCA <- function(tissue){
   tab = read.delim(paste0("data/samples/ATAC/",tissue,"/ATAC/ATAC_1kb_bins.counts"),skip=1)  
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
-  colnames <- colnames(tab)[7:length(tab)]
-  new_colnames <- gsub(pattern, "\\1", colnames)
-  colnames(tab)[7:length(tab)] <- new_colnames
-  sorted_index <- order(new_colnames)
-  order_colnames <- new_colnames[sorted_index] 
-  counts <- tab[,order_colnames] 
-  if(tissue=="ovary"){
-    age <- c("old","young","old","young")
-  }else if(tissue=="brain"){
-    age <- c("young","young","old","old")
-  }else{
-    age <- c("young","old","young","old")
-  }
-  y= DGEList(counts=counts,group = age)
+  colnames(tab)[7:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
+  counts <- tab[7:length(tab)]
+  search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
+  search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
+  search_table$sample_name <- factor(search_table$sample_name,levels=colnames(counts))
+  search_table <- search_table[order(search_table$sample_name),]
+  
+  y= DGEList(counts=counts)
   keep = which(rowSums(cpm(y)>1)>=2)
   y = y[keep,]
   logCPMs <- cpm(y, log = TRUE)
   pca <- prcomp(t(logCPMs))
-  to_plot <- data.frame(pca$x, age = paste0(y$samples$group))
-  to_plot$rownames <- rownames(to_plot)
+  
+  to_plot <- data.frame(pca$x)
+  to_plot$sample_name <- rownames(to_plot)
   percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
   use.pcs <- c(1,2)
   labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
-  table <- search_table[which(search_table$sample_name %in% to_plot$rownames),]
-  to_plot$rownames <- paste0(table$sample_name,"-",table$mouse_ID,"-",table$age)
+  to_plot <- merge(to_plot,search_table,by="sample_name")
+  to_plot$age <- factor(to_plot$age,levels=c("3m","24m"))
+  to_plot$rownames <- paste0(to_plot$sample_name,"-",to_plot$mouse_ID,"-",to_plot$age)
   p <-  ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) + 
     geom_point(size=5) +theme_bw()+
     xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+
@@ -79,8 +78,8 @@ for( i in c(1:length(tissues))){
   p <- per_tissue_PCA(tissue)
   p_list[[i]] <- p
   }
-combined_plot <- plot_a_list(p_list,4,6)
-ggsave(paste0("result/all/pca/per_tissue_plot/All_tissues_ATAC_PCA.png"),combined_plot,width = 35,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,4,7)
+ggsave(paste0("result/all/pca/per_tissue_plot/All_tissues_ATAC_PCA.png"),combined_plot,width = 40,height = 20,type="cairo")
 
 
 per_tissue_PCA_remove_batch_effect <- function(tissue){

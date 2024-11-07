@@ -24,7 +24,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
-per_markers_all_tissu_pca <- function(antibody){
+per_markers_all_tissue_pca <- function(antibody){
   tab = read.delim(paste0("data/samples/all/",antibody,"/merge-",bin_size(antibody),"_bins.counts"),row.names = 1,skip=1)    
   tab <- tab[-which(tab$Chr=="chrY"),]
   counts <- tab[,c(6:ncol(tab))]
@@ -63,7 +63,7 @@ per_markers_all_tissu_pca <- function(antibody){
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","ATAC","H3K27ac","H3K4me1","H3K4me3")
 p_list <- list()
 for(i in c(1:length(antibodys))){
-  p_list[[i]] <- per_markers_all_tissu_pca(antibodys[i])
+  p_list[[i]] <- per_markers_all_tissue_pca(antibodys[i])
 }
 combined_plot <- plot_a_list(p_list,no_of_rows = 2,no_of_cols = 4)
 ggsave("result/all/pca/all_tissues_plot/per_markers_all_tissues_PCA.png",width = 25,height = 10,type="cairo")

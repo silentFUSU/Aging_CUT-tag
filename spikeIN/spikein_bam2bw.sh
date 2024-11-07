@@ -1,4 +1,4 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240827_CKJ_CUTTAG/
+data_path=/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/data/20241103_DYQ_CUTTAG/
 # samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/.nodup.bw$//'  | sort) 
 samples=(CKJ074 CKJ075 CKJ076 CKJ077 CKJ078 CKJ079)
 for sample in ${samples[@]}
@@ -20,5 +20,5 @@ done
 
 for sample in ${samples[@]}
 do 
-    bamCoverage -b ${data_path}bam/${sample}.nodup.bam -o ${data_path}bigWig/${sample}.nodup.bw --outFileFormat bigwig --binSize 1000 --smoothLength 3000 --numberOfProcessors 6 --normalizeUsing RPKM &
+    bamCoverage -b ${data_path}bam/${sample}*.nodup.bam -o ${data_path}bigWig/${sample}_bs1000.nodup.bw --outFileFormat bigwig --binSize 1000 --smoothLength 3000 --numberOfProcessors 6 --normalizeUsing RPKM &
 done

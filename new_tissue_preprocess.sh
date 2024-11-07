@@ -1,9 +1,9 @@
-tissue=iWAT
+tissue=brain
 #创建相关目录，并把bam和bigwig文件转移到目标目录下
 bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/mkdir4samples.sh ${tissue}
 CUT_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 ATAC_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241004_LLX_CUTTAG/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241023_LLX_CUTTag/
 antibodys=(ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 ATAC ATAC H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9me3 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3)
 # antibodys=(ATAC ATAC H3K27ac H3K9me3 H3K27me3 H3K36me3 H3K4me3 H3K4me1 H3K27ac H3K9me3 H3K27me3 H3K36me3 H3K4me3 H3K4me1)
 # antibodys=(ATAC ATAC H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 ATAC ATAC H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1 H3K27me3 H3K9me3 H3K27ac H3K36me3 H3K4me3 H3K4me1)

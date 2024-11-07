@@ -84,21 +84,21 @@ for(i in c(1:length(tissues))){
     t_sort <- data.frame(tissue=tissue,count=nrow(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),]))
     sort_table <- rbind(sort_table,t_sort)
     names(plist)[i] <- tissue
-    # dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
-    # ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
-    # dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/"))
-    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
-    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"),
-    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
-    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_second_quadrant.bed"),
-    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
-    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_third_quadrant.bed"),
-    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-    # write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
-    #             file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"),
-    #             sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    dir.create(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/"))
+    ggsave(paste0("result/",tissue,"/H3K27me3_H3K9me3_relationship/all_intersect_",bin_size,"bins.png"),width = 8,height = 8,type="cairo")
+    dir.create(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/"))
+    write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
+                file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_first_quadrant.bed"),
+                sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
+                file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_second_quadrant.bed"),
+                sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3<0),c("Chr","Start","End","Geneid")],
+                file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_third_quadrant.bed"),
+                sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(logFC_sig[which(logFC_sig$logFC_H3K27me3<0 & logFC_sig$logFC_H3K9me3>0),c("Chr","Start","End","Geneid")],
+                file=paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/",bin_size,"_all_significant_fourth_quadrant.bed"),
+                sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 }
 sort_table <- sort_table[order(sort_table$count,decreasing = TRUE),]
 plot_list <- plist[sort_table$tissue]  

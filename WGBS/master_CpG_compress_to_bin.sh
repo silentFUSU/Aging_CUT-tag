@@ -1,6 +1,8 @@
 # tissues=(liver lung mammarygland kidney ileum Hip)
 # tissues=(skin bonemarrow jejunum colon ovary CB)
-tissues=(thymus BAT testis)
+# tissues=(thymus BAT testis)
+# tissues=(heart stomach)
+tissues=(bladder aorta tongue)
 max_jobs=2
 current_jobs() {  
     jobs -rp | wc -l  
@@ -18,3 +20,4 @@ do
     /usr/local/lib64/R/bin/Rscript ~/projects/Aging_CUT_Tag/code/WGBS/CpG_compress_to_bin.R ${tissue} 10kb &
 done
 wait
+echo done

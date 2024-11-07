@@ -7,6 +7,7 @@ library(patchwork)
 library(edgeR)
 library(MASS) 
 library(gridExtra)
+library(dplyr)
 tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","ATAC","H3K27ac","H3K4me1","H3K4me3")
 bin_size <- function(antibody){
@@ -33,7 +34,7 @@ tissue_label_change <- function(tissue){
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
     }else if(tissue_label=="Iwat"){
-      tissue_label <- "IWAT"
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -59,6 +60,9 @@ per_tissue_PCA <- function(tissue,antibodys){
     pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
     colnames(tab)[7:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
     counts <- tab[7:length(tab)]
+    if(tissue == "iWAT"){
+      counts <- counts[, !grepl("^CKJ", names(counts))]  
+    }
     search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
     # search_table <- search_table[which(search_table$mouse_ID != "110"),]
     # counts <- counts[,which(colnames(counts) %in% search_table$sample_name)]

@@ -16,9 +16,9 @@ library(reshape2)
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 GO_database <- 'org.Mm.eg.db'
 
-antibody <- "H3K4me3"
+antibody <- "H3K36me3"
 bin_size <- ifelse(antibody %in% c("H3K36me3","H3K9me3","H3K27me3"), "10kb", "1kb")
-tab <- read.table(paste0("data/raw_data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
 rownames(tab) <- tab$Geneid
 counts <- tab[,c(7:ncol(tab))]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -75,13 +75,13 @@ pheatmap::pheatmap(cor_matrix)
 
 
 
-previous <- read.csv(paste0("data/samples/thymus/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
-increase <- previous$Geneid[which(previous$Significant_bar=="Up")]
+previous <- read.csv(paste0("data/samples/thymus/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"))
+increase <- previous$Geneid[which(previous$Significant=="Up")]
 logCPMs_corrected_increase <- logCPMs_corrected[which(rownames(logCPMs_corrected) %in% increase),]
 logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(5:6,1:4,7:10)]
 pheatmap::pheatmap(logCPMs_corrected_increase,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous increase"))
 
-decrease <- previous$Geneid[which(previous$Significant_bar=="Down")]
+decrease <- previous$Geneid[which(previous$Significant=="Down")]
 logCPMs_corrected_decrease <- logCPMs_corrected[which(rownames(logCPMs_corrected) %in% decrease),]
 logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(5:6,1:4,7:10)]
 pheatmap::pheatmap(logCPMs_corrected_decrease,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous decrease"))
@@ -92,6 +92,8 @@ to_plot$Var2 <- factor(to_plot$Var2, levels =unique(to_plot$Var2))
 to_plot$age <- "young"
 to_plot$age[which(to_plot$Var2 %in% unique(to_plot$Var2)[c(3,4,5,6,8,10)])] <- "old"
 to_plot$age <- factor(to_plot$age,levels=c("young","old"))
+to_plot$Var2 <- gsub("(^[A-Za-z0-9_]+)-.*", "\\1", to_plot$Var2) 
+to_plot$Var2 <- factor(to_plot$Var2,levels = c("CKJ072","CKJ073","CKJ068","CKJ069","CKJ070","CKJ071","HJC_124","HJC_138","HJC_130","HJC_144"))
 ggplot(to_plot, aes(x = Var2, y = value,fill=age)) +  
   geom_boxplot() +  
   labs(title = paste0("previous ",antibody," decrease site"),  

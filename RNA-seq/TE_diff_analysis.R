@@ -140,3 +140,32 @@ for (i in c(1:length(tissues))){
 combined_plot <- plot_a_list(p_list, no_of_rows = 4,no_of_cols = 7)
 ggsave("result/RNA/TE/TE_volcano_all_tissues.png",combined_plot,width = 30,height = 20,type="cairo")
 
+
+diff_TE_number <-data.frame(Var1 = character(),
+                              Freq = numeric(),
+                              tissue = character(),
+                              stringsAsFactors = FALSE)
+for(tissue in tissues){
+  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_TE.csv"))
+  sig <- data.frame(Var1=c("TE-Up","Stable","TE-Down"),Freq=c(0,0,0))
+  t_sig<-as.data.frame(table(df$Significant))
+  sig <- merge(sig, t_sig, by="Var1", all.x=TRUE) 
+  sig$Freq.x <- ifelse(is.na(sig$Freq.y), sig$Freq.x, sig$Freq.y)  
+  colnames(sig)[2] <- "Freq"
+  sig <- sig[, -3] 
+  sig$tissue <- tissue_label_change(tissue)
+  diff_TE_number<-rbind(diff_TE_number,sig)
+}
+
+conditions <- c("TE-Down","TE-Up")
+for(i in c(1:length(conditions))){
+  condition <- conditions[i]
+  df <- diff_TE_number[which(diff_TE_number$Var1==condition),]  
+  color <- read.table("data/samples/30_distinct_color.txt")
+  color <- setNames(color$V1,sort(unique(df$tissue)))
+  p <- ggplot(df,mapping = aes(x=Freq,y=tissue,fill = tissue))+
+    geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+xlab("TE")+
+    theme(text = element_text(size = 13))+ scale_fill_manual(values = color) +theme(legend.position = "none") + 
+    geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.4, size = 5) + xlim(0,700)+ggtitle(paste0(condition," gene number"))
+  print(p)
+  }

@@ -3,7 +3,7 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 library(ggplot2)
 set.seed(1)
-tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis")
+tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","stomach","heart","muscle","bladder","aorta","tongue")
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"

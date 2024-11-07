@@ -64,7 +64,14 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
   y = y[keep,]
   y$samples$year <- age
   y$samples$year <- factor(y$samples$year,c("young","old"))
-  y$samples$batch <- c("batch1","batch1","batch2","batch2")
+  if(tissue == "cecum"){
+    y$samples$batch <- c("batch1","batch2","batch2","batch1")
+  }else if(tissue =="colon"){
+    y$samples$batch <- c("batch1","batch1","batch2","batch2")
+  }else{
+    y$samples$batch <- c("batch1","batch1","batch2","batch2")
+  }
+  
   y <- calcNormFactors(y)
   design <- model.matrix(~batch+year, y$samples)
   y<-estimateCommonDisp(y)
@@ -103,7 +110,7 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   # ggsave(paste0("result/",tissue,"/diffpeaks/",antibody,"_merge-W",window_size,"-G",gap_size,"-E",e_value,"_volcano_plot_after_remove_batch_effect.png"),width = 10,height = 10)
-  # write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"),row.names = F)
   # outup <- out[which(out$Significant_bar=="Up"),]
   # outdown <- out[which(out$Significant_bar=="Down"),]
   # write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)

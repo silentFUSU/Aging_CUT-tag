@@ -1,12 +1,16 @@
-raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20241012/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241012_WJH_nomerge_HiC/fastq/
-samples=(WJH-106-Lung)
+raw_data=/storage/zhangyanxiaoLab/fastq/2024/2024-11-05-Jiangbei-YuLab/
+target_path=/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/data/20241105_WJH_HiC/fastq/
+samples=(WJH-Liver-112 WJH-Liver-109 WJH-Liver-103 WJH-Liver-100 WJH-Cerebellum-112 WJH-Cerebellum-108 WJH-Cerebellum-99 WJH-Cerebellum-96)
 for sample in ${samples[@]}
 do
     echo $sample
     mkdir ${target_path}${sample}
     ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}${sample}/${sample}_R1.fastq.gz
     ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}${sample}/${sample}_R2.fastq.gz
+    # mkdir ${target_path}${sample}
+    # mkdir ${target_path}${sample}/fastq
+    # ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}${sample}/fastq/${sample}_R1.fastq.gz
+    # ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}${sample}/fastq/${sample}_R2.fastq.gz
 done
 
 raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20240925-1/WJH-Ileum-test2/
@@ -20,8 +24,8 @@ do
     ln -s ${raw_data}${sample}*R2*.gz ${target_path}${sample}/${sample}_R2.fastq.gz
 done
 
-raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20240918/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20240918_WJH_pipeline_test_HiC/fastq/
+raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20241016/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241012_WJH_all_HiC/
 samples=(WJH-100-Lung WJH-103-Lung WJH-106-Lung WJH-109-Lung)
 for sample in ${samples[@]}
 do
@@ -35,6 +39,6 @@ for sample in ${samples[@]}
 do
     mkdir ${target_path}${sample}
     mkdir ${target_path}${sample}/fastq
-    ln -s ${raw_data}${sample}*/${sample}*R1*.gz ${target_path}${sample}/fastq/${sample}_R1.fastq.gz
-    ln -s ${raw_data}${sample}*/${sample}*R2*.gz ${target_path}${sample}/fastq/${sample}_R2.fastq.gz
+    ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}${sample}/fastq/${sample}_R1.fastq.gz
+    ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}${sample}/fastq/${sample}_R2.fastq.gz
 done

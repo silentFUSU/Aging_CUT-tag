@@ -1,5 +1,5 @@
-antibodys=(H3K27ac H3K4me1 H3K4me3 ATAC)
-
+# antibodys=(H3K27ac H3K4me1 H3K4me3 ATAC)
+antibodys=(ATAC)
 tissue=$1
 for antibody in ${antibodys[@]} 
 do

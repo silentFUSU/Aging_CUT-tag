@@ -153,7 +153,7 @@ DMR_annotation <- function(tissue){
   anno_summary$Feature <- factor(anno_summary$Feature, levels = c("Intergenic", "Downstream", "3' UTR", "Intron", "Exon", "5' UTR", "Promoter", "Distal prom"))
   color <- setNames(c("#838B8B","#E69900","#BF9915","#99992A","#739940","#4C9955","#26996A","#009980"),c("Intergenic", "Downstream", "3' UTR", "Intron", "Exon", "5' UTR", "Promoter", "Distal prom"))
   anno_summary_to_plot <- reshape2::melt(anno_summary)
-  p_list[[2]] <- ggplot( anno_summary_to_plot, aes(x = variable, y = value, fill = Feature)) +  
+  p_list[[2]] <- ggplot(anno_summary_to_plot, aes(x = variable, y = value, fill = Feature)) +  
     geom_bar(stat = 'identity',colour = "white") +   
     theme_minimal() +   
     scale_fill_manual(values = color) +
@@ -168,7 +168,8 @@ DMR_annotation <- function(tissue){
 CpG_annotation <- list()
 gene_annotation <- list()
 
-tissues <-sort(c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis"))
+# tissues <-sort(c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis"))
+tissues <- c("mammarygland","thymus","skin","stomach","bonemarrow","bladder","liver","testis","ileum","colon","jejunum","tongue","Hip","muscle","CB","aorta","kidney","lung","heart","BAT","ovary")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   p_list <- DMR_annotation(tissues[i])
@@ -179,12 +180,12 @@ for(i in c(1:length(tissues))){
 }
 CpG_annotation_sort <- CpG_annotation[sort$tissue]
 
-CpG_annotation_combine <- plot_a_list(CpG_annotation_sort,no_of_rows = 3,no_of_cols = 5) + patchwork::plot_annotation(title = "CpG context",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
-ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_CpG_context.png",CpG_annotation_combine,width = 15,height = 15,type="cairo")
+CpG_annotation_combine <- plot_a_list(CpG_annotation_sort,no_of_rows = 3,no_of_cols = 7) + patchwork::plot_annotation(title = "CpG context",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
+ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_CpG_context.png",CpG_annotation_combine,width = 21,height = 15,type="cairo")
 
 gene_annotation_sort <- gene_annotation[sort$tissue]
-gene_annotation_combine <- plot_a_list(gene_annotation_sort,no_of_rows = 3,no_of_cols = 5)+ patchwork::plot_annotation(title = "Gene location",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
-ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_gene_location.png",gene_annotation_combine,width = 15,height = 15,type="cairo")
+gene_annotation_combine <- plot_a_list(gene_annotation_sort,no_of_rows = 3,no_of_cols = 7)+ patchwork::plot_annotation(title = "Gene location",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
+ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_gene_location.png",gene_annotation_combine,width = 21,height = 15,type="cairo")
 
 
 

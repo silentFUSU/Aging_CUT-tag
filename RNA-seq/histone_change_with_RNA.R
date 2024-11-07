@@ -79,13 +79,14 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
   peak_anno <- merge(peak_anno,histone[,c("LogFC.old.young","label","Significant")],by="label")
   peak_anno <- merge(peak_anno,rna[,c("SYMBOL","logFC")],by="SYMBOL")
   peak_anno <- peak_anno[which(peak_anno$Significant != "Stable" & peak_anno$distanceToTSS==0),]
-  t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),]))
+  # t_sort_table <- data.frame(tissue = tissue,count = nrow(peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),]))
+  t_sort_table <- data.frame(tissue = tissue,count = (nrow(peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),])+nrow(peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),])))
   sort_table <<- rbind(sort_table,t_sort_table)
   p<- ggplot() +
     geom_point(data=peak_anno, mapping=aes(logFC, LogFC.old.young),color = "grey",alpha=0.5) +  
-    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#48466d") +
-    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#00b8a9") +
-    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),], mapping=aes(logFC, LogFC.old.young),color = "#ff9a00") +
+    # geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#48466d") +
+    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young>0 & peak_anno$logFC>0),], mapping=aes(logFC, LogFC.old.young),color = "#00b8a9") +
+    geom_point(data=peak_anno[which(peak_anno$LogFC.old.young<0 & peak_anno$logFC<0),], mapping=aes(logFC, LogFC.old.young),color = "#ff9a00") +
     # 坐标轴
     labs(x="RNA log2(Fold Change)",
          y=paste0(antibody," log2(Fold Change)")) +
@@ -105,7 +106,7 @@ Histone_relationship_with_RNA <- function(antibody,tissue){
 }
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
-antibody <- "H3K27me3"
+antibody <- "H3K27ac"
 p_list <- list()
 sort_table <- data.frame(tissue = as.character(),
                          count = as.numeric())

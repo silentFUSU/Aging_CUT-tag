@@ -25,7 +25,7 @@ tissue_label_change <- function(tissue){
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
     }else if(tissue_label=="Iwat"){
-      tissue_label <- "IWAT"
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -48,6 +48,9 @@ peak_preprocess_bin_level <- function(tissue,antibody){
   rownames(counts)= tab$Geneid
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
   colnames(counts) <-  gsub(pattern, "\\1",colnames(counts))
+  if(tissue == "iWAT"){
+    counts <- counts[, !grepl("^CKJ", names(counts))]
+  }
   search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
   search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
   search_table <- search_table[order(search_table$sample_name),]
@@ -98,11 +101,11 @@ peak_preprocess_bin_level <- function(tissue,antibody){
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
-  # write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"),row.names = F)
-  # outup <- out[which(out$Significant=="Up"),]
-  # outdown <- out[which(out$Significant=="Down"),]
-  # write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-  # write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"),row.names = F)
+    outup <- out[which(out$Significant=="Up"),]
+    outdown <- out[which(out$Significant=="Down"),]
+    write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
   return(p)
 }
 

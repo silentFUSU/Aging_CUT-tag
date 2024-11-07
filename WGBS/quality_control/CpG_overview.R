@@ -33,7 +33,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 
-tissue <- "testis"
+tissue <- "muscle"
 CpG_overview <- function(tissue){
   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
   search_table <- search_table[which(search_table$tissue == tissue),]
@@ -75,7 +75,7 @@ CpG_overview <- function(tissue){
   merge_df_to_plot$variable_label <- paste0(merge_df_to_plot$variable, "-", merge_df_to_plot$mouse_ID, "-", merge_df_to_plot$age)
   merge_df_to_plot$variable_label <- factor(merge_df_to_plot$variable_label, levels = variable_order)
   t <- t.test(merge_df_to_plot$value[which(merge_df_to_plot$age=="old")],merge_df_to_plot$value[which(merge_df_to_plot$age=="young")])
-  
+  dir.create(paste0("result/WGBS/",tissue))
   p <- ggplot(merge_df_to_plot, aes(x = variable_label, y = value, fill= age)) +  
     geom_violin(adjust = 2.5) +          
     scale_fill_brewer(palette = "Pastel1") +

@@ -8,6 +8,8 @@ library(stringr)
 library(dplyr)
 library(ggrepel)
 library(gridExtra)
+library(ggpubr)
+library(grid)
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 # antibodys <- c("ATAC")
@@ -133,7 +135,7 @@ for(condition in conditions){
     grobs = p_list,  
     ncol = length(p_list),  
     widths = c(1.7,rep(1,(length(p_list)-1))),
-    top = textGrob(paste0(condition," bin number"), gp = gpar(fontsize = 15, fontface = "bold"))  
+    top = textGrob(paste0(condition," bin number in peak"), gp = gpar(fontsize = 15, fontface = "bold"))  
   )  
   grid.draw(combined_plot) 
   ggsave(paste0("result/all/diff/all_tissues_",condition,"_bin_overlap_peaks_number.png"), plot = combined_plot, width = 20, height = 6,type="cairo")  

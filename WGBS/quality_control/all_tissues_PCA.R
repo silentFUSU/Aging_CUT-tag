@@ -9,7 +9,7 @@ library(tidyr)
 library(stringr)
 library(data.table)
 library(Polychrome)
-tissues <- c("mammarygland","lung","liver","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis")
+tissues <- c("mammarygland","lung","liver","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","heart","stomach","muscle","bladder")
 bin_size <- "1kb"
 
 tissue_label_change <- function(tissue){
@@ -61,8 +61,10 @@ all_tissues_PCA <- function(tissues,bin_size){
   percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
   use.pcs <- c(1,2)
   labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
-  color <-alphabet.colors(26)
-  color <- setNames(color,unique(to_plot$tissue))
+  color_tissues <- sapply(sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+                                 "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")), tissue_label_change) 
+  color <- read.table("data/samples/30_distinct_color.txt")
+  color <- setNames(color$V1,color_tissues)
   
   p<- ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) + 
     geom_point(size=5) +theme_bw()+
@@ -75,7 +77,8 @@ all_tissues_PCA <- function(tissues,bin_size){
       box.padding = unit(0.35, "lines"),  
       point.padding = unit(0.3, "lines")  
     )+ggtitle(paste0("compress to ",bin_size," bin"))
-  print(p)
+  return(p)
 }
 bin_size <- "1kb"
-all_tissues_PCA(tissues,bin_size)
+p <- all_tissues_PCA(tissues,bin_size)
+

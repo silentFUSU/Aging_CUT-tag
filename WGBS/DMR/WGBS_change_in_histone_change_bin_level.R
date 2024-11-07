@@ -16,7 +16,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 }
 # tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB")
 # tissues <- c("BAT","thymus","testis")
-tissues <- sort(c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis"))
+tissues <- sort(c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","heart","muscle","stomach","bladder","aorta","tongue"))
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -112,5 +112,5 @@ for(tissue in tissues){
       i <- i+1
   }
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
-ggsave("result/WGBS/all_tissues_change_in_H3K4me1_increase.png",combined_plot,width = 25,height = 21,type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 7)
+ggsave("result/WGBS/all_tissues_change_in_H3K4me1_increase.png",combined_plot,width = 35,height = 21,type="cairo")
