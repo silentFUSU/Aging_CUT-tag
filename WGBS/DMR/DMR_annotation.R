@@ -33,6 +33,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -169,7 +171,7 @@ CpG_annotation <- list()
 gene_annotation <- list()
 
 # tissues <-sort(c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis"))
-tissues <- c("mammarygland","thymus","skin","stomach","bonemarrow","bladder","liver","testis","ileum","colon","jejunum","tongue","Hip","muscle","CB","aorta","kidney","lung","heart","BAT","ovary")
+tissues <- c("mammarygland","thymus","skin","iWAT","uterus","stomach","bonemarrow","bladder","brain","cecum","liver","testis","ileum","colon","jejunum","tongue","Hip","muscle","CB","aorta","kidney","lung","heart","BAT","ovary","pancreas")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   p_list <- DMR_annotation(tissues[i])
@@ -180,12 +182,12 @@ for(i in c(1:length(tissues))){
 }
 CpG_annotation_sort <- CpG_annotation[sort$tissue]
 
-CpG_annotation_combine <- plot_a_list(CpG_annotation_sort,no_of_rows = 3,no_of_cols = 7) + patchwork::plot_annotation(title = "CpG context",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
-ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_CpG_context.png",CpG_annotation_combine,width = 21,height = 15,type="cairo")
+CpG_annotation_combine <- plot_a_list(CpG_annotation,no_of_rows = 4,no_of_cols = 7) + patchwork::plot_annotation(title = "CpG context",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
+ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_CpG_context.png",CpG_annotation_combine,width = 21,height = 20,type="cairo")
 
 gene_annotation_sort <- gene_annotation[sort$tissue]
-gene_annotation_combine <- plot_a_list(gene_annotation_sort,no_of_rows = 3,no_of_cols = 7)+ patchwork::plot_annotation(title = "Gene location",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
-ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_gene_location.png",gene_annotation_combine,width = 21,height = 15,type="cairo")
+gene_annotation_combine <- plot_a_list(gene_annotation,no_of_rows = 4,no_of_cols = 7)+ patchwork::plot_annotation(title = "Gene location",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
+ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_gene_location.png",gene_annotation_combine,width = 21,height = 20,type="cairo")
 
 
 

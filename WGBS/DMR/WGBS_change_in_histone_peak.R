@@ -9,7 +9,8 @@ library(tidyr)
 library(stringr)
 library(data.table)  
 tissue <- "ovary"
-
+tissues <- c("mammarygland","skin","stomach","uterus","iWAT")
+tissues <- c("ovary","BAT","pancreas")
 compress_to_peak <- function(tissue, antibody){
   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
   samples <- search_table$sample_name[which(search_table$tissue==tissue)]
@@ -44,7 +45,14 @@ compress_to_peak <- function(tissue, antibody){
   }
   write.csv(peak_summary,paste0("data/samples/WGBS/",tissue,"/compress2bin/",antibody,"_peaks_all_depth.csv"),row.names = F)
 }
-compress_to_peak(tissue,"H3K27me3")
+
+antibodys <- c("H3K27me3","H3K9me3")
+for(tissue in tissues){
+  for(antibody in antibodys){
+    compress_to_peak(tissue,antibody)
+  }
+}
+
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -60,11 +68,14 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
 }
-WGBS_change_in_histone_peak <- funcion(tissue,antibody){
+
+WGBS_change_in_histone_peak <- function(tissue,antibody){
   df <- read.csv(paste0("data/samples/WGBS/",tissue,"/compress2bin/",antibody,"_peaks_all_depth.csv"))
   colnames(df)[6] <- "sample_name"
   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
@@ -74,7 +85,7 @@ WGBS_change_in_histone_peak <- funcion(tissue,antibody){
   df$age <- factor(df$age,levels=c("young","old"))
   df$percent <- 100*(df$total_V4/df$total_V5)
   t <- t.test(df$percent[which(df$age=="old")],df$percent[which(df$age=="young")])
-  ggplot(df, aes(x = age, y = percent,fill=sample_name)) +  
+  p <- ggplot(df, aes(x = age, y = percent,fill=sample_name)) +  
     scale_fill_brewer(palette = "Pastel1") +
     geom_boxplot(outlier.shape = NA) +  
     theme_minimal() +
@@ -86,7 +97,17 @@ WGBS_change_in_histone_peak <- funcion(tissue,antibody){
              hjust = 1.1, vjust = 1.1, size = 5, colour = "red") +
     annotate("text", x = -Inf, y = Inf, label = paste("young mean =",  round(t$estimate[[2]],2)  ),   
              hjust = 0, vjust = 1.1, size = 5, colour = "red")
+  print(p)
 }
+
+antibodys <- c("H3K27me3","H3K9me3")
+for(tissue in tissues){
+  for(antibody in antibodys){
+    WGBS_change_in_histone_peak(tissue,antibody)
+  }
+}
+
+
 
 WGBS_change_in_histone_bin <- function(tissue,antibody){
   if(antibody %in% c("H3K9me3","H3K27me3","H3K36me3")){
@@ -146,14 +167,15 @@ WGBS_change_in_histone_bin <- function(tissue,antibody){
   result_to_plot$condition <- "peak region"
   result_to_plot$condition[which(! result_to_plot$label %in% peak$V4)] <- "outside region"
   result_to_plot$condition <- factor(result_to_plot$condition, levels = c("peak region","outside region"))
-  t <- t.test(result_to_plot$difference[which(result_to_plot$condition=="peak region" & result_to_plot$difference <0)],result_to_plot$difference[which(result_to_plot$condition=="outside region" & result_to_plot$difference <0)])
-  ggplot(result_to_plot[which(result_to_plot$difference < 0),], aes(x = condition, y = abs(difference),fill=condition)) +  
+  # t <- t.test(result_to_plot$difference[which(result_to_plot$condition=="peak region" & result_to_plot$difference <0)],result_to_plot$difference[which(result_to_plot$condition=="outside region" & result_to_plot$difference <0)])
+  t <- t.test(result_to_plot$difference[which(result_to_plot$condition=="peak region" & result_to_plot$difference >0)],result_to_plot$difference[which(result_to_plot$condition=="outside region" & result_to_plot$difference >0)])
+  ggplot(result_to_plot[which(result_to_plot$difference > 0),], aes(x = condition, y = abs(difference),fill=condition)) +  
     scale_fill_brewer(palette = "Pastel1") +
     geom_boxplot() +  
     theme_minimal() +
     theme(text = element_text(size = 20)) +
     guides(fill = FALSE)+
-    labs(title = paste0(tissue_label_change(tissue),"\n","Hypo bins difference"), x = NULL, y = "CG% difference")+
+    labs(title = paste0(tissue_label_change(tissue),"\n","Hyper bins difference"), x = NULL, y = "CG% difference")+
     annotate("text", x = Inf, y = -Inf, label = paste("p-value =",  format(t$p.value, scientific = TRUE, digits = 3)  ),   
              hjust = 1.1, vjust = -1.1, size = 5, colour = "red")
   }

@@ -4,7 +4,8 @@ HiC_Pro=/storage/zhangyanxiaoLab/suzhuojie/software/HiC-Pro_3.1.0/
 chromsize=/storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/mm10/mm10.chrom.sizes
 samples=$(ls ${data_path}${tissue}/ValidPairs/*.allValidPairs |  sed 's|.*/||; s|\.allValidPairs$||') 
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv
-mkdir ${data_path}${tissue}/tmp
+juicer_tools=/storage/zhangyanxiaoLab/suzhuojie/software/juicer/scripts/common/
+mkdir -p ${data_path}${tissue}/tmp
 for sample in ${samples[@]}
 do
     if [ ! -f "${data_path}${tissue}/juicer/${sample}.allValidPairs.hic" ]; then

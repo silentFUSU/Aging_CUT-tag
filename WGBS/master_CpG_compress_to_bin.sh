@@ -2,8 +2,9 @@
 # tissues=(skin bonemarrow jejunum colon ovary CB)
 # tissues=(thymus BAT testis)
 # tissues=(heart stomach)
-tissues=(bladder aorta tongue)
-max_jobs=2
+# tissues=(bladder aorta tongue)
+tissues=(spleen pancreas brain cecum uterus iWAT)
+max_jobs=4
 current_jobs() {  
     jobs -rp | wc -l  
 }  

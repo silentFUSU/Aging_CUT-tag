@@ -30,6 +30,7 @@ tissue_label_change <- function(tissue){
 mettl14_summary <- data.frame()
 mettl3_summary <- data.frame()
 Bap1_summary <- data.frame()
+setdb1_summary <- data.frame()
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
   mettl14 <- df[which(df$X=="Mettl14"),]
@@ -42,6 +43,9 @@ for(tissue in tissues){
   Bap1 <- df[which(df$X=="Bap1"),]
   Bap1 <- Bap1[,c("logFC","fdr","Significant")]
   Bap1$tissue <- tissue_label_change(tissue)
+  setdb1 <- df[which(df$X=="Setdb1"),]
+  setdb1 <- setdb1[,c("logFC","fdr","Significant")]
+  setdb1$tissue <- tissue_label_change(tissue)
   if(nrow(mettl14_summary)==0){
     mettl14_summary <- mettl14
   }else{
@@ -59,6 +63,12 @@ for(tissue in tissues){
   }else{
     Bap1_summary <- rbind(Bap1_summary,Bap1)
   }
+  if(nrow(setdb1_summary)==0){
+    setdb1_summary <- setdb1
+  }else{
+    setdb1_summary <- rbind(setdb1_summary,setdb1)
+  }
+  
 }
 
 ggplot(mettl3_summary,mapping = aes(x=logFC,y=tissue,fill = Significant))+
@@ -74,6 +84,15 @@ ggplot(mettl14_summary,mapping = aes(x=logFC,y=tissue,fill = Significant))+
   ggtitle("Mettl14 RNA") +
   geom_text(data = mettl14_summary[which(mettl14_summary$logFC<0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5) +
   geom_text(data = mettl14_summary[which(mettl14_summary$logFC>0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5)
+
+
+ggplot(setdb1_summary,mapping = aes(x=logFC,y=tissue,fill = Significant))+
+  geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+
+  theme(text = element_text(size = 13))+ 
+  ggtitle("setdb1 RNA") +
+  geom_text(data = setdb1_summary[which(setdb1_summary$logFC<0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5) +
+  geom_text(data = setdb1_summary[which(setdb1_summary$logFC>0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5)
+
 
 
 ggplot(Bap1_summary,mapping = aes(x=logFC,y=tissue,fill = Significant))+

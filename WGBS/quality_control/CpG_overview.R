@@ -28,6 +28,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label == "Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -94,7 +96,8 @@ CpG_overview <- function(tissue){
   ggsave(paste0("result/WGBS/",tissue,"/CpG_overview.png"),p,width = 5,height = 7,type="cairo")
   # return(p)
 }
-tissues <- c("liver","lung","mammarygland","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis")
+# tissues <- c("liver","lung","mammarygland","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","spleen","pancreas","brain","cecum","uterus","iWAT")
+tissues <- c("spleen","pancreas","brain","cecum","uterus","iWAT")
 p_list <- list()
 i <- 1
 for (tissue in tissues){

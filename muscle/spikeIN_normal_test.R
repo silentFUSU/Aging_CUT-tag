@@ -22,8 +22,8 @@ tab <- read.table(paste0("/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Agi
 counts <- tab[,c(7:ncol(tab))]
 pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+|DYQ[0-9]+).*"
 colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
-samples <- c("228","229","116","117","225","237","101","110","102","111")
-age <- c("3m","3m","24m","24m","24m","3m","3m","24m","3m","24m")
+samples <- c("228","229","116","117","225","237","226","230","234","235","101","110","102","111")
+age <- c("3m","3m","24m","24m","24m","3m","24m","24m","3m","3m","3m","24m","3m","24m")
 
 group <- paste0(colnames(counts),"-",samples,"-",age)
 y= DGEList(counts=counts,group = group)
@@ -32,7 +32,7 @@ keep = which(rowSums(cpm(y)>1)>=4)
 y = y[keep,]
 logCPMs <- cpm(y, log = TRUE)
 logCPMs_corrected <- limma::removeBatchEffect(logCPMs,
-                                              batch = c("batch1","batch1","batch1","batch1","batch4","batch4","batch2","batch2","batch3","batch3"))
+                                              batch = c("batch1","batch1","batch1","batch1","batch4","batch4","batch5","batch5","batch5","batch5","batch2","batch2","batch3","batch3"))
 
 pca <- prcomp(t(logCPMs_corrected))
 to_plot <- data.frame(pca$x, tissue = paste0(y$samples$group))
@@ -125,19 +125,19 @@ tab <- tab[keep,c(1:6)]
 logCPMs_corrected <- cbind(tab,logCPMs_corrected)
 increase <- previous$Geneid[which(previous$Significant=="Up")]
 logCPMs_corrected_increase <- logCPMs_corrected[which(logCPMs_corrected$Geneid %in% increase),]
-logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(1:10,12,11,13,15,14,16)]
+logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(1:10,12,11,15,16,13,14,17,19,18,20)]
 pheatmap::pheatmap(logCPMs_corrected_increase[,c(7:ncol(logCPMs_corrected_increase))],cluster_rows = T,annotation_col = annotation,cluster_cols = T,show_rownames = F,main = paste0(antibody," previous increase"))
 
 decrease <- previous$Geneid[which(previous$Significant=="Down")]
 logCPMs_corrected_decrease <- logCPMs_corrected[which(logCPMs_corrected$Geneid %in% decrease),]
-logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(1:10,12,11,13,15,14,16)]
-pheatmap::pheatmap(logCPMs_corrected_decrease[,c(7:ncol(logCPMs_corrected_decrease))],cluster_rows = T,annotation_col = annotation,cluster_cols = T,show_rownames = F,main = paste0(antibody," previous decrease"))
+logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(1:10,12,11,15,16,13,14,17,19,18,20)]
+pheatmap::pheatmap(logCPMs_corrected_decrease[,c(7:ncol(logCPMs_corrected_decrease))],cluster_rows = T,annotation_col = annotation,cluster_cols = F,show_rownames = F,main = paste0(antibody," previous decrease"))
 
 to_plot <- logCPMs_corrected_increase[,c(1,7:ncol(logCPMs_corrected_increase))]
 to_plot <- melt(to_plot)
 to_plot$variable <- factor(to_plot$variable, levels =unique(to_plot$variable))
 to_plot$age <- "young"
-to_plot$age[which(to_plot$variable %in% unique(to_plot$variable)[c(3,4,6,9,10)])] <- "old"
+to_plot$age[which(to_plot$variable %in% unique(to_plot$variable)[c(3,4,6,9,10,13,14)])] <- "old"
 to_plot$age <- factor(to_plot$age,levels=c("young","old"))
 ggplot(to_plot, aes(x = variable, y = value,fill=age)) +  
   geom_boxplot() +  
@@ -153,7 +153,7 @@ to_plot <- logCPMs_corrected_decrease[,c(1,7:ncol(logCPMs_corrected_decrease))]
 to_plot <- melt(to_plot)
 to_plot$variable <- factor(to_plot$variable, levels =unique(to_plot$variable))
 to_plot$age <- "young"
-to_plot$age[which(to_plot$variable %in% unique(to_plot$variable)[c(3,4,6,9,10)])] <- "old"
+to_plot$age[which(to_plot$variable %in% unique(to_plot$variable)[c(3,4,6,9,10,13,14)])] <- "old"
 to_plot$age <- factor(to_plot$age,levels=c("young","old"))
 ggplot(to_plot, aes(x = variable, y = value,fill=age)) +  
   geom_boxplot() +  
@@ -169,12 +169,12 @@ t.test(to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(2)] 
 t.test(to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(5:8)] & to_plot$age == "young")],
        to_plot$value[which(to_plot$variable %in% unique(to_plot$variable)[c(5:8)] & to_plot$age == "old")])
 
-tab <- read.table(paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
+tab <- read.table(paste0("/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/data/muscle_cut_tag_test/",antibody,"/",antibody,"_",bin_size,"_bins.counts"), header = T)
 counts <- tab[,c(7:ncol(tab))]
-counts <- counts[,c(1:4)]
-pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
+pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+|DYQ[0-9]+).*"
 colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
-age <- c("young","young","old","old")
+counts <- counts[,c(7:10)]
+age <- c("old","old","young","young")
 y= DGEList(counts=counts,group=age)
 keep = which(rowSums(cpm(y)>1)>=2)
 y = y[keep,]
@@ -192,7 +192,23 @@ out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion
             "LogFC.old-young"=lrt$table$logFC)
 out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= 0, 
                           ifelse(out$`LogFC.old-young` > 0, "Up", "Down"), "Stable")
-write.csv(out,paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",antibody,"_",bin_size,"_bins_diff_ConA.csv"),row.names = F)
+colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+bin_in_peaks <- read.table("data/samples/muscle/H3K36me3/bed/H3K36me3_10kb_in_young_old_merge-W1000-G3000-E100.bed")
+out <- out[which(out$Geneid %in% bin_in_peaks$V4),]
+ggplot(
+  out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
+  geom_point(aes(color = Significant), size=2) +
+  scale_color_manual(values = colour) +
+  geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+  geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+  labs(x="log2(fold change)",
+       y="-log10 (p-value)") +
+  theme_bw()+
+  theme(text = element_text(size = 20),legend.position = "none")+
+  ggtitle(paste0("Muscle H3K36me3"))+
+  annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+  annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+# write.csv(out,paste0("data/raw_data/muscle_cut_tag_test/",antibody,"/",antibody,"_",bin_size,"_bins_diff_ConA.csv"),row.names = F)
 
 
 table(out$Significant)

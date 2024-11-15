@@ -1,16 +1,12 @@
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
-# tissues=(brain liver kidney colon testis)
-# tissues=(spleen lung muscle pancreas)
-tissues=(skin)
+tissues=(aorta)
 ref=mm10
-mkdir ${data_path}all/combined_analysis_enhancer/
-mkdir ${data_path}all/combined_analysis_enhancer/chromHMMbed
+mkdir -p ${data_path}all/combined_analysis_enhancer/
+mkdir -p ${data_path}all/combined_analysis_enhancer/chromHMMbed
 i=1
 for tissue in ${tissues[@]}
 do
-    # mkdir ${data_path}${tissue}/combined_analysis_enhancer/
-    # mkdir ${data_path}${tissue}/combined_analysis_enhancer/chromHMMbed
 
     modifications=(H3K27ac H3K27me3 H3K36me3 H3K4me1 H3K4me3 H3K9me3)
     for modification in ${modifications[@]}

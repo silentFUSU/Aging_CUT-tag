@@ -1,0 +1,2 @@
+bash chromHMM_bam2bed.sh
+bash chromHMM_cellmarkfiletable.sh

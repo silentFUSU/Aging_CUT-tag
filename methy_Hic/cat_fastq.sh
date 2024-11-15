@@ -1,5 +1,5 @@
-data_path=/storage/zhangyanxiaoLab/fastq/2024/2024-10-15-Jiangbei-DYQ/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241025_DYQ_WGBS/fastq/
+data_path=/storage/zhangyanxiaoLab/fastq/2024/2024-10-28-SalusPro-WGBS/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241028_SalusPro_WGBS/fastq/
 samples=$(find ${data_path} -mindepth 1 -maxdepth 1 -type d -printf '%f\n')  
 for sample in ${samples[@]}
 do

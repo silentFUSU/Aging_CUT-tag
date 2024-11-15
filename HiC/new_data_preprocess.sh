@@ -1,4 +1,4 @@
-raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241016_WJH_HiC/
+raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241111_WJH_CB_96_HiC/
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv
 samples=$(find ${raw_data}result/hic_results/data/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | grep -v tmp)  
@@ -15,7 +15,7 @@ unique_tissue_array=($(printf "%s\n" "${tissue_array[@]}" | sort -u))
 
 for tissue in ${unique_tissue_array[@]}
 do
-    bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/WGBS/WGBS_mkdir4samples.sh ${tissue}
+    bash /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/HiC/HiC_mkdir4samples.sh ${tissue}
     samples_for_tissue=$(awk -F',' -v t="$tissue" 'NR > 1 && ($1 == t) {print $3}' "$search_table")  
     for sample_for_tissue in ${samples_for_tissue[@]}
     do

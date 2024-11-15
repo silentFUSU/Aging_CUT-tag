@@ -1,5 +1,5 @@
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
-tissue=lung
+tissue=$1
 res=50000
 mkdir -p ${data_path}${tissue}/homer_compartment
 mkdir -p ${data_path}${tissue}/homer_compartment/allValidPair_homer

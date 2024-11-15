@@ -18,3 +18,43 @@ do
             -is 500000 -ids 200000 -im mean -bmoe 3 -nt 0.1 -v
     done
 done
+
+for sample in ${samples_for_tissue[@]}
+do 
+    files=""
+    for chr in {1..19} X Y
+    do  
+        files+=" ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_chr${chr}_dense.is500001.ids200001.insulation.bedGraph"  
+    done  
+    awk 'FNR > 1' $files | awk -F'\t' '!(tolower($4) == "na")' > ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_dense.is500001.ids200001.insulation.bedGraph
+done
+
+for sample in ${samples_for_tissue[@]}
+do 
+    files=""
+    for chr in {1..19} X Y
+    do  
+        files+=" ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_chr${chr}_dense.is500001.ids200001.insulation.boundaries.bed"  
+    done  
+    awk 'FNR > 1' $files  > ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_dense.is500001.ids200001.insulation.boundaries.bed
+done
+
+for sample in ${samples_for_tissue[@]}
+do 
+    files=""
+    for chr in {1..19} X Y
+    do 
+        files+=" ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_chr${chr}_dense.is500001.ids200001.insulation"  
+    done  
+    awk 'FNR > 1' $files  | awk -F'\t' '!(tolower($9) == "na")' > ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_dense.is500001.ids200001.insulation
+done
+
+for sample in ${samples_for_tissue[@]}
+do 
+    files=""
+    for chr in {1..19} X Y
+    do 
+        files+=" ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_chr${chr}_dense.is500001.ids200001.insulation.boundaries"  
+    done  
+    awk 'FNR > 1' $files  > ${data_path}${tissue}/TAD/insulation_score/${sample}/${sample}_${resolution}_dense.is500001.ids200001.insulation.boundaries
+done

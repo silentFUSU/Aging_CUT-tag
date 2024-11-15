@@ -9,7 +9,7 @@ library(tidyr)
 library(stringr)
 library(data.table)
 library(Polychrome)
-tissues <- c("mammarygland","lung","liver","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","heart","stomach","muscle","bladder")
+tissues <- c("mammarygland","lung","liver","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","heart","stomach","muscle","bladder","aorta","tongue","spleen","pancreas","brain","cecum","uterus","iWAT")
 bin_size <- "1kb"
 
 tissue_label_change <- function(tissue){
@@ -81,4 +81,4 @@ all_tissues_PCA <- function(tissues,bin_size){
 }
 bin_size <- "1kb"
 p <- all_tissues_PCA(tissues,bin_size)
-
+p <- readRDS("p.rds")

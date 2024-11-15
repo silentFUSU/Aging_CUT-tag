@@ -1,5 +1,5 @@
-# tissues=(liver lung mammarygland kidney ileum Hip skin bonemarrow jejunum colon ovary CB BAT thymus testis heart muscle stomach bladder aorta tongue)
-tissues=(bladder aorta tongue)
+# tissues=(liver lung mammarygland kidney ileum Hip skin bonemarrow jejunum colon ovary CB BAT thymus testis heart muscle stomach bladder aorta tongue spleen pancreas brain cecum uterus iWAT)
+tissues=(spleen pancreas brain cecum uterus iWAT)
 max_jobs=2
 current_jobs() {  
     jobs -rp | wc -l  

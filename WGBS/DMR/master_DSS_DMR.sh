@@ -1,6 +1,6 @@
 # tissues=()
 # tissues=(skin mammarygland BAT thymus testis liver lung  kidney ileum Hip bonemarrow jejunum colon ovary CB muscle heart stomach baldder aorta tongue)
-tissues=(bladder)
+tissues=(spleen pancreas brain cecum uterus iWAT)
 max_jobs=2
 current_jobs() {  
     jobs -rp | wc -l  

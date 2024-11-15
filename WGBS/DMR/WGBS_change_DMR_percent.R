@@ -3,7 +3,10 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 library(ggplot2)
 set.seed(1)
-tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","stomach","heart","muscle","bladder","aorta","tongue")
+tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow",
+             "jejunum","colon","ovary","CB","BAT","thymus","testis","stomach","heart",
+             "muscle","bladder","aorta","tongue","spleen","pancreas","brain",
+             "cecum","uterus","iWAT")
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -19,6 +22,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -31,7 +36,7 @@ DMR_percent <- function(tissues){
                             tissue = as.character())
   for(i in c(1:length(tissues))){
     tissue <- tissues[i]
-    DMR <- read.table(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta0.txt"),header = T)
+    DMR <- read.table(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta01.txt"),header = T)
     increase <- nrow(DMR[which(DMR$areaStat > 0),])
     decrease <- nrow(DMR[which(DMR$areaStat < 0),])
     tissue_label <- tissue_label_change(tissue)
