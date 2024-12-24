@@ -4,4 +4,11 @@ ChromHMM_path=~/software/ChromHMM/
 ref=mm10
 java -Xmx64G -jar ${ChromHMM_path}ChromHMM.jar BinarizeBed -b 1000 ${ChromHMM_path}CHROMSIZES/${ref}.txt \
     ${data_path}all/combined_analysis_enhancer/chromHMMbed/ \
-    ${data_path}all/combined_analysis_enhancer/cellmarkfiletable.txt ${data_path}all/combined_analysis_enhancer/binarizedData
+    ${data_path}all/combined_analysis_enhancer/two_type_tissues/cellmarkfiletable_type1.txt ${data_path}all/combined_analysis_enhancer/two_type_tissues/binarizedData_type1 &
+
+java -Xmx64G -jar ${ChromHMM_path}ChromHMM.jar BinarizeBed -b 1000 ${ChromHMM_path}CHROMSIZES/${ref}.txt \
+    ${data_path}all/combined_analysis_enhancer/chromHMMbed/ \
+    ${data_path}all/combined_analysis_enhancer/two_type_tissues/cellmarkfiletable_type2.txt ${data_path}all/combined_analysis_enhancer/two_type_tissues/binarizedData_type2 &
+
+wait
+echo all done

@@ -6,7 +6,7 @@ library(ggplot2)
 library(tidyverse)  
 
 options(scipen = 999)  
-tissue <- "lung"
+tissue <- "brain"
 resolution <- "50000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -32,6 +32,33 @@ tissue_label_change <- function(tissue){
 check_row <- function(row) {  
   all(row[-1] == row[-1][1])  
 }  
+compartment_cluster <- function(tissue,resolution){
+  df_list <- list(young=list(),old=list())
+  search_table <- read.csv("data/samples/all/HiC_search_table.csv")
+  search_table <- search_table[which(search_table$tissue==tissue),]
+  to_plot <- data.frame()
+  for(sample in search_table$sample_name){
+    if(sample=="WJH-Liver-103"){
+      df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1_recorrect.txt"))
+    }else{
+      df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
+    }
+    df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
+    # df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X")))),]
+    df <- df[,c(1,6)]
+    colnames(df)[2] <- sample
+    if(nrow(to_plot)==0){
+      to_plot <- df
+    }else{
+      to_plot <- merge(to_plot,df,by="V1")
+    }
+  }
+  rownames(to_plot) <- to_plot$V1
+  to_plot <- to_plot[,-1]
+  pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,main = "homer compartment PC1")
+  }
+
+
 
 compartment_change <- function(tissue,resolution){
   ages <- c("young","old")
@@ -45,7 +72,11 @@ compartment_change <- function(tissue,resolution){
   for(age in ages){
     for(i in c(1:length(samples_list[[age]]))){
       sample <- samples_list[[age]][i]
-      df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
+      if(sample=="WJH-Liver-103"){
+        df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1_recorrect.txt"))
+      }else{
+        df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
+      }
       df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
       df <- df[,c(1,6)]
       df$compartmeent <- ifelse(df[, 2] > 0, "A", "B")

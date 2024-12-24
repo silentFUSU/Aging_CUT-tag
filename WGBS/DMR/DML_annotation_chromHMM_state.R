@@ -54,7 +54,6 @@ annotation_chromHMM_state <- function(tissue){
   na_pie_plot <- data.frame(contidion=c("with_na","without_na"),count=c(num_rows_with_na,(nrow(DML)-num_rows_with_na)))
   na_pie_plot$percentage <- round(na_pie_plot$count / sum(na_pie_plot$count) * 100, 1) 
   na_pie_plot$label <- paste0(na_pie_plot$category, " (", na_pie_plot$percentage, "%)")  
-  
   # ggplot(na_pie_plot, aes(x = "", y = count, fill = contidion)) +  
   #   geom_bar(stat = "identity", width = 1) +  
   #   coord_polar(theta = "y") +  
@@ -63,7 +62,7 @@ annotation_chromHMM_state <- function(tissue){
   #   scale_fill_brewer(palette = "Set3")  
   
   DML_filtered <- na.omit(DML)
-  file_dir <- paste0("result/all/ChromHMM/until_ovary/15_until_ovary/split_1k/")  
+  file_dir <- paste0("result/all/ChromHMM/all_tissues/15_all_tissues/split_1k/")  
   files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_young[0-9]+_15_segments_1k.bed"), full.names = TRUE)  
   file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
   chromHMM_young <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
@@ -111,16 +110,18 @@ annotation_chromHMM_state <- function(tissue){
           axis.text.x = element_text(angle = 45, hjust = 1),
           text = element_text(size = 20),legend.title = element_blank())
   return(p)
-  }
-tissues <-c("liver","lung","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","thymus","testis")
+}
+
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","colon","heart","Hip","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 p_list <- list()
 for(i in c(1:length(tissues))){
   p_list[[i]] <- annotation_chromHMM_state(tissue = tissues[i])
 }
 saveRDS(p_list,"result/all/ChromHMM/until_ovary/15_until_ovary/p_list.rds")
-p_list <- readRDS("result/all/ChromHMM/until_ovary/15_until_ovary/p_list.rds")
-for(i in c(1:length(p_list))){
-  p_list[[i]] <- p_list[[i]] + ggtitle(tissue_label_change(tissues[i]))
-}
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
-ggsave("result/WGBS/all_tissue_DML_in_chromHMM_state.png",combined_plot,width = 15,height = 15,type="cairo")
+# p_list <- readRDS("result/all/ChromHMM/until_ovary/15_until_ovary/p_list.rds")
+# for(i in c(1:length(p_list))){
+#   p_list[[i]] <- p_list[[i]] + ggtitle(tissue_label_change(tissues[i]))
+# }
+# combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
+# ggsave("result/WGBS/all_tissue_DML_in_chromHMM_state.png",combined_plot,width = 15,height = 15,type="cairo")

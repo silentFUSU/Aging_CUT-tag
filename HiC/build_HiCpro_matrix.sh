@@ -1,12 +1,10 @@
-tissue=lung
+tissue=$1
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
 HiC_Pro=/storage/zhangyanxiaoLab/suzhuojie/software/HiC-Pro_3.1.0/
 chromsize=/storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/mm10/mm10.chrom.sizes
-samples=$(ls ${data_path}${tissue}/ValidPairs/WJH*.allValidPairs | sed 's|.*/||; s|\.allValidPairs$||' ) 
-# resolution=10000
-resolution=50000
+samples=$(ls ${data_path}${tissue}/ValidPairs/{WJH,DYQ}*.allValidPairs | sed 's|.*/||; s|\.allValidPairs$||' ) 
+resolution=$2
 mkdir -p ${data_path}${tissue}/raw_matrix
-# samples=(WJH-103-Lung WJH-106-Lung WJH-109-Lung)
 for sample in ${samples[@]}
 do
     cat ${data_path}${tissue}/ValidPairs/${sample}.allValidPairs | ${HiC_Pro}scripts/build_matrix --matrix-format upper --binsize ${resolution} --chrsizes ${chromsize} --ifile /dev/stdin --oprefix ${data_path}${tissue}/raw_matrix/${sample}_${resolution}

@@ -1,4 +1,4 @@
-raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241111_WJH_CB_96_HiC/
+raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241127_DYQ_HiC/
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv
 samples=$(find ${raw_data}result/hic_results/data/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | grep -v tmp)  

@@ -53,6 +53,8 @@ antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
 
 WGBS_change_in_histone_change <- function(tissue,antibody){
   diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff.csv"))
+  bin_in_peaks <- read.table(paste0("data/samples/",tissue,"/H3K36me3/bed/H3K36me3_10kb_in_young_old_merge-W1000-G3000-E100.bed"))
+  diff <- diff[which(diff$Geneid %in% bin_in_peaks$V4),]
   increase <- diff$Geneid[which(diff$Significant=="Up")]
   decrease <- diff$Geneid[which(diff$Significant=="Down")]
   df <- read.csv(paste0("data/samples/WGBS/",tissue,"/compress2bin/",bin_size(antibody),"_bins_all_depth.csv"))
@@ -82,7 +84,6 @@ WGBS_change_in_histone_change <- function(tissue,antibody){
       annotate("text", x = -Inf, y = Inf, label = paste("young mean =",  round(t$estimate[[2]],2)  ),   
                hjust = 0, vjust = 1.1, size = 5, colour = "red")
     p_list[["increase"]] <- increase_plot
-    i <- i+1
   }
   if(nrow(decrease_bin) > 0){
     t <- t.test(decrease_bin$percent[which(decrease_bin$age=="old")],decrease_bin$percent[which(decrease_bin$age=="young")])
@@ -101,7 +102,6 @@ WGBS_change_in_histone_change <- function(tissue,antibody){
       annotate("text", x = -Inf, y = Inf, label = paste("young mean =",  round(t$estimate[[2]],2)  ),   
                hjust = 0, vjust = 1.1, size = 5, colour = "red")
     p_list[["decrease"]] <- decrease_plot
-    i <- i+1
   }
   return(p_list)
 }

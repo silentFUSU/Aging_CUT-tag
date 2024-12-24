@@ -13,7 +13,6 @@ FRiP<-data.frame(tissue = character(),
                   sample_name = character(),
                   antibody = character(),
                   FRiP = numeric(),
-                  batch = character(),  
                   stringsAsFactors = FALSE)  
 
 
@@ -45,12 +44,12 @@ for (i in c(1:length(antibodys))){
                          sample_name = sample_names[k],
                          antibody = antibody,
                          FRiP = df[1,k]/sum(df[,k]),
-                         batch = batch[k],  
                          stringsAsFactors = FALSE)  
       FRiP <- rbind(FRiP,t_FRiP)
     }    
   }
 }
+
 FRiP <- merge(FRiP,search_table[,c("sample_name","mouse_ID","age")],by="sample_name")
 FRiP$FRiP <- FRiP$FRiP*100
 FRiP$tissue[which(FRiP$tissue=="brain")] <- "Cortex"
@@ -94,7 +93,8 @@ for (i in c(1:length(tissues))){
     scale_fill_brewer(palette="Set3")+
     ggtitle(paste0(tissue," FRiP"))+ylim(0,100)+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("FRiP(%)")
-  ggsave(paste0("result/all/QC/FRiP/plot/union/per_tissue/",tissue,"_FRiP_rm_blacklist_age_dotplot.png"),p,width = 15,height = 10,type="cairo")
+  print(p)
+  # ggsave(paste0("result/all/QC/FRiP/plot/union/per_tissue/",tissue,"_FRiP_rm_blacklist_age_dotplot.png"),p,width = 15,height = 10,type="cairo")
   # ggsave(paste0("result/all/QC/FRiP/plot/intersect/per_tissue/",tissue,"_FRiP_rm_blacklist_age_dotplot.png"),p,width = 15,height = 10,type="cairo")
 }
 

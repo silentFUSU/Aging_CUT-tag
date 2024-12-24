@@ -16,7 +16,7 @@ library(reshape2)
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
              "thymus","skin","bladder","bonemarrow","Hip","heart",
              "muscle","jejunum","uterus","ovary","liver","tongue",
-             "cecum","colon","testis","stomach","pancreas","iWAT")
+             "cecum","colon","testis","stomach","pancreas","iWAT","ileum")
 
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   

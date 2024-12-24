@@ -3,52 +3,57 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
-state <- "12"
-model <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state,"_until_ovary/emissions_",state,".txt"))
-model <- model[,-1]
-model <- model[,c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")]
-rownames(model) <- paste0("state",c(1:nrow(model)))
-color_palette <- colorRampPalette(c("white", "blue"))(50) 
-pheatmap::pheatmap(model,cluster_cols = F,cluster_rows = F,color = color_palette)
+library(tidyverse)
+library(dplyr)
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+state <- "14"
 
-percent_all <- data.frame(Var1 = as.character(),
-                          Freq = as.numeric(),
-                          tissue = as.character(),
-                          age = as.character())
-# tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle","Hip","cecum","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","ileum","pancreas")
-tissues <- c("brain","liver","testis","kidney","lung","spleen","muscle","Hip","bonemarrow","heart","thymus","stomach","skin","aorta","tongue","bladder","CB","jejunum","uterus","ovary","pancreas")
-ages <- c("young1","young2","old1","old2")
-for(i in c(1:length(tissues))){
-  tissue <- tissues[i]
-  for(age in ages){
-    df <- read.delim(paste0("result/all/ChromHMM/until_ovary/",state,"_until_ovary/split_1k/",tissue,"_",age,"_",state,"_segments_1k.bed"),header = F)
-    percent <- as.data.frame(table(df$V4))
-    percent$Var1 <- factor(percent$Var1, levels = paste0("E",c(1:nrow(percent))))
-    percent <- percent[order(percent$Var1),]
-    percent$tissue <- tissue
-    percent$age <- age
-    percent_all <- rbind(percent_all,percent)
+model_plot <- function(tissues,state){
+  model <- read.delim(paste0("result/all/ChromHMM/all_tissues/",state,"_all_tissues/emissions_",state,".txt"))
+  model <- model[,-1]
+  model <- model[,c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")]
+  rownames(model) <- paste0("state",c(1:nrow(model)))
+  color_palette <- colorRampPalette(c("white", "blue"))(50) 
+  pheatmap::pheatmap(model,cluster_cols = F,cluster_rows = F,color = color_palette)
+  
+  
+  percent_all <- data.frame(Var1 = as.character(),
+                            Freq = as.numeric(),
+                            tissue = as.character(),
+                            age = as.character())
+  ages <- c("young1","young2","old1","old2")
+  for(i in c(1:length(tissues))){
+    tissue <- tissues[i]
+    for(age in ages){
+      df <- read.delim(paste0("result/all/ChromHMM/all_tissues/",state,"_all_tissues/split_1k/",tissue,"_",age,"_",state,"_segments_1k.bed"),header = F)
+      percent <- as.data.frame(table(df$V4))
+      percent$Var1 <- factor(percent$Var1, levels = paste0("E",c(1:nrow(percent))))
+      percent <- percent[order(percent$Var1),]
+      percent$tissue <- tissue
+      percent$age <- age
+      percent_all <- rbind(percent_all,percent)
     }
+  }
+  percent_all_to_plot <-  percent_all %>%
+    group_by(Var1) %>%
+    summarise(Freq = sum(Freq))
+  
+  result <- percent_all_to_plot %>%  
+    mutate(Percent = Freq / sum(Freq) * 100,  
+           # 计算图表标签  
+           Label = paste0(Var1, ": ", round(Percent, 1), "%")) 
+  color <- read.table("data/samples/20_distinct_color.txt")
+  color <- setNames(color$V1,result$Var1)
+  ggplot(result, aes(x = "", y = Freq, fill = Var1)) +  
+    geom_bar(stat = "identity", width = 1) +  
+    coord_polar(theta = "y") +  
+    theme_void() +  # 移除背景和坐标轴  
+    scale_fill_manual(values = color, labels = result$Label ) +  
+    theme(text = element_text(size = 20))+
+    guides(fill = guide_legend(title = "State"))  
 }
 
-
-percent_all_to_plot <-  percent_all %>%
-  group_by(Var1) %>%
-  summarise(Freq = sum(Freq))
-
-result <- percent_all_to_plot %>%  
-  mutate(Percent = Freq / sum(Freq) * 100,  
-         # 计算图表标签  
-         Label = paste0(Var1, ": ", round(Percent, 1), "%")) 
-color <- read.table("data/samples/20_distinct_color.txt")
-color <- setNames(color$V1,result$Var1)
-ggplot(result, aes(x = "", y = Freq, fill = Var1)) +  
-  geom_bar(stat = "identity", width = 1) +  
-  coord_polar(theta = "y") +  
-  theme_void() +  # 移除背景和坐标轴  
-  scale_fill_manual(values = color, labels = result$Label ) +  
-  theme(text = element_text(size = 20))+
-  guides(fill = guide_legend(title = "State"))  
 
 tissue <- "CB"
 state <- "16"

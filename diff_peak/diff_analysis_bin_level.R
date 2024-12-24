@@ -37,7 +37,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 }
 
 peak_preprocess_bin_level <- function(tissue,antibody){
-  search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
+  search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff.csv")
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
     bin_size <- "10kb"
   }else{
@@ -48,10 +48,8 @@ peak_preprocess_bin_level <- function(tissue,antibody){
   rownames(counts)= tab$Geneid
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
   colnames(counts) <-  gsub(pattern, "\\1",colnames(counts))
-  if(tissue == "iWAT"){
-    counts <- counts[, !grepl("^CKJ", names(counts))]
-  }
   search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
+  counts <- counts[,which(colnames(counts) %in% search_table$sample_name)]
   search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
   search_table <- search_table[order(search_table$sample_name),]
   age <- search_table$age
@@ -104,8 +102,8 @@ peak_preprocess_bin_level <- function(tissue,antibody){
     write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"),row.names = F)
     outup <- out[which(out$Significant=="Up"),]
     outdown <- out[which(out$Significant=="Down"),]
-    write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
-    write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(outdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(outup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
   return(p)
 }
 

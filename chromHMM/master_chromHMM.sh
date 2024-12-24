@@ -1,2 +1,5 @@
 bash chromHMM_bam2bed.sh
+bash chromHMM_binarizebed.sh
 bash chromHMM_cellmarkfiletable.sh
+bash chromHMM_learnmodel.sh
+bash chromHMM_comparemodels.sh

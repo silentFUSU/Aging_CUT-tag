@@ -6,6 +6,7 @@ library(ggplot2)
 library(patchwork)
 library(edgeR)
 library(corrplot) 
+library(stringr)
 antibody <- "H3K9me3"
 method <-"pearson"
 options(bitmapType = "cairo")  
@@ -86,4 +87,65 @@ correlation_clustering <- function(antibody,method){
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
 for(antibody in antibodys){
   correlation_clustering(antibody,"pearson")
+}
+
+tissues <- sort(c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
+                  "thymus","skin","bladder","bonemarrow","Hip","heart",
+                  "muscle","jejunum","uterus","ovary","liver","tongue",
+                  "cecum","colon","testis","stomach","pancreas","iWAT","ileum"))
+tissue_label_change <- function(tissue){
+  if(tissue=="brain"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
+    }
+  }
+  return(tissue_label)
+}
+antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
+methods <- c("pearson","spearman")
+logFC_correlation_clustering <- function(antibody,tissues,method){
+  if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
+    bin_size <- "10kb"
+  }else{
+    bin_size <- "1kb"
+  }
+  to_plot <- data.frame()
+  for(tissue in tissues){
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
+    df <- df[,c("Geneid","LogFC.old.young")]
+    colnames(df)[which(colnames(df)=="LogFC.old.young")] <- tissue_label_change(tissue)
+    if(ncol(to_plot)==0){
+      to_plot <- df
+    }else{
+      to_plot <- merge(to_plot,df,by="Geneid")
+    }
+  }  
+  to_plot_cor <- cor(to_plot[,-1],method = method)
+  annotation <- data.frame(tissue=colnames(to_plot_cor))
+  rownames(annotation) <- annotation$tissue
+  colors <- read.table("data/samples/30_distinct_color.txt")
+  colors <- colors$V1[1:27]
+  names(colors) <- annotation$tissue
+  annotation_colors <- list(tissue=colors)
+  pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),
+                     filename = paste0("result/all/clustering/",antibody,"_logFC_",method,"_after_remove_batch_effect.png"),type="png",width = 9,height = 7,border_color = "grey")
+}
+
+for(antibody in antibodys){
+  for(method in methods){
+    logFC_correlation_clustering(antibody,tissues,method)
+  }
 }

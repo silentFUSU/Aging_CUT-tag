@@ -21,10 +21,10 @@ bin_size <- ifelse(antibody %in% c("H3K36me3","H3K9me3","H3K27me3"), "10kb", "1k
 tab <- read.table(paste0("/mnt/transposon1/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_TAG/data/thymus_cut_tag_test/",antibody,"/",bin_size,"_bins.counts"), header = T)
 rownames(tab) <- tab$Geneid
 counts <- tab[,c(7:ncol(tab))]
-pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
+pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+|DYQ[0-9]+).*"
 colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
-samples <- c("116","117","224","225","228","229","101","110","102","111")
-age <- c("24m","24m","24m","24m","3m","3m","3m","24m","3m","24m")
+samples <- c("116","117","224","225","228","229","240","241","245","247","101","110","102","111")
+age <- c("24m","24m","24m","24m","3m","3m","3m","3m","24m","24m","3m","24m","3m","24m")
 
 group <- paste0(colnames(counts),"-",samples,"-",age)
 y= DGEList(counts=counts,group = group)
@@ -32,7 +32,7 @@ y$samples$age <- age
 keep = which(rowSums(cpm(y)>1)>=4)
 y = y[keep,]
 logCPMs <- cpm(y, log = TRUE)
-logCPMs_corrected <- limma::removeBatchEffect(logCPMs,batch = c("batch1","batch1","batch1","batch1","batch1","batch1","batch2","batch2","batch3","batch3"))
+logCPMs_corrected <- limma::removeBatchEffect(logCPMs,batch = c("batch1","batch1","batch1","batch1","batch1","batch1","batch4","batch4","batch4","batch4","batch2","batch2","batch3","batch3"))
 colnames(logCPMs_corrected) <- paste0(colnames(logCPMs_corrected),"-",samples,"-",age)
 pca <- prcomp(t(logCPMs))
 to_plot <- data.frame(pca$x, tissue = paste0(y$samples$group))
@@ -64,7 +64,7 @@ ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) +
   geom_point(size=5) +theme_bw()+
   xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+
   ggtitle(antibody)+
-  geom_text_repel(data = to_plot,
+  geom_text_repel(data = to_plot,max.overlaps = 30,
                   aes(x = PC1, y = PC2, label = group, color = age),  
                   size = 5,  
                   box.padding = unit(0.35, "lines"),  
@@ -77,14 +77,18 @@ pheatmap::pheatmap(cor_matrix)
 
 previous <- read.csv(paste0("data/samples/thymus/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"))
 increase <- previous$Geneid[which(previous$Significant=="Up")]
-logCPMs_corrected_increase <- logCPMs_corrected[which(rownames(logCPMs_corrected) %in% increase),]
-logCPMs_corrected_increase <- logCPMs_corrected_increase[,c(5:6,1:4,7:10)]
-pheatmap::pheatmap(logCPMs_corrected_increase,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous increase"))
+logCPMs_increase <- logCPMs[which(rownames(logCPMs) %in% increase),]
+logCPMs_increase <- logCPMs_increase[,c(5:6,1:4,7:10,11,13,12,14)]
+annotation <- data.frame(sample=colnames(logCPMs),age=age)
+rownames(annotation) <- annotation$sample
+annotation <- annotation[,"age",drop=F]
+annotation$age <- factor(annotation$age, levels=c("3m","24m"))
+pheatmap::pheatmap(logCPMs_increase,annotation = annotation,cluster_rows = T,cluster_cols = F,show_rownames = F,main = paste0(antibody," previous increase"),scale="row")
 
 decrease <- previous$Geneid[which(previous$Significant=="Down")]
-logCPMs_corrected_decrease <- logCPMs_corrected[which(rownames(logCPMs_corrected) %in% decrease),]
-logCPMs_corrected_decrease <- logCPMs_corrected_decrease[,c(5:6,1:4,7:10)]
-pheatmap::pheatmap(logCPMs_corrected_decrease,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous decrease"))
+logCPMs_decrease <- logCPMs[which(rownames(logCPMs) %in% decrease),]
+logCPMs_decrease <- logCPMs_decrease[,c(5:6,1:4,7:10,11,13,12,14)]
+pheatmap::pheatmap(logCPMs_decrease,annotation = annotation,cluster_rows = T,cluster_cols = F,show_rownames = F,scale="row",main = paste0(antibody," previous decrease"))
 
 to_plot <- logCPMs_corrected_decrease
 to_plot <- melt(to_plot)

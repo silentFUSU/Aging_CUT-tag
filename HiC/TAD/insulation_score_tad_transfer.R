@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(data.table)
-tissue <- "lung"
+tissue <- "CB"
 resolution <- "10000"
 
 tad_format_transfer <- function(tissue,resolution){
@@ -29,3 +29,14 @@ tad_format_transfer <- function(tissue,resolution){
     write.csv(tads,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",sample,"_",resolution,"_tads.csv"),row.names = F)
   }
 }
+
+convert2bedpe <- function(tissue, resolution){
+  search_table <- read.csv("data/samples/all/HiC_search_table.csv")
+  search_table <- search_table[which(search_table$tissue==tissue),]
+  for(sample in search_table$sample_name){
+    df <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",sample,"_",resolution,"_tads.csv"))
+    bedpe <- data.frame(chr1=df$chr,x1=df$start,x2=df$end,
+                        chr2=df$chr,y1=df$start,y2=df$end)
+    write.table(bedpe,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",sample,"_",resolution,"_tads.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
+    }
+  }

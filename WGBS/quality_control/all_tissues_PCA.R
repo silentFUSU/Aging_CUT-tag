@@ -27,6 +27,8 @@ tissue_label_change <- function(tissue){
       tissue_label <- "BAT"
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -70,15 +72,17 @@ all_tissues_PCA <- function(tissues,bin_size){
     geom_point(size=5) +theme_bw()+
     scale_color_manual(values = color) +
     xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+
+    ggtitle(paste0("WGBS"))
+    ggtitle(paste0("compress to ",bin_size," bin")) +
     geom_text_repel(  
       data = to_plot,  
       aes(x = PC1, y = PC2, label = mouse_ID, color = tissue),  
       size = 5,  
       box.padding = unit(0.35, "lines"),  
       point.padding = unit(0.3, "lines")  
-    )+ggtitle(paste0("compress to ",bin_size," bin"))
+    )
   return(p)
 }
 bin_size <- "1kb"
 p <- all_tissues_PCA(tissues,bin_size)
-p <- readRDS("p.rds")
+pca <- readRDS("data/samples/WGBS/1kb_bin_size_PCA.rds")

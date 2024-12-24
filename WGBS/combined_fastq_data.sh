@@ -1,8 +1,8 @@
 add_data_path=/storage/zhangyanxiaoLab/fastq/2024/2024-10-26-Jiangbei-DYQ/
 previous_data_path_list=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/WGBS_data_path.csv
-target_data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241111_combined_WGBS/
-samples=$(find ${add_data_path} -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort)  
-
+target_data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241211_combined_WGBS/
+# samples=$(find ${add_data_path} -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort)  
+samples=(DYQ054 DYQ056 DYQ059 DYQ086 DYQ060 DYQ089 DYQ088 DYQ090 DYQ092 DYQ094 DYQ093 DYQ096 DYQ095 DYQ097 DYQ099 DYQ101 DYQ100 DYQ102 DYQ103 DYQ104 DYQ106 DYQ107 DYQ109 DYQ108 DYQ111 DYQ110 DYQ113 DYQ112 DYQ114 DYQ116 DYQ115)
 cleaned_file=$(mktemp)  
 cat "$previous_data_path_list" | tr -d '\r' | awk '{gsub(/[\x00-\x1F\x7F]+/, ""); print}' > "$cleaned_file"  
 
@@ -20,20 +20,20 @@ do
     f1=${previous_data_path}/${sample}*/*${sample}*_R1*.fastq.gz
     f2=${add_data_path}${sample}/*${sample}*_R1*.fastq.gz
     f3=${target_data_path}${sample}/${sample}_R1.fastq.gz
-    echo 'zcat' ${f1} ${f2} '| gzip -> ' ${f3}
+    echo 'zcat' ${f1} ${f2} '| gzip -c > ' ${f3}
     while [ $(current_jobs) -ge $max_jobs ]; do  
         sleep 1  
     done  
-    zcat ${f1} ${f2} | gzip -> ${f3} &
+    zcat ${f1} ${f2} | gzip -c > ${f3} &
 
     f1=${previous_data_path}/${sample}*/*${sample}*_R2*.fastq.gz
     f2=${add_data_path}${sample}/*${sample}*_R2*.fastq.gz
     f3=${target_data_path}${sample}/${sample}_R2.fastq.gz
-    echo 'zcat' ${f1} ${f2} '| gzip -> ' ${f3}
+    echo 'zcat' ${f1} ${f2} '| gzip -c > ' ${f3}
     while [ $(current_jobs) -ge $max_jobs ]; do  
         sleep 1  
     done  
-    zcat ${f1} ${f2} | gzip -> ${f3} &
+    zcat ${f1} ${f2} | gzip -c > ${f3} &
 done
 
 wait

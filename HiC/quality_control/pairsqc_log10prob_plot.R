@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(stringr)
-tissue <- "lung"
+tissue <- "brain"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -32,7 +32,7 @@ pairsqc_plot <- function(tissue){
   to_plot <- data.frame()
   for(i in c(1:length(search_table$sample_name))){
     sample <- search_table$sample_name[i]    
-    x=read.table(paste0("data/samples/HiC/",tissue,"/4DN_pairs/",sample,"_cis_report/sample.plot_table.out"),sep="\t",stringsAsFactors=F,header=T)
+    x=read.table(paste0("data/samples/HiC/",tissue,"/4DN_pairs/",sample,"_report/sample.plot_table.out"),sep="\t",stringsAsFactors=F,header=T)
     x <- x[,c("distance","log10prob")]
     colnames(x)[2] <- sample
     if(nrow(to_plot)==0){

@@ -5,7 +5,7 @@ tissue=(aorta BAT bladder bonemarrow brain CB cecum colon heart Hip ileum jejunu
 antibodys=(H3K27me3 H3K9me3 H3K36me3)
 for antibody in ${antibodys[@]}
 do 
-    bam=()  
+    bam=() 
     for t in ${tissue[@]}
     do  
         bam+=($(ls ${data_path}${t}/${antibody}/bam/*.bam))  

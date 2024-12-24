@@ -42,7 +42,7 @@ do
     # window_size=5000
     # gap_size=10000
     e_value=100
-    mkdir ${data_path}${tissue}/${antibody}/peaks/
+    mkdir -p ${data_path}${tissue}/${antibody}/peaks/
     sicer  -t ${data_path}${tissue}/${antibody}/tmp.young.merge.bam  -o ${data_path}${tissue}/${antibody}/peaks  -s ${ref} -w ${window_size} -rt 16 -f 300 -egf 0.8 -fdr 0.01 -g ${gap_size} -e ${e_value} -cpu 21 &
     sicer  -t ${data_path}${tissue}/${antibody}/tmp.old.merge.bam  -o ${data_path}${tissue}/${antibody}/peaks  -s ${ref} -w ${window_size} -rt 16 -f 300 -egf 0.8 -fdr 0.01 -g ${gap_size} -e ${e_value} -cpu 21 &
     wait

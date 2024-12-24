@@ -24,7 +24,7 @@ tissue_label_change <- function(tissue){
     }else if(tissue_label == "Mammarygland"){
       tissue_label <- "Mammary Gland"
     }else if(tissue_label == "Iwat"){
-      tissue_label <- "IWAT"
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -60,7 +60,7 @@ for(i in c(1:length(antibodys))){
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
                         "thymus","skin","bladder","bonemarrow","Hip","heart",
                         "muscle","jejunum","uterus","ovary","liver","tongue",
-                        "cecum","colon","testis","stomach","ileum","pancreas")
+                        "cecum","colon","testis","stomach","ileum","pancreas","iWAT")
 search_table_cut <- read.csv("data/samples/all/CUTTag_search_table.csv")
 search_table_atac <- read.csv("data/samples/all/ATAC_search_table.csv")
 search_table <- rbind(search_table_cut,search_table_atac)
@@ -80,7 +80,7 @@ for(tissue in tissues){
   colnames(tissue_tsse)[2] <- "sample_name"
   tissue_tsse <- merge(tissue_tsse,search_table,by="sample_name")
   tissue_tsse$age <- factor(tissue_tsse$age,levels=c("3m","24m"))
-  ggplot(tissue_tsse,aes(x=antibody,y=V3,color = age))+    
+  p <- ggplot(tissue_tsse,aes(x=antibody,y=V3,color = age))+    
     geom_jitter(position = position_jitter(width = 0.2), size = 2, alpha = 0.7)+
     geom_text(aes(label = mouse_ID), position = position_jitter(width = 0.2), vjust = -1, size = 3) +
     scale_fill_brewer(palette="Set3")+
@@ -90,6 +90,6 @@ for(tissue in tissues){
     annotate("text", x = Inf, y = 4.5, label = "tsse=5", color = "blue", vjust = -0.5, hjust = 1.1, size = 5) + 
     ggtitle(paste0(tissue_label_change(tissue)," TSSe"))+ylim(0,20)+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("TSSe")
-  
+  print(p)
   }
 

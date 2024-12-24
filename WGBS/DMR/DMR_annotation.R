@@ -8,7 +8,8 @@ library(ChIPseeker)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-
+library(GenomeInfoDb)
+library("GenomicRanges")
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 

@@ -13,10 +13,12 @@ library(rtracklayer)
 library(Matrix)
 library(csaw)
 library(multiHiCcompare)
+library(HiCcompare)
 library(BiocParallel)
-
-tissue <- "lung"
-resolution <- "50000"
+library(dplyr) 
+library(tidyverse)
+tissue <- "CB"
+resolution <- "1000000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -61,7 +63,7 @@ HiCcompare_input_convert <- function(tissue,resolution){
   hicexp <- make_hicexp(matrix_list[[search_table$sample_name[which(search_table$age=="3M")][1]]],matrix_list[[search_table$sample_name[which(search_table$age=="3M")][2]]],
                         matrix_list[[search_table$sample_name[which(search_table$age=="24M")][1]]],matrix_list[[search_table$sample_name[which(search_table$age=="24M")][2]]],
                         groups =c(0,0,1,1),
-                        zero.p = 0.8, A.min = 5, filter = TRUE)
+                        zero.p = 0.5, A.min = 10, filter = TRUE)
   
   hicexp <- fastlo(hicexp, verbose = T, parallel = FALSE)
   d <- model.matrix(~factor(meta(hicexp)$group))
@@ -85,16 +87,130 @@ HiCcompare_input_convert <- function(tissue,resolution){
     ggtitle(paste0(tissue_label_change(tissue)))+
     annotate("text", x = min(out$logFC), y = max(-log10(out$p.adj)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$logFC), y = max(-log10(out$p.adj)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+  
   dir.create(paste0("result/HiC/",tissue),showWarnings = F)
   dir.create(paste0("result/HiC/",tissue,"/differential_analysis/"),showWarnings = F)
   ggsave(paste0("result/HiC/",tissue,"/differential_analysis/HiCcompare_",resolution,"_VolcanoPlot.png"),p,width = 5,height = 5, type="cairo")
-  saveRDS(hicexp,paste0("data/samples/HiC/",tissue,"/HiCcompare_input_",resolution,".rds"))
-  write.csv(out, paste0("data/samples/HiC/",tissue,"/HiCcompare_output_",resolution,".csv"),row.names = F)
-
+  dir.create(paste0("data/samples/HiC/",tissue,"/differential_analysis/"),showWarnings = F,recursive = T)
+  saveRDS(hicexp,paste0("data/samples/HiC/",tissue,"/differential_analysis/HiCcompare_input_",resolution,".rds"))
+  write.csv(out, paste0("data/samples/HiC/",tissue,"/differential_analysis/HiCcompare_output_",resolution,".csv"),row.names = F)
 }
 
-HiCcompare_compartment_annotation <- function(tissue,resolution){
-  out <- fread(paste0("data/samples/HiC/",tissue,"/HiCcompare_output_",resolution,".csv"), sep = ",")
+HiCcompare_compartment_annotation_larger_resolution <- function(tissue,resolution){
+  out <- fread(paste0("data/samples/HiC/",tissue,"/differential_analysis/HiCcompare_output_",resolution,".csv"), sep = ",")
+  out <- as.data.frame(out)
+  out$chr <- paste0("chr", out$chr)  
+  out$chr[which(out$chr=="chr23")] <- "chrX"
+  out$chr[which(out$chr=="chr24")] <- "chrY"
+  colnames(out)[2:3] <- c("region1_start","region2_start")
+  out$region1_end <- out$region1_start+as.numeric(resolution)
+  out$region2_end <- out$region2_start+as.numeric(resolution)
+  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/WJH-Liver-100_",resolution,"_abs.bed"))
+  valid_chr <- paste0("chr",c(1:19,"X","Y"))
+  bed <- bed[which(bed$V1 %in% valid_chr),]
+  bed$V2 <- bed$V2 + 1
+  bed <- as.data.table(bed)
+  setDT(bed)
+  setkey(bed, V1, V2, V3) 
+  
+  compartment_list <- list()
+  search_table <- read.csv("data/samples/all/HiC_search_table.csv")
+  search_table <- search_table[which(search_table$tissue==tissue),]
+  for(i in c(1:length(search_table$sample_name))){
+    sample <- search_table$sample_name[i]
+    df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_50000.PC1.txt"))
+    df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
+    df <- df[,c(2:4,6)]
+    df$compartment <- ifelse(df[, 4] > 0, "A", "B")
+    df$label <- paste0(df$V2,"-",df$V3,"-",df$V4)
+    compartment_list[[i]] <- df
+    names(compartment_list)[i]<-sample
+  }
+  selected_compartment_list <- lapply(compartment_list, function(df) {  
+    df[, c("label","compartment"), drop = FALSE]
+  }) 
+  compartment <- Reduce(function(x, y) merge(x, y, by = "label"), selected_compartment_list)
+  rows_to_keep <- apply(compartment[, -1], 1, function(row) all(row == row[1])) 
+  compartment <- compartment[rows_to_keep,1:2]
+  colnames(compartment)[2] <- "compartment"
+  compartment <- separate(compartment, col = label, into = c("chr", "start", "end"), sep = "-")  
+  compartment$start <- as.numeric(compartment$start)
+  compartment$end <- as.numeric(compartment$end)
+  compartment$chr <- factor(compartment$chr,levels=valid_chr)
+  comparment <- compartment[order(compartment$chr,compartment$start),]
+  compartment$start <- compartment$start + 1
+  comparment <- as.data.table(compartment)
+  setDT(compartment)
+  setkey(compartment, chr, start, end) 
+  
+  overlaps <- foverlaps(bed,compartment, type = "any", nomatch = 0L)
+  overlaps$label <- paste(overlaps$V1,overlaps$V2,overlaps$V3,sep = "-")
+  group_counts <- overlaps %>%  
+    group_by(label, compartment) %>%  
+    summarise(count = n(), .groups = "drop")  
+  total_counts <- overlaps %>%  
+    group_by(label) %>%  
+    summarise(total = n(), .groups = "drop")  
+  result <- group_counts %>%  
+    inner_join(total_counts, by = "label") %>%  
+    mutate(percentage = count / total * 100) 
+  unique_result <- result %>%  
+    group_by(label) %>%  
+    slice_max(percentage) %>%  
+    ungroup()  
+  processed_result <- unique_result %>%  
+    group_by(label) %>%  
+    mutate(equal_percentage = if_else(n() == 2 & all(percentage == percentage[1]), TRUE, FALSE)) %>%  
+    mutate(compartment = if_else(equal_percentage, "weak alternation region", compartment)) %>%  
+    filter(!(equal_percentage & compartment != "weak alternation region")) %>%  
+    select(-equal_percentage) %>%  
+    slice_max(percentage, with_ties = FALSE) %>%  
+    ungroup()  
+  
+  out$region1_start <- out$region1_start +1 
+  out$region2_start <- out$region2_start +1
+  out$region1_label <- paste(out$chr,out$region1_start,out$region1_end,sep="-")
+  out$region2_label <- paste(out$chr,out$region2_start,out$region2_end,sep="-")
+  out <- merge(out,processed_result[,c("label","compartment")],  by.x = "region1_label", by.y = "label", all.x=T)
+  out <- out %>%  
+    rename(region1_compartment = compartment)  
+  out$region1_compartment[is.na(out$region1_compartment)] <- "Unknown"  
+  
+  out <- merge(out,processed_result[,c("label","compartment")],  by.x = "region2_label", by.y = "label", all.x=T)
+  out <- out %>%  
+    rename(region2_compartment = compartment)  
+  out$region2_compartment[is.na(out$region2_compartment)] <- "Unknown"  
+  out$condition <- paste(out$region1_compartment,out$region2_compartment,sep='-')
+  out$condition[which(out$condition=="B-A")] <- "A-B"
+  out <- out[which(out$condition %in% c("A-A","A-B","B-B")),]
+  
+  conditions <- c("A-A","A-B","B-B")
+  condition_change_percent <- data.frame()
+  for(condition in conditions){
+    t_out <- out[which(out$condition==condition & out$Significant!="Stable"),]  
+    t_condition_change_percent <- as.data.frame(table(t_out$Significant))
+    sum = sum(t_condition_change_percent$Freq)
+    t_condition_change_percent$Freq <- t_condition_change_percent$Freq/sum*100
+    t_condition_change_percent <- data.frame(condition=condition,
+                                             Up=t_condition_change_percent$Freq[which(t_condition_change_percent$Var1=="Up")],
+                                             Down=t_condition_change_percent$Freq[which(t_condition_change_percent$Var1=="Down")])
+    condition_change_percent <- rbind(condition_change_percent,t_condition_change_percent)
+  }
+  to_plot <- reshape2::melt(condition_change_percent)
+  ggplot(to_plot, aes(x = condition, y = value, fill = variable)) +  
+    geom_bar(stat = 'identity',colour = "white") +   
+    theme_minimal() +   
+    scale_fill_brewer(palette = "Pastel1") +
+    theme(axis.title.x = element_blank(), 
+          axis.text.x = element_text(angle = 45, hjust = 1),
+          text = element_text(size = 20),legend.title = element_blank()) +
+    ylab("Proportion")+
+    ggtitle(paste0(tissue_label_change(tissue)),"Compartment Interaction")
+  }
+
+
+HiCcompare_compartment_annotation_same_resolution <- function(tissue,resolution){
+  out <- fread(paste0("data/samples/HiC/",tissue,"/differential_analysis/HiCcompare_output_",resolution,".csv"), sep = ",")
   out <- as.data.frame(out)
   out$chr <- paste0("chr", out$chr)  
   out$chr[which(out$chr=="chr23")] <- "chrX"
@@ -105,7 +221,7 @@ HiCcompare_compartment_annotation <- function(tissue,resolution){
   search_table <- search_table[which(search_table$tissue==tissue),]
   for(i in c(1:length(search_table$sample_name))){
     sample <- search_table$sample_name[i]
-    df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
+    df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_50000.PC1.txt"))
     df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
     df <- df[,c(2:4,6)]
     df$compartment <- ifelse(df[, 4] > 0, "A", "B")
@@ -133,10 +249,7 @@ HiCcompare_compartment_annotation <- function(tissue,resolution){
   selected_out_annotation_list <- lapply(out_annotation_list, function(df) {  
     df[, c("contact","condition"), drop = FALSE]
   })  
-  out_annotation <- selected_out_annotation_list[[1]]
-  for(i in c(2:length(selected_out_annotation_list))){
-    
-  }
+  # out_annotation <- selected_out_annotation_list[[1]]
   out_annotation <- Reduce(function(x, y) merge(x, y, by = "contact"), selected_out_annotation_list)
   rows_to_keep <- apply(out_annotation[, -1], 1, function(row) all(row == row[1]))  
   out_annotation <- out_annotation[rows_to_keep,]

@@ -27,7 +27,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "lung"
+tissue <- "liver"
 resolution <- "10000"
 insulation_redundant_TAD <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
@@ -70,6 +70,18 @@ insulation_redundant_TAD <- function(tissue,resolution){
   redundant_boundary <- redundant_boundary[,-ncol(redundant_boundary)]
   redundant_boundary$label <- paste0(redundant_boundary$chr,":",redundant_boundary$start,"-",redundant_boundary$end)
   redundant_boundary_list <- paste0(redundant_boundary$chr,":",redundant_boundary$start,"-",redundant_boundary$end)
+  bedpe <- data.frame()
+  for(row_num in c(1:(nrow(redundant_boundary)-1))){
+    t_bedpe <- data.frame(chr=redundant_boundary[row_num,1],
+                        start = (redundant_boundary[row_num,2]+redundant_boundary[row_num,3])/2, 
+                        end = (redundant_boundary[row_num+1,2]+redundant_boundary[row_num+1,3])/2)
+    bedpe <- rbind(bedpe,t_bedpe)  
+  }
+      
+
+  bedpe <- data.frame(chr1=bedpe$chr, x1=bedpe$start, x2=bedpe$end, 
+                      chr2=bedpe$chr, y1=bedpe$start, y2=bedpe$end)
+  write.table(bedpe,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/all_samples_",resolution,"_redundant_tads.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
   }
 redundant_boundary_list <- insulation_redundant_TAD(tissue,resolution)
 
@@ -78,7 +90,7 @@ boundary_strength_caculate <- function(tissue,resolution){
   search_table <- search_table[which(search_table$tissue==tissue),]
   boundary_strength <- list()
   for(sample in search_table$sample_name){
-    boundary <- read.table(paste0("data/samples/HiC/lung/TAD/insulation_score/",sample,"/",sample,"_",resolution,"_dense.is500001.ids200001.insulation"))  
+    boundary <- read.table(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",sample,"/",sample,"_",resolution,"_dense.is500001.ids200001.insulation"))  
     boundary <- boundary[,c(1,9)]
     boundary <- boundary %>%  
       separate(V1, into = c("bin", "org", "pos"), sep = "\\|") %>%  

@@ -1,3 +1,9 @@
+samples=(DYQ123 DYQ124 DYQ125 DYQ126)
+for sample in ${samples[@]}
+do 
+    ln -s /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241128_DYQ_CUTTAG/bam/${sample}*.bam /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/thymus_cut_tag_test/H3K36me3/bam/${sample}.nodup.bam
+    ln -s /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241128_DYQ_CUTTAG/bam/${sample}*.bam.bai /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/thymus_cut_tag_test/H3K36me3/bam/${sample}.nodup.bam.bai
+done
 files=$(ls /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/thymus_cut_tag_test/H3K36me3/bam/*.bam)
 featureCounts -p -a /storage/zhangyanxiaoLab/suzhuojie/ref_data/mm10_10kb_bins.saf -o /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/thymus_cut_tag_test/H3K36me3/10kb_bins.counts ${files} -F SAF -T 8 
 files=$(ls /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/thymus_cut_tag_test/H3K4me3/bam/*.bam)
