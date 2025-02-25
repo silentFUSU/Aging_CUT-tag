@@ -1,7 +1,7 @@
-raw_data=/storage/zhangyanxiaoLab/fastq/2024/2024-12-16-Jiangbei-YuLab/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20241221_WJH_HiC/
+raw_data=/storage/zhangyanxiaoLab/fastq/2025/2025-01-27-Jiangbei-YuLab/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250127_WJH_HiC/
 # samples=(Cecum-103 Cecum-106 Cecum-109 WJH-Ileum-100 WJH-Ileum-103 WJH-Ileum-106 WJH-ileum-112 WJH-pancreas-107 WJH-pancreas-108 WJH-pancreas-98  WJH-thymus-230 WJH-thymus-240 WJH-thymus-241 WJH-thymus-245)
-samples=(Cecum-100)
+samples=(WJH-mammary_gland-223 WJH-mammary_gland-222 WJH-mammary_gland-203 WJH-mammary_gland-202 WJH-ileum-108 WJH-hippocampus-98 WJH-hippocampus-113 WJH-hippocampus-97 WJH-hippocampus-107 WJH-Cecum-108  WJH-Cecum-96)
 mkdir -p ${target_path}
 mkdir -p ${target_path}fastq/
 for sample in ${samples[@]}
@@ -10,8 +10,8 @@ do
     mkdir ${target_path}fastq/${sample}
     ln -s ${raw_data}${sample}*/*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
     ln -s ${raw_data}${sample}*/*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
-    # ln -s ${raw_data}*${sample}*.1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
-    # ln -s ${raw_data}*${sample}*.2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
+    # ln -s ${raw_data}*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    # ln -s ${raw_data}*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
     # mkdir ${target_path}${sample}
     # mkdir ${target_path}${sample}/fastq
     # ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}${sample}/fastq/${sample}_R1.fastq.gz

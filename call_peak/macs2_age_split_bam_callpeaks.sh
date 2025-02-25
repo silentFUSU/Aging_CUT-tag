@@ -1,4 +1,4 @@
-antibodys=(H3K27ac H3K4me1 H3K4me3 ATAC)
+antibodys=(H3K27ac H3K4me1 H3K4me3)
 # antibodys=(ATAC)
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 tissue=$1
@@ -7,55 +7,32 @@ for antibody in ${antibodys[@]}
 do 
     if [ $antibody = "ATAC" ]; then
         data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/
+        search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/ATAC_search_table_batch.csv
     else
-        data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ 
+        data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
+        search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/CUTTag_search_table_used_in_diff.csv 
     fi
-    bam=($(ls ${data_path}${tissue}/${antibody}/bam/*.bam))
-    declare -a young
-    declare -a old
+    cleaned_file=$(mktemp)  
+    cat "$search_table" | tr -d '\r' | awk '{gsub(/[\x00-\x1F\x7F]+/, ""); print}' > "$cleaned_file"  
+    samples=$(awk -F',' -v t="$tissue" -v y="3m" -v a="$antibody" 'NR > 1 && ($1 == t) && ($5 == y) && ($2 == a) {print $3}' "$cleaned_file")
+    IFS=$'\n' read -rd '' -a young_array <<<"$samples"  
+    echo ${young_array[@]}
     young=()
-    old=()
-    if [[ $tissue = "brain" && $antibody = "ATAC" ]]; then
-        young+=("${bam[0]}")
-        young+=("${bam[1]}")
-        old+=("${bam[2]}")
-        old+=("${bam[3]}")
-    elif [ $tissue = "ovary" ]; then
-        old+=("${bam[0]}")
-        old+=("${bam[2]}")
-        young+=("${bam[1]}")
-        young+=("${bam[3]}")   
-    elif [ $tissue = "lung" ]; then
-        if [ $antibody = "ATAC" ]; then
-            young+=("${bam[0]}")
-            old+=("${bam[1]}")
-            young+=("${bam[2]}")
-            old+=("${bam[3]}")
-            young+=("${bam[4]}")
-            old+=("${bam[5]}")
-        else
-            young+=("${bam[0]}")
-            young+=("${bam[2]}")
-            old+=("${bam[1]}")
-            old+=("${bam[3]}")
-            old+=("${bam[4]}")
-        fi
-    elif [ $tissue = "BAT" ]; then
-        young+=("${bam[0]}")
-        old+=("${bam[1]}")
-        young+=("${bam[2]}")
-        old+=("${bam[3]}")   
-        young+=("${bam[4]}")
-        young+=("${bam[5]}")     
-        old+=("${bam[6]}")
-        old+=("${bam[7]}")
-    else
-        young+=("${bam[0]}")
-        young+=("${bam[2]}")
-        old+=("${bam[1]}")
-        old+=("${bam[3]}")
-    fi
+    for sample in ${young_array[@]}
+    do
+       file=$(ls ${data_path}${tissue}/${antibody}/bam/${sample}*.bam)
+       young+=("$file")
+    done
     echo ${young[@]}
+    samples=$(awk -F',' -v t="$tissue" -v y="24m" -v a="$antibody" 'NR > 1 && ($1 == t) && ($5 == y) && ($2 == a) {print $3}' "$cleaned_file")
+    IFS=$'\n' read -rd '' -a old_array <<<"$samples"
+    echo ${old_array[@]}
+    old=()
+    for sample in ${old_array[@]}
+    do
+       file=$(ls ${data_path}${tissue}/${antibody}/bam/${sample}*.bam)
+       old+=("$file")
+    done
     echo ${old[@]}
     echo "samtools merge -f -o ${data_path}${tissue}/${antibody}/tmp.young.merge.bam ${young[@]} -@ 16"
     echo "samtools merge -f -o ${data_path}${tissue}/${antibody}/tmp.old.merge.bam ${old[@]} -@ 16"

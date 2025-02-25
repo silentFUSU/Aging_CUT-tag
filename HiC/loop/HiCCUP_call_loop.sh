@@ -1,6 +1,6 @@
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
 tissue=$1
-resolution=10000
+resolution=$2
 juiceDir=/storage/zhangyanxiaoLab/suzhuojie/software/juicer/
 mkdir -p ${data_path}${tissue}/loop/
 mkdir -p ${data_path}${tissue}/loop/HiCCUPS
@@ -11,11 +11,11 @@ chromosomes=(chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr1
 
 for sample in ${samples_for_tissue[@]}
 do
-    mkdir -p ${data_path}${tissue}/loop/HiCCUPS/${sample}
+    mkdir -p ${data_path}${tissue}/loop/HiCCUPS/${sample}_${resolution}
     juicer_file=${data_path}${tissue}/juicer/${sample}.allValidPairs.hic
     for chr in ${chromosomes[@]}
     do
-        mkdir -p ${data_path}${tissue}/loop/HiCCUPS/${sample}/${chr}
-        ${juiceDir}/scripts/common/juicer_tools hiccups --cpu -r ${resolution} -k ${method} -f 0.1 -p 2 -i 8 -t 0.02,1.5,1.75,2 -d 40000 -c ${chr} ${juicer_file} ${data_path}${tissue}/loop/HiCCUPS/${sample}/${chr}
+        mkdir -p ${data_path}${tissue}/loop/HiCCUPS/${sample}_${resolution}/${chr}
+        ${juiceDir}/scripts/common/juicer_tools hiccups --cpu -r ${resolution} -k ${method} -f 0.1 -p 2 -i 8 -t 0.02,1.5,1.75,2 -d 40000 -c ${chr} ${juicer_file} ${data_path}${tissue}/loop/HiCCUPS/${sample}_${resolution}/${chr}
     done
 done

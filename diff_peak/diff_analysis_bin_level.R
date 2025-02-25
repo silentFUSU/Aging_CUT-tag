@@ -67,7 +67,7 @@ peak_preprocess_bin_level <- function(tissue,antibody){
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
-  lrt = glmLRT(fit_tag, coef = 2)
+  lrt = glmLRT(fit_tag, coef = which(colnames(design) == "yearold"))
   tab<-tab[keep,]
   
   out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion),

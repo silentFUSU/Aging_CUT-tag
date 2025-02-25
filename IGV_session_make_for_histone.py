@@ -30,4 +30,14 @@ for antibody in antibodys:
         f.write('  </Resources>\n')
         f.write('</Session>\n')
 
-        
+outfile = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/IGV_session/summarizing_IGV_session/H3K9me3_H3K4me3.xml'
+with open(outfile,'w') as f:
+    f.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?> <Session genome="'+genome+'" hasGeneTrack="true" hasSequenceTrack="true" version="8">\n')
+    f.write('  <Resources>\n')
+    for tissue in tissues:
+        for sfile in sorted(glob.glob(tissue+"/H3K9me3/bw/*bs1000.bw")):
+            f.write('    <Resource path="'+baseurl+"/" + sfile + '"/>\n')
+        for sfile in sorted(glob.glob(tissue+"/H3K4me3/bw/*.nodup.bw")):
+            f.write('    <Resource path="'+baseurl+"/" + sfile + '"/>\n')
+    f.write('  </Resources>\n')
+    f.write('</Session>\n')

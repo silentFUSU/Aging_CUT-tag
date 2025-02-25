@@ -45,7 +45,7 @@ p <- ggplot(data, aes(x = tmp)) +
   theme_bw() +
   ggtitle(tissue)
 
-ggsave(filename = paste0("data/samples/HiC/",tissue,"/differential_analysis/Wang_diff_analysis_pvalue_check.png"), plot = p, width = 3.5, height = 3,type="cairo",create.dir = T)  
+ggsave(filename = paste0("data/samples/HiC/",tissue,"/differential_analysis/Wang_diff_analysis_pvalue_check_",resolution,".png"), plot = p, width = 3.5, height = 3,type="cairo",create.dir = T)  
 
 size1 <- nrow(data)  
 data_f1 <- data[abs(data[,4]) > abs(data[,5]) & abs(data[,4]) > abs(data[,6]), ]  

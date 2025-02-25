@@ -13,9 +13,14 @@ import cooltools
 import bioframe
 import h5py 
 import os  
+import argparse  
+parser = argparse.ArgumentParser(description='Process some integers.')  
+parser.add_argument('-t', '--tissue', type=str, required=True, help='The type of tissue, e.g., kidney')  
+parser.add_argument('-r', '--resolution', type=str, required=True, help='The resolution, e.g., 50000')
+args = parser.parse_args()  
+tissue = args.tissue  
+resolution = args.resolution 
 mm10_genome = bioframe.load_fasta('/storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/mm10/mm10.fa')
-tissue = "brain"
-resolution = "50000"
 search_table = pd.read_csv("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv") 
 search_table = search_table[search_table['tissue'] == tissue]  
 sample_names = search_table['sample_name'].tolist()  
@@ -36,13 +41,18 @@ for sample in sample_names:
                                 'end': clr.chromsizes.values,
                                 'name': clr.chromnames}
                         )
-        cis_eigs = cooltools.eigs_cis(
-                                clr,
-                                gc_cov,
-                                view_df=view_df,
-                                n_eigs=3,
-                                clr_weight_name='SCALE_mult')
-        eigenvector_track = cis_eigs[1][['chrom','start','end','E1']]
+        # cis_eigs = cooltools.eigs_cis(
+        #                         clr,
+        #                         gc_cov,
+        #                         view_df=view_df,
+        #                         n_eigs=3,
+        #                         clr_weight_name='SCALE_mult')
+        # eigenvector_track = cis_eigs[1][['chrom','start','end','E1']]
+        # eigenvector_track = eigenvector_track.dropna(subset=['E1'])
+        
+        eigenvector_track = pd.read_csv('/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/'+tissue+'/compartment/homer_compartment/PC1/'+sample+'_'+resolution+'.PC1.bedGraph', sep='\t', header=None, names=['chrom', 'start', 'end', 'E1'], skiprows=1) 
+        valid_chromosomes = [f'chr{i}' for i in range(1, 20)] + ['chrX'] 
+        eigenvector_track = eigenvector_track[eigenvector_track['chrom'].isin(valid_chromosomes)] 
         cvd = cooltools.expected_cis(
                 clr=clr,
                 view_df=view_df,
@@ -67,11 +77,11 @@ for sample in sample_names:
                 qrange=(Q_LO,Q_HI),
                 cbar_kws={'label':'average observed/expected contact frequency'}
                 );
-        plt.savefig("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/HiC/"+tissue+"/compartment/cooler_compartment_saddle_"+sample+".png", dpi=300)
+        plt.savefig("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/HiC/"+tissue+"/compartment/cooler_compartment_saddle_"+sample+"_homer.png", dpi=300)
         plt.close()
         interaction_sum_count = pd.DataFrame(interaction_sum/interaction_count)
         os.makedirs("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/"+tissue+"/compartment/cooler/", exist_ok=True)  
-        interaction_sum_count.to_csv("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/"+tissue+"/compartment/cooler/"+sample+"interaction_sum_count.csv",index = False)
+        interaction_sum_count.to_csv("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/"+tissue+"/compartment/cooler/"+sample+"interaction_sum_count_homer.csv",index = False)
 # f, ax = plt.subplots(figsize=(15, 10))  
 
 # norm = LogNorm(vmin=0.1,vmax=1)  

@@ -6,7 +6,7 @@ library(ggplot2)
 library(tidyverse)  
 
 options(scipen = 999)  
-tissue <- "brain"
+tissue <- "thymus"
 resolution <- "50000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -43,8 +43,9 @@ compartment_cluster <- function(tissue,resolution){
     }else{
       df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
     }
-    df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
-    # df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X")))),]
+    # df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
+    # df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
+    df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X")))),]
     df <- df[,c(1,6)]
     colnames(df)[2] <- sample
     if(nrow(to_plot)==0){
@@ -55,9 +56,18 @@ compartment_cluster <- function(tissue,resolution){
   }
   rownames(to_plot) <- to_plot$V1
   to_plot <- to_plot[,-1]
-  pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,main = "homer compartment PC1")
+  search_table$age <- factor(search_table$age,levels=c("3M","24M"))
+  annotation_col <- search_table[,c("sample_name","age")]
+  rownames(annotation_col) <- annotation_col$sample_name
+  annotation_col <- annotation_col[,"age",drop=F]
+  p <- pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,main = paste(tissue_label_change(tissue),"homer compartment PC1"),annotation_col = annotation_col)
+  print(p)
   }
-
+tissues <- c("CB","liver","brain","lung","kidney","colon")
+tissues <- c("bonemarrow","heart","stomach")
+for(tissue in tissues){
+  compartment_cluster(tissue,resolution)
+}
 
 
 compartment_change <- function(tissue,resolution){
@@ -77,7 +87,7 @@ compartment_change <- function(tissue,resolution){
       }else{
         df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
       }
-      df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
+      df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X")))),]
       df <- df[,c(1,6)]
       df$compartmeent <- ifelse(df[, 2] > 0, "A", "B")
       colnames(df)[3] <- sample
@@ -106,7 +116,7 @@ compartment_change <- function(tissue,resolution){
   to_plot$Label <- paste0(to_plot$Var1, " (", round(to_plot$Percentage, 1), "%)")
   colors <- read.table("data/samples/7_distinct_color.txt")
   colors <-setNames(colors$V1,to_plot$Label)
-  ggplot(to_plot, aes(x = "", y = Freq, fill = Label)) +  
+  p <- ggplot(to_plot, aes(x = "", y = Freq, fill = Label)) +  
     geom_bar(width = 1, stat = "identity", color = "white") +  
     scale_fill_manual(values = colors)+
     coord_polar("y", start = 0) +  
@@ -114,10 +124,13 @@ compartment_change <- function(tissue,resolution){
     labs(fill = NULL) +  
     ggtitle(paste0(tissue_label_change(tissue))) + 
     theme(legend.position = "right",plot.title = element_text(hjust = 0.5),text = element_text(size = 16))
-  
+  ggsave(paste0("result/HiC/",tissue,"/compartment/",tissue,"_homer_compartment_change.png"),p,width = 5,height = 4,type="cairo")
   merged_data <- merged_data %>% separate(V1, into = c("chr", "start"), sep = "-")  
   merged_data$start <- as.numeric(merged_data$start)
   merged_data$end <- merged_data$start + as.numeric(resolution)
   merged_data <- merged_data[,c("chr", "start", "end", "young", "old", "condition")]  
   write.csv(merged_data, paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_",resolution,".csv"),row.names = F)
+}
+for(tissue in tissues){
+  compartment_change(tissue,resolution)
 }

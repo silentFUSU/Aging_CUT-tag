@@ -50,6 +50,7 @@ all_tissues_PCA <- function(tissues,bin_size){
   df <- df[,-1]
   df <- na.omit(df) 
   pca <- prcomp(t(df))
+  saveRDS(pca,"data/samples/WGBS/1kb_bin_size_PCA.rds")
   to_plot <- data.frame(pca$x)
   to_plot$sample_name <- rownames(to_plot)
   to_plot <- merge(to_plot,search_table,by="sample_name")
@@ -85,4 +86,7 @@ all_tissues_PCA <- function(tissues,bin_size){
 }
 bin_size <- "1kb"
 p <- all_tissues_PCA(tissues,bin_size)
-pca <- readRDS("data/samples/WGBS/1kb_bin_size_PCA.rds")
+p <- readRDS("data/samples/WGBS/1kb_bin_size_PCA_plot.rds")
+ggsave("result/WGBS/all_tissue_PCA.png",p,width = 11,height = 8,type="cairo")
+# saveRDS(p,"data/samples/WGBS/1kb_bin_size_PCA_plot.rds")
+

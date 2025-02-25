@@ -3,7 +3,7 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
-
+library(stringr)
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 tissue_label_change <- function(tissue){
@@ -28,7 +28,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 summary <- data.frame()
-gene <- "Suv39h2"
+gene <- "Lmnb1"
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
   df <- df[which(df$X==gene),]

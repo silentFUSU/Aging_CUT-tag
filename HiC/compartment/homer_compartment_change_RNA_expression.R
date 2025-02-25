@@ -29,7 +29,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "CB"
+tissue <- "lung"
 resolution <- "50000"
 RNA_in_compartment <- function(tissue,resolution){
   RNA <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"),row.names = 1)
@@ -54,12 +54,17 @@ RNA_in_compartment <- function(tissue,resolution){
   overlaps <- foverlaps(RNA, compartment, type = "any", nomatch = 0L)  
   overlaps <- as.data.frame(overlaps)
   overlaps$condition <- factor(overlaps$condition,levels = c("A-A","B-B","A-B","B-A"))
-  ggplot(overlaps, aes(x = condition, y = logFC, fill=condition)) +  
+  p <- ggplot(overlaps, aes(x = condition, y = logFC, fill=condition)) +  
     geom_boxplot() +
     # scale_fill_manual(values = colours) +
     coord_flip() +
     theme_minimal()+
     theme(text = element_text(size = 20),legend.position = "none")+
     ylab("log2(Fold change)") +
-    xlab(NULL)
+    xlab(NULL)+
+    ggtitle(tissue_label_change(tissue))
+  print(p)
+}
+for(tissue in c("lung","liver","CB","brain")){
+    RNA_in_compartment(tissue,resolution)
 }

@@ -27,7 +27,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "liver"
+tissue <- "kidney"
 resolution <- "10000"
 insulation_redundant_TAD <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
@@ -68,6 +68,7 @@ insulation_redundant_TAD <- function(tissue,resolution){
     i=j
   }
   redundant_boundary <- redundant_boundary[,-ncol(redundant_boundary)]
+  write.csv(redundant_boundary,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD.csv"),row.names = F)
   redundant_boundary$label <- paste0(redundant_boundary$chr,":",redundant_boundary$start,"-",redundant_boundary$end)
   redundant_boundary_list <- paste0(redundant_boundary$chr,":",redundant_boundary$start,"-",redundant_boundary$end)
   bedpe <- data.frame()
@@ -83,7 +84,12 @@ insulation_redundant_TAD <- function(tissue,resolution){
                       chr2=bedpe$chr, y1=bedpe$start, y2=bedpe$end)
   write.table(bedpe,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/all_samples_",resolution,"_redundant_tads.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
   }
-redundant_boundary_list <- insulation_redundant_TAD(tissue,resolution)
+tissues <- c("kidney","brain","CB","liver","colon")
+tissues <- c("stomach","heart","bonemarrow")
+for(tissue in tissues){
+  insulation_redundant_TAD(tissue,resolution)
+}
+
 
 boundary_strength_caculate <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")

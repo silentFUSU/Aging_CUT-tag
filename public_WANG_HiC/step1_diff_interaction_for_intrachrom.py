@@ -11,17 +11,30 @@
 #note: if you have 2 replicates for two states, you need to have 4 output files to do STEP 2.
 #note: we have mark the positions where we need to set again using "##**##".
 
-
-sample = 'G2'
+import numpy as np
+import gzip  
+import os  
+import pandas as pd  
+import argparse 
+parser = argparse.ArgumentParser(description='Process tissue and resolution.')  
+parser.add_argument('-s', '--sample', type=str, required=True, help='sample label')  
+parser.add_argument('-r', '--resolution', type=str, required=True, help='Resolution value')  
+args = parser.parse_args()  
+sample = args.sample
+resolution = args.resolution  
+print(f'sample: {sample}')  
+print(f'Resolution: {resolution}')  
 
 def combine_mean_var(u1,u2,v1,v2,n1,n2):
     u3 = 1.0/(n1+n2)*(n1*u1+n2*u2)
     v3 = 1.0/(n1+n2)*(n1*(v1+u1**2-u3**2)+n2*(v2+u2**2-u3**2))
     return u3,v3
-import numpy as np
+
 #####deal with chrom 1:22
 data_path="/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/WANG_cellular_aging_HiC/dense_matrix/"+sample+"/"
-resolution="200000"
+
+
+
 for i in range(1,23):##**##chromosome number you used
     data = np.loadtxt(data_path+'/raw/'+sample+'_'+resolution+'_chr'+str(i)+'_dense.matrix') ##**##matrix path and name
     zero_row = np.sum(data,axis = 0)==0

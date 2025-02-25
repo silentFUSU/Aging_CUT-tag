@@ -17,7 +17,7 @@ library(HiCcompare)
 library(BiocParallel)
 library(dplyr) 
 library(tidyverse)
-tissue <- "CB"
+tissue <- "brain"
 resolution <- "1000000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -105,7 +105,7 @@ HiCcompare_compartment_annotation_larger_resolution <- function(tissue,resolutio
   colnames(out)[2:3] <- c("region1_start","region2_start")
   out$region1_end <- out$region1_start+as.numeric(resolution)
   out$region2_end <- out$region2_start+as.numeric(resolution)
-  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/WJH-Liver-100_",resolution,"_abs.bed"))
+  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/DYQ135_",resolution,"_abs.bed"))
   valid_chr <- paste0("chr",c(1:19,"X","Y"))
   bed <- bed[which(bed$V1 %in% valid_chr),]
   bed$V2 <- bed$V2 + 1

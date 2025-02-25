@@ -4,9 +4,8 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(data.table)
-tissue <- "CB"
+tissue <- "thymus"
 resolution <- "10000"
-
 tad_format_transfer <- function(tissue,resolution){
   chromosomes <- c(paste0("chr",c(1:19,"X","Y")))
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
@@ -29,6 +28,11 @@ tad_format_transfer <- function(tissue,resolution){
     write.csv(tads,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",sample,"_",resolution,"_tads.csv"),row.names = F)
   }
 }
+# tissues <- c("colon","kidney","liver","lung","CB","brain")
+tissues <- c("bonemarrow","stomach","heart")
+for(tissue in tissues){
+  tad_format_transfer(tissue,resolution)
+}
 
 convert2bedpe <- function(tissue, resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
@@ -39,4 +43,7 @@ convert2bedpe <- function(tissue, resolution){
                         chr2=df$chr,y1=df$start,y2=df$end)
     write.table(bedpe,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",sample,"_",resolution,"_tads.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
     }
-  }
+}
+for(tissue in tissues){
+  convert2bedpe(tissue,resolution)
+}

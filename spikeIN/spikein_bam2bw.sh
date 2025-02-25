@@ -1,6 +1,6 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data/20241122_LLX_CUTTAG/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250218_LLX_Chip/
 # samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/.nodup.bw$//'  | sort) 
-samples=(LLX836 LLX837 LLX838 LLX839 LLX840 LLX841)
+samples=(LLX923 LLX924)
 for sample in ${samples[@]}
 do 
     sf=$(grep $sample ${data_path}all_sample.qc.txt |cut -f 8)

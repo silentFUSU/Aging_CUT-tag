@@ -5,7 +5,7 @@ set.seed(1)
 library(edgeR)
 library(ggplot2)
 library(stringr)
-tissue <- "FC"
+tissue <- "Hip"
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
   rownames(tab) <- tab$Geneid
@@ -42,9 +42,9 @@ diff_expression_analysis <- function(tissue){
   out$Significant <- ifelse(out$fdr< 0.05 & abs(out$logFC) >= 0, 
                             ifelse(out$logFC > 0, "Up", "Down"), "Stable")
   write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
-  # write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene_nodup.csv"))
+  # write.csv(out,paste0("data/samples/RNA/DEG_list/",tissue,"_diff_expression_gene.csv"))
 }
-tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","ovary","mammarygland","pancreas")
+tissues <- c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","brain","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","ovary","mammarygland","pancreas")
 for(tissue in tissues){
   diff_expression_analysis(tissue)
 }

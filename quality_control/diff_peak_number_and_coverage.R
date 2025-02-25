@@ -52,7 +52,7 @@ for(i in c(1:length(tissues))){
       bin_size <- "1kb"
       peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_1kb_in_young_old_merge_macs_narrowpeak.bed"))
     }
-    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
+    diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff.csv"))
     diff_in_peaks <- diff[which(paste(diff$Chr,diff$Start,diff$End,sep = "-") %in% paste(peaks[,1],peaks[,2],peaks[,3],sep = "-")),]
     sig <- data.frame(Var1=c("Up","Stable","Down"),Freq=c(0,0,0))
     t_sig<-as.data.frame(table(diff$Significant))
@@ -75,7 +75,7 @@ for(i in c(1:length(tissues))){
   }
 }
 
-write.csv(diff_peak_number,"data/samples/all/diff_bins_number_remove_batch_effect.csv",row.names = F)
+write.csv(diff_peak_number,"data/samples/all/diff_bins_number.csv",row.names = F)
 # write.csv(diff_peak_percent,"data/samples/all/diff_bins_percent.csv",row.names = F)
 # write.csv(diff_peak_coverage,"data/samples/all/diff_bins_coverage.csv",row.names = F)
 
@@ -111,7 +111,7 @@ for(condition in conditions){
         ) +
         scale_fill_manual(values = color) +
         theme(legend.position = "none") + 
-        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = -0.2, size = 3) + xlim(0,100000)
+        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,100000)
     }else{
       p_list[[i]] <-  ggplot(df,mapping = aes(x=Freq,y=tissue_label,fill = tissue_label))+
         geom_bar(stat = "identity", position = position_dodge2())+
@@ -126,7 +126,7 @@ for(condition in conditions){
           legend.position = "none"  
         ) + scale_fill_manual(values = color) +    
         theme(axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(),legend.position = "none") +   
-        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = -0.2, size = 3) + xlim(0,100000)
+        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,100000)
     }
   }
   combined_plot <- arrangeGrob(  
@@ -136,6 +136,6 @@ for(condition in conditions){
     top = textGrob(paste0(condition," bin number"), gp = gpar(fontsize = 15, fontface = "bold"))  
   )  
   grid.draw(combined_plot) 
-  ggsave(paste0("result/all/diff/all_tissues_",condition,"_bin_number_remove_batch_effect.png"), plot = combined_plot, width = 18, height = 6,type="cairo")  
+  ggsave(paste0("result/all/diff/all_tissues_",condition,"_bin_number.png"), plot = combined_plot, width = 18, height = 6,type="cairo")  
 }
 

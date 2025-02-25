@@ -15,8 +15,8 @@
 sample1 = 'G'##**##state 1
 sample2 = 'DS'##**##state 2
 path1 = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/WANG_cellular_aging_HiC/mean_variance/' ##**##basic path
-resolution="200000"
-local = 200#(5M/20k) ##**##the max distance(/bin) to calculate . This is depend on matrix resolution and sequencing depth (40M/200k)
+resolution="20000"
+local = 300#(6M/20k) ##**##the max distance(/bin) to calculate . This is depend on matrix resolution and sequencing depth (40M/200k)
 minc = 10#(mini counts) ##**## sum of count for one interaction less than this num will be ignored
 import numpy as np
 import math

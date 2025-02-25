@@ -19,16 +19,16 @@ do
     done
 done
 
-# for tissue in ${tissues[@]}
-# do
-#     for antibody in ${antibodys[@]}
-#     do
-#         bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
-#             -b ${data_path}${tissue}/${antibody}/bed/${antibody}_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed
-#         bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
-#             -b ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed
-#     done
-# done
+for tissue in ${tissues[@]}
+do
+    for antibody in ${antibodys[@]}
+    do
+        # bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+        #     -b ${data_path}${tissue}/${antibody}/bed/${antibody}_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed
+        bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+            -b ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed
+    done
+done
 
 
 antibodys=(H3K27ac H3K4me1 H3K4me3)
@@ -37,8 +37,32 @@ for tissue in ${tissues[@]}
 do
     for antibody in ${antibodys[@]}
     do
+        # bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+        #     -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_young_old_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_old_merge_macs_narrowpeak.bed
+    done
+done
+
+bin_size=1kb
+for tissue in ${tissues[@]}
+do
+    for antibody in ${antibodys[@]}
+    do
+        # bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+        #     -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_young_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_merge_macs_narrowpeak.bed
         bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
-            -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_young_old_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_old_merge_macs_narrowpeak.bed
+            -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_old_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_old_merge_macs_narrowpeak.bed
+    done
+done
+
+
+for tissue in ${tissues[@]}
+do
+    for antibody in ${antibodys[@]}
+    do
+        bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+            -b ${data_path}${tissue}/${antibody}/bed/${antibody}_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_merge-W${window_size}-G${gap_size}-E${e_value}.bed
+        # bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+        #     -b ${data_path}${tissue}/${antibody}/bed/${antibody}_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed
     done
 done
 

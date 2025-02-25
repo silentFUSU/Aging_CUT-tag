@@ -19,9 +19,9 @@ for antibody in antibodys:
     outfile = "{}all/tsse/{}/tsse.txt".format(result_path,antibody)
     for tissue in tissues:
         if antibody == 'ATAC':
-            glob_path = "{}samples/ATAC/{}/{}/bam/*.bam".format(data_path,tissue,antibody)
+            glob_path = "{}samples/ATAC/{}/{}/bam/LLX90*.bam".format(data_path,tissue,antibody)
         else:
-            glob_path = "{}samples/{}/{}/bam/LLX*.bam".format(data_path,tissue,antibody)
+            glob_path = "{}samples/{}/{}/bam/LLX90*.bam".format(data_path,tissue,antibody)
         for f in glob.glob(glob_path):
             f_name = f.rsplit('/',1)[-1].split('.')[0]
             input_fragment_file="{}all/tsse/{}/{}_{}.tsv".format(result_path,antibody,tissue,f_name)

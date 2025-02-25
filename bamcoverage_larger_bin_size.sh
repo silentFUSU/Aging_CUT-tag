@@ -2,14 +2,14 @@ data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 # tissues=(brain liver kidney colon testis)
 # tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow)
-tissues=(pancreas)
+tissues=(skin)
 antibodys=(H3K36me3 H3K27me3 H3K9me3)
 ref=mm10
 for tissue in ${tissues[@]}
 do
     for antibody in ${antibodys[@]}
     do 
-        samples=$(find ${data_path}${tissue}/${antibody}/bam/ -name "LLX86*.bam" -exec basename {} \; | sed 's/\..*//')
+        samples=$(find ${data_path}${tissue}/${antibody}/bam/ -name "LLX91*.bam" -exec basename {} \; | sed 's/\..*//')
         binsize=1000
         smoothLength=3000
         for sample in ${samples[@]}

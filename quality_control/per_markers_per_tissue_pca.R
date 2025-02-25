@@ -117,8 +117,8 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
     pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
     colnames(tab)[7:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[7:length(tab)])
     counts <- tab[7:length(tab)]
-    if(antibody == "ATAC"){
-      counts <- counts[,c(1:4)]
+    if(tissue == "iWAT"){
+      counts <- counts[, !grepl("^CKJ", names(counts))]  
     }
     search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
     # search_table <- search_table[which(search_table$mouse_ID != "110"),]
@@ -131,7 +131,7 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
     y = y[keep,]
     logCPMs <- cpm(y, log = TRUE)
     # batch=c("batch1","batch1","batch2","batch2","batch3","batch3","batch4","batch4")
-    batch=c("batch1","batch1","batch2","batch2")
+    batch=c("batch1","batch1","batch2","batch2","batch3","batch3")
     logCPMs_corrected <- limma::removeBatchEffect(logCPMs, batch = batch)
     pca <- prcomp(t(logCPMs_corrected))
     to_plot <- data.frame(pca$x, age = paste0(y$samples$group))
@@ -141,7 +141,7 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
     labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
     table <- search_table[which(search_table$sample_name  %in% to_plot$rownames),c(3:5)]
     to_plot$rownames <- paste0(table$sample_name,"-",table$mouse_ID,"-",table$age)
-    
+    to_plot$age <- factor(to_plot$age,levels=c("3m","24m"))
     p_list[[i]] <-
       ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) + 
       geom_point(size=5) +theme_bw()+

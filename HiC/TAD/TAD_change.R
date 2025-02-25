@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 options(scipen = 999)  
-tissue <- "CB"
+tissue <- "thymus"
 resolution <- "10000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -110,10 +110,17 @@ insulation_score <- function(tissue,resolution){
   tad_summary$age <- factor(tad_summary$age,levels=c("young","old"))
   color <- read.table("data/samples/7_distinct_color.txt")
   color <- setNames(color$V1[c(1,3)],c("young","old"))
-  ggplot(tad_summary,aes(x=age,y=counts,color = age))+    
+  p<- ggplot(tad_summary,aes(x=age,y=counts,color = age))+    
     geom_jitter(position = position_jitter(width = 0.2), size = 2, alpha = 0.7)+
-    geom_text(aes(label = sample), position = position_jitter(width = 0.2), vjust = -1, size = 3) +
-    scale_color_manual(values=color)+
+    geom_text_repel(aes(label = sample), position = position_jitter(width = 0.2), size = 5) +
+    # scale_color_manual(values=color)+
     ggtitle(paste0(tissue_label_change(tissue)," TAD counts"))+
-    theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("TAD counts")
+    ylim(0,max(tad_summary$counts+1000))+
+    theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("Tad counts")
+  print(p)
 }
+tissues <- c("bonemarrow","heart","stomach")
+for(tissue in tissues){
+  insulation_score(tissue,resolution)
+}
+

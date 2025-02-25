@@ -43,7 +43,7 @@ CpG_overview <- function(tissue){
   cpg_sum <- data_frame(CG = as.numeric(),
                         depth = as.numeric(),
                         sample = as.character())
-  depth_threshold <- 5
+  depth_threshold <- 15
   for(i in c(1:nrow(search_table))){
     df_list[[i]] <- fread(paste0("data/samples/WGBS/",tissue,"/bdg/",search_table$sample_name[i],"_CpG.bdg"),sep = "\t")
     df_list[[i]] <- df_list[[i]][which(df_list[[i]]$V1 %in% paste0("chr",c(c(1:19),"X","Y"))),]
@@ -93,11 +93,12 @@ CpG_overview <- function(tissue){
            hjust = 1.1, vjust = 1.1, size = 5, colour = "red") +
     annotate("text", x = -Inf, y = Inf, label = paste("young mean =",  round(mean(cpg_sum$CG_percent[which(cpg_sum$sample%in%search_table$variable[which(search_table$age=="young")])]),2)),   
              hjust = 0, vjust = 1.1, size = 5, colour = "red")
-  ggsave(paste0("result/WGBS/",tissue,"/CpG_overview.png"),p,width = 5,height = 7,type="cairo")
+  ggsave(paste0("result/WGBS/",tissue,"/CpG_overview_depth_filter_",depth_threshold,".png"),p,width = 5,height = 7,type="cairo")
   # return(p)
 }
-# tissues <- c("liver","lung","mammarygland","kidney","ileum","Hip","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis","spleen","pancreas","brain","cecum","uterus","iWAT")
-tissues <- c("spleen","pancreas","brain","cecum","uterus","iWAT")
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+# tissues <- c("spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 p_list <- list()
 i <- 1
 for (tissue in tissues){

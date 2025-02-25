@@ -59,7 +59,7 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
   if(tissue == "colon"){
     search_table$batch <- c("batch1","batch2","batch2","batch1")
   }else{
-    search_table$batch <- c("batch1","batch2","batch1","batch2")
+    search_table$batch <- rep(paste0("batch",c(1:(nrow(search_table)/2))),2)
   }
   search_table <- search_table[order(search_table$sample_name),]
   
@@ -81,7 +81,7 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
-  lrt = glmLRT(fit_tag, coef = 3)
+  lrt = glmLRT(fit_tag, coef = which(colnames(design) == "yearold"))
   tab<-tab[keep,]
   
   out = cbind(tab[,1:6],cpm(y),logCPM=lrt$table$logCPM,bcv=sqrt(fit_tag$dispersion),

@@ -171,8 +171,10 @@ DMR_annotation <- function(tissue){
 CpG_annotation <- list()
 gene_annotation <- list()
 
-# tissues <-sort(c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow","jejunum","colon","ovary","CB","BAT","thymus","testis"))
-tissues <- c("mammarygland","thymus","skin","iWAT","uterus","stomach","bonemarrow","bladder","brain","cecum","liver","testis","ileum","colon","jejunum","tongue","Hip","muscle","CB","aorta","kidney","lung","heart","BAT","ovary","pancreas")
+tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow",
+             "jejunum","colon","ovary","CB","BAT","thymus","testis","stomach","heart",
+             "muscle","bladder","aorta","tongue","spleen","pancreas","brain",
+             "cecum","uterus","iWAT")
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   p_list <- DMR_annotation(tissues[i])
