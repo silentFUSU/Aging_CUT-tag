@@ -1,125 +1,74 @@
 rm(list=ls())
-.libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
+.libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/","/usr/local/lib64/R/library"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
-library("AnnotationDbi")
-library(org.Mm.eg.db)
-library(edgeR)
+library(GenomeInfoDb)
 library(ggplot2)
-library(ChIPseeker)
-library(EnsDb.Mmusculus.v79)
-library(tidyr)
+library(patchwork)
 library(stringr)
 library(dplyr)
-library(clusterProfiler)
-library(ggrepel)
-library(limma)
-library(UpSetR)
-antibody = "H3K27ac"
-tissue = "colon"
-window_size = "1000"
-gap_size = "3000"
-e_value = "100"
-GO_database <- 'org.Mm.eg.db'
-txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-increase_upset <- list()
-decrease_upset <- list()
+library(tidyr)
 
-tissues <- c("brain","liver","testis","colon","kidney","lung","spleen","muscle")
-tissues <- c("liver","kidney","spleen","muscle")
-
-genes<-data.frame(symbol = character(),  
-                              Significant = character(),  
-                              tissue = character(),
-                              stringsAsFactors = FALSE)  
-
-for (i in c(1:length(tissues))){
-  tissue <- tissues[i]
-  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_merge-W",window_size,"-G",gap_size,"-E",e_value,"_diff_after_remove_batch_effect.csv")) 
-  df <- df[which(df$Significant!="Stable"),c("symbol","Significant")]
-  df$tissue <- tissue
-  df <- unique(df)
-  genes <- rbind(genes,df)
+tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
+             "thymus","skin","bladder","bonemarrow","Hip","heart",
+             "muscle","jejunum","uterus","ovary","liver","tongue",
+             "cecum","colon","testis","stomach","pancreas","iWAT","ileum")
+bin_size <- function(antibody){
+  if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
+    return ("10kb")
+  }else{
+    return("1kb")
+  }  
 }
-increase <- as.data.frame(table(genes[which(genes$Significant=="Up"),c("symbol")]))
-decrease <- as.data.frame(table(genes[which(genes$Significant=="Down"),c("symbol")]))
+antibody <- "H3K27me3"
+window_size=5000
+gap_size=10000
 
-
-for (i in c(1:length(tissues))){
-  tissue <- tissues[i]
-  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_merge-W",window_size,"-G",gap_size,"-E",e_value,"_diff_after_remove_batch_effect.csv")) 
-  df <- df[which(df$Significant!="Stable"),c("symbol","Significant")]
-  df <- unique(df)
-  increase_upset[[i]] <- df$symbol[which(df$Significant=="Up")]
-  names(increase_upset)[i] <- tissue
-  decrease_upset[[i]] <- df$symbol[which(df$Significant=="Down")]
-  names(decrease_upset)[i] <- tissue
-}
-
-##################################
-genes<-data.frame(symbol = character(),  
+common_diff_bin <- function(antibody,tissues){
+  bin<-data.frame(Geneid = character(),  
+                  Chr = character(),
+                  Start = numeric(),
+                  End = numeric(),
                   Significant = character(),  
                   tissue = character(),
-                  stringsAsFactors = FALSE)  
-for (i in c(1:length(tissues))){
-  tissue <- tissues[i]
-  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_narrowpeak_diff_after_remove_batch_effect.csv")) 
-  df <- df[which(df$Significant!="Stable"),c("symbol","Significant")]
-  df$tissue <- tissue
-  df <- unique(df)
-  genes <- rbind(genes,df)
+                  stringsAsFactors = FALSE) 
+  for (i in c(1:length(tissues))){
+    tissue <- tissues[i]
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_diff_after_remove_batch_effect.csv")) 
+    df <- df[which(df$Significant!="Stable"),c("Geneid","Chr","Start","End","Significant")]
+    if(nrow(df) >0){
+      df$tissue <- tissue
+      df <- unique(df)
+      bin <- rbind(bin,df)
+    }
+  }
+  bin_file <- read.table(paste0("data/samples/all/",antibody,"/bed/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools.bed"))
+  bin_file$Geneid <- paste0(bin_file$V1,":",bin_file$V2,"-",bin_file$V3)
+  colnames(bin_file)[4]<-"Geneid"
+  
+  increase <- bin[which(bin$Significant=="Up"),]
+  increase_count <- increase %>%   
+    count(Geneid)
+  increase_tissue <- increase %>%   
+    group_by(Geneid) %>%   
+    summarise(tissue_content = paste(unique(tissue), collapse = "/"))  
+  increase_count <- merge(increase_count,increase_tissue,by="Geneid")
+  increase_count <- merge(increase_count,bin_file,by="Geneid")
+  colnames(increase_count)[4:6] <- c("chr","start","end")
+  
+  decrease <- bin[which(bin$Significant=="Down"),]
+  decrease_count <- decrease %>%   
+    count(Geneid)
+  decrease_tissue <- decrease %>%   
+    group_by(Geneid) %>%   
+    summarise(tissue_content = paste(unique(tissue), collapse = "/"))  
+  decrease_count <- merge(decrease_count,decrease_tissue,by="Geneid")
+  decrease_count <- merge(decrease_count,bin_file,by="Geneid")
+  colnames(decrease_count)[4:6] <- c("chr","start","end")
+  write.csv(increase_count,paste0("data/samples/all/",antibody,"/common_increase-W",window_size,"-G",gap_size,"-E100_union_peaks_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(decrease_count,paste0("data/samples/all/",antibody,"/common_decrease-W",window_size,"-G",gap_size,"-E100_union_peaks_after_remove_batch_effect.csv"),row.names = F)
 }
-increase <- as.data.frame(table(genes[which(genes$Significant=="Up"),c("symbol")]))
-decrease <- as.data.frame(table(genes[which(genes$Significant=="Down"),c("symbol")]))
-
-increase_upset <- list()
-decrease_upset <- list()
-for (i in c(1:length(tissues))){
-  tissue <- tissues[i]
-  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_narrowpeak_diff_after_remove_batch_effect.csv")) 
-  df <- df[which(df$Significant!="Stable"),c("symbol","Significant")]
-  df <- unique(df)
-  increase_upset[[i]] <- df$symbol[which(df$Significant=="Up")]
-  names(increase_upset)[i] <- tissue
-  decrease_upset[[i]] <- df$symbol[which(df$Significant=="Down")]
-  names(decrease_upset)[i] <- tissue
+antibodys <- c("H3K27me3","H3K36me3","H3K9me3","H3K4me3","H3K4me1","H3K27ac") 
+for(antibody in antibodys){
+  common_diff_bin(antibody,tissues)
 }
-
-upset(fromList(increase_upset),  # fromList一个函数，用于将列表转换为与UpSetR兼容的数据形式。
-      sets=tissues,nsets = 100,     # 绘制的最大集合个数
-      nintersects = 20, #绘制的最大交集个数，NA则全部绘制
-      order.by = "degree", # 矩阵中的交点是如何排列的。 "freq"根据交集个数排序，"degree"根据
-      keep.order = T, # 保持设置与使用sets参数输入的顺序一致。默认值是FALSE，它根据集合的大小排序。
-      mb.ratio = c(0.6,0.4),   # 左侧和上方条形图的比例关系
-      text.scale = 2 # 文字标签的大小
-)
-
-upset(fromList(decrease_upset),  # fromList一个函数，用于将列表转换为与UpSetR兼容的数据形式。
-      sets=tissues,nsets = 100,     # 绘制的最大集合个数
-      nintersects = 20, #绘制的最大交集个数，NA则全部绘制
-      order.by = "degree", # 矩阵中的交点是如何排列的。 "freq"根据交集个数排序，"degree"根据
-      keep.order = T, # 保持设置与使用sets参数输入的顺序一致。默认值是FALSE，它根据集合的大小排序。
-      mb.ratio = c(0.6,0.4),   # 左侧和上方条形图的比例关系
-      text.scale = 2 # 文字标签的大小
-)
-
-genelist_up <-bitr(increase$Var1[which(increase$Freq==length(tissues))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-genelist_up_GO <-enrichGO( genelist_up$ENTREZID,#GO富集分析
-                           OrgDb = GO_database,
-                           keyType = "ENTREZID",#设定读取的gene ID类型
-                           ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
-                           pvalueCutoff = 0.05,#设定p值阈值
-                           qvalueCutoff = 0.05,#设定q值阈值
-                           readable = T)
-barplot(genelist_up_GO,font.size=15,label_format = 100)
-
-genelist_down <-bitr(decrease$Var1[which(decrease$Freq==length(tissues))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-# genelist_down <-bitr(diff$symbol[which(diff$FDR.old.young<0.05 & diff$LogFC.old.young < -0.5)],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-genelist_down_GO <-enrichGO( genelist_down$ENTREZID,#GO富集分析
-                             OrgDb = GO_database,
-                             keyType = "ENTREZID",#设定读取的gene ID类型
-                             ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
-                             pvalueCutoff = 0.05,#设定p值阈值
-                             qvalueCutoff = 0.05,#设定q值阈值
-                             readable = T)
-barplot(genelist_down_GO,font.size=15,label_format = 100)

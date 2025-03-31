@@ -5,8 +5,8 @@ set.seed(1)
 library(ggplot2)
 library(data.table)
 library(tidyr)
-tissue <- "kidney"
-resolution <- "10000"
+tissue <- "lung"
+resolution <- "25000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -49,7 +49,7 @@ loop_combine <- function(tissue, resolution){
     write.table(loop_summary[,c(1:6)],paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/",sample,"_",resolution,"/",sample,"_",resolution,"_loop.bedpe"),quote = F,sep = "\t",col.names = F,row.names = F)
   }
 }
-tissues <- c("heart","stomach","bonemarrow")
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
 for(tissue in tissues){
   loop_combine(tissue,resolution)
 }
@@ -84,8 +84,17 @@ loop_change <- function(tissue,resolution){
     ggtitle(paste0(tissue_label_change(tissue)," loop counts"))+
     ylim(0,max(loop_summary$counts+1000))+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("loop counts")
-  print(p)
+  return(p)
 }
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+p_list <- list()
 for(tissue in tissues){
-  loop_change(tissue,resolution)
+  p_list[[tissue]] <- loop_change(tissue,resolution)
 }
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change.png"),combined_plot,width = 18,height = 20,type="cairo")

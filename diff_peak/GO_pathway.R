@@ -4,7 +4,6 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library("AnnotationDbi")
 library(org.Mm.eg.db)
-library(edgeR)
 library(ggplot2)
 library(ChIPseeker)
 library(EnsDb.Mmusculus.v79)
@@ -12,17 +11,6 @@ library(tidyr)
 library(stringr)
 library(dplyr)
 library(clusterProfiler)
-library(ggrepel)
-library(limma)
-library(maditr)
-library(tm)
-antibody = "H3K36me3"
-tissue = "ileum"
-# window_size = "1000"
-# gap_size = "3000"
-# e_value = "100"
-# diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_merge-W1000-G3000-E100_diff_after_remove_batch_effect.csv"))
-# diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_narrowpeak_diff_after_remove_batch_effect.csv"))
 
 bin_size <- function(antibody){
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
@@ -35,13 +23,15 @@ GO_database <- 'org.Mm.eg.db'
 txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
 antibodys <- c("H3K4me3","H3K4me1","H3K27ac")
 tissues = c("brain","liver","testis","colon","kidney","lung","spleen","muscle","pancreas","Hip","cecum","bonemarrow","ileum","heart","thymus","skin","aorta","bladder")#27ac tongue，stomach
+antibody <- "H3K27ac"
+tissue <- "skin"
 for(i in c(1:length(antibodys))){
   antibody <- antibodys[i]
   for(j in c(1:length(tissues))){
     tissue <- tissues[j]
     out <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins_diff_after_remove_batch_effect.csv"))
-    out_up <- out[which(out$Significant_bar=="Up"),]
-    out_down <- out[which(out$Significant_bar=="Down"),]
+    out_up <- out[which(out$Significant=="Up"),]
+    out_down <- out[which(out$Significant=="Down"),]
     if(nrow(out_up) > 0){
       up_peak <- GRanges(seqnames = out_up$Chr,   
                          ranges = IRanges(start = out_up$Start, end = out_up$End))
@@ -49,12 +39,12 @@ for(i in c(1:length(antibodys))){
                                    TxDb=txdb, annoDb="org.Mm.eg.db")
       up_peak_anno <- unique(as.data.frame(up_peak_anno))
       genelist_up <- bitr(up_peak_anno$SYMBOL[which(str_detect(up_peak_anno$annotation,"Promoter"))],fromType = 'SYMBOL',toType = 'ENTREZID',OrgDb = GO_database)
-      genelist_up_GO <- enrichGO( genelist_up$ENTREZID,#GO富集分析
+      genelist_up_GO <- enrichGO( genelist_up$ENTREZID,
                                  OrgDb = GO_database,
-                                 keyType = "ENTREZID",#设定读取的gene ID类型
-                                 ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
-                                 pvalueCutoff = 0.05,#设定p值阈值
-                                 qvalueCutoff = 0.05,#设定q值阈值
+                                 keyType = "ENTREZID",
+                                 ont = "BP",
+                                 pvalueCutoff = 0.05,
+                                 qvalueCutoff = 0.05,
                                  readable = T)
       genelist_up_GO_result <- genelist_up_GO@result
       genelist_up_GO_result$tissue <- tissue
@@ -64,7 +54,7 @@ for(i in c(1:length(antibodys))){
         up_anno_result <- rbind(up_anno_result,genelist_up_GO_result)
       }
     }
-    if(nrow(out_down) > 0){
+    sif(nrow(out_down) > 0){
       down_peak <- GRanges(seqnames = out_down$Chr,   
                            ranges = IRanges(start = out_down$Start, end = out_down$End))
       down_peak_anno <- annotatePeak(down_peak, tssRegion=c(-3000, 3000),
@@ -77,7 +67,8 @@ for(i in c(1:length(antibodys))){
                                   ont = "BP",#(ont为ALL因此包括 Biological Process,Cellular Component,Mollecular Function三部分）
                                   pvalueCutoff = 0.05,#设定p值阈值
                                   qvalueCutoff = 0.05,#设定q值阈值
-                                  readable = T)
+                                  readable = T,
+                                  )
       genelist_down_GO_result <- genelist_down_GO@result
       genelist_down_GO_result$tissue <- tissue
       if(j==1){

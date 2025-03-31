@@ -1,4 +1,4 @@
-tissues=(brain CB liver lung kidney colon)
+tissues=(brain CB kidney liver lung bonemarrow colon heart Hip mammarygland stomach thymus)
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv
 cleaned_file=$(mktemp)
@@ -9,7 +9,7 @@ do
     for sample in ${samples_for_tissue[@]}
     do
         age=$(awk -F',' -v s="$sample" 'NR > 1 && ($3 == s) {print $5}' "$cleaned_file")  
-        ln -s ${data_path}${tissue}/juicer/${sample}.allValidPairs.hic ${data_path}${tissue}/juicer/${sample}_${age}.allValidPairs.hic 
+        ln -s ${data_path}${tissue}/juicer/${sample}.allValidPairs.hic ${data_path}${tissue}/juicer/${tissue}_${age}_${sample}.allValidPairs.hic 
     done
 done 
 

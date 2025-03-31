@@ -1,4 +1,4 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/ATAC/motif_bg/bed/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/ATAC_peak_from_MJ/
 beds=($(ls ${data_path}*.bed))
 for bed in ${beds[@]}
 do

@@ -1,6 +1,6 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250218_LLX_Chip/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/Hippocampus_aging/
 # samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/.nodup.bw$//'  | sort) 
-samples=(LLX923 LLX924)
+samples=(JC_R1_H3K9me3 JC_R2_H3K9me3 VC_R1_H3K9me3 VC_R2_H3K9me3)
 for sample in ${samples[@]}
 do 
     sf=$(grep $sample ${data_path}all_sample.qc.txt |cut -f 8)

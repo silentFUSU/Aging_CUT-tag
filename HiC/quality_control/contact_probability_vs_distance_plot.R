@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(RColorBrewer)  
-tissue <- "thymus"
+tissue <- "Hip"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -81,11 +81,11 @@ calDistanceProb <- function(tissue){
     ylab("Probability")+
     ggtitle(tissue_label_change(tissue),"Frequency distribution of Hi-C contacts")+
     theme_bw() +
-    theme(text = element_text(size = 18))
+    theme(text = element_text(size = 18),legend.position = "none")
   print(p)
   dir.create(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/"))
-  ggsave(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/contact_probability_vs_distance.png"),p,width = 8,height = 6,type="cairo")
+  ggsave(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/contact_probability_vs_distance.png"),p,width = 7,height = 7,type="cairo")
 }
-for(tissue in c("CB","brain","liver","lung","kidney","heart","stomach","bonemarrow")){
+for(tissue in c("brain","CB","kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")){
   calDistanceProb(tissue)
 }

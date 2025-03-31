@@ -30,15 +30,15 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 
-resolution <- "10000"
-tissue <- "thymus"
+resolution <- "25000"
+tissue <- "lung"
 loop_diff_analysis <- function(tissue,resolution){
   loop <- read.table(paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/merged_",resolution,"_loop.bed"),skip = 1,header = F)
   loop <- loop[,c(1:6)]
   loop <- loop[which(loop$V1 %in% paste0("chr",c(1:19,"X")) & loop$V4 %in% paste0("chr",c(1:19,"X"))),]
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue == tissue),]
-  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/",search_table$sample_name[1],"_",resolution,"_abs.bed"))
+  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/",search_table$sample_name[1],"_10000_abs.bed"))
   bed <- bed[which(bed$V1 %in% paste0("chr",c(1:19,"X"))),]
   
   loop$V2 <- loop$V2 + 1
@@ -78,7 +78,7 @@ loop_diff_analysis <- function(tissue,resolution){
   overlaps$loop_label <- paste(overlaps$label1,overlaps$label2,sep = "-")
   Loop_count <- data.frame()
   for(sample in samples){
-    counts <- fread(paste0("data/samples/HiC/",tissue,"/raw_matrix/",sample,"_",resolution,".matrix"))
+    counts <- fread(paste0("data/samples/HiC/",tissue,"/raw_matrix/",sample,"_10000.matrix"))
     filtered_counts <- counts[V1 %in% overlaps$bin1 | V1 %in% overlaps$bin2]  
     filtered_counts <- filtered_counts[V2 %in% overlaps$bin1 | V2 %in% overlaps$bin2]
     filtered_counts$label <- paste(filtered_counts$V1,filtered_counts$V2,sep = "-")
@@ -113,6 +113,7 @@ loop_diff_analysis <- function(tissue,resolution){
   out <- as.data.frame(out)
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= 0, 
                             ifelse(out$`LogFC.old-young` > 0, "Up", "Down"), "Stable")
+  write.csv(out,paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/diff_interaction_within_",resolution,"_loop.csv"))
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   p <- ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
@@ -129,7 +130,8 @@ loop_diff_analysis <- function(tissue,resolution){
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   ggsave(paste0("result/HiC/",tissue,"/differential_analysis/",tissue,"_HiCCUP_Loop_",resolution,"_diff_volcano_edger.png"),p,width = 5,height = 6,type="cairo")
 }
-tissues <- c("colon","kidney","liver","lung","brain","CB")
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+
 for(tissue in tissues){
   loop_diff_analysis(tissue,resolution)
 }

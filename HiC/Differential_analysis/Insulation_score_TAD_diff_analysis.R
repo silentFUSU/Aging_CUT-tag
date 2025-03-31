@@ -29,8 +29,8 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 } 
-resolution <- "10000"
-tissue <- "thymus"
+resolution <- "20000"
+tissue <- "kidney"
 TAD_diff_analysis <- function(tissue,resolution){
   TAD <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD.csv"))
   TAD <- TAD[,c(1:3)]
@@ -87,7 +87,7 @@ TAD_diff_analysis <- function(tissue,resolution){
     data <- merge(filtered_counts,overlaps[,c("bin_label","TAD_label")],by.x="V1",by.y="bin_label")
     data <- merge(data,overlaps[,c("bin_label","TAD_label")],by.x="V2",by.y="bin_label")
     data <- data[which(data$TAD_label.x == data$TAD_label.y),]
-    data <- data[which(abs(data$V1-data$V2)>4),]
+    data <- data[which(abs(data$V1-data$V2)> floor(50000/as.numeric(resolution)) ),]
     data$TAD_label <- data$TAD_label.x
     sum_by_TAD <- data %>%  
       group_by(TAD_label) %>%  
@@ -185,7 +185,8 @@ TAD_diff_analysis <- function(tissue,resolution){
   # ggsave(paste0("result/HiC/",tissue,"/differential_analysis/with_histone/",tissue,"_",resolution,"_TAD_condition_edger.png"),p,width = 5,height = 4,type="cairo")
   # 
 }
-tissues <- c("colon","kidney","brain","CB","lung","liver")
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+
 for(tissue in tissues){
   TAD_diff_analysis(tissue,resolution)
 }

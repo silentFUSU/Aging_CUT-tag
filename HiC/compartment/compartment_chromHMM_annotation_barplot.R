@@ -8,7 +8,7 @@ library(ggplot2)
 library(stringr)
 library(ggalluvial)  
 library(data.table)
-tissue <- "thymus"
+tissue <- "mammarygland"
 state_num <- 14
 resolution <- "50000"
 check_row <- function(row) {  

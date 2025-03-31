@@ -27,15 +27,16 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-common_increase <- read.csv("data/samples/all/H3K9me3/common_increase_10kb_bins_after_remove_batch_effect.csv")
-common_decrease <- read.csv("data/samples/all/H3K9me3/common_decrease_10kb_bins_after_remove_batch_effect.csv")
-regions <- union(common_increase$Geneid[which(common_increase$n>8)],common_decrease$Geneid[which(common_decrease$n>8)])
-regions <- common_decrease$Geneid[which(common_decrease$n>10)]
-regions <- common_increase$Geneid[which(common_increase$n>5)]
+antibody <- "H3K27me3"
+common_increase <- read.csv(paste0("data/samples/all/",antibody,"/common_increase_10kb_bins_after_remove_batch_effect.csv"))
+common_decrease <- read.csv(paste0("data/samples/all/",antibody,"/common_decrease_10kb_bins_after_remove_batch_effect.csv"))
+# regions <- union(common_increase$Geneid[which(common_increase$n>8)],common_decrease$Geneid[which(common_decrease$n>8)])
+regions <- common_decrease$Geneid[which(common_decrease$n>20)]
+regions <- common_increase$Geneid[which(common_increase$n>20)]
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 diff_summary <- data.frame()
-antibody <- "H3K9me3"
+
 for(tissue in tissues){
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
     bin_size <- "10kb"
@@ -59,7 +60,7 @@ kmeans_result <- kmeans(diff_summary, centers=k)
 diff_summary$cluster <- kmeans_result$cluster  
 diff_summary_sorted <- diff_summary[order(diff_summary$cluster),]  
 data_for_heatmap <- diff_summary_sorted[, -ncol(diff_summary_sorted)]  
-pheatmap::pheatmap(data_for_heatmap,cluster_rows = F,show_rownames = F,breaks = seq(-1, 1, length.out = 101) )
+pheatmap::pheatmap(data_for_heatmap,cluster_rows = T,show_rownames = F,breaks = seq(-2, 2, length.out = 101))
 
 
 df <- read.csv("data/samples/mammarygland/H3K9me3/H3K9me3_10kb_bins_diff_after_remove_batch_effect.csv")

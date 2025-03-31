@@ -29,8 +29,8 @@ tissue_label_change <- function(tissue){
 }
 common_increase <- read.csv("data/samples/all/H3K27me3/common_increase_10kb_bins_after_remove_batch_effect.csv")
 common_decrease <- read.csv("data/samples/all/H3K27me3/common_decrease_10kb_bins_after_remove_batch_effect.csv")
-common_increase_region <- common_increase$Geneid[which(common_increase$n > 1)]
-common_decrease_region <- common_decrease$Geneid[which(common_decrease$n > 1)]
+common_increase_region <- common_increase$Geneid[which(common_increase$n > 20)]
+common_decrease_region <- common_decrease$Geneid[which(common_decrease$n > 20)]
 
 
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
@@ -40,7 +40,7 @@ tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
 increase_logFC_rank <- data.frame()
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/",tissue,"/H3K27me3/H3K27me3_10kb_bins_diff_after_remove_batch_effect.csv"))
-  df <- df[which(df$Geneid %in% common_increase_region & df$LogFC.old.young > 0),]
+  df <- df[which(df$Geneid %in% common_increase_region),]
   mean_logFC <- median(df$LogFC.old.young)
   t_increase_logFC_rank <- data.frame(tissue=tissue_label_change(tissue),mean_logFC=mean_logFC)  
   increase_logFC_rank <- rbind(increase_logFC_rank,t_increase_logFC_rank)
@@ -125,7 +125,7 @@ ggplot(positive_negative_ratio, aes(x = Var2, y = value, fill = Var1)) +
 decrease_logFC_rank <- data.frame()
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/",tissue,"/H3K27me3/H3K27me3_10kb_bins_diff_after_remove_batch_effect.csv"))
-  df <- df[which(df$Geneid %in% common_decrease_region & df$LogFC.old.young < 0),]
+  df <- df[which(df$Geneid %in% common_decrease_region),]
   mean_logFC <- median(df$LogFC.old.young)
   t_decrease_logFC_rank <- data.frame(tissue=tissue_label_change(tissue),mean_logFC=mean_logFC)  
   decrease_logFC_rank <- rbind(decrease_logFC_rank,t_decrease_logFC_rank)

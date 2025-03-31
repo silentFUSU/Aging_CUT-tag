@@ -7,7 +7,7 @@ library(data.table)
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
-tissue <- "CB"
+tissue <- "Hip"
 antibody <- "H3K27me3"
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   

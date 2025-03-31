@@ -1,4 +1,5 @@
-antibodys=(H3K27me3 H3K36me3 H3K9me3)
+# antibodys=(H3K27me3 H3K36me3 H3K9me3)
+antibodys=(H3K27me3)
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ 
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 tissue=$1
@@ -36,10 +37,10 @@ do
     samtools index ${data_path}${tissue}/${antibody}/tmp.young.merge.bam -@ 16 &
     samtools index ${data_path}${tissue}/${antibody}/tmp.old.merge.bam -@ 16 &
     wait
-    window_size=1000
-    gap_size=3000
-    # window_size=5000
-    # gap_size=10000
+   #  window_size=1000
+   #  gap_size=3000
+    window_size=5000
+    gap_size=10000
     e_value=100
     mkdir -p ${data_path}${tissue}/${antibody}/peaks/
     sicer  -t ${data_path}${tissue}/${antibody}/tmp.young.merge.bam  -o ${data_path}${tissue}/${antibody}/peaks  -s ${ref} -w ${window_size} -rt 16 -f 300 -egf 0.8 -fdr 0.01 -g ${gap_size} -e ${e_value} -cpu 21 &

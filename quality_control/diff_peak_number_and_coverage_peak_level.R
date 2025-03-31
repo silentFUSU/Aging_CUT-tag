@@ -34,15 +34,16 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 diff_peak_number <-data.frame()
-mm10_10k <- read.delim("~/ref_data/mm10_10kb_bins.bed")
-mm10_1k <- read.delim("~/ref_data/mm10_1kb_bins.bed")
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
+window_size="1000"
+gap_size="3000"
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
     antibody<-antibodys[j]
     if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-      diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W1000-G3000-E100_diff_after_remove_batch_effect.csv"))
+      diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_diff_after_remove_batch_effect.csv"))
+      diff <- diff[which(diff$Length > 100000),]
     }else{
       diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_young_old_narrowpeak_diff_after_remove_batch_effect.csv"))
     }
@@ -71,7 +72,8 @@ for(condition in conditions){
   for(i in c(1:length(antibodys))){
     df <- diff_peak_number[which(diff_peak_number$antibody==antibodys[i] & diff_peak_number$Var1==condition),]
     # df <- arrange(df, Freq)  
-    df$tissue <- factor(df$tissue,levels=sort(tissues))
+    # df$tissue <- factor(df$tissue,levels=sort(tissues))
+    df$tissue_label <- factor(df$tissue_label,levels=tissues_label)
     if(i == 1){
       p_list[[i]] <-  ggplot(df,mapping = aes(x=Freq,y=tissue_label,fill = tissue_label))+
         geom_bar(stat = "identity", position = position_dodge2())+
@@ -86,7 +88,7 @@ for(condition in conditions){
         ) +
         scale_fill_manual(values = color) +
         theme(legend.position = "none") + 
-        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,40000)
+        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,2000)
     }else{
       p_list[[i]] <-  ggplot(df,mapping = aes(x=Freq,y=tissue_label,fill = tissue_label))+
         geom_bar(stat = "identity", position = position_dodge2())+
@@ -100,7 +102,7 @@ for(condition in conditions){
           legend.position = "none"  
         ) + scale_fill_manual(values = color) +    
         theme(axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(),legend.position = "none") +   
-        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,40000)
+        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,2000)
     }
   }
   combined_plot <- arrangeGrob(  
@@ -110,5 +112,32 @@ for(condition in conditions){
     top = textGrob(paste0(condition," peak number"), gp = gpar(fontsize = 15, fontface = "bold"))  
   )  
   grid.draw(combined_plot) 
-  ggsave(paste0("result/all/diff/all_tissues_",condition,"_peak_number_remove_batch_effect.png"), plot = combined_plot, width = 18, height = 6,type="cairo")  
+  # ggsave(paste0("result/all/diff/all_tissues_",condition,"_peak_number_remove_batch_effect.png"), plot = combined_plot, width = 18, height = 6,type="cairo")  
 }
+
+color <- setNames(c("#fc5185","#00adb5"),c("Up","Down"))
+p_list <- list()
+for(antibody in antibodys){
+  for(tissue in tissues){
+    t_diff_peak_number <- diff_peak_number[which(diff_peak_number$tissue==tissue & diff_peak_number$antibody==antibody),]
+    t_diff_peak_number$Var1 <- factor(t_diff_peak_number$Var1,levels=c("Up","Down","Stable"))
+    p_list[[tissue]] <- ggplot(t_diff_peak_number[which(t_diff_peak_number$Var1!="Stable"),],mapping = aes(x=Var1,y=Freq,fill =Var1))+
+      geom_bar(stat = "identity", position = position_dodge2())+
+      theme_bw()+ylab("")+
+      xlab(tissue_label_change(tissue))+
+      theme(  
+        text = element_text(size = 14),  
+        legend.position = "none"  
+      ) + scale_fill_manual(values = color) +    
+      geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), size = 5)
+  }
+}
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols, guides = "collect")
+}
+
+combined_plot <- plot_a_list(p_list,4,7)+ patchwork::plot_annotation(title = paste0(antibody),theme = theme(plot.title = element_text(size = 20,hjust = 0.5)))  
+ggsave(paste0("result/all/diff/",antibody,"/all_tissue_diff_peak_number-W",window_size,"-G",gap_size,"-E100_peaks_after_remove_batch_effect.png"),combined_plot,width = 18, height = 20, type="cairo")
+

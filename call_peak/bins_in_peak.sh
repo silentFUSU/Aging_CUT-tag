@@ -30,6 +30,18 @@ do
     done
 done
 
+window_size=5000
+gap_size=10000
+e_value=100
+ref_data=~/ref_data/
+tissues=(brain liver testis colon kidney lung spleen muscle pancreas Hip cecum bonemarrow ileum heart thymus stomach skin aorta tongue bladder CB jejunum uterus ovary BAT iWAT mammarygland)
+bin_size=10kb
+antibody=H3K27me3
+for tissue in ${tissues[@]}
+do
+    bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+        -b  ${data_path}all/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_bedtools_filtered_100kb.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_bedtools_filtered.bed
+done
 
 antibodys=(H3K27ac H3K4me1 H3K4me3)
 bin_size=1kb
@@ -37,8 +49,8 @@ for tissue in ${tissues[@]}
 do
     for antibody in ${antibodys[@]}
     do
-        # bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
-        #     -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_young_old_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_old_merge_macs_narrowpeak.bed
+        bedtools intersect -a ${ref_data}mm10_${bin_size}_bins.bed \
+            -b ${data_path}${tissue}/${antibody}/bed/${antibody}_macs_young_old_narrowpeak.bed -wa > ${data_path}${tissue}/${antibody}/bed/${antibody}_${bin_size}_in_young_old_merge_macs_narrowpeak.bed
     done
 done
 

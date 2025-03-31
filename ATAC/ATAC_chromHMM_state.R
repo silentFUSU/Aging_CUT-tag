@@ -38,7 +38,7 @@ tissue_label_change <- function(tissue){
 tissue <- "lung"
 state_num <- 14
 ATAC_in_chromHMM_state <- function(tissue,state_num){
-  file_dir <- paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/split_1k/")  
+  file_dir <- paste0("result/all/ChromHMM/all_tissues_previous/",state_num,"_all_tissues/split_1k/")  
   files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_young[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
   file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
   chromHMM_young <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  

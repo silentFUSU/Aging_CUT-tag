@@ -140,8 +140,9 @@ logFC_correlation_clustering <- function(antibody,tissues,method){
   colors <- colors$V1[1:27]
   names(colors) <- annotation$tissue
   annotation_colors <- list(tissue=colors)
-  pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),
-                     filename = paste0("result/all/clustering/",antibody,"_logFC_",method,"_after_remove_batch_effect.png"),type="png",width = 9,height = 7,border_color = "grey")
+  # pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),
+  #                    filename = paste0("result/all/clustering/",antibody,"_logFC_",method,"_after_remove_batch_effect.png"),type="png",width = 9,height = 7,border_color = "grey")
+  pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),border_color = "grey",breaks = seq(-1, 1, length.out = 101))
 }
 
 for(antibody in antibodys){

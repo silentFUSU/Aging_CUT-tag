@@ -9,7 +9,7 @@ library(stringr)
 library(dplyr)
 library(ggrepel)
 
-peak_preprocess_bin_level <- function(tissue,antibody){
+peak_preprocess_bin_level <- function(antibody){
   tab = read.delim(paste0("data/public_data/cellular_aging_GSE133292/Chip_seq/H3K9me3_10kb_bins.counts"),skip=1)
   counts = tab[,c(7:ncol(tab))]
   rownames(counts)= tab$Geneid
@@ -39,7 +39,7 @@ peak_preprocess_bin_level <- function(tissue,antibody){
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
   out_sort <- out[order(out$`FDR.old-young`),]
- 
+  write.csv(out, "data/public_data/cellular_aging_GSE133292/Chip_seq/H3K9me3_10kb_diff.csv",row.names = F)
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   # if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
   #   peaks <- read.delim(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_10kb_in_young_old_merge-W1000-G3000-E100.bed"),header = F)
@@ -76,4 +76,34 @@ peak_preprocess_bin_level <- function(tissue,antibody){
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   return(p)
+}
+
+MA_plot <- function(){
+  df <- read.csv("data/public_data/cellular_aging_GSE133292/Chip_seq/H3K9me3_10kb_diff.csv")
+  df <- df[,c("Geneid","logCPM","LogFC.old.young","Significant")]  
+  colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+  peaks <- read.table("data/public_data/cellular_aging_GSE133292/Chip_seq/bed/H3K9me3_10kb_in_young_old_merge-W1000-G3000-E100.bed")
+  ggplot(
+    df, aes(x = `logCPM`, y = `LogFC.old.young`)) +
+    geom_point(aes(color = Significant), size=2) +
+    scale_color_manual(values = colour) +
+    labs(x="Log2(CPM)",
+         y="Log2(Fold Change)") +
+    theme_bw()+
+    theme(text = element_text(size = 20),legend.position = "none")+
+    ggtitle("H3K9me3 DS vs G")+
+    annotate("text", x = max(df$logCPM), y = min(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Down"),]), vjust = 0, hjust = 1,colour="blue",size=5)+
+    annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)
+  df <- df[which(df$Geneid %in% peaks$V4),]
+  ggplot(
+    df, aes(x = `logCPM`, y = `LogFC.old.young`)) +
+    geom_point(aes(color = Significant), size=2) +
+    scale_color_manual(values = colour) +
+    labs(x="Log2(CPM)",
+         y="Log2(Fold Change)") +
+    theme_bw()+
+    theme(text = element_text(size = 20),legend.position = "none")+
+    ggtitle("H3K9me3 DS vs G")+
+    annotate("text", x = max(df$logCPM), y = min(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Down"),]), vjust = 0, hjust = 1,colour="blue",size=5)+
+    annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)
 }

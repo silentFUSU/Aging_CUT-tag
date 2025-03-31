@@ -2,16 +2,10 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/","/usr/local/lib64/R/library"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
-library(GenomeInfoDb)
 library(ggplot2)
-library(patchwork)
 library(stringr)
 library(dplyr)
 library(tidyr)
-library(UpSetR)
-library(ChIPseeker)
-txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-GO_database <- 'org.Mm.eg.db'
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
              "thymus","skin","bladder","bonemarrow","Hip","heart",
              "muscle","jejunum","uterus","ovary","liver","tongue",
@@ -23,7 +17,7 @@ bin_size <- function(antibody){
     return("1kb")
   }  
 }
-antibody <- "H3K9me3"
+antibody <- "H3K27me3"
 common_diff_bin <- function(antibody,tissues){
   bin<-data.frame(Geneid = character(),  
                     Chr = character(),
@@ -63,6 +57,7 @@ common_diff_bin <- function(antibody,tissues){
     summarise(tissue_content = paste(unique(tissue), collapse = "/"))  
   decrease_count <- merge(decrease_count,decrease_tissue,by="Geneid")
   decrease_count <- merge(decrease_count,bin_file,by="Geneid")
+  colnames(decrease_count)[4:6] <- c("chr","start","end")
   write.csv(increase_count,paste0("data/samples/all/",antibody,"/common_increase_",bin_size(antibody),"_bins_after_remove_batch_effect.csv"),row.names = F)
   write.csv(decrease_count,paste0("data/samples/all/",antibody,"/common_decrease_",bin_size(antibody),"_bins_after_remove_batch_effect.csv"),row.names = F)
   }

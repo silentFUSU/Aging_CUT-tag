@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 options(scipen = 999)  
-tissue <- "thymus"
+tissue <- "Hip"
 resolution <- "10000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){

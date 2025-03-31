@@ -42,7 +42,7 @@ saddle_plot <- function(tissue,sample,resolution){
   }else{
     age_label <- "Old"
   }
-  df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",sample,"interaction_sum_count_50G.csv"))
+  df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",sample,"interaction_sum_count_homer.csv"))
   left_average <- reshape2::melt(df[1:3,1:3])
   left_average <- mean(left_average$value)
   
@@ -85,7 +85,7 @@ for(tissue in tissues){
     p_list[[sample]] <- saddle_plot(tissue,sample,resolution)
   }
   combined_plot <- plot_a_list(p_list,2,2)
-  ggsave(paste0("result/HiC/",tissue,"/compartment/",tissue,"_50G_compartment_saddle_plot.png"),combined_plot,width = 12,height = 10,type="cairo")
+  ggsave(paste0("result/HiC/",tissue,"/compartment/",tissue,"_compartment_saddle_plot.png"),combined_plot,width = 12,height = 10,type="cairo")
   
 }
 
@@ -97,8 +97,8 @@ saddle_compare <- function(tissue,resolution){
   compare_table <- as.data.frame(expand.grid(young = young, old = old))
   p_list <- list()
   for(i in c(1:nrow(compare_table))){
-    young_saddle <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",compare_table[i,"young"],"interaction_sum_count_50G.csv"))
-    old_saddle <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",compare_table[i,"old"],"interaction_sum_count_50G.csv"))
+    young_saddle <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",compare_table[i,"young"],"interaction_sum_count_homer.csv"))
+    old_saddle <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",compare_table[i,"old"],"interaction_sum_count_homer.csv"))
     difference_saddle <- old_saddle - young_saddle  
     
     data_long <- reshape2::melt(difference_saddle, variable.name = "Column", value.name = "Value")  
@@ -125,13 +125,14 @@ saddle_compare <- function(tissue,resolution){
     p_list[[i]] <- p
   } 
   combined_plot <- plot_a_list(p_list,2,2)
-  ggsave(paste0("result/HiC/",tissue,"/compartment/",tissue,"_cooler_compartment_saddle_plot_compare_50G.png"),combined_plot,width = 11,height = 10,type="cairo")
+  ggsave(paste0("result/HiC/",tissue,"/compartment/",tissue,"_cooler_compartment_saddle_plot_compare_homer.png"),combined_plot,width = 11,height = 10,type="cairo")
   
   }
 
 for(tissue in tissues){
   saddle_compare(tissue,resolution)
 }
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")
 smooth_3x3 <- function(mat) {  
   nrow_mat <- nrow(mat)  
   ncol_mat <- ncol(mat)  
@@ -197,10 +198,64 @@ saddle_compare_average <- function(tissue,resolution){
     theme(text = element_text(size = 12))
   return(p)
 }
-tissues <- c("lung","liver","kidney","brain","CB","colon","thymus","bonemarrow","stomach","heart")
+tissues <- c("lung","thymus","mammarygland","heart","stomach","liver","kidney","bonemarrow","CB","brain","Hip","colon")
 p_list <- list()
 for(tissue in tissues){
   p_list[[tissue]] <- saddle_compare_average(tissue,resolution)
 }
 combined_plot <- plot_a_list(p_list,4,3)
 ggsave(paste0("result/HiC/all_tissues_homer_compartment_saddle_plot_smooth.png"),combined_plot,width = 10,height = 13,type="cairo")
+
+
+saddle_summary <- data.frame()
+for(tissue in tissues){
+  search_table <- read.csv("data/samples/all/HiC_search_table.csv")
+  search_table <- search_table[which(search_table$tissue==tissue),]
+  tissue_saddle_summary <- data.frame()
+  for(sample in search_table$sample_name){
+    df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/cooler/",sample,"interaction_sum_count_homer.csv"))
+    BB_average <- reshape2::melt(df[1:3,1:3])
+    BB_average <- mean(BB_average$value)
+    
+    AA_average <- reshape2::melt(df[38:40,38:40])
+    AA_average <- mean(AA_average$value)
+    
+    AB_average <- reshape2::melt(df[1:3,38:40])  
+    AB_average <- mean(AB_average$value)
+    t_saddle_summary <- data.frame(sample=sample,
+                                   tissue=tissue_label_change(tissue),
+                                   age=search_table$age[which(search_table$sample_name==sample)],
+                                   BB_average=BB_average,
+                                   AA_average=AA_average,
+                                   AB_average=AB_average)    
+
+    tissue_saddle_summary <- rbind(tissue_saddle_summary,
+                            t_saddle_summary)
+  }
+  columns_to_center <- c("BB_average", "AA_average", "AB_average")  
+  tissue_saddle_summary[,columns_to_center] <- lapply(tissue_saddle_summary[,columns_to_center], function(x) x - mean(x))  
+  saddle_summary <- rbind(saddle_summary,tissue_saddle_summary)
+}
+saddle_summary$age[which(saddle_summary$age=="3M")] <- "Young"
+saddle_summary$age[which(saddle_summary$age=="24M")] <- "Old"
+saddle_summary$age <- factor(saddle_summary$age,levels=c("Young","Old")) 
+rownames(saddle_summary) <- saddle_summary$sample
+annotation <- saddle_summary[,c("tissue","age")]
+
+conditions <- c("BB_average","AA_average","AB_average")
+for(condition in conditions){
+  to_plot <- saddle_summary[,c("sample","tissue","age",condition)]
+  to_plot$age <- factor(to_plot$age,levels=c("Young","Old")) 
+  to_plot <- to_plot %>%
+    arrange(tissue,age)
+  to_plot$age <- paste0(to_plot$age,c(1,2))
+  to_plot <- to_plot[,-1]
+  to_plot <-to_plot %>%  
+    pivot_wider(names_from = age, values_from = colnames(to_plot)[3])
+  to_plot <- as.data.frame(to_plot)
+  rownames(to_plot) <- to_plot$tissue
+  to_plot <- to_plot[,-1]
+  pheatmap::pheatmap(to_plot,cluster_cols = F,main = condition, breaks = seq(-0.1, 0.1, length.out = 101))
+}
+
+

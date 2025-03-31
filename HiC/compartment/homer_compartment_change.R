@@ -6,7 +6,7 @@ library(ggplot2)
 library(tidyverse)  
 
 options(scipen = 999)  
-tissue <- "thymus"
+tissue <- "mammarygland"
 resolution <- "50000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -63,8 +63,7 @@ compartment_cluster <- function(tissue,resolution){
   p <- pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,main = paste(tissue_label_change(tissue),"homer compartment PC1"),annotation_col = annotation_col)
   print(p)
   }
-tissues <- c("CB","liver","brain","lung","kidney","colon")
-tissues <- c("bonemarrow","heart","stomach")
+
 for(tissue in tissues){
   compartment_cluster(tissue,resolution)
 }
@@ -134,3 +133,34 @@ compartment_change <- function(tissue,resolution){
 for(tissue in tissues){
   compartment_change(tissue,resolution)
 }
+compartment_change_summary <- data.frame()
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")
+for(tissue in tissues){
+  df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_",resolution,".csv"))  
+  df <- as.data.frame(table(df$condition))
+  df$Percentage <- df$Freq/sum(df$Freq)*100
+  df <- df[which(df$Var1 %in% c("A-B","B-A")), c("Var1","Percentage")]
+  df$tissue <- tissue_label_change(tissue)
+  compartment_change_summary <- rbind(compartment_change_summary,df)
+}
+summary_data <- compartment_change_summary %>%  
+  group_by(tissue) %>%  
+  summarise(Total_Percentage = sum(Percentage)) %>%  
+  arrange(desc(Total_Percentage))
+compartment_change_summary$Percentage[which(compartment_change_summary$Var1=="A-B")] <- -(compartment_change_summary$Percentage[which(compartment_change_summary$Var1=="A-B")])
+compartment_change_summary$tissue <- factor(compartment_change_summary$tissue, levels=summary_data$tissue)
+ggplot(compartment_change_summary, aes(x = Percentage, y = tissue, fill = Var1)) +  
+  geom_bar(stat = "identity")+
+  scale_x_continuous(labels = abs)+
+  labs(x = "Percentage(%)", y = NULL, fill = "Comparison") +  
+  theme_minimal() + 
+  ggtitle("Compartment change proportion") +
+  scale_fill_manual(values = c("A-B" = "skyblue", "B-A" =  "salmon")) +  
+  theme(  
+    axis.title.x = element_text(size = 14),     
+    axis.title.y = element_text(size = 14),    
+    axis.text.x = element_text(hjust = 1, size = 12),   
+    axis.text.y = element_text(size = 12),    
+    plot.title = element_text(size = 16, face = "bold"),
+    legend.position = "bottom"
+  ) 

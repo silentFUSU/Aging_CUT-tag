@@ -36,11 +36,11 @@ tissue_label_change <- function(tissue){
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
-                        nrow = no_of_rows, ncol = no_of_cols)
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
 
 peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
-  search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff.csv")
+  search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
     bin_size <- "10kb"
   }else{
@@ -52,17 +52,10 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
   colnames(counts) <-  gsub(pattern, "\\1",colnames(counts))
   search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
-  counts <- counts[,which(colnames(counts) %in% search_table$sample_name)]
+  counts <- counts[,search_table$sample_name]
   search_table$sample_name <- factor(search_table$sample_name, levels = colnames(counts))
   search_table$age <- factor(search_table$age, levels = c("3m","24m"))
-  search_table <- search_table[order(search_table$age),]
-  if(tissue == "colon"){
-    search_table$batch <- c("batch1","batch2","batch2","batch1")
-  }else{
-    search_table$batch <- rep(paste0("batch",c(1:(nrow(search_table)/2))),2)
-  }
-  search_table <- search_table[order(search_table$sample_name),]
-  
+
   age <- as.character(search_table$age)
   batch <- as.character(search_table$batch)
   mouse_ID <- search_table$mouse_ID
@@ -90,6 +83,9 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
   
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
+  # bin_in_peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W1000-G3000-E100.bed"))
+  # out$condition <- "out_peaks"
+  # out$condition[which(out$Geneid %in% bin_in_peaks$V4)] <- "in_peaks"
   # out$Significant_bar <- "Stable"
   # out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 > 1.2) & (out$old_2/out$young_2 > 1.2))] <- "Up"
   # out$Significant_bar[which(out$`FDR.old-young` < 0.05 & (out$old_1/out$young_1 < 0.8) & (out$old_2/out$young_2 < 0.8))] <- "Down"
@@ -138,13 +134,80 @@ for (i in c(1:length(tissues))){
 }
 
 p_list <- list()
-antibody <- "H3K9me3"
+
 for(i in c(1:length(antibodys))){
   antibody <- antibodys[i]
   for(j in c(1:length(tissues))){
     tissue <- tissues[j]
     p_list[[j]] <- peak_preprocess_bin_level_remove_batch_effect(tissue,antibody)
   }
-  combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 7)
-  ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_volcano_plot_remove_batch_effect.png"),combined_plot,width = 28,height = 10,type="cairo")
+  combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 7)
+  ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_volcano_plot_remove_batch_effect_new.png"),combined_plot,width = 28,height = 15,type="cairo")
+}
+window_size <- "1000"
+gap_size <- "3000"
+for (i in c(1:length(antibodys))){
+  antibody <- antibodys[i]
+  for(j in c(1:length(tissues))){
+    tissue <- tissues[j]
+    if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
+      bin_size <- "10kb"
+    }else{
+      bin_size <- "1kb"
+    }
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
+    # peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_filtered_500kb.bed"))
+    peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W",window_size,"-G",gap_size,"-E100.bed"))
+    df <- df[which(df$Geneid %in% peaks$V4),]
+    colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+    p_list[[tissue]] <- ggplot(
+      df, aes(x = `LogFC.old.young`, y = -log10(`FDR.old.young`))) +
+      geom_point(aes(color = Significant), size=2) +
+      scale_color_manual(values = colour) +
+      geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+      geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+      labs(x="log2(fold change)",
+           y="-log10 (p-value)") +
+      theme_bw()+
+      theme(text = element_text(size = 20),legend.position = "none")+
+      ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
+      annotate("text", x = min(df$`LogFC.old.young`), y = max(-log10(df$`FDR.old.young`)), label = nrow(df[which(df$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+      annotate("text", x = max(df$`LogFC.old.young`), y = max(-log10(df$`FDR.old.young`)), label = nrow(df[which(df$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+    }
+  combined_plot <- plot_a_list(p_list,4,7)
+  # ggsave(paste0("result/all/diff/",antibody,"/all_diff_volcano_plot_remove_batch_effect_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_filtered_500kb_peaks.png"),combined_plot,width = 28,height = 15,type="cairo")
+  ggsave(paste0("result/all/diff/",antibody,"/all_diff_volcano_plot_remove_batch_effect_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_peaks.png"),combined_plot,width = 28,height = 15,type="cairo")
+}
+
+
+for (i in c(1:length(antibodys))){
+  antibody <- antibodys[i]
+  for(j in c(1:length(tissues))){
+    tissue <- tissues[j]
+    if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
+      bin_size <- "10kb"
+    }else{
+      bin_size <- "1kb"
+    }
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
+    # peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_filtered_500kb.bed"))
+    peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools.bed"))
+    df <- df[which(df$Geneid %in% peaks$V4),]
+    df <- df[,c("Length","Geneid","logCPM","LogFC.old.young","Significant")]  
+    colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+    p_list[[tissue]] <-ggplot(
+      df, aes(x = `logCPM`, y = `LogFC.old.young`)) +
+      geom_point(aes(color = Significant),size=2,alpha=0.2) +
+      scale_color_manual(values = colour) +
+      labs(x="Log2(CPM)",
+           y="Log2(Fold Change)") +
+      theme_bw()+
+      theme(text = element_text(size = 20))+
+      ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
+      annotate("text", x = max(df$logCPM), y = min(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Down"),]), vjust = 0, hjust = 1,colour="blue",size=5)+
+      annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)
+  }
+  combined_plot <- plot_a_list(p_list,4,7)
+  # ggsave(paste0("result/all/diff/",antibody,"/all_diff_MA_plot_remove_batch_effect_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_filtered_500kb_peaks.png"),combined_plot,width = 28,height = 15,type="cairo")
+  ggsave(paste0("result/all/diff/",antibody,"/all_diff_MA_plot_remove_batch_effect_in_young_old_merge-W",window_size,"-G",gap_size,"-E100_peaks.png"),combined_plot,width = 28,height = 15,type="cairo")
 }

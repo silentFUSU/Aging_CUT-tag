@@ -21,10 +21,10 @@ wait
 samtools index ${data_path}tmp.young.merge.bam -@ 16 &
 samtools index ${data_path}tmp.old.merge.bam -@ 16 &
 wait
-window_size=1000
-gap_size=3000
+window_size=5000
+gap_size=10000
 e_value=100
-mkdir -p ${data_path}peaks/
+data_path}peaks/
 sicer  -t ${data_path}tmp.young.merge.bam  -o ${data_path}peaks  -s ${ref} -w ${window_size} -rt 16 -f 300 -egf 0.8 -fdr 0.01 -g ${gap_size} -e ${e_value} -cpu 21 &
 sicer  -t ${data_path}tmp.old.merge.bam  -o ${data_path}peaks  -s ${ref} -w ${window_size} -rt 16 -f 300 -egf 0.8 -fdr 0.01 -g ${gap_size} -e ${e_value} -cpu 21 &
 wait

@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(data.table)
-tissue <- "thymus"
+tissue <- "Hip"
 resolution <- "10000"
 tad_format_transfer <- function(tissue,resolution){
   chromosomes <- c(paste0("chr",c(1:19,"X","Y")))

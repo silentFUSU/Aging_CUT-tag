@@ -29,7 +29,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "lung"
+tissue <- "mammarygland"
 resolution <- "50000"
 RNA_in_compartment <- function(tissue,resolution){
   RNA <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"),row.names = 1)

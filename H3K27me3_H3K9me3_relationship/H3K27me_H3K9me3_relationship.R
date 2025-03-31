@@ -11,8 +11,6 @@ library(ggrepel)
 library(limma)
 library(reshape2)
 
-
-
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
              "thymus","skin","bladder","bonemarrow","Hip","heart",
              "muscle","jejunum","uterus","ovary","liver","tongue",

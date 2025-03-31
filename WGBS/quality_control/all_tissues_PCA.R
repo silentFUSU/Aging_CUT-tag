@@ -90,3 +90,50 @@ p <- readRDS("data/samples/WGBS/1kb_bin_size_PCA_plot.rds")
 ggsave("result/WGBS/all_tissue_PCA.png",p,width = 11,height = 8,type="cairo")
 # saveRDS(p,"data/samples/WGBS/1kb_bin_size_PCA_plot.rds")
 
+tissues <- c("lung","liver","ileum","kidney","Hip","bonemarrow","jejunum","colon","muscle","cecum")
+per_tissue_PCA <- function(tissue,bin_size){
+  df <- fread(paste0("data/samples/WGBS/",tissue,"/compress2bin/",bin_size,"_bins_all_depth.csv"))
+  df <- data.table::dcast(df,label ~ sample, value.var = "percent")
+  search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
+  search_table <- search_table[which(search_table$tissue==tissue),]
+  setkey(df, label) 
+  setattr(df, "row.names", df$label)  
+  df[, label := NULL]  
+  df <- df[complete.cases(df)]  
+  df_matrix <- as.matrix(df) 
+  pca <- prcomp(t(df_matrix))
+  
+  to_plot <- data.frame(pca$x)
+  to_plot$sample_name <- rownames(to_plot)
+  to_plot <- merge(to_plot,search_table,by="sample_name")
+  to_plot$age[which(to_plot$age=="3M")] <- "Young"
+  to_plot$age[which(to_plot$age=="24M")] <- "Old"
+  to_plot$age <- factor(to_plot$age,levels=c("Young","Old"))
+  to_plot$rownames <- paste0(to_plot$sample_name,"-",to_plot$mouse_ID,"-",to_plot$age)
+  percentVar <- pca$sdev^2 / sum( pca$sdev^2 )*100
+  use.pcs <- c(1,2)
+  labs <- paste0(paste0("PC", use.pcs, " - "), paste0("Var.expl = ", round(percentVar[use.pcs], 2), "%"))
+  p <- ggplot(to_plot, aes(x=PC1, y=PC2, color=age)) + 
+    geom_point(size=5) +theme_bw()+
+    xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+
+    geom_text_repel(  
+      data = to_plot,  
+      aes(x = PC1, y = PC2, label = rownames, color = age),  
+      size = 5,  
+      box.padding = unit(0.35, "lines"),  
+      point.padding = unit(0.3, "lines")  
+    ) +
+    ggtitle(paste(tissue_label_change(tissue), "WGBS"))
+  return(p)
+}
+p_list <- list()
+for(tissue in tissues){
+  p_list[[tissue]] <- per_tissue_PCA(tissue,bin_size)
+}
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
+combined_plot <- plot_a_list(p_list,2,5)
+ggsave(paste0("result/WGBS/chrM_issue_tissues_PCA.png"),combined_plot,width = 24,height = 10,type="cairo")

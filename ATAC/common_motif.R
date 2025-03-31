@@ -43,8 +43,8 @@ for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(conditions))){
     condition <- conditions[j]
-    if(file.exists(paste0("data/samples/all/ATAC/motif_bg/",condition,"/",tissue,"/knownResults.txt"))){
-      motif <- read.delim(paste0("data/samples/all/ATAC/motif_bg/",condition,"/",tissue,"/knownResults.txt"))
+    if(file.exists(paste0("data/samples/ATAC/ATAC_peak_from_MJ/motif_bg/",condition,"/",tissue,"/knownResults.txt"))){
+      motif <- read.delim(paste0("data/samples/ATAC/ATAC_peak_from_MJ/motif_bg/",condition,"/",tissue,"/knownResults.txt"))
       motif$Motif.Name <-  sapply(motif$Motif.Name, extract_before_bracket)  
       motif$Motif.Name <- paste0(motif$Motif.Name,"-",motif$Consensus)
       motif <- motif[!duplicated(motif$Motif.Name),]
@@ -91,15 +91,15 @@ decrease_count <- merge(decrease_count,decrease_tissue,by="Motif.Name")
 
 increase_count <- increase_count[order(increase_count$n,decreasing = TRUE),]
 decrease_count <- decrease_count[order(decrease_count$n,decreasing = TRUE),]
-write.csv(increase_count,"data/samples/all/ATAC/motif_bg/up/all_tissues_ATAC_peaks_increase_motif_count.csv",row.names = F)
-write.csv(decrease_count,"data/samples/all/ATAC/motif_bg/down/all_tissues_ATAC_peaks_decrease_motif_count.csv",row.names = F)
+# write.csv(increase_count,"data/samples/all/ATAC/motif_bg/up/all_tissues_ATAC_peaks_increase_motif_count.csv",row.names = F)
+# write.csv(decrease_count,"data/samples/all/ATAC/motif_bg/down/all_tissues_ATAC_peaks_decrease_motif_count.csv",row.names = F)
 
 motif_count_summary$condition <- factor(motif_count_summary$condition,levels=c("up","down"))
 motif_count_summary$position <- motif_count_summary$count
 motif_count_summary$position[which(motif_count_summary$condition=="down")] <- (-motif_count_summary$position[which(motif_count_summary$condition=="down")])
 ggplot(motif_count_summary, aes(x = tissue, y = ifelse(condition == "up", count, -count), fill = condition)) +  
   geom_bar(stat = "identity") +  
-  labs(title = paste0("fdr < 0.05 motif count (using unchanged peaks as background)"), x = NULL, y = "Count") +  
+  labs(title = paste0("fdr < 0.05 motif count (using oppositely changed peaks as background)"), x = NULL, y = "Count") +  
   theme_minimal() +  
   xlab(NULL)+
   scale_y_continuous(labels = abs) +  
@@ -121,12 +121,16 @@ decrease_motif_data_frame <- motif_data_frame[["down"]][which(motif_data_frame[[
 rownames_increase_motif_data_frame <- increase_motif_data_frame$Motif.Name
 rownames_decrease_motif_data_frame <- decrease_motif_data_frame$Motif.Name
 
-increase_motif_data_frame <- as.data.frame(lapply(increase_motif_data_frame[,-1], function(x) -log10(x+1)))
+increase_motif_data_frame <- as.data.frame(lapply(increase_motif_data_frame[,-1], function(x) -log10(x)))
 rownames(increase_motif_data_frame) <- rownames_increase_motif_data_frame
 
-decrease_motif_data_frame <- as.data.frame(lapply(decrease_motif_data_frame[,-1], function(x) -log10(x+1)))
+decrease_motif_data_frame <- as.data.frame(lapply(decrease_motif_data_frame[,-1], function(x) -log10(x)))
 rownames(decrease_motif_data_frame) <- rownames_decrease_motif_data_frame
+increase_motif_data_frame[] <- lapply(increase_motif_data_frame, function(x) replace(x, is.infinite(x), 4))  
+decrease_motif_data_frame[] <- lapply(decrease_motif_data_frame, function(x) replace(x, is.infinite(x), 4))  
 
-pheatmap::pheatmap(increase_motif_data_frame,main = "Motif enriched in increase peaks",filename = "result/all/ATAC/all_tissues_increase_peaks_motif.png",width = 10,height = 20)
-pheatmap::pheatmap(decrease_motif_data_frame,main = "Motif enriched in decrease peaks",filename = "result/all/ATAC/all_tissues_decrease_peaks_motif.png",width = 10,height = 20)
+breaks <- seq(-log10(0.05), 4, length.out = 101)
+
+pheatmap::pheatmap(increase_motif_data_frame,main = "Motif enriched in increase peaks",filename = "result/all/ATAC/all_tissues_increase_peaks_motif.png",width = 10,height = 20,breaks = breaks,na_col = "grey")
+pheatmap::pheatmap(decrease_motif_data_frame,main = "Motif enriched in decrease peaks",filename = "result/all/ATAC/all_tissues_decrease_peaks_motif.png",width = 10,height = 20,breaks = breaks,na_col = "grey")
 

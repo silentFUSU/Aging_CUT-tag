@@ -28,7 +28,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 summary <- data.frame()
-gene <- "Lmnb1"
+gene <- "C4b"
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
   df <- df[which(df$X==gene),]

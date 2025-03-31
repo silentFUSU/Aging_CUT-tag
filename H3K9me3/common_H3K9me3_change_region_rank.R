@@ -29,8 +29,8 @@ tissue_label_change <- function(tissue){
 }
 common_increase <- read.csv("data/samples/all/H3K9me3/common_increase_10kb_bins_after_remove_batch_effect.csv")
 common_decrease <- read.csv("data/samples/all/H3K9me3/common_decrease_10kb_bins_after_remove_batch_effect.csv")
-common_increase_region <- common_increase$Geneid[which(common_increase$n > 1)]
-common_decrease_region <- common_decrease$Geneid[which(common_decrease$n > 1)]
+common_increase_region <- common_increase$Geneid[which(common_increase$n > 5)]
+common_decrease_region <- common_decrease$Geneid[which(common_decrease$n > 10)]
 
 
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
@@ -40,8 +40,9 @@ tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
 increase_logFC_rank <- data.frame()
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/",tissue,"/H3K9me3/H3K9me3_10kb_bins_diff_after_remove_batch_effect.csv"))
-  df <- df[which(df$Geneid %in% common_increase_region & df$LogFC.old.young > 0),]
-  mean_logFC <- mean(df$LogFC.old.young)
+  # df <- df[which(df$Geneid %in% common_increase_region & df$LogFC.old.young > 0),]
+  df <- df[which(df$Geneid %in% common_increase_region),]
+  mean_logFC <- median(df$LogFC.old.young)
   t_increase_logFC_rank <- data.frame(tissue=tissue_label_change(tissue),mean_logFC=mean_logFC)  
   increase_logFC_rank <- rbind(increase_logFC_rank,t_increase_logFC_rank)
 }
@@ -52,7 +53,7 @@ color <- setNames(color,sort(unique(increase_logFC_rank$tissue)))
 increase_logFC_rank <- increase_logFC_rank[order(increase_logFC_rank$mean_logFC),]
 increase_logFC_rank$tissue <- factor(increase_logFC_rank$tissue,levels=increase_logFC_rank$tissue)
 ggplot(increase_logFC_rank,mapping = aes(x=mean_logFC,y=tissue,fill = tissue))+
-  geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+xlab("mean log2(Fold Change)")+ggtitle(paste0("Increase"))+
+  geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+xlab("median log2(Fold Change)")+ggtitle(paste0("Increase"))+
   theme(text = element_text(size = 18))+ scale_fill_manual(values = color) +guides(fill= guide_legend(title = ""))
 
 # increase_var <- data.frame()
@@ -125,8 +126,9 @@ ggplot(positive_negative_ratio, aes(x = Var2, y = value, fill = Var1)) +
 decrease_logFC_rank <- data.frame()
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/",tissue,"/H3K9me3/H3K9me3_10kb_bins_diff_after_remove_batch_effect.csv"))
-  df <- df[which(df$Geneid %in% common_decrease_region & df$LogFC.old.young < 0),]
-  mean_logFC <- mean(df$LogFC.old.young)
+  # df <- df[which(df$Geneid %in% common_decrease_region & df$LogFC.old.young < 0),]
+  df <- df[which(df$Geneid %in% common_decrease_region),]
+  mean_logFC <- median(df$LogFC.old.young)
   t_decrease_logFC_rank <- data.frame(tissue=tissue_label_change(tissue),mean_logFC=mean_logFC)  
   decrease_logFC_rank <- rbind(decrease_logFC_rank,t_decrease_logFC_rank)
 }
@@ -137,7 +139,7 @@ color <- setNames(color,sort(unique(decrease_logFC_rank$tissue)))
 decrease_logFC_rank <- decrease_logFC_rank[order(decrease_logFC_rank$mean_logFC,decreasing = T),]
 decrease_logFC_rank$tissue <- factor(decrease_logFC_rank$tissue,levels=decrease_logFC_rank$tissue)
 ggplot(decrease_logFC_rank,mapping = aes(x=mean_logFC,y=tissue,fill = tissue))+
-  geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+xlab("mean log2(Fold Change)")+ggtitle(paste0("Decrease"))+
+  geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+xlab("median log2(Fold Change)")+ggtitle(paste0("Decrease"))+
   theme(text = element_text(size = 18))+ scale_fill_manual(values = color) +guides(fill= guide_legend(title = ""))
 
 # decrease_var <- data.frame()
