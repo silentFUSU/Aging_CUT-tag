@@ -22,6 +22,7 @@ do
 done
 
 mkdir -p ${data_path}${tissue}/distance_contact/
+res_k=$((${resolution}/1000))
 for sample in ${samples_for_tissue[@]}
 do
     files=""
@@ -30,6 +31,6 @@ do
         files="$files ${data_path}${tissue}/raw_matrix/${sample}/${sample}_${resolution}_${chr}_raw.matrix_${chr}.matrix"
     done
     echo $files 
-    awk '{dist=($2-$1)*10000;mat[dist]+=$3} END { for (dist in mat){print dist,mat[dist]} }' $files |sort -k1,1n >   ${data_path}${tissue}/distance_contact/$sample.dist.contacts.10k &
+    awk -v res="$resolution" '{dist=($2-$1)*res;mat[dist]+=$3} END { for (dist in mat){print dist,mat[dist]} }' $files |sort -k1,1n >   ${data_path}${tissue}/distance_contact/$sample.dist.contacts.${res_k}k &
 done
 wait

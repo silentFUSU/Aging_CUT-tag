@@ -20,7 +20,7 @@ bin_size <- function(antibody){
     return("1kb")
   }  
 }
-antibody <- "H3K27me3"
+antibody <- "H3K9me3"
 window_size=5000
 gap_size=10000
 
@@ -34,7 +34,7 @@ common_diff_bin <- function(antibody,tissues){
                   stringsAsFactors = FALSE) 
   for (i in c(1:length(tissues))){
     tissue <- tissues[i]
-    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_diff_after_remove_batch_effect.csv")) 
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion_diff_after_remove_batch_effect.csv")) 
     df <- df[which(df$Significant!="Stable"),c("Geneid","Chr","Start","End","Significant")]
     if(nrow(df) >0){
       df$tissue <- tissue
@@ -42,7 +42,7 @@ common_diff_bin <- function(antibody,tissues){
       bin <- rbind(bin,df)
     }
   }
-  bin_file <- read.table(paste0("data/samples/all/",antibody,"/bed/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools.bed"))
+  bin_file <- read.table(paste0("data/samples/all/",antibody,"/bed/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion.bed"))
   bin_file$Geneid <- paste0(bin_file$V1,":",bin_file$V2,"-",bin_file$V3)
   colnames(bin_file)[4]<-"Geneid"
   
@@ -65,8 +65,8 @@ common_diff_bin <- function(antibody,tissues){
   decrease_count <- merge(decrease_count,decrease_tissue,by="Geneid")
   decrease_count <- merge(decrease_count,bin_file,by="Geneid")
   colnames(decrease_count)[4:6] <- c("chr","start","end")
-  write.csv(increase_count,paste0("data/samples/all/",antibody,"/common_increase-W",window_size,"-G",gap_size,"-E100_union_peaks_after_remove_batch_effect.csv"),row.names = F)
-  write.csv(decrease_count,paste0("data/samples/all/",antibody,"/common_decrease-W",window_size,"-G",gap_size,"-E100_union_peaks_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(increase_count,paste0("data/samples/all/",antibody,"/common_increase-W",window_size,"-G",gap_size,"-E100_recursion_union_peaks_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(decrease_count,paste0("data/samples/all/",antibody,"/common_decrease-W",window_size,"-G",gap_size,"-E100_recursion_union_peaks_after_remove_batch_effect.csv"),row.names = F)
 }
 antibodys <- c("H3K27me3","H3K36me3","H3K9me3","H3K4me3","H3K4me1","H3K27ac") 
 for(antibody in antibodys){

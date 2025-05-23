@@ -1,21 +1,21 @@
-raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20250301/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250301_WJH_HiC/
+raw_data=/storage/zhangyanxiaoLab/fastq/2025/2025-05-10-Jiangbei-DYQ/DYQ181/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250510_DYQ_HiC/
 # samples=(Cecum-103 Cecum-106 Cecum-109 WJH-Ileum-100 WJH-Ileum-103 WJH-Ileum-106 WJH-ileum-112 WJH-pancreas-107 WJH-pancreas-108 WJH-pancreas-98  WJH-thymus-230 WJH-thymus-240 WJH-thymus-241 WJH-thymus-245)
-samples=(WJH-Skin-1_3 WJH-Skin-2_3 WJH-Skin-3_3 WJH-Skin-4_3 WJH-Muscle-young2 WJH-Muscle-young1 WJH-Muscle-old3 WJH-Muscle-old250)
+samples=(DYQ181-1 DYQ181-2 DYQ181-3 DYQ181-4 DYQ181-5 DYQ181-6)
 mkdir -p ${target_path}
 mkdir -p ${target_path}fastq/
 for sample in ${samples[@]}
 do
     echo $sample
     mkdir ${target_path}fastq/${sample}
-    ln -s ${raw_data}${sample}*/*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
-    ln -s ${raw_data}${sample}*/*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
-    # ln -s ${raw_data}*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
-    # ln -s ${raw_data}*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
+    # ln -s ${raw_data}${sample}*/*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    # ln -s ${raw_data}${sample}*/*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
+    ln -s ${raw_data}*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    ln -s ${raw_data}*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
     # mkdir ${target_path}${sample}
     # mkdir ${target_path}${sample}/fastq
-    # ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}${sample}/fastq/${sample}_R1.fastq.gz
-    # ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}${sample}/fastq/${sample}_R2.fastq.gz
+    # ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    # ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
 done
 
 raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20240925-1/WJH-Ileum-test2/

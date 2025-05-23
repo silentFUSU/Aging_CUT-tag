@@ -8,7 +8,7 @@ library(dplyr)
 library(corrplot)
 options(scipen = 999)  
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum")
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -30,7 +30,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 } 
-state_num <- "14"
+state_num <- "11"
 #scale by row
 transfer_matrix <- read.csv(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_transfer/state_transfer.csv"))
 transfer_matrix$young_state <- factor(transfer_matrix$young_state, levels=c(paste0("E",c(1:state_num))))
@@ -53,7 +53,7 @@ for(tissue in tissues){
 rownames(to_plot) <- to_plot$condition
 to_plot <- to_plot[,-1]
 to_plot_cor <- cor(to_plot)
-pheatmap::pheatmap(to_plot_cor,main = "Scale by row")
+pheatmap::pheatmap(to_plot_cor,main = "Scale by row",clustering_distance_rows = "manhattan",clustering_distance_cols = "manhattan")
 
 #scale by row remove unchange
 transfer_matrix <- read.csv(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_transfer/state_transfer.csv"))
@@ -78,7 +78,7 @@ for(tissue in tissues){
 rownames(to_plot) <- to_plot$condition
 to_plot <- to_plot[,-1]
 to_plot_cor <- cor(to_plot)
-pheatmap::pheatmap(to_plot_cor,main = "Scale by row remove unchanged")
+pheatmap::pheatmap(to_plot_cor,main = "Scale by row remove unchanged",clustering_distance_rows = "manhattan",clustering_distance_cols = "manhattan")
 pheatmap::pheatmap(to_plot,scale = "row",main = "Scale by all condition remove empty state")
 
 #scale by all transfer contidion
@@ -100,8 +100,10 @@ for(tissue in tissues){
 }
 rownames(to_plot) <- to_plot$condition
 to_plot <- to_plot[,-1]
-to_plot_cor <- cor(to_plot,method = "spearman")
-pheatmap::pheatmap(to_plot_cor,main = "Scale by all condition")
+to_plot_cor <- cor(to_plot,method = "pearson")
+custom_colors <- colorRampPalette(c("white", "red"))(100) 
+breaks <- seq(0, 1, length.out = 101)  
+pheatmap::pheatmap(to_plot_cor,main = "Scale by all condition",clustering_distance_rows = "manhattan",clustering_distance_cols = "manhattan")
 pheatmap::pheatmap(to_plot,scale = "row",main = "Scale by all condition")
 
 #scale by all transfer condition remove empty state 

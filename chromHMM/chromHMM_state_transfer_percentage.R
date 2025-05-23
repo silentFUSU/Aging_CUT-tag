@@ -2,14 +2,13 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
-library("AnnotationDbi")
-library(org.Mm.eg.db)
 library(ggplot2)
 library(tidyr)
 library(stringr)
 library(dplyr)
 library(ggrepel)
 library(reshape2)
+library(ggalluvial)  
 # library(randomcoloR)
 # colors<-distinctColorPalette(20)
 # write.table(colors,"data/samples/20_distinct_color.txt",row.names = F,col.names = F)
@@ -49,10 +48,10 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 tissues <-  c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum")
 plist <- list()
 count=1
-state_num=14
+state_num=11
 dir.create(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_transfer/"))
 colors <- read.table("data/samples/20_distinct_color.txt")
 
@@ -106,14 +105,15 @@ ggsave(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_t
 
 
 
-transfer_matrix <- data.frame(tissue = character(),  
-                              young_state = character(),  
-                              old_state = character(),  
-                              Freq = numeric(),  
-                              stringsAsFactors = FALSE)  
+transfer_matrix <- data.frame(tissue = character(),
+                              young_state = character(),
+                              old_state = character(),
+                              Freq = numeric(),
+                              stringsAsFactors = FALSE)
+# transfer_matrix <- read.csv(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_transfer/state_transfer.csv"))
 tissues <-   c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-                         "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
-state_num <- "14"
+                         "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum")
+state_num <- "11"
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   young1 <- read.delim(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/split_1k/",tissue,"_young1_",state_num,"_segments_1k.bed"),header = F)
@@ -149,8 +149,10 @@ for(i in c(1:length(tissues))){
 
 #scale by row
 transfer_matrix <- read.csv(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_transfer/state_transfer.csv"))
-transfer_matrix$young_state <- factor(transfer_matrix$young_state, levels=c(paste0("E",c(1:state_num))))
-transfer_matrix$old_state <- factor(transfer_matrix$old_state, levels=c(paste0("E",c(1:state_num))))
+transfer_matrix$young_state <- gsub("E", "state", transfer_matrix$young_state)  
+transfer_matrix$old_state <- gsub("E", "state", transfer_matrix$old_state)  
+transfer_matrix$young_state <- factor(transfer_matrix$young_state, levels=c(paste0("state",c(1:state_num))))
+transfer_matrix$old_state <- factor(transfer_matrix$old_state, levels=c(paste0("state",c(1:state_num))))
 
 
 result_transfer_matrix <- transfer_matrix %>%
@@ -158,14 +160,14 @@ result_transfer_matrix <- transfer_matrix %>%
   summarise(mean_freq = mean(Freq, na.rm = TRUE))
 result_transfer_matrix2 <- result_transfer_matrix %>%
   group_by(young_state) %>%
-  mutate(percent_freq = mean_freq/sum(mean_freq))
+  mutate(percent_freq = mean_freq/sum(mean_freq)*100)
 result_transfer_matrix_to_plot <- dcast(result_transfer_matrix2, formula = young_state~old_state, value.var = "percent_freq") 
 labels <-as.character(result_transfer_matrix_to_plot$young_state)
 result_transfer_matrix_to_plot <- result_transfer_matrix_to_plot[,-1]
 result_transfer_matrix_to_plot[is.na(result_transfer_matrix_to_plot)] <- 0
 pheatmap::pheatmap(result_transfer_matrix_to_plot,
                    cluster_rows = F,cluster_cols = F, 
-                   breaks = seq(0, 0.2, length.out = 101),
+                   breaks = seq(0, 20, length.out = 101),
                    display_numbers = T,labels_row = labels,
                    labels_col = labels,fontsize = 10)
 

@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(RColorBrewer)  
-tissue <- "Hip"
+library(stringr)
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -26,12 +26,15 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-calDistanceProb <- function(tissue){
+tissue <- "lung"
+resolution <- 20000
+calDistanceProb <- function(tissue,resolution){
+  resolution_k <- resolution/1000
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue==tissue),]  
-  con.list= list()
+
   for(sample in search_table$sample_name){
-    con = read.table(paste0("data/samples/HiC/",tissue,"/distance_contact/",sample,".dist.contacts.10k")) 
+    con = read.table(paste0("data/samples/HiC/",tissue,"/distance_contact/",sample,".dist.contacts.",resolution_k,"k")) 
     con$sample = sample
     con$prob = con$V2/sum(con$V2)
     con.list[[sample]]= con

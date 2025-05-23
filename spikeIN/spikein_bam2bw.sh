@@ -1,6 +1,12 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/Hippocampus_aging/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/axon_degradation/data/raw_data/20250512_wanrui_RNA/
 # samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/.nodup.bw$//'  | sort) 
-samples=(JC_R1_H3K9me3 JC_R2_H3K9me3 VC_R1_H3K9me3 VC_R2_H3K9me3)
+samples=(Axon_1_S1_L003 Axon_2_S2_L003 Axon_3_S3_L003 Soma_1_S1_L004 Soma_2_S2_L004 Soma_3_S3_L004)
+for sample in ${samples[@]}
+do 
+    sf=$(grep $sample ${data_path}all_sample.qc.txt |cut -f 8)
+    bamCoverage --scaleFactor $sf -b ${data_path}bam/${sample}.sorted.bam -o ${data_path}bigWig/${sample}.scaled.filt.srt.bw --outFileFormat bigwig -bs 50 --numberOfProcessors 6 --normalizeUsing RPKM &
+done
+
 for sample in ${samples[@]}
 do 
     sf=$(grep $sample ${data_path}all_sample.qc.txt |cut -f 8)

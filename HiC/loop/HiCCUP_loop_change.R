@@ -5,6 +5,7 @@ set.seed(1)
 library(ggplot2)
 library(data.table)
 library(tidyr)
+library(ggrepel)
 tissue <- "lung"
 resolution <- "25000"
 tissue_label_change <- function(tissue){
@@ -54,7 +55,7 @@ for(tissue in tissues){
   loop_combine(tissue,resolution)
 }
 
-
+all_tissues_loop_summary <- data.frame()
 loop_change <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue==tissue),]
@@ -75,6 +76,7 @@ loop_change <- function(tissue,resolution){
     }
   }
   loop_summary$age <- factor(loop_summary$age,levels=c("young","old"))
+  all_tissues_loop_summary <<- rbind(all_tissues_loop_summary,loop_summary)
   # color <- read.table("data/samples/7_distinct_color.txt")
   # color <- setNames(color$V1[c(1,3)],c("young","old"))
   p<- ggplot(loop_summary,aes(x=age,y=counts,color = age))+    
@@ -98,3 +100,4 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 }
 combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)
 ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change.png"),combined_plot,width = 18,height = 20,type="cairo")
+write.csv(all_tissues_loop_summary,"data/samples/HiC/HiCCUP_loop_change_25000.csv",row.names = F)

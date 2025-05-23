@@ -46,15 +46,19 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
 per_markers_all_tissue_pca <- function(antibody){
-  tab = read.delim(paste0("data/samples/all/",antibody,"/merge-",bin_size(antibody),"_bins.counts"),row.names = 1,skip=1)    
+  if(antibody == "ATAC"){
+    tab = read.delim(paste0("data/samples/ATAC/all/",antibody,"/merge-",bin_size(antibody),"_bins.counts"),row.names = 1,skip=1)    
+  }else{
+    tab = read.delim(paste0("data/samples/all/",antibody,"/merge-",bin_size(antibody),"_bins.counts"),row.names = 1,skip=1)    
+  }
   tab <- tab[-which(tab$Chr=="chrY"),]
   counts <- tab[,c(6:ncol(tab))]
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
   colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
   if(antibody=="ATAC"){
-    search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
+    search_table <- read.csv("data/samples/all/ATAC_search_table_batch.csv")
   }else{
-    search_table <- read.csv("data/samples/all/CUTTag_search_table.csv")
+    search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
   }
   search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
   y= DGEList(counts=counts)

@@ -29,8 +29,8 @@ tissue_label_change <- function(tissue){
 }
 common_increase <- read.csv("data/samples/all/H3K9me3/common_increase_10kb_bins_after_remove_batch_effect.csv")
 common_decrease <- read.csv("data/samples/all/H3K9me3/common_decrease_10kb_bins_after_remove_batch_effect.csv")
-common_increase_region <- common_increase$Geneid[which(common_increase$n > 5)]
-common_decrease_region <- common_decrease$Geneid[which(common_decrease$n > 10)]
+common_increase_region <- common_increase$Geneid[which(common_increase$n > 0)]
+common_decrease_region <- common_decrease$Geneid[which(common_decrease$n > 0)]
 
 
 tissues <- c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",

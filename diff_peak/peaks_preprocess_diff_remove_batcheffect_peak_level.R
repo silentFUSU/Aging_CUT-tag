@@ -40,12 +40,12 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 }
 window_size="5000"
 gap_size="10000"
-antibody <- "H3K27me3"
-tissue <- "lung"
+antibody <- "H3K9me3"
+tissue <- "tongue"
 peak_preprocess_peak_level_remove_batch_effect <- function(tissue,antibody){
   search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-    tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools.counts"),skip=1)
+    tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion.counts"),skip=1)
   }else{
     tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_young_old_narrowpeak.counts"),skip=1)
   }
@@ -88,7 +88,7 @@ peak_preprocess_peak_level_remove_batch_effect <- function(tissue,antibody){
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-    write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_diff_after_remove_batch_effect.csv"),row.names = F)
+    write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion_diff_after_remove_batch_effect.csv"),row.names = F)
   }else{
     write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_young_old_narrowpeak_diff_after_remove_batch_effect.csv"),row.names = F)
   }
@@ -101,13 +101,13 @@ peak_preprocess_peak_level_remove_batch_effect <- function(tissue,antibody){
       geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
       geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
       labs(x="log2(fold change)",
-           y="-log10 (p-value)") +
+           y="-log10 (FDR)") +
       theme_bw()+
       theme(text = element_text(size = 20))+
       ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
       annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
       annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
-  out <- out[which(out$Length > 100000),]
+  out <- out[which(out$Length > 200000),]
   p <- ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
     geom_point(aes(color = Significant, size = Length),alpha=0.2) +
@@ -116,7 +116,7 @@ peak_preprocess_peak_level_remove_batch_effect <- function(tissue,antibody){
     geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
     geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
     labs(x="log2(fold change)",
-         y="-log10 (p-value)") +
+         y="-log10 (FDR)") +
     theme_bw()+
     theme(text = element_text(size = 20))+
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
@@ -146,7 +146,7 @@ for (i in c(1:length(antibodys))){
   }
   combined_plot <- plot_a_list(p_list,4,7)
   # ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_-W",window_size,"-G",gap_size,"-E100_peaks_volcano_plot_remove_batch_effect.png"),combined_plot,width = 40,height = 18,type="cairo")
-  ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_-W",window_size,"-G",gap_size,"-E100_bedtools_peaks_volcano_plot_remove_batch_effect.png"),combined_plot,width = 40,height = 18,type="cairo")
+  ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_-W",window_size,"-G",gap_size,"-E100_recursion_peaks_volcano_plot_remove_batch_effect.png"),combined_plot,width = 40,height = 18,type="cairo")
   # ggsave(paste0("result/",tissue,"/all_diff_peak_level_volcano_plot_remove_batch_effect.png"),combined_plot,width = 15,height = 10,type="cairo")
 }
 
@@ -180,14 +180,14 @@ for (i in c(1:length(antibodys))){
 
 MA_plot <- function(tissue,antibody){
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_bedtools_diff_after_remove_batch_effect.csv"))
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion_diff_after_remove_batch_effect.csv"))
   }else{
     df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_young_old_narrowpeak_diff_after_remove_batch_effect.csv"))
   }
   
   df <- df[,c("Length","Geneid","logCPM","LogFC.old.young","Significant")]  
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
-  # df <- df[which(df$Length > 100000),]
+  df <- df[which(df$Length > 200000),]
   p <- ggplot(
     df, aes(x = `logCPM`, y = `LogFC.old.young`)) +
     geom_point(aes(color = Significant, size = Length),alpha=0.2) +
@@ -214,11 +214,12 @@ MA_plot <- function(tissue,antibody){
   return(p)
 }
 p_list <- list()
+
 for(tissue in tissues){
-  p_list[[tissue]] <- MA_plot(tissue, "H3K27me3")  
+  p_list[[tissue]] <- MA_plot(tissue, "H3K9me3")  
 }
 combined_plot <- plot_a_list(p_list,4,7)
-ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_-W",window_size,"-G",gap_size,"-E100_bedtools_peaks_MA_plot_remove_batch_effect.png"),combined_plot,width = 40,height = 18,type="cairo")
+ggsave(paste0("result/all/diff/",antibody,"/all_tissues_diff_-W",window_size,"-G",gap_size,"-E100_peaks_MA_plot_remove_batch_effect.png"),combined_plot,width = 40,height = 18,type="cairo")
 
 
 plist <- list()
@@ -246,3 +247,22 @@ for(tissue in tissues){
 }
 combined_plot <- plot_a_list(plist,4,7)
 ggsave(paste0("result/all/diff/",antibody,"/all_tissues_scatter_plot_young_old_merge-W5000-G10000-E100_bedtools_100kb_filtered_peaks.png"),combined_plot,width = 35,height = 20,type="cairo")
+
+
+summary <- data.frame()
+for(tissue in tissues){
+  df <- read.csv(paste0("data/samples/",tissue,"/H3K9me3/H3K9me3_young_old_merge-W5000-G10000-E100_recursion_diff_after_remove_batch_effect.csv"))  
+  df <- df[which(df$Length > 200000),]
+  df <- df[,c("Geneid","LogFC.old.young","FDR.old.young")]
+  colnames(df) <- c("Geneid",paste0(tissue,".LogFC"),paste0(tissue,".FDR"))
+  if(nrow(summary)==0){
+    summary <- df
+  }else{
+    summary <- merge(summary,df,by="Geneid",all=T)
+  }
+  }
+write.csv(summary,"data/samples/all/H3K9me3/recursion_peaks_diff_table/H3K9me3_young_old_merge-W5000-G10000-E100_recursion_diff_after_remove_batch_effect.csv")
+
+
+
+

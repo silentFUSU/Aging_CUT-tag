@@ -164,3 +164,10 @@ ggplot(compartment_change_summary, aes(x = Percentage, y = tissue, fill = Var1))
     plot.title = element_text(size = 16, face = "bold"),
     legend.position = "bottom"
   ) 
+
+#####generate bed
+resolution <- "50000"
+for(tissue in tissues){
+  df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_",resolution,".csv"))
+  write.table(df[,c(1:3)],paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_",resolution,".bed"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
+}

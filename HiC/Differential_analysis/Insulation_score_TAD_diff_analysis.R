@@ -30,7 +30,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 resolution <- "20000"
-tissue <- "kidney"
+tissue <- "lung"
 TAD_diff_analysis <- function(tissue,resolution){
   TAD <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD.csv"))
   TAD <- TAD[,c(1:3)]

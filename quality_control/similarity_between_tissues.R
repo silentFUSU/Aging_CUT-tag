@@ -10,8 +10,8 @@ library(stringr)
 antibody <- "H3K9me3"
 method <-"pearson"
 options(bitmapType = "cairo")  
-search_table_cut <- read.csv("data/samples/all/CUTTag_search_table.csv")
-search_table_atac <- read.csv("data/samples/all/ATAC_search_table.csv")
+search_table_cut <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
+search_table_atac <- read.csv("data/samples/all/ATAC_search_table_batch.csv")
 search_table <- rbind(search_table_cut,search_table_atac)
 correlation_clustering <- function(antibody,method){
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
@@ -114,6 +114,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
+
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
 methods <- c("pearson","spearman")
 logFC_correlation_clustering <- function(antibody,tissues,method){
@@ -123,9 +124,14 @@ logFC_correlation_clustering <- function(antibody,tissues,method){
     bin_size <- "1kb"
   }
   to_plot <- data.frame()
+  common_increase <- read.csv(paste0("data/samples/all/",antibody,"/common_increase_10kb_bins_after_remove_batch_effect.csv"))
+  common_decrease <- read.csv(paste0("data/samples/all/",antibody,"/common_decrease_10kb_bins_after_remove_batch_effect.csv"))
+  regions <- c(common_decrease$Geneid[which(common_decrease$n>0)], common_increase$Geneid[which(common_increase$n>0)])
+  # regions <- c(common_decrease$Geneid[which(common_decrease$n>0)])
+  # regions <- c(common_increase$Geneid[which(common_increase$n>0)])
   for(tissue in tissues){
     df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
-    df <- df[,c("Geneid","LogFC.old.young")]
+    df <- df[which(df$Geneid %in% regions),c("Geneid","LogFC.old.young")]
     colnames(df)[which(colnames(df)=="LogFC.old.young")] <- tissue_label_change(tissue)
     if(ncol(to_plot)==0){
       to_plot <- df
@@ -142,7 +148,8 @@ logFC_correlation_clustering <- function(antibody,tissues,method){
   annotation_colors <- list(tissue=colors)
   # pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),
   #                    filename = paste0("result/all/clustering/",antibody,"_logFC_",method,"_after_remove_batch_effect.png"),type="png",width = 9,height = 7,border_color = "grey")
-  pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),border_color = "grey",breaks = seq(-1, 1, length.out = 101))
+  color_palette <- colorRampPalette(c("blue", "white", "red"))(100)  
+  pheatmap::pheatmap(to_plot_cor,annotation_row = annotation,annotation_colors = annotation_colors, main = paste0(antibody," ",method),border_color = "grey",breaks = seq(-1, 1, length.out = 101), color = color_palette)
 }
 
 for(antibody in antibodys){

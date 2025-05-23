@@ -50,24 +50,20 @@ for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   H3K27me3<-read.csv(paste0("data/samples/",tissue,"/H3K27me3/H3K27me3_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
   H3K9me3<-read.csv(paste0("data/samples/",tissue,"/H3K9me3/H3K9me3_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
-  logFC<-merge(H3K27me3[,c("Geneid","LogFC.old.young","FDR.old.young")],H3K9me3[,c("Geneid","LogFC.old.young","FDR.old.young")],by="Geneid")
-  colnames(logFC)[2:5]<-c("logFC_H3K27me3","FDR_H3K27me3","logFC_H3K9me3","FDR_H3K9me3")
+  
+  logFC<-merge(H3K27me3[,c("Geneid","LogFC.old.young","FDR.old.young","Significant")],H3K9me3[,c("Geneid","LogFC.old.young","FDR.old.young","Significant")],by="Geneid")
+  colnames(logFC)[2:7]<-c("logFC_H3K27me3","FDR_H3K27me3","Significant_H3K27me3","logFC_H3K9me3","FDR_H3K9me3","Significant_H3K9me3")
+  
   logFC<-merge(logFC,H3K27me3[,c("Geneid","Chr","Start","End")],by="Geneid")
   logFC$both_sig <- "Stable"
-  logFC$both_sig[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05)] <- "Both_Significant"
+  logFC$both_sig[which(logFC$Significant_H3K27me3 != "Stable" & logFC$Significant_H3K9me3 != "Stable")] <- "Both_Significant"
+  
   logFC$quadrant <- "First"
   logFC$quadrant[which(logFC$logFC_H3K27me3>0 & logFC$logFC_H3K9me3<0)] <-"Second"
   logFC$quadrant[which(logFC$logFC_H3K27me3<0 & logFC$logFC_H3K9me3<0)] <-"Third"
   logFC$quadrant[which(logFC$logFC_H3K27me3<0 & logFC$logFC_H3K9me3>0)] <-"Fourth"
-  # logFC <- logFC[which(logFC$Chr %in% paste0("chr",c(1:19,"X"))),]
-  # H3K9me3_peaks <- read.table(paste0("data/samples/",tissue,"/H3K9me3/bed/H3K9me3_10kb_in_young_merge-W1000-G3000-E100.bed"))
-  # logFC <- logFC[-which(logFC$Geneid %in% H3K9me3_peaks$V4),]
-  # H3K27me3_peaks <- read.table(paste0("data/samples/",tissue,"/H3K27me3/bed/H3K27me3_10kb_in_old_merge-W1000-G3000-E100.bed"))
-  # logFC <- logFC[which(logFC$Geneid %in% H3K27me3_peaks$V4),]
-  # logFC <- logFC[which(logFC$Geneid %in% c(H3K27me3_peaks$V4,H3K9me3_peaks$V4)),]
-  # dir.create(paste0("data/samples/all/diff_table/H3K27me3_H3K9me3/"))
-  # write.csv(logFC,paste0("data/samples/all/diff_table/H3K27me3_H3K9me3/",tissue,"_H3K27me3_H3K9me3_10kb_bins_diff_after_remove_batch_effect.csv"),row.names = F)
-  logFC_sig <- logFC[which(logFC$FDR_H3K27me3<0.05 & logFC$FDR_H3K9me3<0.05),]
+ 
+  logFC_sig <- logFC[which(logFC$both_sig == "Both_Significant"),]
   plist[[i]] <- ggplot() +  
     geom_point(data=logFC, mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "grey",alpha=0.5) +  
     geom_point(data=logFC_sig[which(logFC_sig$logFC_H3K27me3>0 & logFC_sig$logFC_H3K9me3<0),], mapping=aes(logFC_H3K9me3, logFC_H3K27me3),color = "#f6416c")+

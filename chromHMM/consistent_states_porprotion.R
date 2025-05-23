@@ -4,9 +4,14 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(ggalluvial)
-tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
-state_num <- "14"
+tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver","ileum",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT"))
+state_num <- "11"
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -65,13 +70,9 @@ for(tissue in tissues){
               color = "black", size = 5, vjust = 0.5)+
     ggtitle(tissue_label_change(tissue),"ChromHMM state consistent proportion")
 }
-plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
-  
-  patchwork::wrap_plots(master_list_with_plots, 
-                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
-}
+
 combined_plot <- plot_a_list(p_list, 4, 7)
-ggsave("result/all/ChromHMM/all_tissues/14_all_tissues/consistent_state_proportion.png",combined_plot,width = 35,height = 20,type="cairo")
+ggsave("result/all/ChromHMM/all_tissues/11_all_tissues/consistent_state_proportion.png",combined_plot,width = 30,height = 20,type="cairo")
 
 p_list <- list()
 for(tissue in tissues){
@@ -111,7 +112,7 @@ for(tissue in tissues){
     ggtitle(tissue_label_change(tissue),"ChromHMM consistent state proportion")
 }
 combined_plot <- plot_a_list(p_list, 4, 7)
-ggsave("result/all/ChromHMM/all_tissues/14_all_tissues/consistent_state_proportion_of_each_state.png",combined_plot,width = 35,height = 20,type="cairo")
+ggsave("result/all/ChromHMM/all_tissues/11_all_tissues/consistent_state_proportion_of_each_state.png",combined_plot,width = 35,height = 20,type="cairo")
 
 ####inconsistent state composition
 p_list <- list()
@@ -218,10 +219,6 @@ for(tissue in tissues){
   #        fill = "old State")+
   #   ggtitle(paste0(tissue_label_change(tissue)," old inconsistent regions"))
 }
-plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
-  
-  patchwork::wrap_plots(master_list_with_plots, 
-                        nrow = no_of_rows, ncol = no_of_cols)
-}
+
 combined_plot <- plot_a_list(p_list,no_of_cols = 4,no_of_rows = length(p_list)/4)
-ggsave("result/all/ChromHMM/all_tissues/14_all_tissues/inconsistent_state_proportion_of_each_state.png",combined_plot,width = 20,height = length(p_list)/4*7,limitsize = FALSE,type="cairo")
+ggsave("result/all/ChromHMM/all_tissues/11_all_tissues/inconsistent_state_proportion_of_each_state.png",combined_plot,width = 20,height = length(p_list)/4*7,limitsize = FALSE,type="cairo")

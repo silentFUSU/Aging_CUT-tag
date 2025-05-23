@@ -35,15 +35,15 @@ tissue_label_change <- function(tissue){
 }
 diff_peak_number <-data.frame()
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
-window_size="1000"
-gap_size="3000"
+window_size="5000"
+gap_size="10000"
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(antibodys))){
     antibody<-antibodys[j]
     if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-      diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_diff_after_remove_batch_effect.csv"))
-      diff <- diff[which(diff$Length > 100000),]
+      diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion_diff_after_remove_batch_effect.csv"))
+      diff <- diff[which(diff$Length > 200000),]
     }else{
       diff <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_young_old_narrowpeak_diff_after_remove_batch_effect.csv"))
     }
@@ -88,7 +88,7 @@ for(condition in conditions){
         ) +
         scale_fill_manual(values = color) +
         theme(legend.position = "none") + 
-        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,2000)
+        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,500)
     }else{
       p_list[[i]] <-  ggplot(df,mapping = aes(x=Freq,y=tissue_label,fill = tissue_label))+
         geom_bar(stat = "identity", position = position_dodge2())+
@@ -102,7 +102,7 @@ for(condition in conditions){
           legend.position = "none"  
         ) + scale_fill_manual(values = color) +    
         theme(axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(),legend.position = "none") +   
-        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,2000)
+        geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,500)
     }
   }
   combined_plot <- arrangeGrob(  

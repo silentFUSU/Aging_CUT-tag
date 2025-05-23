@@ -5,7 +5,7 @@ set.seed(1)
 library(edgeR)
 library(ggplot2)
 library(stringr)
-tissue <- "Hip"
+tissue <- "lung"
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
   rownames(tab) <- tab$Geneid
@@ -134,3 +134,28 @@ for(i in c(1:length(conditions))){
     theme(text = element_text(size = 13))+ scale_fill_manual(values = color) +theme(legend.position = "none") + 
     geom_text(aes(label = Freq), position = position_dodge2(width = 0.9), hjust = 0.4, size = 5) + xlim(0,5000)+ggtitle(paste0(condition," gene number"))
 }
+to_plot <- diff_gene_number[which(diff_gene_number$Var1 != "Stable"),]
+to_plot$Freq[which(to_plot$Var1=="Down")] <- -to_plot$Freq[which(to_plot$Var1=="Down")]
+color <- read.table("data/samples/30_distinct_color.txt")
+color <- setNames(color$V1,sort(unique(to_plot$tissue)))
+to_plot_aggregate <- to_plot %>%  
+  group_by(tissue) %>%  
+  summarise(total_abs_value = sum(abs(Freq)))  
+to_plot_aggregate <- to_plot_aggregate[order(to_plot_aggregate$total_abs_value),]
+to_plot$tissue <- factor(to_plot$tissue,levels=to_plot_aggregate$tissue)
+ggplot(to_plot, aes(x = tissue, y = Freq, fill = tissue,color = Var1)) +  
+  geom_bar(stat = "identity",aes(alpha = ifelse(Var1 == "Down", 0.8, 1))) + 
+  theme_minimal() +  
+  xlab(NULL)+
+  ylab("Count")+
+  scale_y_continuous(labels = abs) +  
+  scale_fill_manual(values=color) +
+  theme_bw()+
+  theme(  
+    axis.title.x = element_text(size = 14),     
+    axis.title.y = element_text(size = 14),    
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 12),   
+    axis.text.y = element_text(size = 12),    
+    plot.title = element_text(size = 16, face = "bold"),
+  ) +  
+  scale_color_manual(values = c("Down" = "black", "Up" = "white")) 

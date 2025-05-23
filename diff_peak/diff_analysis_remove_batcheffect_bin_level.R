@@ -118,6 +118,26 @@ peak_preprocess_bin_level_remove_batch_effect <- function(tissue,antibody){
   return(p)
 }
 
+#### generate bins bed
+antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K4me3","H3K4me1","H3K27ac")
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+for(antibody in antibodys){
+  for(tissue in tissues){
+    if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
+      bin_size <- "10kb"
+    }else{
+      bin_size <- "1kb"
+    }
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
+    dfup <- df[which(df$Significant=="Up"),]
+    dfdown <- df[which(df$Significant=="Down"),]
+    write.table(dfup[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_up.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    write.table(dfdown[,c("Chr","Start","End","Geneid")], file=paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect_down.bed"), sep="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
+    }
+}
+
+
 antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K4me3","H3K4me1","H3K27ac")
 p_list <- list()
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",

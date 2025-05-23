@@ -13,9 +13,9 @@ library(ChIPseeker)
 library(genomation)
 library(GenomeInfoDb)
 library("GenomicRanges")
-state_num <- 14
-state <- "E2"
-target_state <- "E6"
+state_num <- 11
+state <- "E7"
+target_state <- "E2"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -41,9 +41,9 @@ tissues <-  c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon",
               "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
 color_tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
                         "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum"))
-
+color_tissues <- sapply(color_tissues, tissue_label_change)
 color <- read.table("data/samples/30_distinct_color.txt")
-color <- setNames(color$V1,sapply(color_tissues, tissue_label_change))
+color <- setNames(color$V1,sort(color_tissues))
 
 specific_state_transfer_in_all_tissues <- function(tissues,state_num,state,target_state){
   dir.create(paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/state_transfer/",paste0(state, collapse="-"),"_to_",target_state))
@@ -77,13 +77,15 @@ specific_state_transfer_in_all_tissues <- function(tissues,state_num,state,targe
   transfer_matrix <- transfer_matrix[which(transfer_matrix$young_state==state & transfer_matrix$old_state==target_state),]
   
   transfer_matrix <- transfer_matrix[order(transfer_matrix$freq_ratio,decreasing = T),]
+  transfer_matrix$tissue[which(transfer_matrix$tissue=="Mammarygland")] <- "Mammary Gland"
   transfer_matrix$tissue <- factor(transfer_matrix$tissue, levels=transfer_matrix$tissue)
+
   ggplot(transfer_matrix, aes(x = tissue, y = freq_ratio,color=tissue)) +  
     geom_point(size = 3) +  
     scale_color_manual(values = color)+
     labs(title = "点图示例", x = NULL, y = "Percentage(%)") +  
     theme_bw()+
-    ylim(0,10)+
+    ylim(0,2.5)+
     theme(axis.text.x = element_text(angle = 45, hjust = 1),text = element_text(size = 18))+
     ggtitle(paste0(state," to ",target_state))
   

@@ -35,7 +35,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 tissue <- "CB"
-state_num <- "14"
+state_num <- "11"
 histone_change_region_chromHMM_annotation <- function(tissue,state_num,antibody){
   histone <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_10kb_bins_diff_after_remove_batch_effect.csv"))
   file_dir <- paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/split_1k/")  
@@ -81,7 +81,8 @@ histone_change_region_chromHMM_annotation <- function(tissue,state_num,antibody)
         summarize(freq = n())  
       to_plot$Young_state <- factor(to_plot$Young_state,levels=paste0("E",1:state_num))
       to_plot$Old_state <- factor(to_plot$Old_state,levels=paste0("E",1:state_num))
-      
+      color <- read.table("data/samples/20_distinct_color.txt")
+      color <- setNames(color$V1,paste0("E",1:11))
       p_list[[condition]] <- ggplot(to_plot, aes(axis1 = Young_state, axis2 = Old_state, y = freq)) +  
         geom_alluvium(aes(fill = Young_state)) +  
         geom_stratum() +  
@@ -97,20 +98,23 @@ histone_change_region_chromHMM_annotation <- function(tissue,state_num,antibody)
   return(p_list)
 }
 
-tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum"))
 increase_p_list <- list()
 decrease_p_list <- list()
-for(tissue in tissues){
-  p_list <- histone_change_region_chromHMM_annotation(tissue,state_num,"H3K9me3")
-  increase_p_list[[tissue]] <- p_list[["Up"]]
-  decrease_p_list[[tissue]] <- p_list[["Down"]]
+antibodys <- c("H3K9me3","H3K27me3","H3K36me3")
+for(antibody in antibodys){
+  for(tissue in tissues){
+    p_list <- histone_change_region_chromHMM_annotation(tissue,state_num,antibody)
+    increase_p_list[[tissue]] <- p_list[["Up"]]
+    decrease_p_list[[tissue]] <- p_list[["Down"]]
+  }
+  increase_p_list <- increase_p_list[tissues]
+  decrease_p_list <- decrease_p_list[tissues]
+  increase_p_list <- Filter(function(x) all(!is.na(x)), increase_p_list)  
+  decrease_p_list <- Filter(function(x) all(!is.na(x)), decrease_p_list)  
+  increase_combined_plot <- plot_a_list(increase_p_list, 4, 7)
+  decrease_combined_plot <- plot_a_list(decrease_p_list, 4, 7)
+  ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_increase_remove_batch_effect_chromHMM_annotation.png"),increase_combined_plot,height = 20,width = 30,type="cairo")
+  ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_decrease_remove_batch_effect_chromHMM_annotation.png"),decrease_combined_plot,height = 20,width = 30,type="cairo")
 }
-increase_p_list <- increase_p_list[tissues]
-decrease_p_list <- decrease_p_list[tissues]
-increase_p_list <- Filter(function(x) all(!is.na(x)), increase_p_list)  
-decrease_p_list <- Filter(function(x) all(!is.na(x)), decrease_p_list)  
-increase_combined_plot <- plot_a_list(increase_p_list, 4, 7)
-decrease_combined_plot <- plot_a_list(decrease_p_list, 4, 7)
-ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_increase_remove_batch_effect_chromHMM_annotation.png"),increase_combined_plot,height = 20,width = 30,type="cairo")
-ggsave(paste0("result/all/diff/",antibody,"/",antibody,"_decrease_remove_batch_effect_chromHMM_annotation.png"),decrease_combined_plot,height = 20,width = 30,type="cairo")

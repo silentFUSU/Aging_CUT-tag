@@ -49,8 +49,10 @@ MA_plot <- function(tissue,antibody){
   df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
   df <- df[,c("Geneid","logCPM","LogFC.old.young","Significant")]  
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
-  # peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W1000-G3000-E100.bed"))
-  peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_10kb_in_young_old_merge-W5000-G10000-E100_bedtools_filtered_500kb.bed"))
+  peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W1000-G3000-E100.bed"))
+  # peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_10kb_in_young_old_merge-W5000-G10000-E100_bedtools_filtered_500kb.bed"))
+  ymax <- max(abs(df$LogFC.old.young))
+  ymax <- ymax + 0.5
   p_list[[1]] <- ggplot(
     df, aes(x = `logCPM`, y = `LogFC.old.young`)) +
     geom_point(aes(color = Significant),alpha=0.2, size=2) +
@@ -58,10 +60,12 @@ MA_plot <- function(tissue,antibody){
     labs(x="Log2(CPM)",
          y="Log2(Fold Change)") +
     theme_bw()+
+    ylim(-ymax,ymax) +
     theme(text = element_text(size = 20),legend.position = "none")+
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
     annotate("text", x = max(df$logCPM), y = min(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Down"),]), vjust = 0, hjust = 1,colour="blue",size=5)+
-    annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)
+    annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)+
+    geom_hline(yintercept = 0, linetype = "dashed")  
   df <- df[which(df$Geneid %in% peaks$V4),]
   p_list[[2]] <- ggplot(
     df, aes(x = `logCPM`, y = `LogFC.old.young`)) +
@@ -70,10 +74,12 @@ MA_plot <- function(tissue,antibody){
     labs(x="Log2(CPM)",
          y="Log2(Fold Change)") +
     theme_bw()+
+    ylim(-ymax,ymax) +
     theme(text = element_text(size = 20),legend.position = "none")+
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody," bin in peaks"))+
     annotate("text", x = max(df$logCPM), y = min(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Down"),]), vjust = 0, hjust = 1,colour="blue",size=5)+
-    annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)
+    annotate("text", x = max(df$logCPM), y = max(df$LogFC.old.young), label = nrow(df[which(df$Significant=="Up"),]), vjust = 1, hjust = 1,colour="red",size=5)+
+    geom_hline(yintercept = 0, linetype = "dashed")  
   return(p_list)
 }
 bin_p_list <- list()

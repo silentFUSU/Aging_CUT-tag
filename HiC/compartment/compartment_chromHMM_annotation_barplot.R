@@ -9,7 +9,7 @@ library(stringr)
 library(ggalluvial)  
 library(data.table)
 tissue <- "mammarygland"
-state_num <- 14
+state_num <- 11
 resolution <- "50000"
 check_row <- function(row) {  
   all(row[-1] == row[-1][1])  
@@ -52,7 +52,7 @@ compartment_chromHMM <- function(tissue,state_num,resolution){
       }else{
         df <- read.table(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/PC1/",sample,"_",resolution,".PC1.txt"))
       }
-      df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X")))),]
+      df <- df[which(df$V2 %in% c(paste0("chr",c(1:19,"X","Y")))),]
       df <- df[,c(2:4,6)]
       df$compartmeent <- ifelse(df[, 4] > 0, "A", "B")
       colnames(df)[5] <- sample
@@ -125,7 +125,7 @@ compartment_chromHMM <- function(tissue,state_num,resolution){
     to_plot <- rbind(A_compartment,B_compartment)
     to_plot$Var1 <- factor(to_plot$Var1, levels=paste0("E",1:14))
     color <- read.table("data/samples/20_distinct_color.txt")
-    color <- setNames(color$V1,paste0("E",1:14))
+    color <- setNames(color$V1,paste0("E",1:11))
     p_list[[age]] <- ggplot(to_plot, aes(x = compartment, y = percent, fill = Var1)) +  
       geom_bar(stat = 'identity',color="white") +   
       theme_minimal() +   
@@ -141,8 +141,21 @@ compartment_chromHMM <- function(tissue,state_num,resolution){
   print(p)
   ggsave(paste0("result/HiC/",tissue,"/compartment/",tissue,"_homer_compartment_chromHMM_state_annotation.png"),p,width = 10,height = 6,type="cairo")
 }
-tissues <- c("colon","kidney","lung","liver","brain","CB")
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")
 for(tissue in tissues){
   compartment_chromHMM(tissue,state_num, resolution)
 }
 
+compartment_change_chromHMM_annotation <- function(tissues,state_num,resolution){
+  summary <- data.frame()
+  for(tissue in tissues){
+    compartment_change <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_",resolution,".csv"))
+    compartment_change_A_B <- compartment_change[which(compartment_change$condition=="A-B"),c(1:3)]
+    compartment_change_A_B <- as.data.table(compartment_change_A_B)
+    setDT(compartment_change_A_B)
+    setkey(compartment_change_A_B,chr,start,end)
+    compartment_change_B_A <- compartment_change[which(compartment_change$condition=="B-A"),c(1:3)]
+    setDT(compartment_change_B_A)
+    setkey(compartment_change_B_A,chr,start,end)
+    }
+  }

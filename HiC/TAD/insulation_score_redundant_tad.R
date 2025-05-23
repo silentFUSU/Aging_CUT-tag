@@ -67,18 +67,23 @@ insulation_redundant_TAD <- function(tissue,resolution){
     redundant_boundary <- rbind(redundant_boundary,sorted_boundary_list[i,])
     i=j
   }
+  
   redundant_boundary <- redundant_boundary[,-ncol(redundant_boundary)]
   write.csv(redundant_boundary,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD.csv"),row.names = F)
   redundant_boundary$label <- paste0(redundant_boundary$chr,":",redundant_boundary$start,"-",redundant_boundary$end)
   redundant_boundary_list <- paste0(redundant_boundary$chr,":",redundant_boundary$start,"-",redundant_boundary$end)
-  bedpe <- data.frame()
-  for(row_num in c(1:(nrow(redundant_boundary)-1))){
-    t_bedpe <- data.frame(chr=redundant_boundary[row_num,1],
-                        start = (redundant_boundary[row_num,2]+redundant_boundary[row_num,3])/2, 
-                        end = (redundant_boundary[row_num+1,2]+redundant_boundary[row_num+1,3])/2)
-    bedpe <- rbind(bedpe,t_bedpe)  
+
+  bedpe <- data.frame(chr=as.character(),start=as.numeric(),end=as.numeric())
+  i=2
+  while(i <= nrow(redundant_boundary)){
+    if(redundant_boundary[i,"chr"] == redundant_boundary[(i-1),"chr"]){
+      t_bedpe <- data.frame(chr=redundant_boundary$chr[i],start=redundant_boundary$start[i-1],end=redundant_boundary$start[i]) 
+      bedpe <- rbind(bedpe,t_bedpe)
+      i <- i+1
+    }else{
+      i <- i+1
+    }
   }
-      
 
   bedpe <- data.frame(chr1=bedpe$chr, x1=bedpe$start, x2=bedpe$end, 
                       chr2=bedpe$chr, y1=bedpe$start, y2=bedpe$end)

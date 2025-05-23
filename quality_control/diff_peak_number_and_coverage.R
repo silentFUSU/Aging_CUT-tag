@@ -92,12 +92,12 @@ antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
 diff_peak_number$peak_percent <- diff_peak_number$Freq_in_peaks/diff_peak_number$Freq*100
 diff_peak_number$peak_percent_label <- paste0(diff_peak_number$Freq,"(",round(diff_peak_number$peak_percent,1),"%)")
 diff_peak_number$peak_label <- paste0(diff_peak_number$Freq_in_peaks,"/",diff_peak_number$Freq)
-tissues_increase_label <- diff_peak_number[which(diff_peak_number$antibody=="H3K9me3" & diff_peak_number$Var1=="Up"),]
+tissues_increase_label <- diff_peak_number[which(diff_peak_number$antibody=="H3K36me3" & diff_peak_number$Var1=="Up"),]
 tissues_increase_label <- tissues_increase_label$tissue_label[order(tissues_increase_label$Freq)]
-tissues_decrease_label <- diff_peak_number[which(diff_peak_number$antibody=="H3K9me3" & diff_peak_number$Var1=="Down"),]
+tissues_decrease_label <- diff_peak_number[which(diff_peak_number$antibody=="H3K36me3" & diff_peak_number$Var1=="Down"),]
 tissues_decrease_label <- tissues_decrease_label$tissue_label[order(tissues_decrease_label$Freq)]
 
-df <- diff_peak_number[which(diff_peak_number$antibody=="H3K27me3" & diff_peak_number$Var1=="Down"),]
+df <- diff_peak_number[which(diff_peak_number$antibody=="H3K36me3" & diff_peak_number$Var1=="Down"),]
 df <- arrange(df, Freq_in_peaks)
 tissues_label <- df$tissue_label
 for(condition in conditions){
@@ -131,7 +131,8 @@ for(condition in conditions){
         ) +
         scale_fill_manual(values = color) +
         theme(legend.position = "none") + 
-        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,100000)
+        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) +
+        xlim(0,100000)
     }else{
       p_list[[i]] <-  ggplot(df,mapping = aes(x=Freq,y=tissue_label,fill = tissue_label))+
         geom_bar(stat = "identity", position = position_dodge2())+
@@ -146,7 +147,8 @@ for(condition in conditions){
           legend.position = "none"  
         ) + scale_fill_manual(values = color) +    
         theme(axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(),legend.position = "none") +   
-        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) + xlim(0,100000)
+        geom_text(aes(label = peak_label), position = position_dodge2(width = 0.9), hjust = 0.1, size = 3) +
+        xlim(0,100000)
     }
   }
   combined_plot <- arrangeGrob(  

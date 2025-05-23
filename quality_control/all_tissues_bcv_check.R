@@ -66,14 +66,14 @@ get_all_tissues_bcv <- function(tissues,antibody){
     age[which(age=="24m")] <- "old"
     colnames(counts) <- paste0(colnames(counts),"-",age,"-",mouse_ID,"-",batch)
     y= DGEList(counts=counts,group=age)
-    keep = which(rowSums(cpm(y)>1)>=2)
+    keep = which(rowSums(edgeR::cpm(y)>1)>=2)
     y = y[keep,]
     y$samples$year <- age
     y$samples$year <- factor(y$samples$year,c("young","old"))
     y$samples$batch <- search_table$batch
     
     y <- calcNormFactors(y)
-    design <- model.matrix(~year, y$samples)
+    design <- model.matrix(~year+batch, y$samples)
     y<-estimateCommonDisp(y)
     y<-estimateGLMTagwiseDisp(y,design)
     bcv <- data.frame(peaks=rownames(counts[keep,]),
@@ -92,10 +92,29 @@ get_all_tissues_bcv <- function(tissues,antibody){
     xlab("")+labs(fill = "", color = "")+ggtitle(paste0("bcv each tissue ",antibody))+ylim(0,1)
   ggsave(paste0("result/all/QC/bcv/all_tissues_",antibody,"_bcv_remove_batch_effect.png"),p,width = 18,height = 10,type="cairo")  
   bcv_average <- mean(bcv_summary$bcv)
-  saveRDS(bcv_average,"data/samples/all/bcv.rds")
+  saveRDS(bcv_summary,"data/samples/all/bcv.rds")
   }
 
-
+color <- read.table("data/samples/30_distinct_color.txt")
+color <- color$V1
+# bcv <- readRDS("data/samples/all/bcv.rds")
+bcv <- bcv_summary
+bcv$tissue[which(bcv$tissue=="IWAT")] <- "iWAT"
+color <- setNames(color,sort(unique(bcv$tissue)))
+# bcv$tissue <- factor(bcv$tissue,levels = c("Testis","Tongue","Stomach","Cecum","Colon","Pancreas","Ileum",
+#                                            "Liver","Heart","Jejunum","Hippocampus","Muscle","Bone Marrow",
+#                                            "Ovary","iWAT","Cortex","Aorta","Uterus","Bladder","Spleen",
+#                                            "Thymus","Kidney","Skin","Cerebellum","Lung","BAT","Mammary Gland"))
+bcv$tissue <- factor(bcv$tissue,levels = c("Pancreas","Cecum","Colon","Kidney","Ileum","Spleen","Testis","Stomach",
+                                           "Skin","Jejunum","Tongue","iWAT","Liver","Bone Marrow","Heart","Cerebellum",
+                                           "Uterus","Lung","Thymus","Bladder","BAT","Hippocampus","Aorta","Muscle",
+                                           "Ovary","Cortex","Mammary Gland"))
+ggplot(bcv,aes(x=bcv,y=tissue,fill=tissue))+
+  geom_violin()+
+  geom_boxplot(width=0.1, fill="white", outlier.shape = NA)+
+  scale_fill_manual(values = color) +
+  theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+ylab("")+
+  xlab("bcv ~age+batch")+labs(fill = "", color = "")+ggtitle(paste0("bcv each tissue ",antibody))+xlim(0,1)
 
 
 
