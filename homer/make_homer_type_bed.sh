@@ -1,5 +1,5 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/ATAC_peak_from_MJ/
-beds=($(ls ${data_path}*.bed))
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ATAC/ATAC_peak_from_LMJ/
+beds=($(ls ${data_path}/*/*_sorted.bed))
 for bed in ${beds[@]}
 do
     bed_name="${bed}"

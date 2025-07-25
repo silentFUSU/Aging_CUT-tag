@@ -1,0 +1,43 @@
+#! /usr/bin/env bash
+## Snakefile
+####################
+import os
+import re
+import json
+import csv
+def get_samples_for_tissue(tissue, search_table):
+    samples = []
+    with open(search_table, mode='r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header row
+        for row in reader:
+            if row[0].strip() == tissue:
+                samples.append(row[2].strip())  # Assuming column index 2 contains the sample names
+    return samples
+
+data_path = '/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/'
+search_table = "/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv"
+
+resolution = config["resolution"]
+tissue = config["tissue"]
+samples_for_tissue = get_samples_for_tissue(tissue, search_table)
+
+if tissue in ["ovary", "mammarygland", "uterus"]:
+    chromosomes = [f"chr{i}" for i in range(1, 20)] + ["chrX"]
+else:
+    chromosomes = [f"chr{i}" for i in range(1, 20)] + ["chrX", "chrY"]
+
+rule all:
+    input:
+        expand(data_path + tissue + "/ob_ex_matrix/{sample}/{sample}_" + str(resolution) + "_{chr}_ob_ex_Matrix.txt", sample=samples_for_tissue, chr=chromosomes)
+
+rule analyze_hic:
+    input:
+        tag_dir= data_path + tissue + "/compartment/homer_compartment/tagDir/{sample}"
+    output:
+        ob_ex_matrix= data_path + tissue + "/ob_ex_matrix/{sample}/{sample}_{resolution}_{chr}_ob_ex_Matrix.txt"
+    threads: 5
+    run:
+        shell(
+            "analyzeHiC {input.tag_dir} -chr {wildcards.chr} -res {resolution} -distNorm -nolog -cpu 5 > {output.ob_ex_matrix}"
+        )

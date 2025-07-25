@@ -30,7 +30,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 resolution <- "20000"
-tissue <- "lung"
+tissue <- "cecum"
 TAD_diff_analysis <- function(tissue,resolution){
   TAD <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD.csv"))
   TAD <- TAD[,c(1:3)]
@@ -45,8 +45,10 @@ TAD_diff_analysis <- function(tissue,resolution){
       i <- i+1
     }
   }
+  TAD_regions$length <- TAD_regions$end - TAD_regions$start +1
+  TAD_regions <- TAD_regions[which(TAD_regions$length >= 250000),]
   TAD_regions$start <- TAD_regions$start+1
-  TAD_regions <- as.data.table(TAD_regions)
+  TAD_regions <- as.data.table(TAD_regions[,c(1:3)])
   setDT(TAD_regions)
   setkey(TAD_regions,chr,start,end)
   
@@ -105,6 +107,7 @@ TAD_diff_analysis <- function(tissue,resolution){
   y= DGEList(counts=TAD_counts,group=age)
   y$samples$year <- age
   y$samples$year <- factor(y$samples$year,c("3M","24M"))
+  keep = which(rowSums(cpm(y)>1)>=2)
   y <- calcNormFactors(y)
   design <- model.matrix(~year, y$samples)
   y<-estimateCommonDisp(y)
@@ -131,62 +134,43 @@ TAD_diff_analysis <- function(tissue,resolution){
     ggtitle(paste0(tissue_label_change(tissue)," TAD"))+
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
-  ggsave(paste0("result/HiC/",tissue,"/differential_analysis/with_histone/",tissue,"_",resolution,"_TAD_condition_edger_volcano.png"),p,width = 5,height = 6,type="cairo")
-  write.csv(out,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff.csv"))
-  # re <-  read.table(paste0("data/samples/HiC/",tissue,"/differential_analysis/",tissue,"_",resolution,".FDR"))
-  # re$Significant <- "Stable"
-  # re$Significant[which((re$V5 < 0.01 & re$V6 < 0.01) & re$V4 < 0)] <- "Down"
-  # re$Significant[which((re$V5 < 0.01 & re$V6 < 0.01) & re$V4 > 0)] <- "Up"
-  # re_sig <- re[which(re$Significant!="Stable"),]
-  # re_sig <- re_sig[which(abs(re_sig$V2 - re_sig$V3)>4),]
-  # re_sig$V1 <- paste0("chr",re_sig$V1)
-  # re_sig$V1[which(re_sig$V1=="chr20")] <- "chrX"
-  # 
-  # re_sig$label1 <- paste(re_sig$V1,re_sig$V2,sep = "-")
-  # re_sig$label2 <- paste(re_sig$V1,re_sig$V3,sep = "-")
-  # overlaps$label <- paste(overlaps$chr,overlaps$V5,sep = "-")
-  # 
-  # re_sig <- merge(re_sig,overlaps[,c("label","TAD_label")],by.x="label1",by.y="label")
-  # colnames(re_sig)[which(colnames(re_sig)=="TAD_label")] <- "TAD_label1"
-  # 
-  # re_sig <- merge(re_sig,overlaps[,c("label","TAD_label")],by.x="label2",by.y="label")
-  # colnames(re_sig)[which(colnames(re_sig)=="TAD_label")] <- "TAD_label2"
-  # re_sig <- re_sig[which(re_sig$TAD_label1==re_sig$TAD_label2),]
-  # result <- re_sig %>%  
-  #   group_by(TAD_label1) %>%  
-  #   summarise(  
-  #     Up = sum(Significant == "Up"),  
-  #     Down = sum(Significant == "Down")  
-  #   )  
-  # result$condition <- "Stable"
-  # result$condition[which(result$Up - result$Down >=5)] <- "Up"
-  # result$condition[which(result$Down - result$Up >=5)] <- "Down"
-  # color <- setNames(c("red","blue","grey"),c("Up","Down","Stable"))
-  # out$TAD_label <- rownames(out)
-  # result <- merge(result,out[,c("TAD_label","Significant")],by.x="TAD_label1",by.y="TAD_label")
-  # p <- ggplot(result, aes(x = Down, y = Up, color=Significant)) +      
-  #   geom_point(size = 1) +  
-  #   scale_color_manual(values = color) +
-  #   labs(title = paste0(tissue_label_change(tissue)," Old vs. Young"),  
-  #        x = "# of decreased interactions in TADs",  
-  #        y = "# of increased interactions in TADs",
-  #        color = "TAD condition") +        
-  #   xlim(0,max(result$Down)+10) +
-  #   ylim(0,max(result$Up)+10) +
-  #   theme_minimal()+
-  #   theme(  
-  #     # 修改所有字体的大小  
-  #     plot.title = element_text(size = 16),  # 图标题字体大小  
-  #     axis.title = element_text(size = 14),  # 轴标题字体大小  
-  #     axis.text = element_text(size = 12),   # 坐标刻度标签字体大小  
-  #     legend.text = element_text(size = 12), # 图例字体大小  
-  #     legend.title = element_text(size = 14) # 图例标题字体大小  
-  #   )  
-  # ggsave(paste0("result/HiC/",tissue,"/differential_analysis/with_histone/",tissue,"_",resolution,"_TAD_condition_edger.png"),p,width = 5,height = 4,type="cairo")
-  # 
+  ggsave(paste0("result/HiC/",tissue,"/differential_analysis/with_histone/",tissue,"_",resolution,"_TAD_condition_edger_volcano_length_larger_250000.png"),p,width = 5,height = 6,type="cairo")
+  write.csv(out,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff_larger_250000.csv"))
 }
 tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
 
 for(tissue in tissues){
   TAD_diff_analysis(tissue,resolution)
 }
+
+# summary <- data.frame()
+# gap_summary <- data.frame()
+# for(tissue in tissues){
+#   df <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff.csv"))
+#   t_summary <- data.frame(condition=c("Up","Down"),Freq=c(nrow(df[which(df$Significant=="Up"),]), nrow(df[which(df$Significant=="Down"),])))
+#   t_summary$tissue <- tissue_label_change(tissue)
+#   t_gap_summary <- data.frame(gap=(nrow(df[which(df$Significant=="Up"),])-nrow(df[which(df$Significant=="Down"),])),tissue=tissue_label_change(tissue))
+#   summary <- rbind(summary,t_summary) 
+#   gap_summary <- rbind(gap_summary,t_gap_summary)
+# }
+# gap_summary <- gap_summary[order(gap_summary$gap),]
+# summary$tissue <- factor(summary$tissue,levels=gap_summary$tissue)
+# 
+# 
+# summary$Freq[which(summary$condition=="Down")] <- -summary$Freq[which(summary$condition=="Down")]
+# to_plot <- summary[-which(summary$tissue %in% c("Colon","Bone Marrow","Liver")),]
+# ggplot(to_plot, aes(x = Freq, y = tissue, fill = condition)) +  
+#   geom_bar(stat = "identity")+
+#   scale_x_continuous(labels = abs)+
+#   labs(x = "Count", y = NULL, fill = "Comparison") +  
+#   theme_minimal() + 
+#   ggtitle("Number of changed TAD") +
+#   scale_fill_manual(values = c("Down" = "skyblue", "Up" =  "salmon")) +  
+#   theme(  
+#     axis.title.x = element_text(size = 14),     
+#     axis.title.y = element_text(size = 14),    
+#     axis.text.x = element_text(hjust = 1, size = 12),   
+#     axis.text.y = element_text(size = 12),    
+#     plot.title = element_text(size = 16, face = "bold"),
+#     legend.position = "bottom"
+#   ) 

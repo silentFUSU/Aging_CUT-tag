@@ -42,7 +42,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   p_list <- list()
   search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
-  tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_10kb.counts"),skip=1)
+  tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_100kb.counts"),skip=1)
   counts = tab[,c(7:ncol(tab))]
   rownames(counts)= tab$Geneid
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -80,7 +80,7 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
   
-  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_diff_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_100kb_diff_after_remove_batch_effect.csv"),row.names = F)
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   p_list[[1]] <- ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
@@ -102,6 +102,7 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
 
   gene_tss <- out[,c(1:4)]
   gene_tss <- as.data.table(gene_tss)
+  gene_tss$Start <- as.numeric(gene_tss$Start)
   setDT(gene_tss)
   setkey(gene_tss,Chr,Start,End)
   overlaps <- foverlaps(gene_tss,peaks, type = "any", nomatch = 0L)
@@ -150,7 +151,8 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
     theme(legend.position = "bottom",panel.grid.major = element_blank(),
           panel.grid.minor = element_blank())+
     theme_bw()+theme(text = element_text(size = 18))+
-    ggtitle(tissue_label_change(tissue),paste0("Chi-squared test ",chi_label_summary[which(chi_label_summary$tissue==tissue_label_change(tissue)),"label"]))+
+    # ggtitle(tissue_label_change(tissue),paste0("Chi-squared test ",chi_label_summary[which(chi_label_summary$tissue==tissue_label_change(tissue)),"label"]))+
+    ggtitle(tissue_label_change(tissue))+
     geom_vline(xintercept = 0, linetype = "dashed", color = "red") + 
     geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
     geom_text_repel(data = highlight_genes, aes(RNA_logFC, histone_logFC, label = Geneid),   
@@ -175,7 +177,7 @@ volcano_plot <- list()
 volcano_plot_in_peaks <- list()
 dot_plot <- list()
 for(tissue in tissues){
-  p_list <- Gene_TSS_diff_remove_bath_effect(tissue, "H3K27me3")
+  p_list <- Gene_TSS_diff_remove_bath_effect(tissue, "H3K9me3")
   volcano_plot[[tissue]] <- p_list[[1]]
   volcano_plot_in_peaks[[tissue]] <- p_list[[2]]
   dot_plot[[tissue]] <- p_list[[3]]

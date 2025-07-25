@@ -3,11 +3,8 @@ rm(list=ls())
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 options(bitmapType="cairo")  
-conditions <- c("up","down")
-tissues <-  c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
-                        "thymus","skin","bladder","bonemarrow","Hip","heart",
-                        "muscle","jejunum","uterus","ovary","liver","tongue",
-                        "cecum","colon","testis","stomach","pancreas","iWAT","ileum")
+library(grid)
+
 extract_before_bracket <- function(s) {  
   parts <- strsplit(s, "\\(")[[1]]  
   return(parts[1])  
@@ -39,12 +36,26 @@ motif_summary <- list(up=data.frame(),down=data.frame())
 motif_filter_list <- list(up=vector(),down=vector())
 top <- 10
 motif_data_frame <- list(up=data.frame(),down=data.frame())
+conditions <- c("up","down")
+tissues <-  c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
+              "thymus","skin","bladder","bonemarrow","Hip","heart",
+              "muscle","jejunum","uterus","ovary","liver","tongue",
+              "cecum","colon","testis","stomach","pancreas","iWAT","ileum")
+data_path <- "data/samples/ATAC/ATAC_peak_from_LMJ/motif_mutual_bg/"
+if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_without_bg/"){
+  label <- "(using random fragments as background)"
+}else if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_bg/"){
+  label <- "(using stable peaks as background)"
+}else if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_mutual_bg/"){
+  label <- "(using peaks with an opposite changing trend as background)"
+}
+  
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
   for(j in c(1:length(conditions))){
     condition <- conditions[j]
-    if(file.exists(paste0("data/samples/ATAC/ATAC_peak_from_MJ/motif_bg/",condition,"/",tissue,"/knownResults.txt"))){
-      motif <- read.delim(paste0("data/samples/ATAC/ATAC_peak_from_MJ/motif_bg/",condition,"/",tissue,"/knownResults.txt"))
+    if(file.exists(paste0(data_path,condition,"/",tissue,"/knownResults.txt"))){
+      motif <- read.delim(paste0(data_path,condition,"/",tissue,"/knownResults.txt"))
       motif$Motif.Name <-  sapply(motif$Motif.Name, extract_before_bracket)  
       motif$Motif.Name <- paste0(motif$Motif.Name,"-",motif$Consensus)
       motif <- motif[!duplicated(motif$Motif.Name),]
@@ -70,7 +81,7 @@ for(i in c(1:length(tissues))){
         motif <- motif[,"Motif.Name",drop=F]
         motif <- motif[!duplicated(motif$Motif.Name),,drop=F]
         motif$tissue <- tissue_label_change(tissue)
-        motif_summary[[condition]] <- rbind(motif_summary[[condition]],motif)    
+        motif_summary[[condition]] <- rbind(motif_summary[[condition]],motif)    0
       }
     }
   }
@@ -99,7 +110,7 @@ motif_count_summary$position <- motif_count_summary$count
 motif_count_summary$position[which(motif_count_summary$condition=="down")] <- (-motif_count_summary$position[which(motif_count_summary$condition=="down")])
 ggplot(motif_count_summary, aes(x = tissue, y = ifelse(condition == "up", count, -count), fill = condition)) +  
   geom_bar(stat = "identity") +  
-  labs(title = paste0("fdr < 0.05 motif count (using oppositely changed peaks as background)"), x = NULL, y = "Count") +  
+  labs(title = paste0("fdr < 0.05 motif count ",label), x = NULL, y = "Count") +  
   theme_minimal() +  
   xlab(NULL)+
   scale_y_continuous(labels = abs) +  
@@ -128,9 +139,17 @@ decrease_motif_data_frame <- as.data.frame(lapply(decrease_motif_data_frame[,-1]
 rownames(decrease_motif_data_frame) <- rownames_decrease_motif_data_frame
 increase_motif_data_frame[] <- lapply(increase_motif_data_frame, function(x) replace(x, is.infinite(x), 4))  
 decrease_motif_data_frame[] <- lapply(decrease_motif_data_frame, function(x) replace(x, is.infinite(x), 4))  
+threshold_value <- -log10(0.05)
 
-breaks <- seq(-log10(0.05), 4, length.out = 101)
+breaks <- c(seq(min(increase_motif_data_frame), threshold_value, length.out = 2),
+           seq(threshold_value+0.1, max(increase_motif_data_frame), length.out = 99))
+# colors <- c("#FFFFFF", colorRampPalette(c("#FFFFFF", "red"))(100))
+colors <- c(colorRampPalette(c("#FFFFFF", "red"))(100))
+p <- pheatmap::pheatmap(increase_motif_data_frame,breaks = breaks, border_color = "grey",  cellwidth = 15,cellheight = 9.5,color = colors,legend_breaks = c(0,1,-log10(0.05),2, 3, 4),legend_labels = c("0", "1","-log10(0.05)", "2", "3", "4"),main = paste0("increased peaks motif ",label))
+tissue_order <- p[["gtable"]][["grobs"]][[5]][["label"]]
+decrease_motif_data_frame <- decrease_motif_data_frame[,tissue_order]
+pheatmap::pheatmap(decrease_motif_data_frame,cluster_cols = F,breaks = breaks,color = colors,legend_breaks = c(0,1,-log10(0.05),2, 3, 4),legend_labels = c("0", "1","-log10(0.05)", "2", "3", "4"),main = paste0("decreased peaks motif ",label))
 
-pheatmap::pheatmap(increase_motif_data_frame,main = "Motif enriched in increase peaks",filename = "result/all/ATAC/all_tissues_increase_peaks_motif.png",width = 10,height = 20,breaks = breaks,na_col = "grey")
-pheatmap::pheatmap(decrease_motif_data_frame,main = "Motif enriched in decrease peaks",filename = "result/all/ATAC/all_tissues_decrease_peaks_motif.png",width = 10,height = 20,breaks = breaks,na_col = "grey")
+# pheatmap::pheatmap(increase_motif_data_frame,main = "Motif enriched in increase peaks",filename = "result/all/ATAC/all_tissues_increase_peaks_motif.png",width = 10,height = 20,breaks = breaks,na_col = "grey")
+# pheatmap::pheatmap(decrease_motif_data_frame,main = "Motif enriched in decrease peaks",filename = "result/all/ATAC/all_tissues_decrease_peaks_motif.png",width = 10,height = 20,breaks = breaks,na_col = "grey")
 

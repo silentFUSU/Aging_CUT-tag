@@ -2,7 +2,7 @@ data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples
 # tissues=(jejunum ileum cecum colon testis liver kidney lung bonemarrow muscle iWAT)
 # tissues=(pancreas skin CB spleen heart bladder tongue uterus aorta thymus stomach Hip FC BAT iWAT muscle bonemarrow lung kidney liver testis colon cecum ileum jejunum)
 # tissues=(mammarygland)
-tissues=(ovary)
+tissues=(skin)
 species=mm10
 max_jobs=7
 current_jobs() {  

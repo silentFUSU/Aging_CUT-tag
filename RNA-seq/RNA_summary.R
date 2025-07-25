@@ -27,7 +27,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-gene <- "Ezh1"
+gene <- "Cdkn1a"
 gene_summary_plot <- function(gene){
   summary <- data.frame()
   

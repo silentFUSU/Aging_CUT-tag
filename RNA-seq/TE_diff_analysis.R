@@ -61,7 +61,7 @@ tissue_label_change <- function(tissue){
 TE_diff_analysis <- function(tissue){
   tab <- read.delim(paste0("data/samples/RNA/",tissue,"/TEcount/combined.cntTable"),row.names = 1)
   counts <- tab
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SRR[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SRR[0-9]+|HM[0-9]+).*"
   colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
   search_table <- read.csv("data/samples/all/RNA_search_table.csv")
   search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
@@ -74,7 +74,8 @@ TE_diff_analysis <- function(tissue){
   age[which(age=="24m")] <- "old"
   
   y= DGEList(counts=counts,group=age)
-  keep = which(rowSums(cpm(y)>1)>=2)
+  # keep = which(rowSums(cpm(y)>1)>=2)
+  keep = which(rowSums(cpm(y)>0)>=2)
   y = y[keep,]
   y$samples$group <- factor(y$samples$group, levels=c("young","old"))
   design <- model.matrix(~group, y$samples)
@@ -110,7 +111,8 @@ TE_diff_analysis <- function(tissue){
   top_TE_Up <- cbind(top_TE_Up, split_df)
   colnames(top_TE_Up)[ncol(top_TE_Up)-2] <- "gene"
   out <- out[which(!grepl("^ENSMUSG", rownames(out))), ]
-  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_TE.csv"))
+  # write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_TE.csv"))
+  write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_TE_change_filter_bar.csv"))
   p <-ggplot() +
     geom_point(data=out[which(out$Significant=="Stable"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2)+
     geom_point(data=out[which(out$Significant=="Down"),], mapping=aes( logFC,  -log10(fdr),color = Significant), size=2) +  
@@ -124,21 +126,22 @@ TE_diff_analysis <- function(tissue){
          y="-log10 (fdr)") +
     theme_bw()+
     theme(text = element_text(size = 20))+
-    ggtitle(tissue_label_change(tissue))
+    ggtitle(tissue_label_change(tissue))+
+    annotate("text", x = min(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="TE-Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="TE-Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   p <- p+geom_text_repel(data=top_TE_Down, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=4) +  
     geom_text_repel(data=top_TE_Up, mapping=aes(x=logFC, y=-log10(fdr), label=gene), vjust=-1, size=4)  
   return(p)
-  # annotate("text", x = min(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
-    # annotate("text", x = max(out$logFC), y = max(-log10(out$fdr)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+  
 } 
 
-tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","FC","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas","ovary","mammarygland"))
+tissues <- sort(c("skin","CB","spleen","heart","bladder","tongue","uterus","aorta","thymus","stomach","Hip","brain","BAT","iWAT","muscle","bonemarrow","lung","kidney","liver","testis","colon","cecum","ileum","jejunum","pancreas","ovary","mammarygland"))
 p_list <- list()
 for (i in c(1:length(tissues))){
   p_list[[i]] <- TE_diff_analysis(tissues[i])
 }
 combined_plot <- plot_a_list(p_list, no_of_rows = 4,no_of_cols = 7)
-ggsave("result/RNA/TE/TE_volcano_all_tissues.png",combined_plot,width = 30,height = 20,type="cairo")
+ggsave("result/RNA/TE/TE_volcano_all_tissues_change_filter_bar.png",combined_plot,width = 30,height = 20,type="cairo")
 
 
 diff_TE_number <-data.frame(Var1 = character(),

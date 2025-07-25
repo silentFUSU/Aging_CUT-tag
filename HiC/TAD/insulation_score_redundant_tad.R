@@ -27,7 +27,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "lung"
+tissue <- "cecum"
 resolution <- "20000"
 insulation_redundant_TAD <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")

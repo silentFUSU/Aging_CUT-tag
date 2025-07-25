@@ -2,7 +2,7 @@ tissue=$1
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/
 HiC_Pro=/storage/zhangyanxiaoLab/suzhuojie/software/HiC-Pro_3.1.0/
 chromsize=/storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/mm10/mm10.chrom.sizes
-samples=$(ls ${data_path}${tissue}/ValidPairs/{WJH,DYQ}*.allValidPairs | sed 's|.*/||; s|\.allValidPairs$||' ) 
+samples=$(ls ${data_path}${tissue}/ValidPairs/*.allValidPairs |  sed 's|.*/||; s|\.allValidPairs$||') 
 resolution=$2
 mkdir -p ${data_path}${tissue}/raw_matrix
 for sample in ${samples[@]}

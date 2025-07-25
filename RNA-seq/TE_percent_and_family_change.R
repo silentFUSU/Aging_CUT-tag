@@ -8,7 +8,7 @@ library(tidyr)
 library(dplyr)
 library(stringr)
 library(reshape2)
-tissue <- "mammarygland"
+tissue <- "skin"
 search_table <- read.csv("data/samples/all/RNA_search_table.csv")
 colnames(search_table)[3] <- "sample"
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
@@ -41,7 +41,7 @@ TE_percent <- function(tissue){
   p_list <- list()
   tab <- read.delim(paste0("data/samples/RNA/",tissue,"/TEcount/combined.cntTable"),row.names = 1)
   counts <- tab
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SRR[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SRR[0-9]+|HM[0-9]+).*"
   colnames(counts) <- gsub(pattern, "\\1", colnames(counts))
   y= DGEList(counts=counts)
   keep = which(rowSums(cpm(y)>1)>=2)

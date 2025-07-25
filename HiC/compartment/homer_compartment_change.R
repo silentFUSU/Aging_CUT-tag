@@ -6,7 +6,7 @@ library(ggplot2)
 library(tidyverse)  
 
 options(scipen = 999)  
-tissue <- "mammarygland"
+tissue <- "cecum"
 resolution <- "50000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -60,7 +60,9 @@ compartment_cluster <- function(tissue,resolution){
   annotation_col <- search_table[,c("sample_name","age")]
   rownames(annotation_col) <- annotation_col$sample_name
   annotation_col <- annotation_col[,"age",drop=F]
-  p <- pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,main = paste(tissue_label_change(tissue),"homer compartment PC1"),annotation_col = annotation_col)
+  color_palette <- colorRampPalette(c("blue", "white", "red"))(100)
+  breaks <- c(seq(-2, -0.6, length.out = 40), seq(-0.5, 0.5, length.out = 20), seq(0.6, 2, length.out = 40))
+  p <- pheatmap::pheatmap(to_plot,cluster_rows = T,show_rownames = F,color = color_palette,breaks = breaks,main = paste(tissue_label_change(tissue),"homer compartment PC1"),annotation_col = annotation_col,clustering_distance_cols = "manhattan")
   print(p)
   }
 
@@ -74,6 +76,7 @@ compartment_change <- function(tissue,resolution){
   df_list <- list(young=list(),old=list())
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue==tissue),]
+  search_table <- search_table[c(2,4),]
   young_samples <- search_table$sample_name[which(search_table$age=="3M")]
   old_samples <- search_table$sample_name[which(search_table$age=="24M")]
   samples_list <- list(young=young_samples,old=old_samples)
@@ -134,7 +137,7 @@ for(tissue in tissues){
   compartment_change(tissue,resolution)
 }
 compartment_change_summary <- data.frame()
-tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle")
 for(tissue in tissues){
   df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_",resolution,".csv"))  
   df <- as.data.frame(table(df$condition))

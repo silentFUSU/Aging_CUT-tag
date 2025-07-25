@@ -71,8 +71,9 @@ antibodys <- c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me3","H3K4me1")
 for(condition in conditions){
   for(i in c(1:length(antibodys))){
     df <- diff_peak_number[which(diff_peak_number$antibody==antibodys[i] & diff_peak_number$Var1==condition),]
-    # df <- arrange(df, Freq)  
+    df <- arrange(df, Freq)
     # df$tissue <- factor(df$tissue,levels=sort(tissues))
+    # tissues_label <- df$tissue_label
     df$tissue_label <- factor(df$tissue_label,levels=tissues_label)
     if(i == 1){
       p_list[[i]] <-  ggplot(df,mapping = aes(x=Freq,y=tissue_label,fill = tissue_label))+

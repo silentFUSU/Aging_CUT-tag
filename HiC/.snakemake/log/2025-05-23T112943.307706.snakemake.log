@@ -1,0 +1,46 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 15
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analyze_hic       84              5              5
+total             85              1              5
+
+Select jobs to execute...
+
+[Fri May 23 11:29:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/compartment/homer_compartment/tagDir/DYQ135
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ135/DYQ135_50000_chr9_ob_ex_Matrix.txt
+    jobid: 9
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ135/DYQ135_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=DYQ135, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 11:29:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/compartment/homer_compartment/tagDir/DYQ136
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ136/DYQ136_50000_chr2_ob_ex_Matrix.txt
+    jobid: 23
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ136/DYQ136_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=DYQ136, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 11:29:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/compartment/homer_compartment/tagDir/DYQ135
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ135/DYQ135_50000_chr5_ob_ex_Matrix.txt
+    jobid: 5
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ135/DYQ135_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=DYQ135, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-05-23T112943.307706.snakemake.log

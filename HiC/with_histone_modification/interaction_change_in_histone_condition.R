@@ -7,16 +7,16 @@ library(data.table)
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
-convert2bedpe <- function(tissue,re_sig,resolution){
-  df <- re_sig[,c("region1","region2","Significant")]
-  df <- df %>%  
-    separate(region1, into = c("chr1", "x1", "x2"), sep = "-", convert = TRUE)  
-  df <- df %>%  
-    separate(region2, into = c("chr2", "y1", "y2"), sep = "-", convert = TRUE)  
-  write.table(df[which(df$Significant=="Up"),c(1:6)],paste0("data/samples/HiC/",tissue,"/differential_analysis/Wang_output_",resolution,"_increase.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
-  write.table(df[which(df$Significant=="Down"),c(1:6)],paste0("data/samples/HiC/",tissue,"/differential_analysis/Wang_output_",resolution,"_decrease.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
-  
-}
+# convert2bedpe <- function(tissue,re_sig,resolution){
+#   df <- re_sig[,c("region1","region2","Significant")]
+#   df <- df %>%  
+#     separate(region1, into = c("chr1", "x1", "x2"), sep = "-", convert = TRUE)  
+#   df <- df %>%  
+#     separate(region2, into = c("chr2", "y1", "y2"), sep = "-", convert = TRUE)  
+#   write.table(df[which(df$Significant=="Up"),c(1:6)],paste0("data/samples/HiC/",tissue,"/differential_analysis/Wang_output_",resolution,"_increase.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
+#   write.table(df[which(df$Significant=="Down"),c(1:6)],paste0("data/samples/HiC/",tissue,"/differential_analysis/Wang_output_",resolution,"_decrease.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
+#   
+# }
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -173,7 +173,7 @@ for(tissue in tissues){
   }
 }
 
-convert2bedpe(tissue,re_sig,resolution)
+# convert2bedpe(tissue,re_sig,resolution)
 
 
 

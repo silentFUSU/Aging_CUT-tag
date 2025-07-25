@@ -1,0 +1,1278 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analyze_hic       84              5              5
+total             85              1              5
+
+Select jobs to execute...
+
+[Sat Jul  5 12:30:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr16_ob_ex_Matrix.txt
+    jobid: 79
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:30:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr12_ob_ex_Matrix.txt
+    jobid: 12
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:30:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr5_ob_ex_Matrix.txt
+    jobid: 68
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:30:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr19_ob_ex_Matrix.txt
+    jobid: 82
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:44:33 2025]
+Finished job 12.
+1 of 85 steps (1%) done
+Select jobs to execute...
+
+[Sat Jul  5 12:44:33 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrY_ob_ex_Matrix.txt
+    jobid: 42
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:46:19 2025]
+Finished job 82.
+2 of 85 steps (2%) done
+Select jobs to execute...
+
+[Sat Jul  5 12:46:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr14_ob_ex_Matrix.txt
+    jobid: 56
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:46:55 2025]
+Finished job 79.
+3 of 85 steps (4%) done
+Select jobs to execute...
+
+[Sat Jul  5 12:46:55 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr8_ob_ex_Matrix.txt
+    jobid: 29
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 12:47:51 2025]
+Finished job 68.
+4 of 85 steps (5%) done
+Select jobs to execute...
+
+[Sat Jul  5 12:47:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr7_ob_ex_Matrix.txt
+    jobid: 28
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:01:48 2025]
+Finished job 42.
+5 of 85 steps (6%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:01:48 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrY_ob_ex_Matrix.txt
+    jobid: 63
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:01:53 2025]
+Finished job 63.
+6 of 85 steps (7%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:01:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr14_ob_ex_Matrix.txt
+    jobid: 77
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:03:30 2025]
+Finished job 77.
+7 of 85 steps (8%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:03:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr1_ob_ex_Matrix.txt
+    jobid: 43
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:05:37 2025]
+Finished job 43.
+8 of 85 steps (9%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:05:37 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr7_ob_ex_Matrix.txt
+    jobid: 7
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:06:55 2025]
+Finished job 56.
+9 of 85 steps (11%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:06:55 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr15_ob_ex_Matrix.txt
+    jobid: 57
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:06:56 2025]
+Finished job 7.
+10 of 85 steps (12%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:06:56 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr2_ob_ex_Matrix.txt
+    jobid: 2
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:07:04 2025]
+Finished job 29.
+11 of 85 steps (13%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:07:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr15_ob_ex_Matrix.txt
+    jobid: 15
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:07:43 2025]
+Finished job 28.
+12 of 85 steps (14%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:07:43 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr7_ob_ex_Matrix.txt
+    jobid: 49
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:07:58 2025]
+Finished job 57.
+13 of 85 steps (15%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:07:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr8_ob_ex_Matrix.txt
+    jobid: 71
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:08:00 2025]
+Finished job 15.
+14 of 85 steps (16%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:08:00 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr9_ob_ex_Matrix.txt
+    jobid: 51
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:08:45 2025]
+Finished job 2.
+15 of 85 steps (18%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:08:45 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr9_ob_ex_Matrix.txt
+    jobid: 9
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:09:09 2025]
+Finished job 49.
+16 of 85 steps (19%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:09:09 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr16_ob_ex_Matrix.txt
+    jobid: 37
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:09:22 2025]
+Finished job 51.
+17 of 85 steps (20%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:09:23 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr2_ob_ex_Matrix.txt
+    jobid: 65
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:09:25 2025]
+Finished job 71.
+18 of 85 steps (21%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:09:25 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr2_ob_ex_Matrix.txt
+    jobid: 23
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:09:50 2025]
+Finished job 9.
+19 of 85 steps (22%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:09:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr9_ob_ex_Matrix.txt
+    jobid: 72
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:10:04 2025]
+Finished job 37.
+20 of 85 steps (24%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:10:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr16_ob_ex_Matrix.txt
+    jobid: 16
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:10:57 2025]
+Finished job 16.
+21 of 85 steps (25%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:10:57 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr10_ob_ex_Matrix.txt
+    jobid: 31
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:11:06 2025]
+Finished job 23.
+22 of 85 steps (26%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:11:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr16_ob_ex_Matrix.txt
+    jobid: 58
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:11:20 2025]
+Finished job 72.
+23 of 85 steps (27%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:11:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr3_ob_ex_Matrix.txt
+    jobid: 45
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:11:26 2025]
+Finished job 65.
+24 of 85 steps (28%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:11:26 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr2_ob_ex_Matrix.txt
+    jobid: 44
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:12:02 2025]
+Finished job 58.
+25 of 85 steps (29%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:12:03 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr17_ob_ex_Matrix.txt
+    jobid: 59
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:12:13 2025]
+Finished job 31.
+26 of 85 steps (31%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:12:13 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr9_ob_ex_Matrix.txt
+    jobid: 30
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:12:54 2025]
+Finished job 45.
+27 of 85 steps (32%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:12:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr3_ob_ex_Matrix.txt
+    jobid: 3
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:13:02 2025]
+Finished job 59.
+28 of 85 steps (33%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:13:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr15_ob_ex_Matrix.txt
+    jobid: 78
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:13:17 2025]
+Finished job 44.
+29 of 85 steps (34%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:13:17 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr17_ob_ex_Matrix.txt
+    jobid: 17
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:13:25 2025]
+Finished job 30.
+30 of 85 steps (35%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:13:25 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr1_ob_ex_Matrix.txt
+    jobid: 64
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:14:07 2025]
+Finished job 17.
+31 of 85 steps (36%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:14:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr10_ob_ex_Matrix.txt
+    jobid: 73
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:14:15 2025]
+Finished job 78.
+32 of 85 steps (38%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:14:15 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr5_ob_ex_Matrix.txt
+    jobid: 5
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:14:24 2025]
+Finished job 3.
+33 of 85 steps (39%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:14:24 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr19_ob_ex_Matrix.txt
+    jobid: 61
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:15:02 2025]
+Finished job 61.
+34 of 85 steps (40%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:15:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr3_ob_ex_Matrix.txt
+    jobid: 24
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:15:41 2025]
+Finished job 64.
+35 of 85 steps (41%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:15:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr10_ob_ex_Matrix.txt
+    jobid: 52
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:15:43 2025]
+Finished job 73.
+36 of 85 steps (42%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:15:43 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr17_ob_ex_Matrix.txt
+    jobid: 38
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:15:43 2025]
+Finished job 5.
+37 of 85 steps (44%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:15:43 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr10_ob_ex_Matrix.txt
+    jobid: 10
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:16:33 2025]
+Finished job 24.
+38 of 85 steps (45%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:16:33 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr8_ob_ex_Matrix.txt
+    jobid: 8
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:16:41 2025]
+Finished job 38.
+39 of 85 steps (46%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:16:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr3_ob_ex_Matrix.txt
+    jobid: 66
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:17:00 2025]
+Finished job 10.
+40 of 85 steps (47%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:17:00 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr8_ob_ex_Matrix.txt
+    jobid: 50
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:17:01 2025]
+Finished job 52.
+41 of 85 steps (48%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:17:01 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr17_ob_ex_Matrix.txt
+    jobid: 80
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:17:44 2025]
+Finished job 8.
+42 of 85 steps (49%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:17:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr15_ob_ex_Matrix.txt
+    jobid: 36
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:18:06 2025]
+Finished job 80.
+43 of 85 steps (51%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:18:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr11_ob_ex_Matrix.txt
+    jobid: 32
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:18:15 2025]
+Finished job 50.
+44 of 85 steps (52%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:18:15 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr1_ob_ex_Matrix.txt
+    jobid: 22
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:18:43 2025]
+Finished job 36.
+45 of 85 steps (53%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:18:43 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr4_ob_ex_Matrix.txt
+    jobid: 46
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:18:43 2025]
+Finished job 66.
+46 of 85 steps (54%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:18:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr19_ob_ex_Matrix.txt
+    jobid: 40
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:19:19 2025]
+Finished job 32.
+47 of 85 steps (55%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:19:19 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr18_ob_ex_Matrix.txt
+    jobid: 60
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:19:26 2025]
+Finished job 40.
+48 of 85 steps (56%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:19:26 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr12_ob_ex_Matrix.txt
+    jobid: 33
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:20:10 2025]
+Finished job 22.
+49 of 85 steps (58%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:20:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr5_ob_ex_Matrix.txt
+    jobid: 47
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:20:16 2025]
+Finished job 46.
+50 of 85 steps (59%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:20:16 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr12_ob_ex_Matrix.txt
+    jobid: 75
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:20:19 2025]
+Finished job 60.
+51 of 85 steps (60%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:20:19 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr6_ob_ex_Matrix.txt
+    jobid: 27
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:20:33 2025]
+Finished job 33.
+52 of 85 steps (61%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:20:33 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrX_ob_ex_Matrix.txt
+    jobid: 41
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:21:19 2025]
+Finished job 41.
+53 of 85 steps (62%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:21:19 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr13_ob_ex_Matrix.txt
+    jobid: 55
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:21:41 2025]
+Finished job 47.
+54 of 85 steps (64%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:21:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr13_ob_ex_Matrix.txt
+    jobid: 13
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:21:42 2025]
+Finished job 27.
+55 of 85 steps (65%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:21:42 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr6_ob_ex_Matrix.txt
+    jobid: 69
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:21:42 2025]
+Finished job 75.
+56 of 85 steps (66%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:21:42 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrX_ob_ex_Matrix.txt
+    jobid: 83
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:22:39 2025]
+Finished job 83.
+57 of 85 steps (67%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:22:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr6_ob_ex_Matrix.txt
+    jobid: 48
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:22:40 2025]
+Finished job 55.
+58 of 85 steps (68%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:22:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr13_ob_ex_Matrix.txt
+    jobid: 34
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:22:53 2025]
+Finished job 13.
+59 of 85 steps (69%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:22:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrX_ob_ex_Matrix.txt
+    jobid: 20
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:23:31 2025]
+Finished job 69.
+60 of 85 steps (71%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:23:31 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr6_ob_ex_Matrix.txt
+    jobid: 6
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:23:36 2025]
+Finished job 20.
+61 of 85 steps (72%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:23:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrX_ob_ex_Matrix.txt
+    jobid: 62
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:23:47 2025]
+Finished job 34.
+62 of 85 steps (73%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:23:48 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr13_ob_ex_Matrix.txt
+    jobid: 76
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:24:08 2025]
+Finished job 48.
+63 of 85 steps (74%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:24:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr18_ob_ex_Matrix.txt
+    jobid: 18
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:24:20 2025]
+Finished job 62.
+64 of 85 steps (75%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:24:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr11_ob_ex_Matrix.txt
+    jobid: 74
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:24:53 2025]
+Finished job 6.
+65 of 85 steps (76%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:24:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr11_ob_ex_Matrix.txt
+    jobid: 11
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:24:54 2025]
+Finished job 18.
+66 of 85 steps (78%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:24:55 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr4_ob_ex_Matrix.txt
+    jobid: 67
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:25:08 2025]
+Finished job 76.
+67 of 85 steps (79%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:25:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr18_ob_ex_Matrix.txt
+    jobid: 81
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:26:01 2025]
+Finished job 74.
+68 of 85 steps (80%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:26:01 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr7_ob_ex_Matrix.txt
+    jobid: 70
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:26:07 2025]
+Finished job 11.
+69 of 85 steps (81%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:26:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr5_ob_ex_Matrix.txt
+    jobid: 26
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:26:17 2025]
+Finished job 81.
+70 of 85 steps (82%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:26:17 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr1_ob_ex_Matrix.txt
+    jobid: 1
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:26:44 2025]
+Finished job 67.
+71 of 85 steps (84%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:26:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young2
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrY_ob_ex_Matrix.txt
+    jobid: 84
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young2, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:26:50 2025]
+Finished job 84.
+72 of 85 steps (85%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:26:50 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr14_ob_ex_Matrix.txt
+    jobid: 14
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:27:37 2025]
+Finished job 70.
+73 of 85 steps (86%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:27:37 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr12_ob_ex_Matrix.txt
+    jobid: 54
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:27:45 2025]
+Finished job 26.
+74 of 85 steps (87%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:27:45 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_young1
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr11_ob_ex_Matrix.txt
+    jobid: 53
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=Mu_young1, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:27:55 2025]
+Finished job 14.
+75 of 85 steps (88%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:27:55 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr18_ob_ex_Matrix.txt
+    jobid: 39
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:28:07 2025]
+Finished job 1.
+76 of 85 steps (89%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:28:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr4_ob_ex_Matrix.txt
+    jobid: 25
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:28:47 2025]
+Finished job 54.
+77 of 85 steps (91%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:28:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrY_ob_ex_Matrix.txt
+    jobid: 21
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:28:50 2025]
+Finished job 39.
+78 of 85 steps (92%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:28:50 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_257
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr14_ob_ex_Matrix.txt
+    jobid: 35
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_257, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:28:51 2025]
+Finished job 21.
+79 of 85 steps (93%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:28:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr4_ob_ex_Matrix.txt
+    jobid: 4
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:29:08 2025]
+Finished job 53.
+80 of 85 steps (94%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:29:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/compartment/homer_compartment/tagDir/Mu_aged_254
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr19_ob_ex_Matrix.txt
+    jobid: 19
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=Mu_aged_254, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:29:33 2025]
+Finished job 25.
+81 of 85 steps (95%) done
+[Sat Jul  5 13:29:44 2025]
+Finished job 19.
+82 of 85 steps (96%) done
+[Sat Jul  5 13:29:47 2025]
+Finished job 35.
+83 of 85 steps (98%) done
+[Sat Jul  5 13:30:17 2025]
+Finished job 4.
+84 of 85 steps (99%) done
+Select jobs to execute...
+
+[Sat Jul  5 13:30:17 2025]
+localrule all:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrY_ob_ex_Matrix.txt
+    jobid: 0
+    reason: Input files updated by another job: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_257/Mu_aged_257_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_aged_254/Mu_aged_254_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young2/Mu_young2_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/muscle/ob_ex_matrix/Mu_young1/Mu_young1_50000_chr5_ob_ex_Matrix.txt
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 13:30:17 2025]
+Finished job 0.
+85 of 85 steps (100%) done
+Complete log: .snakemake/log/2025-07-05T122947.796176.snakemake.log

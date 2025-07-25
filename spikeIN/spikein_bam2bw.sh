@@ -1,6 +1,6 @@
-data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/axon_degradation/data/raw_data/20250512_wanrui_RNA/
+data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/axon_degradation/data/raw_data/20250618_fangrui_RNA/
 # samples=$(find ${data_path}bigWig -type f -name "*.bw" -exec basename {} \; | sed 's/.nodup.bw$//'  | sort) 
-samples=(Axon_1_S1_L003 Axon_2_S2_L003 Axon_3_S3_L003 Soma_1_S1_L004 Soma_2_S2_L004 Soma_3_S3_L004)
+samples=(Axon1_S57_L001 Axon2_S58_L001 Axon3_S59_L001 Soma1_S60_L001 Soma2_S61_L001 Soma3_S62_L001)
 for sample in ${samples[@]}
 do 
     sf=$(grep $sample ${data_path}all_sample.qc.txt |cut -f 8)

@@ -34,7 +34,7 @@ diff_expression_analysis <- function(tissue){
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+).*"
   colnames(tab)[6:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[6:length(tab)] )
   counts <- tab[6:length(tab)]
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
@@ -48,7 +48,7 @@ diff_expression_analysis <- function(tissue){
   age[which(age=="3m")] <- "young"
   age[which(age=="24m")] <- "old"
   mouse_ID <- group$mouse_ID
-  
+  counts <- counts[,c(group$sample_name)]
   colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
   y= DGEList(counts=counts,group=age)
   keep = which(rowSums(cpm(y)>1)>=2)

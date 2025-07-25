@@ -88,7 +88,7 @@ diff_analysis <- function(tissue,antibody){
     ggtitle(tissue_label_change(tissue))
   ggsave(paste0("result/all/diff/",antibody,"/",tissue,"_relationship_change_in_compartment_with_compartment_change.png"),p,width=4,height=5,type="cairo")
 }
-tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle")
 antibodys <- c("H3K9me3","H3K36me3","H3K27me3","H3K4me3","H3K4me1","H3K27ac")
 for(tissue in tissues){
   for(antibody in antibodys){
@@ -96,7 +96,7 @@ for(tissue in tissues){
   }
 }
 for(antibody in antibodys){
-  summary <- data.frame()
+  summary <- data.frame() 
   for(tissue in tissues){
     active_mark <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_diff_in_compartment_50000.csv"),row.names = 1)
     active_mark <- active_mark[,c("Geneid","LogFC.old.young","logCPM","Significant")]
@@ -178,6 +178,4 @@ for(antibody in antibodys){
     ggtitle(antibody)+
     geom_text(aes(label = Label), color = "black", size = 4, na.rm = TRUE) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  
 }
-

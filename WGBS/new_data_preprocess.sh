@@ -1,4 +1,4 @@
-raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20241211_combined_WGBS/
+raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250525_DYQ171_WGBS/
 data_path=/mnt/transposon2/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_Tag/samples/WGBS/
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/WGBS_search_table.csv
 samples=$(ls ${raw_data}bed/*_CpG.bdg | sed 's|.*/||; s/_CpG\.bdg//') 

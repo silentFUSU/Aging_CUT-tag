@@ -37,7 +37,7 @@ tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","col
 summary <- data.frame()
 for(tissue in tissues){
   domain <- read.table(paste0("data/samples/",tissue,"/H3K27me3/peaks/edd/edd_peaks_fdr05.bed"))
-  # peaks <- read.table(paste0("data/samples/",tissue,"/H3K9me3/bed/H3K9me3_young_old_merge-W1000-G3000-E100.bed"))
+  # peaks <- read.table(paste0("data/samples/",tissue,"/H3K9me3/bed/H3K9me3_young_old_merge-W5000-G10000-E100.bed"))
   peaks <- read.table("data/samples/all/H3K9me3/bed/H3K9me3_young_old_merge-W5000-G10000-E100_recursion.bed")
   domain$overlap <- NA
   
@@ -91,5 +91,6 @@ ggplot(to_plot, aes(x = tissue, y = value, fill = variable)) +
         text = element_text(size = 15),legend.title = element_blank()) +
   ylab("Proportion")+
   ggtitle(paste0("H3K27me3 age-domain overlap with H3K9me3"))
+
 
 

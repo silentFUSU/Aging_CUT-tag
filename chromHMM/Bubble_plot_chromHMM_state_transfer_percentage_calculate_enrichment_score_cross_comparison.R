@@ -91,8 +91,10 @@ bubble_result_transfer_matrix_to_plot <- bubble_result_transfer_matrix_to_plot[,
 
 # result_to_plot[is.na(result_to_plot)] <- 0
 # bubble_result_transfer_matrix_to_plot[is.na(bubble_result_transfer_matrix_to_plot)] <- 0
+customColors <- colorRampPalette(c("blue", "white", "red"))
+
 tree <-  bubbleHeatmap(as.matrix(result_to_plot), as.matrix(bubble_result_transfer_matrix_to_plot),
-                       colorLim = c(0,4),sizeLim = c(0,10),
-                       legendTitles = c("Proportion", "Enrichment score"))
+                       colorLim = c(0,2),sizeLim = c(0,10),
+                       legendTitles = c("Proportion", "Enrichment score"),colorSeq = customColors(100))
 grid.newpage()
 grid.draw(tree)

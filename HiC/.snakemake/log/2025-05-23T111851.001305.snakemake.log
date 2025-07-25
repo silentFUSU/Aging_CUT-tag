@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule analyze_hic in file /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/code/HiC/master_distance_normalize_snakefile, line 34:
+Missing input files for rule analyze_hic:
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brainob_ex_matrix/DYQ135/DYQ135_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=DYQ135, resolution=50000, chr=chr1
+    affected files:
+        /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/brain/ob_ex_matrix/DYQ135

@@ -45,7 +45,7 @@ tissue <- "tongue"
 peak_preprocess_peak_level_remove_batch_effect <- function(tissue,antibody){
   search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
   if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-    tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion.counts"),skip=1)
+    # tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W",window_size,"-G",gap_size,"-E100_recursion.counts"),skip=1)
   }else{
     tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_macs_young_old_narrowpeak.counts"),skip=1)
   }

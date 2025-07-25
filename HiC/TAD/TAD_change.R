@@ -2,10 +2,11 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
+library(ggrepel)
 library(ggplot2)
 options(scipen = 999)  
-tissue <- "Hip"
-resolution <- "10000"
+tissue <- "cecum"
+resolution <- "20000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -117,10 +118,18 @@ insulation_score <- function(tissue,resolution){
     ggtitle(paste0(tissue_label_change(tissue)," TAD counts"))+
     ylim(0,max(tad_summary$counts+1000))+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("Tad counts")
+  return(p)
   print(p)
 }
-tissues <- c("bonemarrow","heart","stomach")
+tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle"))
+p_list <- list()
 for(tissue in tissues){
-  insulation_score(tissue,resolution)
+  p_list[[tissue]] <- insulation_score(tissue,resolution)
 }
-
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
+ggsave(paste0("result/HiC/all_tissues_insulation_score_",resolution,"_TAD_change.png"),combined_plot,width = 22,height = 20,type="cairo")

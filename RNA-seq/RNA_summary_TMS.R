@@ -20,7 +20,7 @@ tab <- tab[!grepl("^NA", tab$source.name), ]
 rownames(tab) <- tab$Sample.name
 tab <- tab[,-1]
 tab <- tab[which(tab$characteristics..sex=="m"),]
-# tab <- tab[which(tab$characteristics..age %in% c("3","24","27")),]
+tab <- tab[which(tab$characteristics..age %in% c("3","24","27")),]
 count <- as.data.frame(t(tab[,-c(54353:54355)])) 
 count <- as.data.frame(apply(count, 2, as.numeric))
 rownames(count) <- colnames(tab[,-c(54353:54355)])

@@ -16,8 +16,49 @@ done
 # data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/RNA/
 # tissue=pancreas
 # species=mm10
+tissue_label_change() {
+    local tissue="$1"
+    local tissue_label
+
+    case "$tissue" in
+        "brain")
+            tissue_label="Cortex"
+            ;;
+        "Hip")
+            tissue_label="Hippocampus"
+            ;;
+        "CB")
+            tissue_label="Cerebellum"
+            ;;
+        *)
+            tissue_label=$(echo "$tissue" | awk '{print toupper(substr($0, 1, 1))tolower(substr($0, 2))}')
+            case "$tissue_label" in
+                "Bonemarrow")
+                    tissue_label="Bone Marrow"
+                    ;;
+                "Bat")
+                    tissue_label="BAT"
+                    ;;
+                "Mammarygland")
+                    tissue_label="Mammary Gland"
+                    ;;
+                "Iwat")
+                    tissue_label="iWAT"
+                    ;;
+            esac
+            ;;
+    esac
+    echo "$tissue_label"
+}
+tissue_label=$(tissue_label_change $tissue)
 mkdir ${data_path}${tissue}/TEcount/
-samples=($(find ${data_path}${tissue}/bam -type f -name "*.sorted.bam" | grep -E '/((LLX|CKJ|SRR)[0-9]+)' | awk -F'/' '{split($NF,a,"[_|.]"); print a[1]}' ))
+
+search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/RNA_search_table.csv
+cleaned_file=$(mktemp)  
+cat "$search_table" | tr -d '\r' | awk '{gsub(/[\x00-\x1F\x7F]+/, ""); print}' > "$cleaned_file"  
+samples_array=$(awk -F',' -v t="$tissue_label" 'NR > 1 && ($1 == t) {print $3}' "$cleaned_file") 
+IFS=$'\n' read -r -d '' -a samples < <(echo "$samples_array" && printf '\0') 
+
 declare -A GTF_DICT  
 GTF_DICT=(  
   ["hg38"]="/storage/zhangyanxiaoLab/share/gtf/hg38.gencode.v38.annotation.gtf"  

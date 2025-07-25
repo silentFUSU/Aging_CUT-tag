@@ -1,0 +1,1278 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analyze_hic       84              5              5
+total             85              1              5
+
+Select jobs to execute...
+
+[Fri May 23 14:30:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr5_ob_ex_Matrix.txt
+    jobid: 26
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:30:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr6_ob_ex_Matrix.txt
+    jobid: 69
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:30:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr14_ob_ex_Matrix.txt
+    jobid: 14
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:30:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr7_ob_ex_Matrix.txt
+    jobid: 28
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:47:56 2025]
+Finished job 28.
+1 of 85 steps (1%) done
+Select jobs to execute...
+
+[Fri May 23 14:47:56 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr5_ob_ex_Matrix.txt
+    jobid: 5
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:48:07 2025]
+Finished job 26.
+2 of 85 steps (2%) done
+Select jobs to execute...
+
+[Fri May 23 14:48:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr19_ob_ex_Matrix.txt
+    jobid: 19
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:48:14 2025]
+Finished job 14.
+3 of 85 steps (4%) done
+Select jobs to execute...
+
+[Fri May 23 14:48:14 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr12_ob_ex_Matrix.txt
+    jobid: 33
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:48:20 2025]
+Finished job 69.
+4 of 85 steps (5%) done
+Select jobs to execute...
+
+[Fri May 23 14:48:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr18_ob_ex_Matrix.txt
+    jobid: 60
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:48:39 2025]
+Finished job 19.
+5 of 85 steps (6%) done
+Select jobs to execute...
+
+[Fri May 23 14:48:39 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr15_ob_ex_Matrix.txt
+    jobid: 57
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:49:08 2025]
+Finished job 33.
+6 of 85 steps (7%) done
+Select jobs to execute...
+
+[Fri May 23 14:49:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr15_ob_ex_Matrix.txt
+    jobid: 15
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:49:21 2025]
+Finished job 5.
+7 of 85 steps (8%) done
+Select jobs to execute...
+
+[Fri May 23 14:49:21 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr8_ob_ex_Matrix.txt
+    jobid: 29
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:50:00 2025]
+Finished job 15.
+8 of 85 steps (9%) done
+Select jobs to execute...
+
+[Fri May 23 14:50:00 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr2_ob_ex_Matrix.txt
+    jobid: 2
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:50:20 2025]
+Finished job 29.
+9 of 85 steps (11%) done
+Select jobs to execute...
+
+[Fri May 23 14:50:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr1_ob_ex_Matrix.txt
+    jobid: 43
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:51:31 2025]
+Finished job 2.
+10 of 85 steps (12%) done
+Select jobs to execute...
+
+[Fri May 23 14:51:31 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr8_ob_ex_Matrix.txt
+    jobid: 71
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 14:52:35 2025]
+Finished job 71.
+11 of 85 steps (13%) done
+Select jobs to execute...
+
+[Fri May 23 14:52:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr8_ob_ex_Matrix.txt
+    jobid: 50
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:04:45 2025]
+Finished job 60.
+12 of 85 steps (14%) done
+Select jobs to execute...
+
+[Fri May 23 15:04:45 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrY_ob_ex_Matrix.txt
+    jobid: 63
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:04:51 2025]
+Finished job 63.
+13 of 85 steps (15%) done
+Select jobs to execute...
+
+[Fri May 23 15:04:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr15_ob_ex_Matrix.txt
+    jobid: 78
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:05:17 2025]
+Finished job 57.
+14 of 85 steps (16%) done
+Select jobs to execute...
+
+[Fri May 23 15:05:17 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr2_ob_ex_Matrix.txt
+    jobid: 23
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:06:06 2025]
+Finished job 78.
+15 of 85 steps (18%) done
+Select jobs to execute...
+
+[Fri May 23 15:06:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr16_ob_ex_Matrix.txt
+    jobid: 37
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:07:19 2025]
+Finished job 37.
+16 of 85 steps (19%) done
+Select jobs to execute...
+
+[Fri May 23 15:07:19 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr9_ob_ex_Matrix.txt
+    jobid: 9
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:07:28 2025]
+Finished job 23.
+17 of 85 steps (20%) done
+Select jobs to execute...
+
+[Fri May 23 15:07:28 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr2_ob_ex_Matrix.txt
+    jobid: 65
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:08:54 2025]
+Finished job 9.
+18 of 85 steps (21%) done
+Select jobs to execute...
+
+[Fri May 23 15:08:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr16_ob_ex_Matrix.txt
+    jobid: 79
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:09:02 2025]
+Finished job 43.
+19 of 85 steps (22%) done
+Select jobs to execute...
+
+[Fri May 23 15:09:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr3_ob_ex_Matrix.txt
+    jobid: 3
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:09:42 2025]
+Finished job 65.
+20 of 85 steps (24%) done
+Select jobs to execute...
+
+[Fri May 23 15:09:42 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr9_ob_ex_Matrix.txt
+    jobid: 51
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:09:57 2025]
+Finished job 79.
+21 of 85 steps (25%) done
+Select jobs to execute...
+
+[Fri May 23 15:09:57 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr17_ob_ex_Matrix.txt
+    jobid: 59
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:10:41 2025]
+Finished job 3.
+22 of 85 steps (26%) done
+Select jobs to execute...
+
+[Fri May 23 15:10:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr9_ob_ex_Matrix.txt
+    jobid: 72
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:11:00 2025]
+Finished job 59.
+23 of 85 steps (27%) done
+Select jobs to execute...
+
+[Fri May 23 15:11:00 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr17_ob_ex_Matrix.txt
+    jobid: 17
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:11:16 2025]
+Finished job 51.
+24 of 85 steps (28%) done
+Select jobs to execute...
+
+[Fri May 23 15:11:16 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr19_ob_ex_Matrix.txt
+    jobid: 40
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:12:04 2025]
+Finished job 40.
+25 of 85 steps (29%) done
+Select jobs to execute...
+
+[Fri May 23 15:12:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr10_ob_ex_Matrix.txt
+    jobid: 31
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:12:04 2025]
+Finished job 17.
+26 of 85 steps (31%) done
+Select jobs to execute...
+
+[Fri May 23 15:12:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr2_ob_ex_Matrix.txt
+    jobid: 44
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:12:07 2025]
+Finished job 72.
+27 of 85 steps (32%) done
+Select jobs to execute...
+
+[Fri May 23 15:12:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr3_ob_ex_Matrix.txt
+    jobid: 45
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:12:35 2025]
+Finished job 50.
+28 of 85 steps (33%) done
+Select jobs to execute...
+
+[Fri May 23 15:12:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr9_ob_ex_Matrix.txt
+    jobid: 30
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:13:30 2025]
+Finished job 31.
+29 of 85 steps (34%) done
+Select jobs to execute...
+
+[Fri May 23 15:13:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr10_ob_ex_Matrix.txt
+    jobid: 73
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:13:42 2025]
+Finished job 45.
+30 of 85 steps (35%) done
+Select jobs to execute...
+
+[Fri May 23 15:13:42 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr16_ob_ex_Matrix.txt
+    jobid: 16
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:14:05 2025]
+Finished job 44.
+31 of 85 steps (36%) done
+Select jobs to execute...
+
+[Fri May 23 15:14:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr10_ob_ex_Matrix.txt
+    jobid: 52
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:14:10 2025]
+Finished job 30.
+32 of 85 steps (38%) done
+Select jobs to execute...
+
+[Fri May 23 15:14:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr13_ob_ex_Matrix.txt
+    jobid: 55
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:14:52 2025]
+Finished job 16.
+33 of 85 steps (39%) done
+Select jobs to execute...
+
+[Fri May 23 15:14:52 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrX_ob_ex_Matrix.txt
+    jobid: 83
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:15:08 2025]
+Finished job 73.
+34 of 85 steps (40%) done
+Select jobs to execute...
+
+[Fri May 23 15:15:09 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr10_ob_ex_Matrix.txt
+    jobid: 10
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:15:39 2025]
+Finished job 55.
+35 of 85 steps (41%) done
+Select jobs to execute...
+
+[Fri May 23 15:15:39 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr3_ob_ex_Matrix.txt
+    jobid: 24
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:15:41 2025]
+Finished job 52.
+36 of 85 steps (42%) done
+Select jobs to execute...
+
+[Fri May 23 15:15:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr17_ob_ex_Matrix.txt
+    jobid: 80
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:15:46 2025]
+Finished job 83.
+37 of 85 steps (44%) done
+Select jobs to execute...
+
+[Fri May 23 15:15:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr17_ob_ex_Matrix.txt
+    jobid: 38
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:16:42 2025]
+Finished job 10.
+38 of 85 steps (45%) done
+Select jobs to execute...
+
+[Fri May 23 15:16:42 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr16_ob_ex_Matrix.txt
+    jobid: 58
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:16:51 2025]
+Finished job 80.
+39 of 85 steps (46%) done
+Select jobs to execute...
+
+[Fri May 23 15:16:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr3_ob_ex_Matrix.txt
+    jobid: 66
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:16:53 2025]
+Finished job 38.
+40 of 85 steps (47%) done
+Select jobs to execute...
+
+[Fri May 23 15:16:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr1_ob_ex_Matrix.txt
+    jobid: 64
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:17:27 2025]
+Finished job 24.
+41 of 85 steps (48%) done
+Select jobs to execute...
+
+[Fri May 23 15:17:27 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr12_ob_ex_Matrix.txt
+    jobid: 54
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:17:50 2025]
+Finished job 58.
+42 of 85 steps (49%) done
+Select jobs to execute...
+
+[Fri May 23 15:17:50 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr15_ob_ex_Matrix.txt
+    jobid: 36
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:18:37 2025]
+Finished job 66.
+43 of 85 steps (51%) done
+Select jobs to execute...
+
+[Fri May 23 15:18:37 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr4_ob_ex_Matrix.txt
+    jobid: 4
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:18:46 2025]
+Finished job 54.
+44 of 85 steps (52%) done
+Select jobs to execute...
+
+[Fri May 23 15:18:46 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr1_ob_ex_Matrix.txt
+    jobid: 22
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:19:04 2025]
+Finished job 36.
+45 of 85 steps (53%) done
+Select jobs to execute...
+
+[Fri May 23 15:19:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr18_ob_ex_Matrix.txt
+    jobid: 18
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:19:06 2025]
+Finished job 64.
+46 of 85 steps (54%) done
+Select jobs to execute...
+
+[Fri May 23 15:19:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr8_ob_ex_Matrix.txt
+    jobid: 8
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:19:58 2025]
+Finished job 18.
+47 of 85 steps (55%) done
+Select jobs to execute...
+
+[Fri May 23 15:19:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr11_ob_ex_Matrix.txt
+    jobid: 32
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:20:14 2025]
+Finished job 4.
+48 of 85 steps (56%) done
+Select jobs to execute...
+
+[Fri May 23 15:20:14 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr12_ob_ex_Matrix.txt
+    jobid: 75
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:20:34 2025]
+Finished job 8.
+49 of 85 steps (58%) done
+Select jobs to execute...
+
+[Fri May 23 15:20:34 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr19_ob_ex_Matrix.txt
+    jobid: 61
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:20:41 2025]
+Finished job 22.
+50 of 85 steps (59%) done
+Select jobs to execute...
+
+[Fri May 23 15:20:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr13_ob_ex_Matrix.txt
+    jobid: 13
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:21:19 2025]
+Finished job 61.
+51 of 85 steps (60%) done
+Select jobs to execute...
+
+[Fri May 23 15:21:19 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr6_ob_ex_Matrix.txt
+    jobid: 27
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:21:27 2025]
+Finished job 32.
+52 of 85 steps (61%) done
+Select jobs to execute...
+
+[Fri May 23 15:21:27 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrX_ob_ex_Matrix.txt
+    jobid: 41
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:21:30 2025]
+Finished job 75.
+53 of 85 steps (62%) done
+Select jobs to execute...
+
+[Fri May 23 15:21:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr13_ob_ex_Matrix.txt
+    jobid: 76
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:22:06 2025]
+Finished job 13.
+54 of 85 steps (64%) done
+Select jobs to execute...
+
+[Fri May 23 15:22:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr6_ob_ex_Matrix.txt
+    jobid: 48
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:22:10 2025]
+Finished job 41.
+55 of 85 steps (65%) done
+Select jobs to execute...
+
+[Fri May 23 15:22:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr6_ob_ex_Matrix.txt
+    jobid: 6
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:22:44 2025]
+Finished job 76.
+56 of 85 steps (66%) done
+Select jobs to execute...
+
+[Fri May 23 15:22:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrX_ob_ex_Matrix.txt
+    jobid: 20
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:22:50 2025]
+Finished job 27.
+57 of 85 steps (67%) done
+Select jobs to execute...
+
+[Fri May 23 15:22:50 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr13_ob_ex_Matrix.txt
+    jobid: 34
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:23:29 2025]
+Finished job 48.
+58 of 85 steps (68%) done
+Select jobs to execute...
+
+[Fri May 23 15:23:29 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrX_ob_ex_Matrix.txt
+    jobid: 62
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:23:29 2025]
+Finished job 20.
+59 of 85 steps (69%) done
+Select jobs to execute...
+
+[Fri May 23 15:23:29 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr14_ob_ex_Matrix.txt
+    jobid: 56
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:23:52 2025]
+Finished job 6.
+60 of 85 steps (71%) done
+Select jobs to execute...
+
+[Fri May 23 15:23:52 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrY_ob_ex_Matrix.txt
+    jobid: 84
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:23:57 2025]
+Finished job 84.
+61 of 85 steps (72%) done
+Select jobs to execute...
+
+[Fri May 23 15:23:57 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrY_ob_ex_Matrix.txt
+    jobid: 42
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:24:02 2025]
+Finished job 34.
+62 of 85 steps (73%) done
+Select jobs to execute...
+
+[Fri May 23 15:24:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr7_ob_ex_Matrix.txt
+    jobid: 70
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:24:03 2025]
+Finished job 42.
+63 of 85 steps (74%) done
+Select jobs to execute...
+
+[Fri May 23 15:24:03 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr11_ob_ex_Matrix.txt
+    jobid: 74
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:24:10 2025]
+Finished job 62.
+64 of 85 steps (75%) done
+Select jobs to execute...
+
+[Fri May 23 15:24:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr12_ob_ex_Matrix.txt
+    jobid: 12
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:24:37 2025]
+Finished job 56.
+65 of 85 steps (76%) done
+Select jobs to execute...
+
+[Fri May 23 15:24:37 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr14_ob_ex_Matrix.txt
+    jobid: 35
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:25:23 2025]
+Finished job 74.
+66 of 85 steps (78%) done
+Select jobs to execute...
+
+[Fri May 23 15:25:23 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr11_ob_ex_Matrix.txt
+    jobid: 11
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:25:24 2025]
+Finished job 12.
+67 of 85 steps (79%) done
+Select jobs to execute...
+
+[Fri May 23 15:25:24 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr4_ob_ex_Matrix.txt
+    jobid: 25
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:25:34 2025]
+Finished job 70.
+68 of 85 steps (80%) done
+Select jobs to execute...
+
+[Fri May 23 15:25:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ128
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr18_ob_ex_Matrix.txt
+    jobid: 39
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=DYQ128, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:25:48 2025]
+Finished job 35.
+69 of 85 steps (81%) done
+Select jobs to execute...
+
+[Fri May 23 15:25:48 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr4_ob_ex_Matrix.txt
+    jobid: 67
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:26:31 2025]
+Finished job 39.
+70 of 85 steps (82%) done
+Select jobs to execute...
+
+[Fri May 23 15:26:31 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr19_ob_ex_Matrix.txt
+    jobid: 82
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:26:47 2025]
+Finished job 11.
+71 of 85 steps (84%) done
+Select jobs to execute...
+
+[Fri May 23 15:26:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr1_ob_ex_Matrix.txt
+    jobid: 1
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:26:54 2025]
+Finished job 25.
+72 of 85 steps (85%) done
+Select jobs to execute...
+
+[Fri May 23 15:26:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr5_ob_ex_Matrix.txt
+    jobid: 68
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:27:05 2025]
+Finished job 82.
+73 of 85 steps (86%) done
+Select jobs to execute...
+
+[Fri May 23 15:27:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr18_ob_ex_Matrix.txt
+    jobid: 81
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:27:16 2025]
+Finished job 67.
+74 of 85 steps (87%) done
+Select jobs to execute...
+
+[Fri May 23 15:27:16 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr11_ob_ex_Matrix.txt
+    jobid: 53
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:27:56 2025]
+Finished job 81.
+75 of 85 steps (88%) done
+Select jobs to execute...
+
+[Fri May 23 15:27:56 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr7_ob_ex_Matrix.txt
+    jobid: 49
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:28:18 2025]
+Finished job 68.
+76 of 85 steps (89%) done
+Select jobs to execute...
+
+[Fri May 23 15:28:18 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ130
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr14_ob_ex_Matrix.txt
+    jobid: 77
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=DYQ130, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:28:35 2025]
+Finished job 1.
+77 of 85 steps (91%) done
+Select jobs to execute...
+
+[Fri May 23 15:28:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr7_ob_ex_Matrix.txt
+    jobid: 7
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:28:39 2025]
+Finished job 53.
+78 of 85 steps (92%) done
+Select jobs to execute...
+
+[Fri May 23 15:28:39 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ127
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrY_ob_ex_Matrix.txt
+    jobid: 21
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=DYQ127, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:28:44 2025]
+Finished job 21.
+79 of 85 steps (93%) done
+Select jobs to execute...
+
+[Fri May 23 15:28:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr4_ob_ex_Matrix.txt
+    jobid: 46
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:29:12 2025]
+Finished job 49.
+80 of 85 steps (94%) done
+Select jobs to execute...
+
+[Fri May 23 15:29:12 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/compartment/homer_compartment/tagDir/DYQ129
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr5_ob_ex_Matrix.txt
+    jobid: 47
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=DYQ129, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:29:23 2025]
+Finished job 77.
+81 of 85 steps (95%) done
+[Fri May 23 15:30:07 2025]
+Finished job 7.
+82 of 85 steps (96%) done
+[Fri May 23 15:30:15 2025]
+Finished job 46.
+83 of 85 steps (98%) done
+[Fri May 23 15:30:44 2025]
+Finished job 47.
+84 of 85 steps (99%) done
+Select jobs to execute...
+
+[Fri May 23 15:30:44 2025]
+localrule all:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrY_ob_ex_Matrix.txt
+    jobid: 0
+    reason: Input files updated by another job: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ128/DYQ128_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ129/DYQ129_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ127/DYQ127_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/kidney/ob_ex_matrix/DYQ130/DYQ130_50000_chr14_ob_ex_Matrix.txt
+    resources: tmpdir=/tmp
+
+[Fri May 23 15:30:44 2025]
+Finished job 0.
+85 of 85 steps (100%) done
+Complete log: .snakemake/log/2025-05-23T143039.834071.snakemake.log

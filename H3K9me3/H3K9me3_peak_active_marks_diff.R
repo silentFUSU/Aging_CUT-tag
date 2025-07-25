@@ -7,7 +7,7 @@ library(ggplot2)
 library(stringr)
 library(ggrepel)
 library(grid)
-tissue <- "lung"
+tissue <- "mammarygland"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -94,7 +94,7 @@ tissues <- sort(c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spl
                   "thymus","skin","bladder","bonemarrow","Hip","heart",
                   "muscle","jejunum","uterus","ovary","liver","tongue",
                   "cecum","colon","testis","stomach","pancreas","iWAT","ileum"))
-antibody <- "H3K36me3"
+antibody <- "H3K4me3"
 for(tissue in tissues){
   diff_expression_analysis(tissue,antibody)
 }
@@ -285,9 +285,12 @@ p_value_long <- reshape2::melt(p_value_summary,id.vars = "tissue")
 names(p_value_long) <- c("Tissue", "Type", "Label")
 merged_data <- merge(df_long, p_value_long, by = c("Tissue", "Type"), all.x = TRUE)
 merged_data$Tissue <- factor(merged_data$Tissue,levels=rev(tissues_order))
+merged_data$Value[which(merged_data$Value > 1)] <- 1
+merged_data$Value[which(merged_data$Value < -1)] <- -1
+
 ggplot(merged_data, aes(x = Type, y = Tissue, fill = Value)) +
   geom_tile(color = "white") +
-  scale_fill_gradient2(low = "blue", high = "red", mid = "white") +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white",limits = c(-1, 1), midpoint = 0) +
   theme_minimal() +
   xlab("H3K9me3 change condition")+
   ggtitle(paste0(antibody," log2(Fold change)"))+

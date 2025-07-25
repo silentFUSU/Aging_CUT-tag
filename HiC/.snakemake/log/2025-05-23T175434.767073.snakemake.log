@@ -1,0 +1,1278 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analyze_hic       84              5              5
+total             85              1              5
+
+Select jobs to execute...
+
+[Fri May 23 17:54:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr2_ob_ex_Matrix.txt
+    jobid: 65
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 17:54:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr5_ob_ex_Matrix.txt
+    jobid: 68
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 17:54:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr12_ob_ex_Matrix.txt
+    jobid: 12
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 17:54:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr5_ob_ex_Matrix.txt
+    jobid: 26
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:07:20 2025]
+Finished job 65.
+1 of 85 steps (1%) done
+Select jobs to execute...
+
+[Fri May 23 18:07:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrY_ob_ex_Matrix.txt
+    jobid: 42
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:07:23 2025]
+Finished job 42.
+2 of 85 steps (2%) done
+Select jobs to execute...
+
+[Fri May 23 18:07:23 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr14_ob_ex_Matrix.txt
+    jobid: 56
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:07:33 2025]
+Finished job 12.
+3 of 85 steps (4%) done
+Select jobs to execute...
+
+[Fri May 23 18:07:33 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrY_ob_ex_Matrix.txt
+    jobid: 84
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:07:34 2025]
+Finished job 26.
+4 of 85 steps (5%) done
+Select jobs to execute...
+
+[Fri May 23 18:07:34 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr1_ob_ex_Matrix.txt
+    jobid: 1
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:07:37 2025]
+Finished job 84.
+5 of 85 steps (6%) done
+Select jobs to execute...
+
+[Fri May 23 18:07:37 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrY_ob_ex_Matrix.txt
+    jobid: 63
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:07:42 2025]
+Finished job 68.
+6 of 85 steps (7%) done
+Select jobs to execute...
+
+[Fri May 23 18:07:42 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr2_ob_ex_Matrix.txt
+    jobid: 2
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:09:02 2025]
+Finished job 1.
+7 of 85 steps (8%) done
+Select jobs to execute...
+
+[Fri May 23 18:09:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr1_ob_ex_Matrix.txt
+    jobid: 43
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:09:05 2025]
+Finished job 2.
+8 of 85 steps (9%) done
+Select jobs to execute...
+
+[Fri May 23 18:09:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrY_ob_ex_Matrix.txt
+    jobid: 21
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrY_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chrY
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:09:08 2025]
+Finished job 21.
+9 of 85 steps (11%) done
+Select jobs to execute...
+
+[Fri May 23 18:09:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr15_ob_ex_Matrix.txt
+    jobid: 57
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:19:40 2025]
+Finished job 63.
+10 of 85 steps (12%) done
+Select jobs to execute...
+
+[Fri May 23 18:19:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr15_ob_ex_Matrix.txt
+    jobid: 15
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:20:12 2025]
+Finished job 56.
+11 of 85 steps (13%) done
+Select jobs to execute...
+
+[Fri May 23 18:20:12 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr8_ob_ex_Matrix.txt
+    jobid: 29
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:20:26 2025]
+Finished job 15.
+12 of 85 steps (14%) done
+Select jobs to execute...
+
+[Fri May 23 18:20:26 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr7_ob_ex_Matrix.txt
+    jobid: 7
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:21:13 2025]
+Finished job 29.
+13 of 85 steps (15%) done
+Select jobs to execute...
+
+[Fri May 23 18:21:13 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr8_ob_ex_Matrix.txt
+    jobid: 71
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:21:30 2025]
+Finished job 7.
+14 of 85 steps (16%) done
+Select jobs to execute...
+
+[Fri May 23 18:21:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr9_ob_ex_Matrix.txt
+    jobid: 51
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:22:00 2025]
+Finished job 57.
+15 of 85 steps (18%) done
+Select jobs to execute...
+
+[Fri May 23 18:22:00 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr16_ob_ex_Matrix.txt
+    jobid: 79
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:22:08 2025]
+Finished job 71.
+16 of 85 steps (19%) done
+Select jobs to execute...
+
+[Fri May 23 18:22:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr16_ob_ex_Matrix.txt
+    jobid: 37
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:22:27 2025]
+Finished job 51.
+17 of 85 steps (20%) done
+Select jobs to execute...
+
+[Fri May 23 18:22:27 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr9_ob_ex_Matrix.txt
+    jobid: 9
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:22:36 2025]
+Finished job 43.
+18 of 85 steps (21%) done
+Select jobs to execute...
+
+[Fri May 23 18:22:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr9_ob_ex_Matrix.txt
+    jobid: 72
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:22:41 2025]
+Finished job 79.
+19 of 85 steps (22%) done
+Select jobs to execute...
+
+[Fri May 23 18:22:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr2_ob_ex_Matrix.txt
+    jobid: 23
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:22:53 2025]
+Finished job 37.
+20 of 85 steps (24%) done
+Select jobs to execute...
+
+[Fri May 23 18:22:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr9_ob_ex_Matrix.txt
+    jobid: 30
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:23:24 2025]
+Finished job 9.
+21 of 85 steps (25%) done
+Select jobs to execute...
+
+[Fri May 23 18:23:24 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr3_ob_ex_Matrix.txt
+    jobid: 3
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:23:33 2025]
+Finished job 72.
+22 of 85 steps (26%) done
+Select jobs to execute...
+
+[Fri May 23 18:23:33 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr16_ob_ex_Matrix.txt
+    jobid: 16
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:23:53 2025]
+Finished job 30.
+23 of 85 steps (27%) done
+Select jobs to execute...
+
+[Fri May 23 18:23:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr3_ob_ex_Matrix.txt
+    jobid: 45
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:24:07 2025]
+Finished job 23.
+24 of 85 steps (28%) done
+Select jobs to execute...
+
+[Fri May 23 18:24:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr16_ob_ex_Matrix.txt
+    jobid: 58
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:24:16 2025]
+Finished job 16.
+25 of 85 steps (29%) done
+Select jobs to execute...
+
+[Fri May 23 18:24:16 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr17_ob_ex_Matrix.txt
+    jobid: 59
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:24:34 2025]
+Finished job 3.
+26 of 85 steps (31%) done
+Select jobs to execute...
+
+[Fri May 23 18:24:34 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr2_ob_ex_Matrix.txt
+    jobid: 44
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:24:49 2025]
+Finished job 58.
+27 of 85 steps (32%) done
+Select jobs to execute...
+
+[Fri May 23 18:24:49 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr17_ob_ex_Matrix.txt
+    jobid: 17
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:24:58 2025]
+Finished job 59.
+28 of 85 steps (33%) done
+Select jobs to execute...
+
+[Fri May 23 18:24:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr1_ob_ex_Matrix.txt
+    jobid: 64
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:25:02 2025]
+Finished job 45.
+29 of 85 steps (34%) done
+Select jobs to execute...
+
+[Fri May 23 18:25:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr10_ob_ex_Matrix.txt
+    jobid: 31
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:25:31 2025]
+Finished job 17.
+30 of 85 steps (35%) done
+Select jobs to execute...
+
+[Fri May 23 18:25:31 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr1_ob_ex_Matrix.txt
+    jobid: 22
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:25:56 2025]
+Finished job 44.
+31 of 85 steps (36%) done
+Select jobs to execute...
+
+[Fri May 23 18:25:56 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr10_ob_ex_Matrix.txt
+    jobid: 73
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:26:02 2025]
+Finished job 31.
+32 of 85 steps (38%) done
+Select jobs to execute...
+
+[Fri May 23 18:26:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr5_ob_ex_Matrix.txt
+    jobid: 5
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:26:22 2025]
+Finished job 64.
+33 of 85 steps (39%) done
+Select jobs to execute...
+
+[Fri May 23 18:26:22 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr19_ob_ex_Matrix.txt
+    jobid: 19
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:26:51 2025]
+Finished job 19.
+34 of 85 steps (40%) done
+Select jobs to execute...
+
+[Fri May 23 18:26:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr17_ob_ex_Matrix.txt
+    jobid: 80
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:26:52 2025]
+Finished job 73.
+35 of 85 steps (41%) done
+Select jobs to execute...
+
+[Fri May 23 18:26:52 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr17_ob_ex_Matrix.txt
+    jobid: 38
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:27:01 2025]
+Finished job 22.
+36 of 85 steps (42%) done
+Select jobs to execute...
+
+[Fri May 23 18:27:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr10_ob_ex_Matrix.txt
+    jobid: 52
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:27:07 2025]
+Finished job 5.
+37 of 85 steps (44%) done
+Select jobs to execute...
+
+[Fri May 23 18:27:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr10_ob_ex_Matrix.txt
+    jobid: 10
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:27:32 2025]
+Finished job 80.
+38 of 85 steps (45%) done
+Select jobs to execute...
+
+[Fri May 23 18:27:32 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr8_ob_ex_Matrix.txt
+    jobid: 8
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:27:36 2025]
+Finished job 38.
+39 of 85 steps (46%) done
+Select jobs to execute...
+
+[Fri May 23 18:27:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr3_ob_ex_Matrix.txt
+    jobid: 24
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:27:59 2025]
+Finished job 52.
+40 of 85 steps (47%) done
+Select jobs to execute...
+
+[Fri May 23 18:27:59 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr15_ob_ex_Matrix.txt
+    jobid: 78
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:28:05 2025]
+Finished job 10.
+41 of 85 steps (48%) done
+Select jobs to execute...
+
+[Fri May 23 18:28:05 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr3_ob_ex_Matrix.txt
+    jobid: 66
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:28:30 2025]
+Finished job 8.
+42 of 85 steps (49%) done
+Select jobs to execute...
+
+[Fri May 23 18:28:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr8_ob_ex_Matrix.txt
+    jobid: 50
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:28:45 2025]
+Finished job 78.
+43 of 85 steps (51%) done
+Select jobs to execute...
+
+[Fri May 23 18:28:45 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr4_ob_ex_Matrix.txt
+    jobid: 4
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:28:46 2025]
+Finished job 24.
+44 of 85 steps (52%) done
+Select jobs to execute...
+
+[Fri May 23 18:28:46 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr19_ob_ex_Matrix.txt
+    jobid: 40
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:29:12 2025]
+Finished job 66.
+45 of 85 steps (53%) done
+Select jobs to execute...
+
+[Fri May 23 18:29:12 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr4_ob_ex_Matrix.txt
+    jobid: 46
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:29:14 2025]
+Finished job 40.
+46 of 85 steps (54%) done
+Select jobs to execute...
+
+[Fri May 23 18:29:14 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr15_ob_ex_Matrix.txt
+    jobid: 36
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:29:29 2025]
+Finished job 50.
+47 of 85 steps (55%) done
+Select jobs to execute...
+
+[Fri May 23 18:29:29 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr18_ob_ex_Matrix.txt
+    jobid: 60
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:29:54 2025]
+Finished job 4.
+48 of 85 steps (56%) done
+Select jobs to execute...
+
+[Fri May 23 18:29:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr5_ob_ex_Matrix.txt
+    jobid: 47
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:30:02 2025]
+Finished job 36.
+49 of 85 steps (58%) done
+Select jobs to execute...
+
+[Fri May 23 18:30:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr12_ob_ex_Matrix.txt
+    jobid: 75
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:30:10 2025]
+Finished job 60.
+50 of 85 steps (59%) done
+Select jobs to execute...
+
+[Fri May 23 18:30:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr19_ob_ex_Matrix.txt
+    jobid: 61
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:30:20 2025]
+Finished job 46.
+51 of 85 steps (60%) done
+Select jobs to execute...
+
+[Fri May 23 18:30:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrX_ob_ex_Matrix.txt
+    jobid: 41
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:30:38 2025]
+Finished job 61.
+52 of 85 steps (61%) done
+Select jobs to execute...
+
+[Fri May 23 18:30:38 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr13_ob_ex_Matrix.txt
+    jobid: 55
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:30:53 2025]
+Finished job 75.
+53 of 85 steps (62%) done
+Select jobs to execute...
+
+[Fri May 23 18:30:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrX_ob_ex_Matrix.txt
+    jobid: 83
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:30:53 2025]
+Finished job 41.
+54 of 85 steps (64%) done
+Select jobs to execute...
+
+[Fri May 23 18:30:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr13_ob_ex_Matrix.txt
+    jobid: 13
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:31:00 2025]
+Finished job 47.
+55 of 85 steps (65%) done
+Select jobs to execute...
+
+[Fri May 23 18:31:00 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr6_ob_ex_Matrix.txt
+    jobid: 27
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:31:24 2025]
+Finished job 83.
+56 of 85 steps (66%) done
+Select jobs to execute...
+
+[Fri May 23 18:31:25 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr6_ob_ex_Matrix.txt
+    jobid: 69
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:31:31 2025]
+Finished job 55.
+57 of 85 steps (67%) done
+Select jobs to execute...
+
+[Fri May 23 18:31:31 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr6_ob_ex_Matrix.txt
+    jobid: 48
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:31:47 2025]
+Finished job 13.
+58 of 85 steps (68%) done
+Select jobs to execute...
+
+[Fri May 23 18:31:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr13_ob_ex_Matrix.txt
+    jobid: 76
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:32:09 2025]
+Finished job 27.
+59 of 85 steps (69%) done
+Select jobs to execute...
+
+[Fri May 23 18:32:09 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr13_ob_ex_Matrix.txt
+    jobid: 34
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:32:28 2025]
+Finished job 69.
+60 of 85 steps (71%) done
+Select jobs to execute...
+
+[Fri May 23 18:32:28 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr6_ob_ex_Matrix.txt
+    jobid: 6
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:32:36 2025]
+Finished job 48.
+61 of 85 steps (72%) done
+Select jobs to execute...
+
+[Fri May 23 18:32:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrX_ob_ex_Matrix.txt
+    jobid: 20
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:32:40 2025]
+Finished job 76.
+62 of 85 steps (73%) done
+Select jobs to execute...
+
+[Fri May 23 18:32:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrX_ob_ex_Matrix.txt
+    jobid: 62
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:33:04 2025]
+Finished job 34.
+63 of 85 steps (74%) done
+Select jobs to execute...
+
+[Fri May 23 18:33:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr11_ob_ex_Matrix.txt
+    jobid: 32
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:33:09 2025]
+Finished job 20.
+64 of 85 steps (75%) done
+Select jobs to execute...
+
+[Fri May 23 18:33:09 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr11_ob_ex_Matrix.txt
+    jobid: 74
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:33:12 2025]
+Finished job 62.
+65 of 85 steps (76%) done
+Select jobs to execute...
+
+[Fri May 23 18:33:12 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr11_ob_ex_Matrix.txt
+    jobid: 11
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:33:35 2025]
+Finished job 6.
+66 of 85 steps (78%) done
+Select jobs to execute...
+
+[Fri May 23 18:33:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr4_ob_ex_Matrix.txt
+    jobid: 25
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:34:06 2025]
+Finished job 32.
+67 of 85 steps (79%) done
+Select jobs to execute...
+
+[Fri May 23 18:34:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr4_ob_ex_Matrix.txt
+    jobid: 67
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:34:06 2025]
+Finished job 74.
+68 of 85 steps (80%) done
+Select jobs to execute...
+
+[Fri May 23 18:34:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr7_ob_ex_Matrix.txt
+    jobid: 70
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:34:11 2025]
+Finished job 11.
+69 of 85 steps (81%) done
+Select jobs to execute...
+
+[Fri May 23 18:34:11 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr19_ob_ex_Matrix.txt
+    jobid: 82
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:34:38 2025]
+Finished job 82.
+70 of 85 steps (82%) done
+Select jobs to execute...
+
+[Fri May 23 18:34:38 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr14_ob_ex_Matrix.txt
+    jobid: 14
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:34:47 2025]
+Finished job 25.
+71 of 85 steps (84%) done
+Select jobs to execute...
+
+[Fri May 23 18:34:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr7_ob_ex_Matrix.txt
+    jobid: 28
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:35:06 2025]
+Finished job 70.
+72 of 85 steps (85%) done
+Select jobs to execute...
+
+[Fri May 23 18:35:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr12_ob_ex_Matrix.txt
+    jobid: 54
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:35:13 2025]
+Finished job 67.
+73 of 85 steps (86%) done
+Select jobs to execute...
+
+[Fri May 23 18:35:13 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr18_ob_ex_Matrix.txt
+    jobid: 81
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:35:29 2025]
+Finished job 14.
+74 of 85 steps (87%) done
+Select jobs to execute...
+
+[Fri May 23 18:35:29 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr11_ob_ex_Matrix.txt
+    jobid: 53
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:35:52 2025]
+Finished job 81.
+75 of 85 steps (88%) done
+Select jobs to execute...
+
+[Fri May 23 18:35:52 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr18_ob_ex_Matrix.txt
+    jobid: 39
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:35:53 2025]
+Finished job 28.
+76 of 85 steps (89%) done
+Select jobs to execute...
+
+[Fri May 23 18:35:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr14_ob_ex_Matrix.txt
+    jobid: 35
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:35:58 2025]
+Finished job 54.
+77 of 85 steps (91%) done
+Select jobs to execute...
+
+[Fri May 23 18:35:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_96
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr7_ob_ex_Matrix.txt
+    jobid: 49
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_96, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:36:28 2025]
+Finished job 53.
+78 of 85 steps (92%) done
+Select jobs to execute...
+
+[Fri May 23 18:36:28 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_99
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr14_ob_ex_Matrix.txt
+    jobid: 77
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_99, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:36:35 2025]
+Finished job 39.
+79 of 85 steps (93%) done
+Select jobs to execute...
+
+[Fri May 23 18:36:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_108
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr18_ob_ex_Matrix.txt
+    jobid: 18
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_108, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:36:47 2025]
+Finished job 35.
+80 of 85 steps (94%) done
+Select jobs to execute...
+
+[Fri May 23 18:36:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/compartment/homer_compartment/tagDir/WJH_Heart_115
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr12_ob_ex_Matrix.txt
+    jobid: 33
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH_Heart_115, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:37:02 2025]
+Finished job 49.
+81 of 85 steps (95%) done
+[Fri May 23 18:37:16 2025]
+Finished job 18.
+82 of 85 steps (96%) done
+[Fri May 23 18:37:18 2025]
+Finished job 77.
+83 of 85 steps (98%) done
+[Fri May 23 18:37:41 2025]
+Finished job 33.
+84 of 85 steps (99%) done
+Select jobs to execute...
+
+[Fri May 23 18:37:41 2025]
+localrule all:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrY_ob_ex_Matrix.txt
+    jobid: 0
+    reason: Input files updated by another job: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chrY_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_115/WJH_Heart_115_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_99/WJH_Heart_99_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_96/WJH_Heart_96_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/heart/ob_ex_matrix/WJH_Heart_108/WJH_Heart_108_50000_chr16_ob_ex_Matrix.txt
+    resources: tmpdir=/tmp
+
+[Fri May 23 18:37:41 2025]
+Finished job 0.
+85 of 85 steps (100%) done
+Complete log: .snakemake/log/2025-05-23T175434.767073.snakemake.log

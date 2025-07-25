@@ -35,21 +35,24 @@ age_label_change <- function(age){
   }
 }
 search_table <- read.csv("data/samples/all/HiC_search_table.csv")
-# search_table <- search_table[which(search_table$tissue==tissue),]
+tissue <- "cecum"
+search_table <- search_table[which(search_table$tissue==tissue),]
 cor_df <- as.data.frame(matrix(data = NA, nrow = nrow(search_table), ncol = nrow(search_table)))
-search_table$label <- paste0(sapply(search_table$age, age_label_change),"-",sapply(search_table$tissue, tissue_label_change),"-",search_table$mouse_ID)
+search_table$label <- paste0(sapply(search_table$age, age_label_change),"-",sapply(search_table$tissue, tissue_label_change),"-",search_table$sample_name)
 colnames(cor_df) <- search_table$label
 rownames(cor_df) <- search_table$label
 for(i in c(1:nrow(search_table))){
   for(j in c(1:nrow(search_table))){
     scc <- 0
-    for (chr in paste0("chr", c(as.character(1:19), "X"))){
+    # for (chr in paste0("chr", c(as.character(1:19), "X"))){
+    for (chr in paste0("chr", c(as.character(1)))){
       mat1 <- hic2mat(paste0("data/samples/HiC/",search_table[i,"tissue"],"/juicer/",search_table[i,"sample_name"],".allValidPairs.hic"), chromosome1 = chr, chromosome2 = chr, resol =   100000, method = "NONE") 
       mat2 <- hic2mat(paste0("data/samples/HiC/",search_table[j,"tissue"],"/juicer/",search_table[j,"sample_name"],".allValidPairs.hic"), chromosome1 = chr, chromosome2 = chr, resol =   100000, method = "NONE") 
       scc.out = get.scc(mat1, mat2, resol = 100000, h = 5, lbr = 0, ubr = 5000000)
       scc <- scc + scc.out$scc
     }
-    scc <- scc/length(c(as.character(1:19), "X"))
+    # scc <- scc/length(c(as.character(1:19), "X"))
+    scc <- scc/length(c(as.character(1)))
     cor_df[search_table[i,"label"],search_table[j,"label"]] <- scc
   }
 }
@@ -62,7 +65,8 @@ annotation <- annotation[,-1]
 annotation$tissue <- sapply(annotation$tissue, tissue_label_change) 
 colors <- read.table("data/samples/20_distinct_color.txt")
 annotation_color <- list(tissue=setNames(colors$V1[1:length(unique(annotation$tissue))],unique(annotation$tissue)))
-pheatmap::pheatmap(cor_df,annotation_row =annotation,annotation_colors = annotation_color,main = paste0("HiC replicate scc"),filename = paste0("result/HiC/all_tissues_HiCrep_scc_heatmap.png"),width = 12,height = 10)
+# pheatmap::pheatmap(cor_df,annotation_row =annotation,annotation_colors = annotation_color,main = paste0("HiC replicate scc"))
+pheatmap::pheatmap(cor_df)
 
 
 tissue <- "Hip"

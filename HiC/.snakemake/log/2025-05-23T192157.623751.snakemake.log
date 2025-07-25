@@ -1,0 +1,1218 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analyze_hic       80              5              5
+total             81              1              5
+
+Select jobs to execute...
+
+[Fri May 23 19:21:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr9_ob_ex_Matrix.txt
+    jobid: 9
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:21:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr11_ob_ex_Matrix.txt
+    jobid: 11
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:21:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr12_ob_ex_Matrix.txt
+    jobid: 12
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:21:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr19_ob_ex_Matrix.txt
+    jobid: 39
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:33:21 2025]
+Finished job 39.
+1 of 81 steps (1%) done
+Select jobs to execute...
+
+[Fri May 23 19:33:21 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr7_ob_ex_Matrix.txt
+    jobid: 7
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:33:50 2025]
+Finished job 9.
+2 of 81 steps (2%) done
+Select jobs to execute...
+
+[Fri May 23 19:33:50 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr15_ob_ex_Matrix.txt
+    jobid: 35
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:33:57 2025]
+Finished job 11.
+3 of 81 steps (4%) done
+Select jobs to execute...
+
+[Fri May 23 19:33:57 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr17_ob_ex_Matrix.txt
+    jobid: 77
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:34:13 2025]
+Finished job 7.
+4 of 81 steps (5%) done
+Select jobs to execute...
+
+[Fri May 23 19:34:13 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr3_ob_ex_Matrix.txt
+    jobid: 63
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:34:30 2025]
+Finished job 35.
+5 of 81 steps (6%) done
+Select jobs to execute...
+
+[Fri May 23 19:34:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr9_ob_ex_Matrix.txt
+    jobid: 29
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:34:37 2025]
+Finished job 12.
+6 of 81 steps (7%) done
+Select jobs to execute...
+
+[Fri May 23 19:34:37 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr17_ob_ex_Matrix.txt
+    jobid: 57
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:35:17 2025]
+Finished job 29.
+7 of 81 steps (9%) done
+Select jobs to execute...
+
+[Fri May 23 19:35:17 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr11_ob_ex_Matrix.txt
+    jobid: 71
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:44:17 2025]
+Finished job 77.
+8 of 81 steps (10%) done
+Select jobs to execute...
+
+[Fri May 23 19:44:17 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr9_ob_ex_Matrix.txt
+    jobid: 49
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:44:27 2025]
+Finished job 63.
+9 of 81 steps (11%) done
+Select jobs to execute...
+
+[Fri May 23 19:44:27 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr2_ob_ex_Matrix.txt
+    jobid: 2
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:45:09 2025]
+Finished job 49.
+10 of 81 steps (12%) done
+Select jobs to execute...
+
+[Fri May 23 19:45:09 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr3_ob_ex_Matrix.txt
+    jobid: 23
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:45:35 2025]
+Finished job 2.
+11 of 81 steps (14%) done
+Select jobs to execute...
+
+[Fri May 23 19:45:35 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr11_ob_ex_Matrix.txt
+    jobid: 51
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:45:44 2025]
+Finished job 71.
+12 of 81 steps (15%) done
+Select jobs to execute...
+
+[Fri May 23 19:45:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr16_ob_ex_Matrix.txt
+    jobid: 16
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:46:07 2025]
+Finished job 23.
+13 of 81 steps (16%) done
+Select jobs to execute...
+
+[Fri May 23 19:46:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr4_ob_ex_Matrix.txt
+    jobid: 44
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:46:20 2025]
+Finished job 16.
+14 of 81 steps (17%) done
+Select jobs to execute...
+
+[Fri May 23 19:46:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr12_ob_ex_Matrix.txt
+    jobid: 72
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:46:28 2025]
+Finished job 51.
+15 of 81 steps (19%) done
+Select jobs to execute...
+
+[Fri May 23 19:46:28 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr5_ob_ex_Matrix.txt
+    jobid: 65
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:46:55 2025]
+Finished job 72.
+16 of 81 steps (20%) done
+Select jobs to execute...
+
+[Fri May 23 19:46:55 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr18_ob_ex_Matrix.txt
+    jobid: 58
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:47:08 2025]
+Finished job 44.
+17 of 81 steps (21%) done
+Select jobs to execute...
+
+[Fri May 23 19:47:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr17_ob_ex_Matrix.txt
+    jobid: 37
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:47:15 2025]
+Finished job 65.
+18 of 81 steps (22%) done
+Select jobs to execute...
+
+[Fri May 23 19:47:15 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr10_ob_ex_Matrix.txt
+    jobid: 30
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:47:32 2025]
+Finished job 58.
+19 of 81 steps (23%) done
+Select jobs to execute...
+
+[Fri May 23 19:47:32 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr19_ob_ex_Matrix.txt
+    jobid: 79
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:47:43 2025]
+Finished job 37.
+20 of 81 steps (25%) done
+Select jobs to execute...
+
+[Fri May 23 19:47:43 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr18_ob_ex_Matrix.txt
+    jobid: 78
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:47:47 2025]
+Finished job 57.
+21 of 81 steps (26%) done
+Select jobs to execute...
+
+[Fri May 23 19:47:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr11_ob_ex_Matrix.txt
+    jobid: 31
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr11_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr11
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:47:51 2025]
+Finished job 79.
+22 of 81 steps (27%) done
+Select jobs to execute...
+
+[Fri May 23 19:47:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr16_ob_ex_Matrix.txt
+    jobid: 36
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:48:01 2025]
+Finished job 30.
+23 of 81 steps (28%) done
+Select jobs to execute...
+
+[Fri May 23 19:48:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr19_ob_ex_Matrix.txt
+    jobid: 59
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:48:10 2025]
+Finished job 78.
+24 of 81 steps (30%) done
+Select jobs to execute...
+
+[Fri May 23 19:48:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr8_ob_ex_Matrix.txt
+    jobid: 8
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:48:25 2025]
+Finished job 36.
+25 of 81 steps (31%) done
+Select jobs to execute...
+
+[Fri May 23 19:48:25 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr13_ob_ex_Matrix.txt
+    jobid: 73
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:48:26 2025]
+Finished job 59.
+26 of 81 steps (32%) done
+Select jobs to execute...
+
+[Fri May 23 19:48:26 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr4_ob_ex_Matrix.txt
+    jobid: 64
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:48:33 2025]
+Finished job 31.
+27 of 81 steps (33%) done
+Select jobs to execute...
+
+[Fri May 23 19:48:33 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr3_ob_ex_Matrix.txt
+    jobid: 3
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:48:57 2025]
+Finished job 8.
+28 of 81 steps (35%) done
+Select jobs to execute...
+
+[Fri May 23 19:48:57 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr5_ob_ex_Matrix.txt
+    jobid: 5
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:49:02 2025]
+Finished job 73.
+29 of 81 steps (36%) done
+Select jobs to execute...
+
+[Fri May 23 19:49:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr13_ob_ex_Matrix.txt
+    jobid: 33
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:49:14 2025]
+Finished job 64.
+30 of 81 steps (37%) done
+Select jobs to execute...
+
+[Fri May 23 19:49:14 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr5_ob_ex_Matrix.txt
+    jobid: 45
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:49:34 2025]
+Finished job 3.
+31 of 81 steps (38%) done
+Select jobs to execute...
+
+[Fri May 23 19:49:34 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr4_ob_ex_Matrix.txt
+    jobid: 24
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:49:44 2025]
+Finished job 33.
+32 of 81 steps (40%) done
+Select jobs to execute...
+
+[Fri May 23 19:49:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr17_ob_ex_Matrix.txt
+    jobid: 17
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr17_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr17
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:49:54 2025]
+Finished job 5.
+33 of 81 steps (41%) done
+Select jobs to execute...
+
+[Fri May 23 19:49:54 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr12_ob_ex_Matrix.txt
+    jobid: 52
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:50:13 2025]
+Finished job 45.
+34 of 81 steps (42%) done
+Select jobs to execute...
+
+[Fri May 23 19:50:13 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr10_ob_ex_Matrix.txt
+    jobid: 50
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:50:21 2025]
+Finished job 17.
+35 of 81 steps (43%) done
+Select jobs to execute...
+
+[Fri May 23 19:50:21 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr6_ob_ex_Matrix.txt
+    jobid: 66
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:50:30 2025]
+Finished job 24.
+36 of 81 steps (44%) done
+Select jobs to execute...
+
+[Fri May 23 19:50:30 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr2_ob_ex_Matrix.txt
+    jobid: 22
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:50:39 2025]
+Finished job 52.
+37 of 81 steps (46%) done
+Select jobs to execute...
+
+[Fri May 23 19:50:39 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr10_ob_ex_Matrix.txt
+    jobid: 10
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:51:06 2025]
+Finished job 66.
+38 of 81 steps (47%) done
+Select jobs to execute...
+
+[Fri May 23 19:51:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr3_ob_ex_Matrix.txt
+    jobid: 43
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr3_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr3
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:51:07 2025]
+Finished job 50.
+39 of 81 steps (48%) done
+Select jobs to execute...
+
+[Fri May 23 19:51:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr18_ob_ex_Matrix.txt
+    jobid: 38
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:51:27 2025]
+Finished job 10.
+40 of 81 steps (49%) done
+Select jobs to execute...
+
+[Fri May 23 19:51:27 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr15_ob_ex_Matrix.txt
+    jobid: 15
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:51:36 2025]
+Finished job 22.
+41 of 81 steps (51%) done
+Select jobs to execute...
+
+[Fri May 23 19:51:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chrX_ob_ex_Matrix.txt
+    jobid: 80
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:51:40 2025]
+Finished job 38.
+42 of 81 steps (52%) done
+Select jobs to execute...
+
+[Fri May 23 19:51:40 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr1_ob_ex_Matrix.txt
+    jobid: 21
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:52:06 2025]
+Finished job 15.
+43 of 81 steps (53%) done
+Select jobs to execute...
+
+[Fri May 23 19:52:06 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr12_ob_ex_Matrix.txt
+    jobid: 32
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr12_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr12
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:52:07 2025]
+Finished job 43.
+44 of 81 steps (54%) done
+Select jobs to execute...
+
+[Fri May 23 19:52:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr1_ob_ex_Matrix.txt
+    jobid: 61
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:52:18 2025]
+Finished job 80.
+45 of 81 steps (56%) done
+Select jobs to execute...
+
+[Fri May 23 19:52:18 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr7_ob_ex_Matrix.txt
+    jobid: 47
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:52:47 2025]
+Finished job 32.
+46 of 81 steps (57%) done
+Select jobs to execute...
+
+[Fri May 23 19:52:47 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr15_ob_ex_Matrix.txt
+    jobid: 75
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:52:51 2025]
+Finished job 21.
+47 of 81 steps (58%) done
+Select jobs to execute...
+
+[Fri May 23 19:52:51 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr14_ob_ex_Matrix.txt
+    jobid: 54
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:53:08 2025]
+Finished job 61.
+48 of 81 steps (59%) done
+Select jobs to execute...
+
+[Fri May 23 19:53:08 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr8_ob_ex_Matrix.txt
+    jobid: 68
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:53:14 2025]
+Finished job 47.
+49 of 81 steps (60%) done
+Select jobs to execute...
+
+[Fri May 23 19:53:14 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr7_ob_ex_Matrix.txt
+    jobid: 27
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:53:20 2025]
+Finished job 75.
+50 of 81 steps (62%) done
+Select jobs to execute...
+
+[Fri May 23 19:53:20 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr15_ob_ex_Matrix.txt
+    jobid: 55
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr15_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr15
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:53:36 2025]
+Finished job 54.
+51 of 81 steps (63%) done
+Select jobs to execute...
+
+[Fri May 23 19:53:36 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr9_ob_ex_Matrix.txt
+    jobid: 69
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr9_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr9
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:53:50 2025]
+Finished job 68.
+52 of 81 steps (64%) done
+Select jobs to execute...
+
+[Fri May 23 19:53:50 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr13_ob_ex_Matrix.txt
+    jobid: 13
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:54:01 2025]
+Finished job 55.
+53 of 81 steps (65%) done
+Select jobs to execute...
+
+[Fri May 23 19:54:01 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr1_ob_ex_Matrix.txt
+    jobid: 41
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:54:04 2025]
+Finished job 27.
+54 of 81 steps (67%) done
+Select jobs to execute...
+
+[Fri May 23 19:54:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr2_ob_ex_Matrix.txt
+    jobid: 62
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:54:16 2025]
+Finished job 69.
+55 of 81 steps (68%) done
+Select jobs to execute...
+
+[Fri May 23 19:54:16 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chrX_ob_ex_Matrix.txt
+    jobid: 20
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:54:34 2025]
+Finished job 13.
+56 of 81 steps (69%) done
+Select jobs to execute...
+
+[Fri May 23 19:54:34 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr8_ob_ex_Matrix.txt
+    jobid: 48
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:55:07 2025]
+Finished job 62.
+57 of 81 steps (70%) done
+Select jobs to execute...
+
+[Fri May 23 19:55:07 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr6_ob_ex_Matrix.txt
+    jobid: 6
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:55:10 2025]
+Finished job 20.
+58 of 81 steps (72%) done
+Select jobs to execute...
+
+[Fri May 23 19:55:10 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr14_ob_ex_Matrix.txt
+    jobid: 34
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:55:18 2025]
+Finished job 41.
+59 of 81 steps (73%) done
+Select jobs to execute...
+
+[Fri May 23 19:55:18 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr14_ob_ex_Matrix.txt
+    jobid: 74
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:55:25 2025]
+Finished job 48.
+60 of 81 steps (74%) done
+Select jobs to execute...
+
+[Fri May 23 19:55:25 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr4_ob_ex_Matrix.txt
+    jobid: 4
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr4_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr4
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:55:52 2025]
+Finished job 34.
+61 of 81 steps (75%) done
+Select jobs to execute...
+
+[Fri May 23 19:55:52 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chrX_ob_ex_Matrix.txt
+    jobid: 40
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:55:53 2025]
+Finished job 74.
+62 of 81 steps (77%) done
+Select jobs to execute...
+
+[Fri May 23 19:55:53 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr16_ob_ex_Matrix.txt
+    jobid: 76
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:56:04 2025]
+Finished job 6.
+63 of 81 steps (78%) done
+Select jobs to execute...
+
+[Fri May 23 19:56:04 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr16_ob_ex_Matrix.txt
+    jobid: 56
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr16_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr16
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:56:22 2025]
+Finished job 76.
+64 of 81 steps (79%) done
+Select jobs to execute...
+
+[Fri May 23 19:56:22 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr10_ob_ex_Matrix.txt
+    jobid: 70
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr10_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr10
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:56:22 2025]
+Finished job 4.
+65 of 81 steps (80%) done
+Select jobs to execute...
+
+[Fri May 23 19:56:22 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr6_ob_ex_Matrix.txt
+    jobid: 26
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:56:41 2025]
+Finished job 56.
+66 of 81 steps (81%) done
+Select jobs to execute...
+
+[Fri May 23 19:56:41 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr8_ob_ex_Matrix.txt
+    jobid: 28
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr8_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr8
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:56:44 2025]
+Finished job 40.
+67 of 81 steps (83%) done
+Select jobs to execute...
+
+[Fri May 23 19:56:44 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr2_ob_ex_Matrix.txt
+    jobid: 42
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr2_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr2
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:57:02 2025]
+Finished job 70.
+68 of 81 steps (84%) done
+Select jobs to execute...
+
+[Fri May 23 19:57:02 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr14_ob_ex_Matrix.txt
+    jobid: 14
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr14_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr14
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:57:17 2025]
+Finished job 26.
+69 of 81 steps (85%) done
+Select jobs to execute...
+
+[Fri May 23 19:57:17 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr1_ob_ex_Matrix.txt
+    jobid: 1
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr1_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr1
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:57:28 2025]
+Finished job 28.
+70 of 81 steps (86%) done
+Select jobs to execute...
+
+[Fri May 23 19:57:28 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr13_ob_ex_Matrix.txt
+    jobid: 53
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr13_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr13
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:57:45 2025]
+Finished job 14.
+71 of 81 steps (88%) done
+Select jobs to execute...
+
+[Fri May 23 19:57:45 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-223
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr7_ob_ex_Matrix.txt
+    jobid: 67
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr7_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-223, resolution=50000, chr=chr7
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:57:58 2025]
+Finished job 42.
+72 of 81 steps (89%) done
+Select jobs to execute...
+
+[Fri May 23 19:57:58 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-203
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr5_ob_ex_Matrix.txt
+    jobid: 25
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr5_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-203, resolution=50000, chr=chr5
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:58:14 2025]
+Finished job 53.
+73 of 81 steps (90%) done
+Select jobs to execute...
+
+[Fri May 23 19:58:14 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr18_ob_ex_Matrix.txt
+    jobid: 18
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr18_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr18
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:58:28 2025]
+Finished job 67.
+74 of 81 steps (91%) done
+Select jobs to execute...
+
+[Fri May 23 19:58:28 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr6_ob_ex_Matrix.txt
+    jobid: 46
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr6_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chr6
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:58:31 2025]
+Finished job 1.
+75 of 81 steps (93%) done
+Select jobs to execute...
+
+[Fri May 23 19:58:31 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-222
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chrX_ob_ex_Matrix.txt
+    jobid: 60
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chrX_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-222, resolution=50000, chr=chrX
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:58:48 2025]
+Finished job 18.
+76 of 81 steps (94%) done
+Select jobs to execute...
+
+[Fri May 23 19:58:48 2025]
+rule analyze_hic:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/compartment/homer_compartment/tagDir/WJH-mammary_gland-202
+    output: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr19_ob_ex_Matrix.txt
+    jobid: 19
+    reason: Missing output files: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr19_ob_ex_Matrix.txt
+    wildcards: sample=WJH-mammary_gland-202, resolution=50000, chr=chr19
+    threads: 5
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:58:51 2025]
+Finished job 25.
+77 of 81 steps (95%) done
+[Fri May 23 19:59:11 2025]
+Finished job 19.
+78 of 81 steps (96%) done
+[Fri May 23 19:59:26 2025]
+Finished job 60.
+79 of 81 steps (98%) done
+[Fri May 23 19:59:27 2025]
+Finished job 46.
+80 of 81 steps (99%) done
+Select jobs to execute...
+
+[Fri May 23 19:59:27 2025]
+localrule all:
+    input: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chrX_ob_ex_Matrix.txt
+    jobid: 0
+    reason: Input files updated by another job: /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr12_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr3_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr17_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr10_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chrX_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr14_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr13_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr16_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr7_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr9_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr19_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr4_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr6_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr15_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr11_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr1_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr8_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-202/WJH-mammary_gland-202_50000_chr5_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-222/WJH-mammary_gland-222_50000_chr18_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-203/WJH-mammary_gland-203_50000_chr2_ob_ex_Matrix.txt, /storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/HiC/mammarygland/ob_ex_matrix/WJH-mammary_gland-223/WJH-mammary_gland-223_50000_chr6_ob_ex_Matrix.txt
+    resources: tmpdir=/tmp
+
+[Fri May 23 19:59:27 2025]
+Finished job 0.
+81 of 81 steps (100%) done
+Complete log: .snakemake/log/2025-05-23T192157.623751.snakemake.log

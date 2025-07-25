@@ -6,8 +6,8 @@ library(ggplot2)
 library(data.table)
 library(tidyr)
 library(ggrepel)
-tissue <- "lung"
-resolution <- "25000"
+tissue <- "cecum"
+resolution <- "25000_optimal_parameter"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -50,7 +50,8 @@ loop_combine <- function(tissue, resolution){
     write.table(loop_summary[,c(1:6)],paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/",sample,"_",resolution,"/",sample,"_",resolution,"_loop.bedpe"),quote = F,sep = "\t",col.names = F,row.names = F)
   }
 }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle"))
+# tissues <- c("brain","CB","kidney","liver","lung")
 for(tissue in tissues){
   loop_combine(tissue,resolution)
 }
@@ -88,7 +89,6 @@ loop_change <- function(tissue,resolution){
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("loop counts")
   return(p)
 }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
 p_list <- list()
 for(tissue in tissues){
   p_list[[tissue]] <- loop_change(tissue,resolution)
@@ -98,6 +98,6 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)
-ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change.png"),combined_plot,width = 18,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
+ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change.png"),combined_plot,width = 22,height = 20,type="cairo")
 write.csv(all_tissues_loop_summary,"data/samples/HiC/HiCCUP_loop_change_25000.csv",row.names = F)

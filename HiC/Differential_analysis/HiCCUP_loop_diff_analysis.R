@@ -30,7 +30,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 
-resolution <- "25000"
+resolution <- "25000_optimal_parameter"
 tissue <- "lung"
 loop_diff_analysis <- function(tissue,resolution){
   loop <- read.table(paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/merged_",resolution,"_loop.bed"),skip = 1,header = F)
@@ -38,7 +38,7 @@ loop_diff_analysis <- function(tissue,resolution){
   loop <- loop[which(loop$V1 %in% paste0("chr",c(1:19,"X")) & loop$V4 %in% paste0("chr",c(1:19,"X"))),]
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue == tissue),]
-  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/",search_table$sample_name[1],"_10000_abs.bed"))
+  bed <- read.table(paste0("data/samples/HiC/",tissue,"/raw_matrix/",search_table$sample_name[1],"_20000_abs.bed"))
   bed <- bed[which(bed$V1 %in% paste0("chr",c(1:19,"X"))),]
   
   loop$V2 <- loop$V2 + 1
@@ -78,7 +78,7 @@ loop_diff_analysis <- function(tissue,resolution){
   overlaps$loop_label <- paste(overlaps$label1,overlaps$label2,sep = "-")
   Loop_count <- data.frame()
   for(sample in samples){
-    counts <- fread(paste0("data/samples/HiC/",tissue,"/raw_matrix/",sample,"_10000.matrix"))
+    counts <- fread(paste0("data/samples/HiC/",tissue,"/raw_matrix/",sample,"_20000.matrix"))
     filtered_counts <- counts[V1 %in% overlaps$bin1 | V1 %in% overlaps$bin2]  
     filtered_counts <- filtered_counts[V2 %in% overlaps$bin1 | V2 %in% overlaps$bin2]
     filtered_counts$label <- paste(filtered_counts$V1,filtered_counts$V2,sep = "-")
@@ -129,9 +129,36 @@ loop_diff_analysis <- function(tissue,resolution){
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   ggsave(paste0("result/HiC/",tissue,"/differential_analysis/",tissue,"_HiCCUP_Loop_",resolution,"_diff_volcano_edger.png"),p,width = 5,height = 6,type="cairo")
+  return(p)
 }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
 
+loop_diff_analysis <- function(tissue,resolution){
+  out <- read.csv(paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/diff_interaction_within_",resolution,"_loop.csv"))
+  colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
+  p <- ggplot(
+    out, aes(x = LogFC.old.young, y = -log10(FDR.old.young))) +
+    geom_point(aes(color = Significant), size=2) +
+    scale_color_manual(values = colour) +
+    geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+    geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+    labs(x="log2(fold change)",
+         y="-log10 (FDR)") +
+    theme_bw()+
+    theme(text = element_text(size = 20),legend.position = "none")+
+    ggtitle(paste0(tissue_label_change(tissue)," Loop"))+
+    annotate("text", x = min(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+  return(p)
+  }
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+p_list <- list()
 for(tissue in tissues){
-  loop_diff_analysis(tissue,resolution)
+  p_list[[tissue]] <- loop_diff_analysis(tissue,resolution)
 }
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change_diff_volcano_edger.png"),combined_plot,width = 18,height = 20,type="cairo")

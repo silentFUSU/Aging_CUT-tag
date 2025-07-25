@@ -1,5 +1,5 @@
 # antibodys=(H3K27me3 H3K36me3 H3K9me3)
-antibodys=(H3K27me3)
+antibodys=(H3K36me3)
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/ 
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 tissue=$1

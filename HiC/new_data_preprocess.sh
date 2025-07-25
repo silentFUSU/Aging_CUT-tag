@@ -1,4 +1,4 @@
-raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250303_WJH_HiC/
+raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250710_Cecum_109_HiC/
 data_path=/mnt/transposon2/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_Tag/samples/HiC/
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv
 samples=$(find ${raw_data}result/hic_results/data/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | grep -v tmp)  
@@ -38,7 +38,7 @@ log_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/logs/
 #### valid pairs to juicer
 for tissue in ${unique_tissue_array[@]}
 do
-    bash ${code_path}hicpro2juicer_merge.sh $tissue 2>&1>${log_path}${tissue}_hicpro2juicer_merge.log &
+    nohup bash ${code_path}hicpro2juicer_merge.sh $tissue 2>&1>${log_path}${tissue}_hicpro2juicer_merge.log &
 done
 
 ### juicer to cooler

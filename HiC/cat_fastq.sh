@@ -1,7 +1,7 @@
-raw_data=/storage/zhangyanxiaoLab/fastq/2025/2025-05-10-Jiangbei-DYQ/DYQ181/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250510_DYQ_HiC/
+raw_data=/storage/zhangyanxiaoLab/fastq/2025/2025-06-11-Meiji-YuLab/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250611_WJH_HiC/
 # samples=(Cecum-103 Cecum-106 Cecum-109 WJH-Ileum-100 WJH-Ileum-103 WJH-Ileum-106 WJH-ileum-112 WJH-pancreas-107 WJH-pancreas-108 WJH-pancreas-98  WJH-thymus-230 WJH-thymus-240 WJH-thymus-241 WJH-thymus-245)
-samples=(DYQ181-1 DYQ181-2 DYQ181-3 DYQ181-4 DYQ181-5 DYQ181-6)
+samples=(Mu_aged_257 Mu_aged_254 Mu_young1 Mu_young2 Sk_aged_254 Sk_3 Sk_2 Sk_1)
 mkdir -p ${target_path}
 mkdir -p ${target_path}fastq/
 for sample in ${samples[@]}
@@ -10,8 +10,8 @@ do
     mkdir ${target_path}fastq/${sample}
     # ln -s ${raw_data}${sample}*/*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
     # ln -s ${raw_data}${sample}*/*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
-    ln -s ${raw_data}*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
-    ln -s ${raw_data}*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
+    ln -s ${raw_data}*${sample}*R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    ln -s ${raw_data}*${sample}*R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
     # mkdir ${target_path}${sample}
     # mkdir ${target_path}${sample}/fastq
     # ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz

@@ -1,4 +1,4 @@
-rm(list=ls())
+rm(list=ls()) 
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
@@ -27,7 +27,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-antibody <- "H3K27me3"
+antibody <- "H3K9me3"
 common_increase <- read.csv(paste0("data/samples/all/",antibody,"/common_increase_10kb_bins_after_remove_batch_effect.csv"))
 common_decrease <- read.csv(paste0("data/samples/all/",antibody,"/common_decrease_10kb_bins_after_remove_batch_effect.csv"))
 # regions <- union(common_increase$Geneid[which(common_increase$n>8)],common_decrease$Geneid[which(common_decrease$n>8)])

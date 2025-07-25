@@ -5,6 +5,11 @@ set.seed(1)
 library(ggplot2)
 library(RColorBrewer)  
 library(stringr)
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect",axis_titles = "collect",axes = "collect")
+}
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
     tissue_label <- "Cortex"
@@ -26,15 +31,18 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "lung"
-resolution <- 20000
+tissue <- "cecum"
+resolution <- 10000
+# min=1000000
+# max=80000000
 calDistanceProb <- function(tissue,resolution){
   resolution_k <- resolution/1000
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue==tissue),]  
-
+  con.list <- list()
   for(sample in search_table$sample_name){
     con = read.table(paste0("data/samples/HiC/",tissue,"/distance_contact/",sample,".dist.contacts.",resolution_k,"k")) 
+    # con <- con[which(con$V1 >= min & con$V1 <= max),]
     con$sample = sample
     con$prob = con$V2/sum(con$V2)
     con.list[[sample]]= con
@@ -64,7 +72,7 @@ calDistanceProb <- function(tissue,resolution){
   combined_log2 = combined_log2[which(combined_log2$dist_log2>0),]
   combined_log2$name = combined_log2$sample
   combined_log2 <- merge(combined_log2,search_table[,c("sample_name","age")],by.x="sample",by.y="sample_name")
-  
+  write.csv(combined_log2,paste0("data/samples/HiC/",tissue,"/distance_contact/all_samples_distance_contact_log2_",resolution_k,"k.csv"))
   
   ave = aggregate(prob~dist_log2+age,combined_log2,mean)
   se = aggregate(prob~dist_log2+age,combined_log2,sd)
@@ -84,11 +92,33 @@ calDistanceProb <- function(tissue,resolution){
     ylab("Probability")+
     ggtitle(tissue_label_change(tissue),"Frequency distribution of Hi-C contacts")+
     theme_bw() +
-    theme(text = element_text(size = 18),legend.position = "none")
-  print(p)
+    theme(text = element_text(size = 18))
+    # theme(text = element_text(size = 18),legend.position = "none")
   dir.create(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/"))
   ggsave(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/contact_probability_vs_distance.png"),p,width = 7,height = 7,type="cairo")
+  
+  out$name <- as.character(out$name) 
+  out$name[which(out$name=="3M")] <- "Young"
+  out$name[which(out$name=="24M")] <- "Old"
+  colnames(out)[which(colnames(out)=="name")] <- "Age"
+  out$Age <- factor(out$Age,levels = c("Young","Old"))
+  color <- setNames(c("#ff2e63","#3f72af"),c("Young","Old"))
+  
+  p2 <- ggplot(out, aes(dist_log2,color=Age,y=mean)) +
+    geom_line(size=1.2) +
+    geom_point(size=2) +
+    scale_color_manual(values = color) +
+    ylab("Fraction") +
+    scale_x_continuous("Distance(log2)", breaks=breaks,
+                       labels=labels ) +
+    ylab("Probability")+
+    ggtitle(tissue_label_change(tissue))+
+    theme_bw() +
+    theme(text = element_text(size = 14))
+  return(p2)
 }
+p_list <- list()
 for(tissue in c("brain","CB","kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus")){
-  calDistanceProb(tissue)
+  p_list[[tissue]] <- calDistanceProb(tissue,resolution)
 }
+combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)

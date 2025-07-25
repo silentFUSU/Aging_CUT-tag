@@ -27,8 +27,8 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "lung"
-resolution <- "10000"
+tissue <- "cecum"
+resolution <- "20000"
 
 boundary_strength_caculate <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
