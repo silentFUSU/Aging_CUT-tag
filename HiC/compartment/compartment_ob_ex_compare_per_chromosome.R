@@ -37,10 +37,12 @@ tissue_label_change <- function(tissue){
 }
 tissue <- "lung"
 
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","muscle","skin","cecum","ileum")
+resolution=50000
 min=1000000
 max=60000000
 for(tissue in tissues){
+  print(tissue)
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   samples <- search_table$sample_name[which(search_table$tissue==tissue)]
   chromosomes <- paste0("chr",c(1:19,"X"))
@@ -121,8 +123,8 @@ for(tissue in tissues){
       legend.text = element_text(size = 10)
     )
   }
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)
-ggsave(paste0("result/HiC/all_tissues_50000_homer_compartment_interaction_median_per_chromosome_filter_distance_",(min/1000000),"mb_",(max/1000000),"mb.png"),combined_plot,width = 25,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_50000_homer_compartment_interaction_median_per_chromosome_filter_distance_",(min/1000000),"mb_",(max/1000000),"mb.png"),combined_plot,width = 25,height = 25,type="cairo")
 
 
 summary <- data.frame()

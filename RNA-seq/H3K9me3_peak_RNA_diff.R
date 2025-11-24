@@ -24,13 +24,16 @@ tissue_label_change <- function(tissue){
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
     }else if(tissue_label=="Iwat"){
-      tissue_label <- "IWAT"
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
 }
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/counts/",tissue,"_H3K9me3_peaks.counts"),skip=1)
+  if(tissue %in% c("mammarygland","uterus","ovary")){
+    tab <- tab[which(tab$Chr %in% paste0("chr",c(1:19,"X"))),]
+  }
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
@@ -51,7 +54,7 @@ diff_expression_analysis <- function(tissue){
   counts <- counts[,c(group$sample_name)]
   colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
   y= DGEList(counts=counts,group=age)
-  keep = which(rowSums(cpm(y)>1)>=2)
+  keep = which(rowSums(cpm(y)>0)>=2)
   y = y[keep,]
   y$samples$group <- factor(y$samples$group, levels=c("young","old"))
   design <- model.matrix(~group, y$samples)
@@ -281,12 +284,12 @@ p_value_long <- melt(p_value_summary,id.vars = "tissue")
 names(p_value_long) <- c("Tissue", "Type", "Label")
 merged_data <- merge(df_long, p_value_long, by = c("Tissue", "Type"), all.x = TRUE)
 
-ggplot(df_long, aes(x = Type, y = Tissue, fill = Value)) +
-  geom_tile(color = "white") +
-  scale_fill_gradient2(low = "blue", high = "red", mid = "white") +
-  theme_minimal() +
-  geom_text(data = p_value_long, aes(x = Type, y = Tissue, label = Label), color = "black", size = 4) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# ggplot(df_long, aes(x = Type, y = Tissue, fill = Value)) +
+#   geom_tile(color = "white") +
+#   scale_fill_gradient2(low = "blue", high = "red", mid = "white") +
+#   theme_minimal() +
+#   geom_text(data = p_value_long, aes(x = Type, y = Tissue, label = Label), color = "black", size = 4) +
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 merged_data$Tissue <- factor(merged_data$Tissue,levels=rev(tissues_order))
 ggplot(merged_data, aes(x = Type, y = Tissue, fill = Value)) +
   geom_tile(color = "white") +

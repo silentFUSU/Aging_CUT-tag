@@ -45,8 +45,8 @@ tissue_label_change <- function(tissue){
 }
 
 data_path <-"data/samples/ATAC/ATAC_peak_from_LMJ/motif_snapatac2_cisbp/"
-condition <-"down"
-tissue <- "lung"
+condition <-"up"
+tissue <- "muscle"
 motif <- read.csv(paste0(data_path,"motif_all_peaks_bg/",condition,"/enrichment_results_",tissue,"_",toTitleCase(condition),"_sorted.bed.csv"))
 motif <- motif[!grepl("\\)_\\(", motif$id), ]
 motif$id <- sub("^M\\d+_2\\.00\\s*", "", motif$id)

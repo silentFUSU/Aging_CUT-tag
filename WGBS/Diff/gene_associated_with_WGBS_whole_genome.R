@@ -9,6 +9,8 @@ library(dbplyr)
 library(clusterProfiler)
 library(GSVA)
 library(enrichplot)
+library(MASS)  
+library(RANSAC)
 options(scipen = 0) 
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -35,51 +37,68 @@ tissue_label_change <- function(tissue){
 tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
                   "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum")) 
 
-tissue_summary <- read.csv("data/samples/WGBS/all_tissues_delta_in_200kb_bins_cross_comparison.csv",row.names = 1)
-H3K9me3_tissue_order_label <- c() 
-annotation_col <- data.frame()
-for(tissue in tissues){
-  search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
-  t_search_table <- search_table[which(search_table$tissue==tissue),]
-  young_samples <- t_search_table$sample_name[which(t_search_table$age=="3M")]
-  old_samples <- t_search_table$sample_name[which(t_search_table$age=="24M")]
-  combinations <- as.data.frame(expand.grid(young = young_samples, old = old_samples))
-  if(tissue=="bonemarrow"){
-    H3K9me3_tissue_order_label <- c(H3K9me3_tissue_order_label, paste0("Bone.Marrow",".",paste0(combinations$old,".",combinations$young)))  
-    t_annotation_col <- data.frame(tissue=tissue_label_change(tissue),sample=paste0("Bone.Marrow",".",paste0(combinations$old,".",combinations$young)))  
-  }else if(tissue=="mammarygland"){
-    H3K9me3_tissue_order_label <- c(H3K9me3_tissue_order_label, paste0("Mammary.Gland",".",paste0(combinations$old,".",combinations$young)))  
-    t_annotation_col <- data.frame(tissue=tissue_label_change(tissue),sample=paste0("Mammary.Gland",".",paste0(combinations$old,".",combinations$young)))  
-  }
-  else{
-    H3K9me3_tissue_order_label <- c(H3K9me3_tissue_order_label, paste0(tissue_label_change(tissue),".",paste0(combinations$old,".",combinations$young)))  
-    t_annotation_col <- data.frame(tissue=tissue_label_change(tissue),sample=paste0(tissue_label_change(tissue),".",paste0(combinations$old,".",combinations$young)))  
-  }
-  annotation_col <- rbind(annotation_col,t_annotation_col)
-}
-rownames(tissue_summary) <- tissue_summary$label
+# tissue_summary <- read.csv("data/samples/WGBS/all_tissues_delta_in_200kb_bins_cross_comparison.csv",row.names = 1)
+# H3K9me3_tissue_order_label <- c() 
+# annotation_col <- data.frame()
+# for(tissue in tissues){
+#   search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
+#   t_search_table <- search_table[which(search_table$tissue==tissue),]
+#   young_samples <- t_search_table$sample_name[which(t_search_table$age=="3M")]
+#   old_samples <- t_search_table$sample_name[which(t_search_table$age=="24M")]
+#   combinations <- as.data.frame(expand.grid(young = young_samples, old = old_samples))
+#   if(tissue=="bonemarrow"){
+#     H3K9me3_tissue_order_label <- c(H3K9me3_tissue_order_label, paste0("Bone.Marrow",".",paste0(combinations$old,".",combinations$young)))  
+#     t_annotation_col <- data.frame(tissue=tissue_label_change(tissue),sample=paste0("Bone.Marrow",".",paste0(combinations$old,".",combinations$young)))  
+#   }else if(tissue=="mammarygland"){
+#     H3K9me3_tissue_order_label <- c(H3K9me3_tissue_order_label, paste0("Mammary.Gland",".",paste0(combinations$old,".",combinations$young)))  
+#     t_annotation_col <- data.frame(tissue=tissue_label_change(tissue),sample=paste0("Mammary.Gland",".",paste0(combinations$old,".",combinations$young)))  
+#   }
+#   else{
+#     H3K9me3_tissue_order_label <- c(H3K9me3_tissue_order_label, paste0(tissue_label_change(tissue),".",paste0(combinations$old,".",combinations$young)))  
+#     t_annotation_col <- data.frame(tissue=tissue_label_change(tissue),sample=paste0(tissue_label_change(tissue),".",paste0(combinations$old,".",combinations$young)))  
+#   }
+#   annotation_col <- rbind(annotation_col,t_annotation_col)
+# }
+# rownames(tissue_summary) <- tissue_summary$label
+# 
+# tissue_mean_summary <- data.frame() 
+# annotation <- annotation_col
+# for(tissue in tissues){
+#   t_annotation <- annotation[which(annotation$tissue==tissue_label_change(tissue)),]
+#   t_tissue_mean_summary <- tissue_summary[,t_annotation$sample]
+#   t_tissue_mean_summary$mean_delta <- rowMeans(t_tissue_mean_summary) 
+#   t_tissue_mean_summary$label <- rownames(t_tissue_mean_summary)
+#   t_tissue_mean_summary <- t_tissue_mean_summary[,c("label","mean_delta")]
+#   colnames(t_tissue_mean_summary)[2] <- tissue_label_change(tissue)
+#   if(nrow(tissue_mean_summary)==0){
+#     tissue_mean_summary <- t_tissue_mean_summary  
+#   }else{
+#     tissue_mean_summary <- merge(tissue_mean_summary,t_tissue_mean_summary,by="label")
+#   }
+# }
+# 
+# to_plot_WGBS_order_long <- reshape2::melt(tissue_mean_summary)
 
-tissue_mean_summary <- data.frame() 
-annotation <- annotation_col
-for(tissue in tissues){
-  t_annotation <- annotation[which(annotation$tissue==tissue_label_change(tissue)),]
-  t_tissue_mean_summary <- tissue_summary[,t_annotation$sample]
-  t_tissue_mean_summary$mean_delta <- rowMeans(t_tissue_mean_summary) 
-  t_tissue_mean_summary$label <- rownames(t_tissue_mean_summary)
-  t_tissue_mean_summary <- t_tissue_mean_summary[,c("label","mean_delta")]
-  colnames(t_tissue_mean_summary)[2] <- tissue_label_change(tissue)
-  if(nrow(tissue_mean_summary)==0){
-    tissue_mean_summary <- t_tissue_mean_summary  
-  }else{
-    tissue_mean_summary <- merge(tissue_mean_summary,t_tissue_mean_summary,by="label")
-  }
-}
+summary <- read.csv("data/samples/WGBS/CG_manual.csv")
+search_table <- read.csv("data/samples/all/WGBS_search_table.csv")
+summary$tissue <- sapply(summary$tissue,tissue_label_change)
+summary <- merge(summary,search_table[,c("sample_name","age")],by.x="sample",by.y="sample_name")
+result <- summary %>%
+  group_by(tissue, age) %>%
+  summarise(mean_CG = mean(CG, na.rm = TRUE), .groups = 'drop')
+result$mean_CG <- result$mean_CG *100
 
-to_plot_WGBS_order_long <- reshape2::melt(tissue_mean_summary)
+result_young <- result[which(result$age=="3M"),]
+result_old <- result[which(result$age=="24M"),]
+to_plot <- merge(result_young,result_old,by="tissue")
+to_plot$delta <- to_plot$mean_CG.y - to_plot$mean_CG.x
+to_plot <- to_plot[order(to_plot$delta),]
 
-medians <- to_plot_WGBS_order_long %>%
-  group_by(variable) %>%
-  summarise(median_value = median(value, na.rm = TRUE))
+# medians <- to_plot_WGBS_order_long %>%
+#   group_by(variable) %>%
+#   summarise(median_value = median(value, na.rm = TRUE))
+medians <- to_plot[,c("tissue","delta")]
+colnames(medians) <- c("variable","median_value")
 medians <- medians[-which(medians$variable %in% c("Mammary Gland","Uterus","Ovary")),]
 medians <- medians[order(medians$median_value),]
 medians$rank <- c(1:nrow(medians))
@@ -245,8 +264,33 @@ GO_id <- "GO:0140014"
 description <- "mitotic nuclear division"
 search_table <- read.csv("data/samples/all/RNA_search_table.csv")
 genelist <- list(score=target_genes)
-counts_matrix <- as.matrix(counts)
-re <- gsva(counts_matrix,genelist , method="ssgsea",ssgsea.norm=TRUE) 
+
+rpkm <- data.frame()
+for(tissue in tissues){
+  df <- read.table(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),header = T)
+  df <- df[,c(1,6,7:ncol(df))]
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+).*"
+  colnames(df)[-c(1,2)] <- gsub(pattern, "\\1",colnames(df)[-c(1,2)])
+  gene_lengths <- df$Length
+  total_mapped_reads <- colSums(df[, 3:ncol(df)])
+  rpkm_df <- data.frame(Geneid = df$Geneid)
+  for (i in 3:ncol(df)) {
+    counts <- df[[i]]
+    t_rpkm <- (counts / (gene_lengths / 1000)) / (total_mapped_reads[i - 2] / 1e6)
+    rpkm_df[[colnames(df)[i]]] <- t_rpkm
+  }
+  
+  if(nrow(rpkm)==0){
+    rpkm <- rpkm_df
+  }else{
+    rpkm <- merge(rpkm,rpkm_df,by="Geneid")
+  }
+}
+rownames(rpkm) <- rpkm$Geneid
+rpkm <- rpkm[,-1]
+rpkm_matrix <- as.matrix(rpkm)
+
+re <- gsva(rpkm_matrix,genelist , method="ssgsea",ssgsea.norm=TRUE) 
 re <- as.data.frame(t(re))
 to_plot <- merge(re,search_table,by.x="row.names",by.y="sample_name")
 color <- read.table("data/samples/30_distinct_color.txt")
@@ -270,17 +314,52 @@ colnames(to_plot)[ncol(to_plot)] <- "histone"
 cor_test <- cor.test(to_plot$score,to_plot$histone,method="spearman")
 average_scores <- merge(average_scores,summary_antibody,by="tissue")
 colnames(average_scores)[ncol(average_scores)] <- "histone"
-cor_test <- cor.test(average_scores$score,average_scores$histone,method="spearman")
+average_scores_test  <- average_scores[which(average_scores$tissue !="Pancreas"),]
+cor_test <- cor.test(average_scores_test$score,average_scores_test$histone,method="spearman")
 if(Indicator=="rank"){
   to_plot$histone <- factor(to_plot$histone,levels = c(27:1))
 }
-ggplot(to_plot,aes(x=histone,y=score,color = tissue,shape=age))+    
+p <- ggplot(to_plot,aes(x=histone,y=score,color = tissue,shape=age))+    
   geom_jitter(size = 3, alpha = 0.7)+
   scale_color_manual(values = color)+
-  ggtitle(paste0(description," with H3K9me3"))+
+  ggtitle(paste0(description," with DNA methylation"))+
   theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+
   xlab("Delta")+labs(fill = "", color = "")+
   scale_x_reverse() 
+
+#### Ransac regression
+# set.seed(1)
+# model <- ransac_reg(score ~ histone, data = average_scores, n_min = 2, tol = 0.001,n_iter = 10000,verbose = T)
+# coefficients <- coef(model)
+# intercept <- coefficients[1]
+# slope <- -coefficients[2]
+# predictions <-average_scores %>%
+#   mutate(fitted = intercept + slope * histone)
+# 
+# 
+# # Calculate the confidence interval (we'll use 95% CI here)
+# alpha <- 0.05
+# ci_multiplier <- qt(1 - alpha/2, df = length(average_scores$score) - 2)
+# average_scores <- average_scores %>%
+#   mutate(
+#     fitted = predictions$fit,
+#     se = predictions$se.fit,
+#     lower = fitted - ci_multiplier * se,
+#     upper = fitted + ci_multiplier * se
+#   )
+
+p <- ggplot(average_scores,aes(x=histone,y=score))+    
+  geom_jitter(size = 3, alpha = 0.7,color="#f39b7f")+
+  geom_smooth(data = average_scores[-which(average_scores$tissue %in% c("Pancreas")),], aes(x = histone, y = score),
+              method = "lm", color = "#e64b35", se = TRUE, level = 0.95) +
+  # geom_abline(intercept = intercept, slope = slope, color = "#e64b35", size = 1) +
+  # geom_ribbon(aes(ymin = lower, ymax = upper))+
+  ggtitle(paste0(description))+
+  theme_bw()+theme(text = element_text(size = 18))+
+  xlab("Delta")+labs(fill = "", color = "")+
+  scale_x_reverse()
+p
+ggsave("result/figures/WGBS_mitotic_nuclear_division_ransac.pdf",p,width = 6,height = 4)
 
 #### GSEA 
 signif_correlation_genes <- correlation_summary
@@ -298,6 +377,28 @@ gse <- gseGO(geneList=genelist,
              verbose = TRUE, 
              OrgDb = GO_database,
              pAdjustMethod = "none",eps = 1e-100)
-dotplot(gse,title = paste0("Gene expression positive correlaiton with WGBS change"),label_format = 70,showCategory = 50)
-gse <- pairwise_termsim(gse)  
-emapplot(gse, showCategory = 50) 
+results_df <- as.data.frame(gse@result)
+positive_nes_results <- subset(results_df, NES > 0)
+negative_nes_results <- subset(results_df, NES < 0)
+positive_gsea <- new("gseaResult",
+                     result = positive_nes_results,
+                     geneSets = gse@geneSets,
+                     geneList = gse@geneList,
+                     params = gse@params,
+                     setType = gse@setType,
+                     organism = gse@organism)
+negative_gsea <- new("gseaResult",
+                     result = negative_nes_results,
+                     geneSets = gse@geneSets,
+                     geneList = gse@geneList,
+                     params = gse@params,
+                     setType = gse@setType,
+                     organism = gse@organism)
+
+positive_gsea <- pairwise_termsim(positive_gsea)  
+p <- emapplot(positive_gsea, showCategory = 50) 
+ggsave(paste0("result/Sup_figures/WGBS_gene_expression_correlation_GO_pathway_positive.pdf"),p,width = 12,height = 10)
+
+negative_gsea <- pairwise_termsim(negative_gsea)  
+p <-emapplot(negative_gsea, showCategory = 50) 
+ggsave(paste0("result/Sup_figures/WGBS_gene_expression_correlation_GO_pathway_negative.pdf"),p,width = 12,height = 10)

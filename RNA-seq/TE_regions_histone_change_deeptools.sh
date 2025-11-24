@@ -1,4 +1,4 @@
-class=ERVK_kmeans1
+class=$1
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/RNA/TE/
 mkdir -p ${result_path}TE_with_histone/
 data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
@@ -16,14 +16,17 @@ do
         search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/CUTTag_search_table_used_in_diff_batch.csv
         cleaned_file=$(mktemp)  
         cat "$search_table" | tr -d '\r' | awk '{gsub(/[\x00-\x1F\x7F]+/, ""); print}' > "$cleaned_file"  
-        young_samples=$(awk -F',' -v t="$tissue" -v a="$antibody" 'NR > 1 && ($1 == t) && ($5 == "3m") && ($2 == a) {print $3}' "$cleaned_file") 
-        old_samples=$(awk -F',' -v t="$tissue" -v a="$antibody" 'NR > 1 && ($1 == t) && ($5 == "24m") && ($2 == a) {print $3}' "$cleaned_file") 
-        IFS=$'\n' read -r -d '' -a young_array < <(echo "$young_samples" && printf '\0') 
-        IFS=$'\n' read -r -d '' -a old_array < <(echo "$old_samples" && printf '\0') 
-        young1_bw=${data_path}${tissue}/${antibody}/bw/${young_array[0]}*nodup.bw
-        young2_bw=${data_path}${tissue}/${antibody}/bw/${young_array[1]}*nodup.bw
-        old1_bw=${data_path}${tissue}/${antibody}/bw/${old_array[0]}*nodup.bw
-        old2_bw=${data_path}${tissue}/${antibody}/bw/${old_array[1]}*nodup.bw
+
+        young_samples_rep1=$(awk -F',' -v t="$tissue" -v a="$antibody" -v b="batch1" 'NR > 1 && ($1 == t) && ($5 == "3m") && ($2 == a) && ($6 == b) {print $3}' "$cleaned_file") 
+        old_samples_rep1=$(awk -F',' -v t="$tissue" -v a="$antibody" -v b="batch1" 'NR > 1 && ($1 == t) && ($5 == "24m") && ($2 == a) && ($6 == b) {print $3}' "$cleaned_file") 
+        young_samples_rep2=$(awk -F',' -v t="$tissue" -v a="$antibody" -v b="batch2" 'NR > 1 && ($1 == t) && ($5 == "3m") && ($2 == a) && ($6 == b) {print $3}' "$cleaned_file") 
+        old_samples_rep2=$(awk -F',' -v t="$tissue" -v a="$antibody" -v b="batch2" 'NR > 1 && ($1 == t) && ($5 == "24m") && ($2 == a) && ($6 == b) {print $3}' "$cleaned_file")
+        
+        young1_bw=${data_path}${tissue}/${antibody}/bw/${young_samples_rep1}*nodup.bw
+        young2_bw=${data_path}${tissue}/${antibody}/bw/${young_samples_rep2}*nodup.bw
+        old1_bw=${data_path}${tissue}/${antibody}/bw/${old_samples_rep1}*nodup.bw
+        old2_bw=${data_path}${tissue}/${antibody}/bw/${old_samples_rep2}*nodup.bw
+
         computeMatrix scale-regions -S $young1_bw $young2_bw $old1_bw $old2_bw -R $TE_region \
             --beforeRegionStartLength 1000 --startLabel Start --endLabel End \
             --regionBodyLength 1000 \

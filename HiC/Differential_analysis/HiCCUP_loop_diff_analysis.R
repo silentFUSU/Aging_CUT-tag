@@ -132,7 +132,7 @@ loop_diff_analysis <- function(tissue,resolution){
   return(p)
 }
 
-loop_diff_analysis <- function(tissue,resolution){
+loop_diff_analysis_plot <- function(tissue,resolution){
   out <- read.csv(paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/diff_interaction_within_",resolution,"_loop.csv"))
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   p <- ggplot(
@@ -150,15 +150,15 @@ loop_diff_analysis <- function(tissue,resolution){
     annotate("text", x = max(out$LogFC.old.young), y = max(-log10(out$FDR.old.young)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   return(p)
   }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle","ileum","cecum"))
 p_list <- list()
 for(tissue in tissues){
-  p_list[[tissue]] <- loop_diff_analysis(tissue,resolution)
+  p_list[[tissue]] <- loop_diff_analysis_plot(tissue,resolution)
 }
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 4)
-ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change_diff_volcano_edger.png"),combined_plot,width = 18,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change_diff_volcano_edger.png"),combined_plot,width = 18,height = 24,type="cairo")

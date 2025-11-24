@@ -73,7 +73,7 @@ get_all_tissues_bcv <- function(tissues,antibody){
     y$samples$batch <- search_table$batch
     
     y <- calcNormFactors(y)
-    design <- model.matrix(~year+batch, y$samples)
+    design <- model.matrix(~year, y$samples)
     y<-estimateCommonDisp(y)
     y<-estimateGLMTagwiseDisp(y,design)
     bcv <- data.frame(peaks=rownames(counts[keep,]),
@@ -90,9 +90,9 @@ get_all_tissues_bcv <- function(tissues,antibody){
     scale_fill_manual(values = color) +
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+ylab("bcv")+
     xlab("")+labs(fill = "", color = "")+ggtitle(paste0("bcv each tissue ",antibody))+ylim(0,1)
-  ggsave(paste0("result/all/QC/bcv/all_tissues_",antibody,"_bcv_remove_batch_effect.png"),p,width = 18,height = 10,type="cairo")  
+  # ggsave(paste0("result/all/QC/bcv/all_tissues_",antibody,"_bcv_remove_batch_effect.png"),p,width = 18,height = 10,type="cairo")  
   bcv_average <- mean(bcv_summary$bcv)
-  saveRDS(bcv_summary,"data/samples/all/bcv.rds")
+  saveRDS(bcv_summary,paste0("data/samples/all/",antibody,"_bcv_age.rds"))
   }
 
 color <- read.table("data/samples/30_distinct_color.txt")

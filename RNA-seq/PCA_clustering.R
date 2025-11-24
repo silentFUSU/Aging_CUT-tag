@@ -19,13 +19,13 @@ library(Matrix)
 library(dplyr)
 library(tidyr)
 library(Polychrome)
-tab_ourdata <- read.table("data/samples/RNA/combined-chrM.counts",header = T)
+tab_ourdata <- read.table("data/samples/RNA/all_tissues_combined-chrM.counts",header = T)
 tab_ourdata <- tab_ourdata[!grepl("chrY", tab_ourdata$Chr), ] 
 new_tissues <- c("Ovary")
 rownames(tab_ourdata) <- tab_ourdata$Geneid
 tab_ourdata <- tab_ourdata[,-1]
 colnames <- colnames(tab_ourdata)[6:length(tab_ourdata)]
-pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
+pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+).*"
 new_colnames <- gsub(pattern, "\\1", colnames)
 colnames(tab_ourdata)[6:length(tab_ourdata)] <- new_colnames
 sorted_index <- order(new_colnames)
@@ -39,7 +39,7 @@ y= DGEList(counts=counts)
 # y$samples$group[which(rownames(y$samples)=="LLX505")] <- "cecum"
 keep = which(rowSums(cpm(y)>1)>=2)
 y = y[keep,]
-logCPMs <- cpm(y, log = TRUE)
+logCPMs <- as.data.frame(cpm(y, log = TRUE))
 pca <- prcomp(t(logCPMs))
 to_plot <- data.frame(pca$x)
 to_plot$sample_name <- rownames(to_plot)
@@ -74,4 +74,9 @@ ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) +
     point.padding = unit(0.3, "lines")  
   ) 
 
-
+p <- ggplot(to_plot, aes(x=PC1, y=PC2, color=tissue, shape=age)) + 
+  geom_point(size=5) +theme_bw()+
+  scale_color_manual(values = color) +
+  xlab(labs[1]) + ylab(labs[2])+theme(text = element_text(size = 20))+ 
+  ggtitle("RNA")
+ggsave("result/Sup_figures/RNA_all_tissues_PCA.pdf",p,width = 6,height = 3)

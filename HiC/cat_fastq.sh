@@ -1,7 +1,7 @@
-raw_data=/storage/zhangyanxiaoLab/fastq/2025/2025-06-11-Meiji-YuLab/
-target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250611_WJH_HiC/
+raw_data=/storage/zhangyanxiaoLab/fastq/2025/2025-08-27-Nuohe-DYQ/
+target_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250910_DYQ_HiC/
 # samples=(Cecum-103 Cecum-106 Cecum-109 WJH-Ileum-100 WJH-Ileum-103 WJH-Ileum-106 WJH-ileum-112 WJH-pancreas-107 WJH-pancreas-108 WJH-pancreas-98  WJH-thymus-230 WJH-thymus-240 WJH-thymus-241 WJH-thymus-245)
-samples=(Mu_aged_257 Mu_aged_254 Mu_young1 Mu_young2 Sk_aged_254 Sk_3 Sk_2 Sk_1)
+samples=(DYQ199-1 DYQ199-2 DYQ199-5 DYQ199-6 DYQ215-1 WJH-pancreas-97)
 mkdir -p ${target_path}
 mkdir -p ${target_path}fastq/
 for sample in ${samples[@]}
@@ -10,12 +10,12 @@ do
     mkdir ${target_path}fastq/${sample}
     # ln -s ${raw_data}${sample}*/*${sample}*_R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
     # ln -s ${raw_data}${sample}*/*${sample}*_R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
-    ln -s ${raw_data}*${sample}*R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
-    ln -s ${raw_data}*${sample}*R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
+    # ln -s ${raw_data}*${sample}*R1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    # ln -s ${raw_data}*${sample}*R2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
     # mkdir ${target_path}${sample}
     # mkdir ${target_path}${sample}/fastq
-    # ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
-    # ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
+    ln -s ${raw_data}${sample}*/*${sample}*_1*.gz ${target_path}fastq/${sample}/${sample}_R1.fastq.gz
+    ln -s ${raw_data}${sample}*/*${sample}*_2*.gz ${target_path}fastq/${sample}/${sample}_R2.fastq.gz
 done
 
 raw_data=/storage/zhangyanxiaoLab/zhangyanxiao/software/obsutil_linux_amd64_5.2.10/tmp/YuLab/20240925-1/WJH-Ileum-test2/

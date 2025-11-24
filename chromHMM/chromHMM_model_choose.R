@@ -8,16 +8,28 @@ library(dplyr)
 library(corrplot)
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver","ileum",
              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
-state <- "11"
+state <- "15"
+dictionary <- list("1"=1, "2"=2, "3"=3,
+                   "4"=4, "5"=5, "6"=7,
+                   "7"=8, "8"=6, "9"=9,
+                   "10"=10,"11"=11,"12"=15,
+                   "13"=12,"14"=13,"15"=14)
+keys <- names(dictionary)
+values <- unlist(dictionary)
 
 model_plot <- function(tissues,state){
-  model <- read.delim(paste0("result/all/ChromHMM/all_tissues/",state,"_all_tissues/emissions_",state,".txt"))
+  model <- read.delim(paste0("result/all/ChromHMM/all_tissues_normal_chr/",state,"_all_tissues/emissions_",state,".txt"))
+  model$State..Emission.order. <- values[match(model$State..Emission.order., keys)]
+  model <- model[order(model$State..Emission.order.),]
+  rownames(model) <- model$State..Emission.order.
   model <- model[,-1]
   model <- model[,c("H3K27me3","H3K9me3","H3K36me3","H3K27ac","H3K4me1","H3K4me3")]
+
   rownames(model) <- paste0("state",c(1:nrow(model)))
-  color_palette <- colorRampPalette(c("white", "blue"))(50) 
+  color_palette <- colorRampPalette(c("white", "#defcf9","#4589C8FF"))(50) 
   
-  pheatmap::pheatmap(model,cluster_cols = F,cluster_rows = F,color = color_palette)
+  pheatmap::pheatmap(model,cluster_cols = F,cluster_rows = F,color = color_palette,border_color = "black",filename = "result/figures/chromHMM_15.pdf",width = 4,height = 6)
+  pheatmap::pheatmap(model,cluster_cols = F,cluster_rows = F,color = color_palette,width = 4,height = 6)
   
   cor_plot <- cor(t(model))
   pheatmap::pheatmap(cor_plot)

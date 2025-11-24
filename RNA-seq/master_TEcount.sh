@@ -3,7 +3,7 @@ data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples
 # tissues=(pancreas skin CB spleen heart bladder tongue uterus aorta thymus stomach Hip FC BAT iWAT muscle bonemarrow lung kidney liver testis colon cecum ileum jejunum)
 # tissues=(mammarygland)
 tissues=(skin)
-species=mm10
+species=mm10_subfamily
 max_jobs=7
 current_jobs() {  
     jobs -rp | wc -l  

@@ -3,7 +3,7 @@ import os
 import shutil
   
 # 定义输入文件夹和输出文件夹的路径  
-input_folder = "/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/all_tissues/11_all_tissues/"  
+input_folder = "/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/all/ChromHMM/all_tissues_normal_chr/15_all_tissues/"  
 output_folder = input_folder + "/split_1k/"  
 if not os.path.exists(output_folder):  
     os.makedirs(output_folder)  

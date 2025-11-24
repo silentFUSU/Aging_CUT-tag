@@ -58,23 +58,27 @@ DSS_DMR <- function(tissue){
   }
   
   merge_list <- append(young_list,old_list)
-  BSobj = makeBSseqData(merge_list,append(age_young,age_old))
-  dmlTest.sm = DMLtest(BSobj, group1=age_old, group2=age_young, smoothing=TRUE,ncores=10)
-  saveRDS(BSobj,paste0("data/samples/WGBS/",tissue,"/DSS_table/Bsobj.rds"))
-  saveRDS(dmlTest.sm,paste0("data/samples/WGBS/",tissue,"/DSS_table/dmlTest.sm.rds"))
+  BSobj <- readRDS(paste0("data/samples/WGBS/",tissue,"/DSS_table/Bsobj.rds"))
+  dmlTest.sm <- readRDS(paste0("data/samples/WGBS/",tissue,"/DSS_table/dmlTest.sm.rds"))
+  # BSobj = makeBSseqData(merge_list,append(age_young,age_old))
+  # dmlTest.sm = DMLtest(BSobj, group1=age_old, group2=age_young, smoothing=TRUE,ncores=10)
+  # saveRDS(BSobj,paste0("data/samples/WGBS/",tissue,"/DSS_table/Bsobj.rds"))
+  # saveRDS(dmlTest.sm,paste0("data/samples/WGBS/",tissue,"/DSS_table/dmlTest.sm.rds"))
   dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0)
   write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta0.txt"), row.names=F, sep='\t', quote=F)
   dmls <- callDML(dmlTest.sm, p.threshold = 1, delta=0)
-  write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta0_pvalue1.txt"), row.names=F, sep='\t', quote=F)  
-  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0)
-  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta0.txt"), row.names=F, sep='\t', quote=F)
+  write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta0_pvalue1.txt"), row.names=F, sep='\t', quote=F)
+  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0, minCG = 5)
+  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta0_minCG5.txt"), row.names=F, sep='\t', quote=F)
 
-  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0.1)
-  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta01.txt"), row.names=F, sep='\t', quote=F)
   dmls <- callDML(dmlTest.sm, p.threshold=.01, delta=0.1)
   write.table(dmls, paste0(data_path,"/DSS_table/",tissue,"_DML_delta01.txt"), row.names=F, sep='\t', quote=F)
+  dmrs <- callDMR(dmlTest.sm, p.threshold=.01, delta=0.1, minCG = 5)
+  write.table(dmrs, paste0(data_path,"/DSS_table/",tissue,"_DMR_delta01_minCG5.txt"), row.names=F, sep='\t', quote=F)
+
   }
 DSS_DMR(tissue)
+
 
 # ######## test
 # dmlTest.sm <- readRDS("data/samples/WGBS/skin/DSS_table/dmlTest.sm.rds")

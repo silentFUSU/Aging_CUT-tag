@@ -27,7 +27,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "cecum"
+tissue <- "ileum"
 resolution <- "20000"
 insulation_redundant_TAD <- function(tissue,resolution){
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
@@ -90,6 +90,7 @@ insulation_redundant_TAD <- function(tissue,resolution){
   write.table(bedpe,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/all_samples_",resolution,"_redundant_tads.bedpe"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
   }
 tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- c("skin","muscle","cecum","ileum","pancreas","spleen")
 #bonemarrow heart stomach mammarygland
 for(tissue in tissues){
   insulation_redundant_TAD(tissue,resolution)

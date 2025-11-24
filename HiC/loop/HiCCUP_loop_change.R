@@ -50,8 +50,9 @@ loop_combine <- function(tissue, resolution){
     write.table(loop_summary[,c(1:6)],paste0("data/samples/HiC/",tissue,"/loop/HiCCUPS/",sample,"_",resolution,"/",sample,"_",resolution,"_loop.bedpe"),quote = F,sep = "\t",col.names = F,row.names = F)
   }
 }
-tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle"))
+tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle","cecum","ileum"))
 # tissues <- c("brain","CB","kidney","liver","lung")
+tissues <- c("pancreas","spleen")
 for(tissue in tissues){
   loop_combine(tissue,resolution)
 }
@@ -98,6 +99,6 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
-ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change.png"),combined_plot,width = 22,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_HiCCUP_",resolution,"_loop_change.png"),combined_plot,width = 18,height = 24,type="cairo")
 write.csv(all_tissues_loop_summary,"data/samples/HiC/HiCCUP_loop_change_25000.csv",row.names = F)

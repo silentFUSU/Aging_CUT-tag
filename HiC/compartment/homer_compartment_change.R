@@ -6,7 +6,7 @@ library(ggplot2)
 library(tidyverse)  
 
 options(scipen = 999)  
-tissue <- "cecum"
+tissue <- "pancreas"
 resolution <- "50000"
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -62,7 +62,7 @@ compartment_cluster <- function(tissue,resolution){
   annotation_col <- annotation_col[,"age",drop=F]
   color_palette <- colorRampPalette(c("blue", "white", "red"))(100)
   breaks <- c(seq(-2, -0.6, length.out = 40), seq(-0.5, 0.5, length.out = 20), seq(0.6, 2, length.out = 40))
-  p <- pheatmap::pheatmap(to_plot,cluster_rows = T,show_rownames = F,color = color_palette,breaks = breaks,main = paste(tissue_label_change(tissue),"homer compartment PC1"),annotation_col = annotation_col,clustering_distance_cols = "manhattan")
+  p <- pheatmap::pheatmap(to_plot,cluster_rows = T,show_rownames = F,color = color_palette,breaks = breaks,main = paste(tissue_label_change(tissue),"homer compartment PC1"),annotation_col = annotation_col)
   print(p)
   }
 
@@ -76,7 +76,6 @@ compartment_change <- function(tissue,resolution){
   df_list <- list(young=list(),old=list())
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
   search_table <- search_table[which(search_table$tissue==tissue),]
-  search_table <- search_table[c(2,4),]
   young_samples <- search_table$sample_name[which(search_table$age=="3M")]
   old_samples <- search_table$sample_name[which(search_table$age=="24M")]
   samples_list <- list(young=young_samples,old=old_samples)

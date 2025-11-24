@@ -35,8 +35,8 @@ tissue_label_change <- function(tissue){
 
 # increased_motif <- read.table("data/samples/ATAC/ATAC_peak_from_LMJ/motif_up_pvalue_matrix.txt")
 # decreased_motif <- read.table("data/samples/ATAC/ATAC_peak_from_LMJ/motif_down_pvalue_matrix.txt")
-data_path <-"data/samples/ATAC/ATAC_peak_from_LMJ/motif_snapatac2_cisbp/motif_bg/"
-motif_LMJ <- list(up=increased_motif,down=decreased_motif)
+data_path <-"data/samples/ATAC/ATAC_peak_from_LMJ/motif_snapatac2_cisbp/motif_all_peaks_bg/"
+
 tissues <-  c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
               "thymus","skin","bladder","bonemarrow","Hip","heart",
               "muscle","jejunum","uterus","ovary","liver","tongue",
@@ -78,7 +78,7 @@ for(tissue in tissues){
       `Intersect` = column3
     )
     tableGrob_obj <- tableGrob(result_table)
-    png(filename = paste0("result/all/ATAC/overlap_with_LMJ_result_snapatac2/",condition,"/",tissue,"_",condition,"_motif.png"), width = 800, height = max_length*30)
+    png(filename = paste0("result/all/ATAC/overlap_with_LMJ_result_snapatac2_all_peaks_bg/",condition,"/",tissue,"_",condition,"_motif.png"), width = 800, height = max_length*30)
     grid.text(paste0(tissue_label_change(tissue)," ",condition), x = 0.5, y = unit(1, "npc") - unit(0.5, "lines"),
               gp = gpar(fontsize = 20, fontface = "bold"))
     grid.draw(tableGrob_obj)

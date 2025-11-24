@@ -4,7 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(ggplot2)
 library(data.table)
-tissue <- "cecum"
+tissue <- "ileum"
 resolution <- "20000"
 tad_format_transfer <- function(tissue,resolution){
   if(tissue %in% c("mammarygland","ovary","uterus")){
@@ -33,7 +33,7 @@ tad_format_transfer <- function(tissue,resolution){
   }
 }
 # tissues <- c("colon","kidney","liver","lung","CB","brain")
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle","cecum","ileum","pancreas","spleen"))
 for(tissue in tissues){
   tad_format_transfer(tissue,resolution)
 }

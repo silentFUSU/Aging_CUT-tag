@@ -2,6 +2,7 @@ rm(list=ls())
 .libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
 setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 library(ggplot2)
+library(stringr)
 set.seed(1)
 tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow",
              "jejunum","colon","ovary","CB","BAT","thymus","testis","stomach","heart",
@@ -23,7 +24,7 @@ tissue_label_change <- function(tissue){
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
     }else if(tissue_label=="Iwat"){
-      tissue_label <- "iWAT"
+      tissue_label <- "IWAT"
     }
   }
   return(tissue_label)
@@ -54,11 +55,24 @@ DMR_percent <- function(tissues){
     theme_minimal() +   
     scale_fill_brewer(palette = "Pastel1") +
     theme(axis.title.x = element_blank(), 
-          axis.text.x = element_text(angle = 45, hjust = 1),
+          axis.text.x = element_text(angle = 90, hjust = 1),
           text = element_text(size = 20),legend.title = element_blank()) +
     ylab("Counts")+
     ggtitle("DMR")
   print(p1)
+  ggsave("result/figures/WGBS_DMR_count.pdf",p1,width = 7,height = 4)
+  # to_plot <- DMR_summary
+  # to_plot$count[which(to_plot$condition=="Decrease")] <- -to_plot$count[which(to_plot$condition=="Decrease")]
+  # 
+  # ggplot(DMR_summary, aes(x = tissue, y = count, fill = condition)) +  
+  #   geom_bar(stat = 'identity') +   
+  #   theme_minimal() +   
+  #   scale_fill_brewer(palette = "Pastel1") +
+  #   theme(axis.title.x = element_blank(), 
+  #         axis.text.x = element_text(angle = 90, hjust = 1),
+  #         text = element_text(size = 20),legend.title = element_blank()) +
+  #   ylab("Counts")+
+  #   ggtitle("DMR")
   
   DMR_summary$position <- 100
   DMR_summary$position[which(DMR_summary$condition=="Increase")] <- DMR_summary$percent[which(DMR_summary$condition == "Increase")]
@@ -71,7 +85,7 @@ DMR_percent <- function(tissues){
           text = element_text(size = 20),legend.title = element_blank()) +
     geom_text(data = subset(DMR_summary),   
               aes(label = paste0(round(percent, 2),"%"), y = position),   
-              color = "black", size = 5, vjust = 0.5) + 
+              color = "black", size = 3, vjust = 0.5) + 
     ylab("Percent (%)")+
     ggtitle("DMR")
   print(p2)

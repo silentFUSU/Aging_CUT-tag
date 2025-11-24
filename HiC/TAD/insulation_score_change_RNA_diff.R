@@ -32,10 +32,13 @@ tissue_label_change <- function(tissue){
 
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/counts/",tissue,"_20000_redundant_tads.counts"),skip=1)
+  if(tissue %in% c("mammarygland","ovary","uterus")){
+    tab <- tab[which(tab$Chr %in% paste0("chr",c(1:19,"X"))),]
+  }
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+).*"
   colnames(tab)[6:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[6:length(tab)] )
   counts <- tab[6:length(tab)]
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
@@ -43,6 +46,7 @@ diff_expression_analysis <- function(tissue){
   colnames(group)[1] <- "sample_name"
   group <- merge(group,search_table,by="sample_name")
   group <- group[which(group$sample_name %in% colnames(counts)),]
+  counts <- counts[,which(colnames(counts) %in% group$sample_name)]
   group$sample_name <- factor(group$sample_name,levels = colnames(counts))
   group <- group[order(group$sample_name),]
   age <- group$Age
@@ -52,7 +56,7 @@ diff_expression_analysis <- function(tissue){
   
   colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
   y= DGEList(counts=counts,group=age)
-  keep = which(rowSums(cpm(y)>1)>=2)
+  keep = which(rowSums(cpm(y)>0)>=2)
   y = y[keep,]
   y$samples$group <- factor(y$samples$group, levels=c("young","old"))
   design <- model.matrix(~group, y$samples)
@@ -67,7 +71,7 @@ diff_expression_analysis <- function(tissue){
                             ifelse(out$logFC > 0, "Up", "Down"), "Stable")
   write.csv(out,paste0("data/samples/RNA/",tissue,"/diff_expression_gene_change_in_20000_redundant_tads.csv"))
   
-  tad <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_20000_TAD_diff.csv"))
+  tad <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_20000_TAD_diff_larger_250000.csv"))
   tad <- tad %>%
     separate(X, into = c("chr", "start", "end"), sep = "-", convert = TRUE)
   tad$start <- tad$start-1
@@ -88,8 +92,9 @@ diff_expression_analysis <- function(tissue){
     ggtitle(tissue_label_change(tissue))
   ggsave(paste0("result/RNA/",tissue,"/relationship_gene_expression_in_20000_redundant_tads_with_20000_redundant_tads_change.png"),p,width=4,height=5,type="cairo")
 }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle","cecum","ileum","pancreas","spleen")
 for(tissue in tissues){
+  print(tissue)
   diff_expression_analysis(tissue)
 }
 
@@ -100,7 +105,7 @@ for(tissue in tissues){
   colnames(gene)[1] <- "Geneid"
   gene <- gene[,c("Geneid","logFC","logCPM","Significant")]
   colnames(gene)[4] <- "RNA_significant"
-  tad <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_20000_TAD_diff.csv"))
+  tad <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_20000_TAD_diff_larger_250000.csv"))
   tad <- tad %>%
     separate(X, into = c("chr", "start", "end"), sep = "-", convert = TRUE)
   tad$start <- tad$start-1

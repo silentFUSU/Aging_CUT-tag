@@ -31,7 +31,7 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-tissue <- "cecum"
+tissue <- "pancreas"
 resolution <- 10000
 # min=1000000
 # max=80000000
@@ -92,8 +92,8 @@ calDistanceProb <- function(tissue,resolution){
     ylab("Probability")+
     ggtitle(tissue_label_change(tissue),"Frequency distribution of Hi-C contacts")+
     theme_bw() +
-    theme(text = element_text(size = 18))
-    # theme(text = element_text(size = 18),legend.position = "none")
+    # theme(text = element_text(size = 18))
+    theme(text = element_text(size = 18),legend.position = "none")
   dir.create(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/"))
   ggsave(paste0("result/HiC/",tissue,"/contact_probability_vs_distance/contact_probability_vs_distance.png"),p,width = 7,height = 7,type="cairo")
   

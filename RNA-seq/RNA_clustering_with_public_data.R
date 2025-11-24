@@ -34,12 +34,12 @@ tab <- tab[which(tab$characteristics..sex=="m"),]
 tab <- tab[which(tab$characteristics..age %in% c("3","24")),]
 count <- as.data.frame(t(tab[,-c(54353:54355)])) 
 
-tab_ourdata <- read.table("data/samples/RNA/combined-chrM.counts",header = T)
+tab_ourdata <- read.table("data/samples/RNA/all_tissues_combined-chrM.counts",header = T)
 # tab_ourdata <- read.table("data/raw_data/20240430_LLX/combined-chrM.counts",header = T)
 rownames(tab_ourdata) <- tab_ourdata$Geneid
 tab_ourdata <- tab_ourdata[,-1]
 colnames <- colnames(tab_ourdata)[6:ncol(tab_ourdata)]
-pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
+pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+).*"
 new_colnames <- gsub(pattern, "\\1", colnames)
 sorted_index <- order(new_colnames)
 order_colnames <- new_colnames[sorted_index] 
@@ -78,7 +78,7 @@ pbmc <- FindNeighbors(pbmc, dims = 1:30)
 pbmc <- FindClusters(pbmc, resolution = 0.5,verbose = FALSE)
 # pbmc <- subset(pbmc, cells = rownames(pbmc@meta.data)[which(pbmc$group %in% c("colon","cecum","jejunum","ileum","SmallIntestine"))])
 pbmc$rownames <- rownames(pbmc@meta.data)
-DimPlot(pbmc,label = T, pt.size = 1.5, label.size = 3,group.by = "group",repel = T) +ggtitle(NULL)
+DimPlot(pbmc,label = T, pt.size = 1.5, label.size = 3,group.by = "group",repel = T) +ggtitle("RNA wtih TMS data")
 DimPlot(pbmc, label = T, pt.size = 1.5, label.size = 3,group.by = "rownames",repel = T) 
 
 ggsave("result/RNA/test_clustering_public_data_umap.png",width = 30,height = 30,type="cairo")

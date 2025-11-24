@@ -235,6 +235,25 @@ gse <- gseGO(geneList=genelist,
              verbose = TRUE, 
              OrgDb = GO_database,
              pAdjustMethod = "none",eps = 1e-100)
-dotplot(gse, showCategory=50, split=".sign") + facet_grid(.~.sign)
-gse <- pairwise_termsim(gse)  
-emapplot(gse, showCategory = 50)
+results_df <- as.data.frame(gse@result)
+positive_nes_results <- subset(results_df, NES > 0)
+negative_nes_results <- subset(results_df, NES < 0)
+positive_gsea <- new("gseaResult",
+                     result = positive_nes_results,
+                     geneSets = gse@geneSets,
+                     geneList = gse@geneList,
+                     params = gse@params,
+                     setType = gse@setType,
+                     organism = gse@organism)
+negative_gsea <- new("gseaResult",
+                     result = negative_nes_results,
+                     geneSets = gse@geneSets,
+                     geneList = gse@geneList,
+                     params = gse@params,
+                     setType = gse@setType,
+                     organism = gse@organism)
+
+positive_gsea <- pairwise_termsim(positive_gsea)  
+emapplot(positive_gsea, showCategory = 50) 
+negative_gsea <- pairwise_termsim(negative_gsea)  
+emapplot(negative_gsea, showCategory = 50) 

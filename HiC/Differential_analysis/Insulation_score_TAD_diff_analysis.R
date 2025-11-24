@@ -30,7 +30,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 resolution <- "20000"
-tissue <- "cecum"
+tissue <- "ileum"
 TAD_diff_analysis <- function(tissue,resolution){
   TAD <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD.csv"))
   TAD <- TAD[,c(1:3)]
@@ -137,11 +137,41 @@ TAD_diff_analysis <- function(tissue,resolution){
   ggsave(paste0("result/HiC/",tissue,"/differential_analysis/with_histone/",tissue,"_",resolution,"_TAD_condition_edger_volcano_length_larger_250000.png"),p,width = 5,height = 6,type="cairo")
   write.csv(out,paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff_larger_250000.csv"))
 }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
-
+tissues <- sort(c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle","cecum","ileum"))
+tissues <- c("spleen","pancreas")
 for(tissue in tissues){
   TAD_diff_analysis(tissue,resolution)
 }
+
+p_list <- list()
+for(tissue in tissues){
+  out <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff_larger_250000.csv"))
+  p_list[[tissue]] <- ggplot(
+    out, aes(x = `LogFC.old.young`, y = -log10(`FDR.old.young`))) +
+    geom_point(aes(color = Significant), size=2) +
+    scale_color_manual(values = colour) +
+    geom_vline(xintercept=c(-1,1),lty=4,col="black",lwd=0.8) +
+    geom_hline(yintercept = -log10(0.05),lty=4,col="black",lwd=0.8) +
+    labs(x="log2(fold change)",
+         y="-log10 (FDR)") +
+    theme_bw()+
+    theme(text = element_text(size = 20),legend.position = "none")+
+    ggtitle(paste0(tissue_label_change(tissue)," TAD"))+
+    annotate("text", x = min(out$`LogFC.old.young`), y = max(-log10(out$`FDR.old.young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
+    annotate("text", x = max(out$`LogFC.old.young`), y = max(-log10(out$`FDR.old.young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
+}
+plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+  
+  patchwork::wrap_plots(master_list_with_plots, 
+                        nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
+}
+combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_insulation_score_",resolution,"_within_TAD_diff_change.png"),combined_plot,width = 18,height = 24,type="cairo")
+
+
+
+
+
 
 # summary <- data.frame()
 # gap_summary <- data.frame()

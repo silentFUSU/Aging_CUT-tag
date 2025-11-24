@@ -42,7 +42,7 @@ setkey(genes,V1,V2,V3)
 tissue <- "lung"
 resolution <- "20000"
 TAD_gene_GO_terms <- function(tissue,resolution){
-  TAD <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff.csv"))
+  TAD <- read.csv(paste0("data/samples/HiC/",tissue,"/TAD/insulation_score/",tissue,"_redundant_",resolution,"_TAD_diff_larger_250000.csv"))
   colnames(TAD)[1] <- "Geneid"
   TAD <- TAD %>%
     separate(Geneid, into = c("Chr", "Start", "End"), sep = "-")
@@ -62,9 +62,9 @@ TAD_gene_GO_terms <- function(tissue,resolution){
                                 qvalueCutoff = 0.05,
                                 readable = T)
     p <- barplot(genelist_up_GO,label_format = 50,title = paste0(tissue_label_change(tissue)," genes within increased TAD GO terms"))
-    ggsave(paste0("result/HiC/",tissue,"/differential_analysis/increased_",resolution,"_TAD_genes_GO_terms.png"),p,width=8,height = 4,type="cairo")
+    ggsave(paste0("result/HiC/",tissue,"/differential_analysis/increased_",resolution,"_TAD_diff_larger_250000_genes_GO_terms.png"),p,width=8,height = 4,type="cairo")
     result <- genelist_up_GO@result
-    write.csv(result,paste0("result/HiC/",tissue,"/differential_analysis/increased_",resolution,"_TAD_genes_GO_terms.csv"))
+    write.csv(result,paste0("result/HiC/",tissue,"/differential_analysis/increased_",resolution,"_TAD_diff_larger_250000_genes_GO_terms.csv"))
   }
   if(nrow(TAD[which(TAD$Significant=="Down"),]) > 20){
     decrease <- as.data.table(TAD[which(TAD$Significant=="Down"),c("Chr","Start","End")])
@@ -81,13 +81,14 @@ TAD_gene_GO_terms <- function(tissue,resolution){
                                   readable = T)
     if(nrow(genelist_down_GO) > 10){
       p <- barplot(genelist_down_GO,label_format = 50,title = paste0(tissue_label_change(tissue)," genes within decreased TAD GO terms"))
-      ggsave(paste0("result/HiC/",tissue,"/differential_analysis/decreased_",resolution,"_TAD_genes_GO_terms.png"),p,width=8,height = 4,type="cairo")
+      ggsave(paste0("result/HiC/",tissue,"/differential_analysis/decreased_",resolution,"_TAD_diff_larger_250000_genes_GO_terms.png"),p,width=8,height = 4,type="cairo")
       result <- genelist_down_GO@result
-      write.csv(result,paste0("result/HiC/",tissue,"/differential_analysis/decreased_",resolution,"_TAD_genes_GO_terms.csv"))
+      write.csv(result,paste0("result/HiC/",tissue,"/differential_analysis/decreased_",resolution,"_TAD_diff_larger_250000_genes_GO_terms.csv"))
     }
   }
 }
-tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip",
+             "mammarygland", "stomach", "thymus","skin","muscle","cecum","ileum","pancreas","spleen")
 for(tissue in tissues){
   TAD_gene_GO_terms(tissue,resolution)
 }
@@ -118,7 +119,7 @@ increase_GO_summary_count$Description <- sapply(increase_GO_summary_count$ID, fu
   Term(GOTERM[[go_id]])  
 })  
 to_plot <- as.data.frame(table(increase_GO_summary_count$n))
-ggplot(data = to_plot, aes(x = Var1, y = Freq)) +  
+p <- ggplot(data = to_plot, aes(x = Var1, y = Freq)) +  
   geom_bar(stat = "identity") +  
   labs(  
     title = "Distribution of tissues number in common changed GO terms",  
@@ -140,7 +141,7 @@ ggplot(data = to_plot, aes(x = Var1, y = Freq)) +
     plot.title = element_text(size = 16, face = "bold")  
   ) 
 
-
+ggsave("result/Sup_figures/TAD_increased_gene_GO_terms_bar_plot.pdf",p,width = 8,height = 6)
 decrease_GO_summary_count <- decrease_GO_summary %>%   
   count(ID)
 decrease_GO_summary_tissue <- decrease_GO_summary %>%   
@@ -151,7 +152,7 @@ decrease_GO_summary_count$Description <- sapply(decrease_GO_summary_count$ID, fu
   Term(GOTERM[[go_id]])  
 })  
 to_plot <- as.data.frame(table(decrease_GO_summary_count$n))
-ggplot(data = to_plot, aes(x = Var1, y = Freq)) +  
+p <- ggplot(data = to_plot, aes(x = Var1, y = Freq)) +  
   geom_bar(stat = "identity") +  
   labs(  
     title = "Distribution of tissues number in common changed GO terms",  
@@ -172,4 +173,4 @@ ggplot(data = to_plot, aes(x = Var1, y = Freq)) +
     axis.text.y = element_text(size = 12),  
     plot.title = element_text(size = 16, face = "bold")  
   ) 
-
+ggsave("result/Sup_figures/TAD_decreased_gene_GO_terms_bar_plot.pdf",p,width = 8,height = 6)

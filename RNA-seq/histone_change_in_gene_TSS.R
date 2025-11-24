@@ -42,7 +42,10 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   p_list <- list()
   search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
-  tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_100kb.counts"),skip=1)
+  tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_10kb.counts"),skip=1)
+  if(tissue %in% c("mammarygland","uterus","ovary","MEF")){
+    tab <- tab[which(!tab$Chr %in% c("chrY")),]
+  }
   counts = tab[,c(7:ncol(tab))]
   rownames(counts)= tab$Geneid
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -66,7 +69,12 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   y$samples$batch <- search_table$batch
   
   y <- calcNormFactors(y)
-  design <- model.matrix(~batch+year, y$samples)
+  
+  if(length(unique(y$samples$batch))==1){
+    design <- model.matrix(~year, y$samples)
+  }else{
+    design <- model.matrix(~batch+year, y$samples)
+  }
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
@@ -80,7 +88,7 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
   
-  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_100kb_diff_after_remove_batch_effect.csv"),row.names = F)
+  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_10kb_diff_after_remove_batch_effect.csv"),row.names = F)
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   p_list[[1]] <- ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
@@ -95,7 +103,7 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
     ggtitle(paste0(tissue_label_change(tissue)," ",antibody))+
     annotate("text", x = min(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Down"),]), vjust = 5, hjust = 0,colour="blue",size=5)+
     annotate("text", x = max(out$`LogFC.old-young`), y = max(-log10(out$`FDR.old-young`)), label = nrow(out[which(out$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
-  peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_young_old_merge-W1000-G3000-E100.bed"))
+  peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_young_merge-W5000-G10000-E100.bed"))
   peaks <- as.data.table(peaks)
   setDT(peaks)
   setkey(peaks,V1,V2,V3)
@@ -124,15 +132,17 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   rna <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_change_filter_bar.csv"))
   # rna <- rna[which(rna$Significant!="Stable"),]
   colnames(rna)[1] <- "Geneid"
-  to_plot <- merge(rna[,c("Geneid","logFC","Significant")],out[,c("Geneid","LogFC.old-young")],by="Geneid")
+  out_inpeak <- out_inpeak[which(out_inpeak$Significant != "Stable"),]
+  # to_plot <- merge(rna[,c("Geneid","logFC","Significant")],out[,c("Geneid","LogFC.old-young")],by="Geneid")
+  to_plot <- merge(rna[,c("Geneid","logFC","Significant")],out_inpeak[,c("Geneid","LogFC.old-young")],by="Geneid")
   colnames(to_plot) <- c("Geneid","RNA_logFC","RNA_Significant","histone_logFC")
   
   top_genes <- to_plot[which(to_plot$RNA_Significant=="Up"),] %>%  
     arrange(desc(RNA_logFC)) %>%  
-    head(10)  
+    head(5)  
   bottom_genes <- to_plot[which(to_plot$RNA_Significant=="Down"),] %>%  
     arrange(RNA_logFC) %>%  
-    head(10)  
+    head(5)  
   highlight_genes <- rbind(top_genes, bottom_genes)  
   x_range <- range(to_plot$RNA_logFC, na.rm = TRUE)  
   y_range <- range(to_plot$histone_logFC, na.rm = TRUE)  
@@ -155,8 +165,8 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
     ggtitle(tissue_label_change(tissue))+
     geom_vline(xintercept = 0, linetype = "dashed", color = "red") + 
     geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
-    geom_text_repel(data = highlight_genes, aes(RNA_logFC, histone_logFC, label = Geneid),   
-                    size = 5, # 字体大小  
+    geom_text_repel(data = highlight_genes, aes(RNA_logFC, histone_logFC, label = Geneid),
+                    size = 5, # 字体大小
                     nudge_y = 0.2)+
     annotate("text", label = paste0(nrow(to_plot[which(to_plot$RNA_logFC > 0 & to_plot$histone_logFC > 0 & to_plot$RNA_Significant == "Up"), ])),  
              x = x_pos_right, y = y_pos_top, colour = "#00b8a9", size = 5) +  
@@ -166,6 +176,8 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
              x = x_pos_left, y = y_pos_top, colour = "#f6416c", size = 5) +  
     annotate("text", label = paste0(nrow(to_plot[which(to_plot$RNA_logFC > 0 & to_plot$histone_logFC < 0 & to_plot$RNA_Significant == "Up"), ])),  
              x = x_pos_right, y = y_pos_bottom, colour = "#48466d", size = 5) 
+  # ggsave(paste0("result/figures/thymus_H3K27me3_RNA_in_young_peaks_scatter_plot.pdf"),p_list[[3]],width = 4,height = 4)
+  
   return(p_list)
   }
 tissues <- sort(c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
@@ -177,7 +189,7 @@ volcano_plot <- list()
 volcano_plot_in_peaks <- list()
 dot_plot <- list()
 for(tissue in tissues){
-  p_list <- Gene_TSS_diff_remove_bath_effect(tissue, "H3K9me3")
+  p_list <- Gene_TSS_diff_remove_bath_effect(tissue, "H3K27me3")
   volcano_plot[[tissue]] <- p_list[[1]]
   volcano_plot_in_peaks[[tissue]] <- p_list[[2]]
   dot_plot[[tissue]] <- p_list[[3]]
@@ -190,7 +202,7 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
 volcano_plot_combined <- plot_a_list(volcano_plot,no_of_rows = 4,no_of_cols = 7)
 ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_relationship_with_RNA_gene_TSS_diff_volcano_plot.png"),volcano_plot_combined,width = 42,height = 24,type="cairo")
 volcano_plot_in_peaks_combined <- plot_a_list(volcano_plot_in_peaks,no_of_rows = 4,no_of_cols = 7)
-ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_relationship_with_RNA_gene_TSS_diff_overlap_with_peak_volcano_plot.png"),volcano_plot_in_peaks_combined,width = 42,height = 24,type="cairo")
+ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_relationship_with_RNA_gene_TSS_diff_overlap_with_young_peak_volcano_plot.png"),volcano_plot_in_peaks_combined,width = 42,height = 24,type="cairo")
 dot_plot_combined <- plot_a_list(dot_plot,no_of_rows = 4,no_of_cols = 7)
-ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_relationship_with_RNA_gene_TSS_diff_relationship_with_gene_dot_plot.png"),dot_plot_combined,width = 42,height = 24,type="cairo")
+ggsave(paste0("result/RNA/histone_relationship_with_RNA/",antibody,"/",antibody,"_in_young_peaks_relationship_with_RNA_gene_TSS_diff_relationship_with_gene_dot_plot.png"),dot_plot_combined,width = 42,height = 24,type="cairo")
 

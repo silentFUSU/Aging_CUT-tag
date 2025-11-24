@@ -10,12 +10,14 @@ library(stringr)
 library(dplyr)
 library(GenomeInfoDb)
 library("GenomicRanges")
+library(TxDb.Mmusculus.UCSC.mm10.knownGene)
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
 
+### CpG island annotation
 cpg.file="~/ref_data/for_normal_mapping/mm10/cpgi.mm10.bed.txt"
 # cpg <- read.table(cpg.file)
 # write.table(cpg,"~/ref_data/for_normal_mapping/mm10/cpgi.mm10.bed.txt",sep="\t",append = F,quote = F,row.names = F,col.names = F)
@@ -43,7 +45,7 @@ tissue_label_change <- function(tissue){
 
 DMR_annotation <- function(tissue){
   p_list <- list()
-  DMR <- read.table(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta0.txt"),header = T)
+  DMR <- read.table(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta01.txt"),header = T)
   DMR <- DMR[which(DMR$chr %in% paste0("chr",c(1:19,"X","Y"))),]
   cpg.shore.obj=readFeatureFlank(cpg.file,flank = 2000,feature.flank.name=c("CpGi","shores"))
   cpg.shelf.obj=readFeatureFlank(cpg.file,flank = 4000,feature.flank.name=c("CpGi","shelf"))
@@ -68,6 +70,7 @@ DMR_annotation <- function(tissue){
                                              shore_increase_anno@precedence[[2]],
                                              shelf_increase_anno@precedence[[2]]-shore_increase_anno@precedence[[2]],
                                              shelf_increase_anno@precedence[[3]]))
+  increase_summary$count <- nrow(increase) * increase_summary$percent /100
   increase_summary$condition <- "Hyper"
   
   decrease_summary <- data.frame(location = c("Island","Shore","Shelf","Open sea"),
@@ -75,125 +78,200 @@ DMR_annotation <- function(tissue){
                                              shore_decrease_anno@precedence[[2]],
                                              shelf_decrease_anno@precedence[[2]]-shore_decrease_anno@precedence[[2]],
                                              shelf_decrease_anno@precedence[[3]]))
+  decrease_summary$count <- nrow(decrease) * decrease_summary$percent /100
   decrease_summary$condition <- "Hypo"
   
   summary <- rbind(increase_summary,decrease_summary)
-  summary$location <- factor(summary$location, levels = c("Open sea","Shelf","Shore","Island"))
-  color <- setNames(c("#009980","#739940","#E69900","#838B8B"),c("Island","Shore","Shelf","Open sea"))
-  p_list[[1]] <- ggplot( summary, aes(x = condition, y = percent, fill = location)) +  
-    geom_bar(stat = 'identity',color="white") +   
-    theme_minimal() +   
-    scale_fill_manual(values = color) +
-    theme(axis.title.x = element_blank(), 
-          axis.text.x = element_text(angle = 45, hjust = 1),
-          text = element_text(size = 20),legend.title = element_blank()) +
-    ylab("Proportion")+
-    ggtitle(paste0(tissue_label_change(tissue)))
-  
-  GO_database <- 'org.Mm.eg.db'
-  txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
-  increase_Granges <- GRanges(seqnames =increase$chr,   
-          ranges = IRanges(start = increase$start, end = increase$end))
-  increase_anno <- annotatePeak(increase_Granges, tssRegion=c(-3000, 3000),
-                               TxDb=txdb, annoDb="org.Mm.eg.db")
-  
-  decrease_Granges <- GRanges(seqnames =decrease$chr,   
-                              ranges = IRanges(start = decrease$start, end = decrease$end))
-  decrease_anno <- annotatePeak(decrease_Granges, tssRegion=c(-3000, 3000),
-                                TxDb=txdb, annoDb="org.Mm.eg.db") 
-  increase_anno_summary <- increase_anno@annoStat
-  increase_anno_summary$condition <- "Hyper"
-  exon_sum <- increase_anno_summary %>%
-    filter(grepl("Exon",Feature)) %>%
-    summarise(Frequency = sum(Frequency)) 
-  new_exon_row <- data.frame(Feature = "Exon", Frequency = exon_sum$Frequency, condition="Hyper")  
-  
-  intron_sum <- increase_anno_summary %>%
-    filter(grepl("Intron",Feature)) %>%
-    summarise(Frequency = sum(Frequency)) 
-  new_intron_row <- data.frame(Feature = "Intron", Frequency = intron_sum$Frequency, condition="Hyper")  
-  
-  prom_sum <- increase_anno_summary %>%
-    filter(grepl("Promoter",Feature)) %>%
-    summarise(Frequency = sum(Frequency)) 
-  Distal_prom <-  data.frame(Feature = "Distal prom", Frequency = (prom_sum$Frequency - increase_anno_summary$Frequency[which(increase_anno_summary$Feature == "Promoter (<=1kb)")]), condition="Hyper")  
-  
-  increase_anno_summary <- rbind(increase_anno_summary,new_exon_row)
-  increase_anno_summary <- rbind(increase_anno_summary,new_intron_row)
-  increase_anno_summary <- rbind(increase_anno_summary,Distal_prom)
-  
-  decrease_anno_summary <- decrease_anno@annoStat
-  decrease_anno_summary$condition <- "Hypo"
-  exon_sum <- decrease_anno_summary %>%
-    filter(grepl("Exon",Feature)) %>%
-    summarise(Frequency = sum(Frequency)) 
-  new_exon_row <- data.frame(Feature = "Exon", Frequency = exon_sum$Frequency, condition="Hyper")  
-  
-  intron_sum <- decrease_anno_summary %>%
-    filter(grepl("Intron",Feature)) %>%
-    summarise(Frequency = sum(Frequency)) 
-  new_intron_row <- data.frame(Feature = "Intron", Frequency = intron_sum$Frequency, condition="Hyper")  
-  
-  prom_sum <- decrease_anno_summary %>%
-    filter(grepl("Promoter",Feature)) %>%
-    summarise(Frequency = sum(Frequency)) 
-  Distal_prom <-  data.frame(Feature = "Distal prom", Frequency = (prom_sum$Frequency - decrease_anno_summary$Frequency[which(decrease_anno_summary$Feature == "Promoter (<=1kb)")]), condition="Hyper")  
-  
-  decrease_anno_summary <- rbind(decrease_anno_summary,new_exon_row)
-  decrease_anno_summary <- rbind(decrease_anno_summary,new_intron_row)
-  decrease_anno_summary <- rbind(decrease_anno_summary,Distal_prom)
-  
-  colnames(increase_anno_summary)[2] <- "Hyper"
-  colnames(decrease_anno_summary)[2] <- "Hypo"
-  anno_summary <- merge(increase_anno_summary[which(increase_anno_summary$Feature %in% c("Distal Intergenic","Downstream (<=300)","3' UTR","Intron","Exon","5' UTR","Promoter (<=1kb)","Distal prom")),c(1:2)],
-                        decrease_anno_summary[which(decrease_anno_summary$Feature %in% c("Distal Intergenic","Downstream (<=300)","3' UTR","Intron","Exon","5' UTR","Promoter (<=1kb)","Distal prom")),c(1:2)],
-                        by="Feature")
-  
-  anno_summary$Feature <- as.character(anno_summary$Feature)
-  anno_summary$Feature[which(anno_summary$Feature=="Downstream (<=300)")] <- "Downstream"
-  anno_summary$Feature[which(anno_summary$Feature=="Distal Intergenic")] <- "Intergenic"
-  anno_summary$Feature[which(anno_summary$Feature=="Promoter (<=1kb)")] <- "Promoter"
-  anno_summary$Feature <- factor(anno_summary$Feature, levels = c("Intergenic", "Downstream", "3' UTR", "Intron", "Exon", "5' UTR", "Promoter", "Distal prom"))
-  color <- setNames(c("#838B8B","#E69900","#BF9915","#99992A","#739940","#4C9955","#26996A","#009980"),c("Intergenic", "Downstream", "3' UTR", "Intron", "Exon", "5' UTR", "Promoter", "Distal prom"))
-  anno_summary_to_plot <- reshape2::melt(anno_summary)
-  p_list[[2]] <- ggplot(anno_summary_to_plot, aes(x = variable, y = value, fill = Feature)) +  
-    geom_bar(stat = 'identity',colour = "white") +   
-    theme_minimal() +   
-    scale_fill_manual(values = color) +
-    theme(axis.title.x = element_blank(), 
-          axis.text.x = element_text(angle = 45, hjust = 1),
-          text = element_text(size = 20),legend.title = element_blank()) +
-    ylab("Proportion")+
-    ggtitle(paste0(tissue_label_change(tissue)))
-  return(p_list)
+  summary$tissue <- tissue_label_change(tissue)
+  return(summary)
+  # summary$location <- factor(summary$location, levels = c("Open sea","Shelf","Shore","Island"))
+  # color <- setNames(c("#009980","#739940","#E69900","#838B8B"),c("Island","Shore","Shelf","Open sea"))
+  # p_list[[1]] <- ggplot( summary, aes(x = condition, y = percent, fill = location)) +  
+  #   geom_bar(stat = 'identity',color="white") +   
+  #   theme_minimal() +   
+  #   scale_fill_manual(values = color) +
+  #   theme(axis.title.x = element_blank(), 
+  #         axis.text.x = element_text(angle = 45, hjust = 1),
+  #         text = element_text(size = 20),legend.title = element_blank()) +
+  #   ylab("Proportion")+
+  #   ggtitle(paste0(tissue_label_change(tissue)))
+  # 
+  # GO_database <- 'org.Mm.eg.db'
+  # txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene::TxDb.Mmusculus.UCSC.mm10.knownGene
+  # increase_Granges <- GRanges(seqnames =increase$chr,   
+  #         ranges = IRanges(start = increase$start, end = increase$end))
+  # increase_anno <- annotatePeak(increase_Granges, tssRegion=c(-3000, 3000),
+  #                              TxDb=txdb, annoDb="org.Mm.eg.db")
+  # 
+  # decrease_Granges <- GRanges(seqnames =decrease$chr,   
+  #                             ranges = IRanges(start = decrease$start, end = decrease$end))
+  # decrease_anno <- annotatePeak(decrease_Granges, tssRegion=c(-3000, 3000),
+  #                               TxDb=txdb, annoDb="org.Mm.eg.db") 
+  # increase_anno_summary <- increase_anno@annoStat
+  # increase_anno_summary$condition <- "Hyper"
+  # exon_sum <- increase_anno_summary %>%
+  #   filter(grepl("Exon",Feature)) %>%
+  #   summarise(Frequency = sum(Frequency)) 
+  # new_exon_row <- data.frame(Feature = "Exon", Frequency = exon_sum$Frequency, condition="Hyper")  
+  # 
+  # intron_sum <- increase_anno_summary %>%
+  #   filter(grepl("Intron",Feature)) %>%
+  #   summarise(Frequency = sum(Frequency)) 
+  # new_intron_row <- data.frame(Feature = "Intron", Frequency = intron_sum$Frequency, condition="Hyper")  
+  # 
+  # prom_sum <- increase_anno_summary %>%
+  #   filter(grepl("Promoter",Feature)) %>%
+  #   summarise(Frequency = sum(Frequency)) 
+  # Distal_prom <-  data.frame(Feature = "Distal prom", Frequency = (prom_sum$Frequency - increase_anno_summary$Frequency[which(increase_anno_summary$Feature == "Promoter (<=1kb)")]), condition="Hyper")  
+  # 
+  # increase_anno_summary <- rbind(increase_anno_summary,new_exon_row)
+  # increase_anno_summary <- rbind(increase_anno_summary,new_intron_row)
+  # increase_anno_summary <- rbind(increase_anno_summary,Distal_prom)
+  # 
+  # decrease_anno_summary <- decrease_anno@annoStat
+  # decrease_anno_summary$condition <- "Hypo"
+  # exon_sum <- decrease_anno_summary %>%
+  #   filter(grepl("Exon",Feature)) %>%
+  #   summarise(Frequency = sum(Frequency)) 
+  # new_exon_row <- data.frame(Feature = "Exon", Frequency = exon_sum$Frequency, condition="Hyper")  
+  # 
+  # intron_sum <- decrease_anno_summary %>%
+  #   filter(grepl("Intron",Feature)) %>%
+  #   summarise(Frequency = sum(Frequency)) 
+  # new_intron_row <- data.frame(Feature = "Intron", Frequency = intron_sum$Frequency, condition="Hyper")  
+  # 
+  # prom_sum <- decrease_anno_summary %>%
+  #   filter(grepl("Promoter",Feature)) %>%
+  #   summarise(Frequency = sum(Frequency)) 
+  # Distal_prom <-  data.frame(Feature = "Distal prom", Frequency = (prom_sum$Frequency - decrease_anno_summary$Frequency[which(decrease_anno_summary$Feature == "Promoter (<=1kb)")]), condition="Hyper")  
+  # 
+  # decrease_anno_summary <- rbind(decrease_anno_summary,new_exon_row)
+  # decrease_anno_summary <- rbind(decrease_anno_summary,new_intron_row)
+  # decrease_anno_summary <- rbind(decrease_anno_summary,Distal_prom)
+  # 
+  # colnames(increase_anno_summary)[2] <- "Hyper"
+  # colnames(decrease_anno_summary)[2] <- "Hypo"
+  # anno_summary <- merge(increase_anno_summary[which(increase_anno_summary$Feature %in% c("Distal Intergenic","Downstream (<=300)","3' UTR","Intron","Exon","5' UTR","Promoter (<=1kb)","Distal prom")),c(1:2)],
+  #                       decrease_anno_summary[which(decrease_anno_summary$Feature %in% c("Distal Intergenic","Downstream (<=300)","3' UTR","Intron","Exon","5' UTR","Promoter (<=1kb)","Distal prom")),c(1:2)],
+  #                       by="Feature")
+  # 
+  # anno_summary$Feature <- as.character(anno_summary$Feature)
+  # anno_summary$Feature[which(anno_summary$Feature=="Downstream (<=300)")] <- "Downstream"
+  # anno_summary$Feature[which(anno_summary$Feature=="Distal Intergenic")] <- "Intergenic"
+  # anno_summary$Feature[which(anno_summary$Feature=="Promoter (<=1kb)")] <- "Promoter"
+  # anno_summary$Feature <- factor(anno_summary$Feature, levels = c("Intergenic", "Downstream", "3' UTR", "Intron", "Exon", "5' UTR", "Promoter", "Distal prom"))
+  # color <- setNames(c("#838B8B","#E69900","#BF9915","#99992A","#739940","#4C9955","#26996A","#009980"),c("Intergenic", "Downstream", "3' UTR", "Intron", "Exon", "5' UTR", "Promoter", "Distal prom"))
+  # anno_summary_to_plot <- reshape2::melt(anno_summary)
+  # p_list[[2]] <- ggplot(anno_summary_to_plot, aes(x = variable, y = value, fill = Feature)) +  
+  #   geom_bar(stat = 'identity',colour = "white") +   
+  #   theme_minimal() +   
+  #   scale_fill_manual(values = color) +
+  #   theme(axis.title.x = element_blank(), 
+  #         axis.text.x = element_text(angle = 45, hjust = 1),
+  #         text = element_text(size = 20),legend.title = element_blank()) +
+  #   ylab("Proportion")+
+  #   ggtitle(paste0(tissue_label_change(tissue)))
+  # return(p_list)
   }
 
-CpG_annotation <- list()
-gene_annotation <- list()
-
+# CpG_annotation <- list()
+# gene_annotation <- list()
+# 
 tissues <- c("liver","lung","kidney","ileum","Hip","mammarygland","skin","bonemarrow",
              "jejunum","colon","ovary","CB","BAT","thymus","testis","stomach","heart",
              "muscle","bladder","aorta","tongue","spleen","pancreas","brain",
              "cecum","uterus","iWAT")
+tissue_summary <- data.frame()
 for(i in c(1:length(tissues))){
   tissue <- tissues[i]
-  p_list <- DMR_annotation(tissues[i])
-  CpG_annotation[[i]] <- p_list[[1]]
-  names(CpG_annotation)[i] <- tissue_label_change(tissue)
-  gene_annotation[[i]] <- p_list[[2]]
-  names(gene_annotation)[i] <- tissue_label_change(tissue)
+  tissue_summary <- rbind(tissue_summary,DMR_annotation(tissue))
 }
-CpG_annotation_sort <- CpG_annotation[sort$tissue]
+condition <- "Hypo"
+if(condition=="Hyper"){
+  condition_label <- "increase"
+}else{
+  condition_label <- "decrease"
+}
+to_plot <- tissue_summary[which(tissue_summary$condition==condition),]
+tissue_order <-c("Mammary Gland","Cecum","Thymus","Uterus","iWAT","Stomach","Skin","Spleen","Muscle","Bone Marrow","Liver","Ileum","Testis","Cortex","Jejunum","Tongue","Hippocampus","Colon","Bladder",
+                 "Aorta","Cerebellum","Lung","Heart","Kidney","BAT","Ovary","Pancreas")
+to_plot$tissue <- factor(to_plot$tissue,levels=tissue_order)
+to_plot$location <- factor(to_plot$location, levels = c("Open sea","Shelf","Shore","Island"))
+color <- setNames(c("#009980","#739940","#E69900","#838B8B"),c("Island","Shore","Shelf","Open sea"))
+p <- ggplot(to_plot, aes(x = tissue, y = count, fill = location)) +
+  geom_bar(stat = "identity") +
+  theme_bw() +
+  scale_fill_manual(values=color) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(y = "Feature Count", title = paste0(condition_label," DMR Annotation Summary by Tissue"))
+ggsave(paste0("result/Sup_figures/",condition,"_DMR_island_annotation.pdf"),p,width = 8,height = 6)
 
-CpG_annotation_combine <- plot_a_list(CpG_annotation,no_of_rows = 4,no_of_cols = 7) + patchwork::plot_annotation(title = "CpG context",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
-ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_CpG_context.png",CpG_annotation_combine,width = 21,height = 20,type="cairo")
+# CpG_annotation_sort <- CpG_annotation[sort$tissue]
+# 
+# CpG_annotation_combine <- plot_a_list(CpG_annotation,no_of_rows = 4,no_of_cols = 7) + patchwork::plot_annotation(title = "CpG context",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
+# ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_CpG_context.png",CpG_annotation_combine,width = 21,height = 20,type="cairo")
+# 
+# gene_annotation_sort <- gene_annotation[sort$tissue]
+# gene_annotation_combine <- plot_a_list(gene_annotation,no_of_rows = 4,no_of_cols = 7)+ patchwork::plot_annotation(title = "Gene location",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
+# ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_gene_location.png",gene_annotation_combine,width = 21,height = 20,type="cairo")
 
-gene_annotation_sort <- gene_annotation[sort$tissue]
-gene_annotation_combine <- plot_a_list(gene_annotation,no_of_rows = 4,no_of_cols = 7)+ patchwork::plot_annotation(title = "Gene location",theme = theme(plot.title = element_text(size = 40,hjust = 0.5)))  
-ggsave("result/WGBS/all_tissues_DMR_delta0_annotation_gene_location.png",gene_annotation_combine,width = 21,height = 20,type="cairo")
-
-
-
-
-
-
+### gene annotation
+tissue_label_change <- function(tissue){
+  if(tissue=="brain"){
+    tissue_label <- "Cortex"
+  }else if(tissue == "Hip"){
+    tissue_label <- "Hippocampus"
+  }else if(tissue == "CB"){
+    tissue_label <- "Cerebellum"
+  }else{
+    tissue_label <- str_to_title(tissue)
+    if(tissue_label == "Bonemarrow"){
+      tissue_label <- "Bone Marrow"
+    }else if(tissue_label == "Bat"){
+      tissue_label <- "BAT"
+    }else if(tissue_label=="Mammarygland"){
+      tissue_label <- "Mammary Gland"
+    }else if(tissue_label=="Iwat"){
+      tissue_label <- "iWAT"
+    }
+  }
+  return(tissue_label)
+}
+tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+txdb <- TxDb.Mmusculus.UCSC.mm10.knownGene
+DMR_num_summary <- data.frame()
+DMR_annotation_summary <- data.frame()
+condition <- "decrease"
+for(tissue in tissues){
+  df <- read.table(paste0("data/samples/WGBS/",tissue,"/DSS_table/bed/",tissue,"_DMR_",condition,"_delta01.bed"))
+  gr <- GRanges(seqnames = df$V1,
+                ranges = IRanges(start = df$V2, end = df$V3))
+  DMRAnno <- annotatePeak(gr, tssRegion = c(-3000, 3000), TxDb = txdb, annoDb = "org.Mm.eg.db")
+  t_DMR_num_summary <- data.frame(tissue=tissue_label_change(tissue),num=DMRAnno@peakNum)
+  DMR_num_summary <- rbind(DMR_num_summary,t_DMR_num_summary)
+  t_DMR_annotation_summary <- DMRAnno@annoStat
+  colnames(t_DMR_annotation_summary)[2] <- tissue_label_change(tissue)
+  if(nrow(DMR_annotation_summary)==0){
+    DMR_annotation_summary <- t_DMR_annotation_summary
+  }else{
+    DMR_annotation_summary <- merge(DMR_annotation_summary,t_DMR_annotation_summary,by="Feature")
+  }
+}
+annotation_long <- DMR_annotation_summary %>%
+  pivot_longer(-Feature, names_to = "tissue", values_to = "percent")
+annotation_long <- annotation_long %>%
+  left_join(DMR_num_summary, by = "tissue") %>%
+  mutate(count = percent / 100 * num)
+color <- read.table("data/samples/20_distinct_color.txt")
+color <- setNames(color$V1,sort(unique(annotation_long$Feature)))
+tissue_order <-c("Mammary Gland","Cecum","Thymus","Uterus","iWAT","Stomach","Skin","Spleen","Muscle","Bone Marrow","Liver","Ileum","Testis","Cortex","Jejunum","Tongue","Hippocampus","Colon","Bladder",
+                 "Aorta","Cerebellum","Lung","Heart","Kidney","BAT","Ovary","Pancreas")
+annotation_long$tissue <- factor(annotation_long$tissue,levels=tissue_order)
+p <- ggplot(annotation_long, aes(x = tissue, y = count, fill = Feature)) +
+  geom_bar(stat = "identity") +
+  theme_bw() +
+  scale_fill_manual(values=color) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(y = "Feature Count", title = paste0(condition," DMR Annotation Summary by Tissue"))
+ggsave(paste0("result/Sup_figures/",condition,"_DMR_island_annotation.pdf"),p,width = 8,height = 6)

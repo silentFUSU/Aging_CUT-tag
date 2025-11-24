@@ -121,7 +121,7 @@ insulation_score <- function(tissue,resolution){
   return(p)
   print(p)
 }
-tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle"))
+tissues <- sort(c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","skin","muscle","cecum","ileum"))
 p_list <- list()
 for(tissue in tissues){
   p_list[[tissue]] <- insulation_score(tissue,resolution)
@@ -131,5 +131,5 @@ plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   patchwork::wrap_plots(master_list_with_plots, 
                         nrow = no_of_rows, ncol = no_of_cols,guides = "collect")
 }
-combined_plot <- plot_a_list(p_list,no_of_rows = 3,no_of_cols = 5)
-ggsave(paste0("result/HiC/all_tissues_insulation_score_",resolution,"_TAD_change.png"),combined_plot,width = 22,height = 20,type="cairo")
+combined_plot <- plot_a_list(p_list,no_of_rows = 4,no_of_cols = 4)
+ggsave(paste0("result/HiC/all_tissues_insulation_score_",resolution,"_TAD_change.png"),combined_plot,width = 18,height = 24,type="cairo")

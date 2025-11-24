@@ -94,7 +94,7 @@ bin$V1 <- factor(bin$V1,levels=paste0("chr",c(1:19,"X","Y")))
 bin <- bin[order(bin$V1),]
 bin$V4 <- paste0("bin",1:nrow(bin))
 
-tissue_summary <- read.csv("data/samples/WGBS/all_tissues_log2FC_in_200kb_bins.csv")
+tissue_summary <- read.csv("data/samples/WGBS/all_tissues_delta_in_200kb_bins.csv")
 tissue_summary <- tissue_summary[,-1]
 tissue_summary$label <- factor(tissue_summary$label,levels=bin$V4)
 tissue_summary <- tissue_summary[order(tissue_summary$label),]
@@ -109,13 +109,14 @@ colnames(annotation) <- "Chromosome"
 color <- read.table("data/samples/30_distinct_color.txt")
 color <- setNames(color$V1[1:21],paste0("chr",c(1:19,"X","Y")))
 annotation_color <- list(Chromosome=color)
-pheatmap::pheatmap(tissue_summary,cluster_rows = F,show_rownames = F,breaks = breaks, color = color_palette,annotation_row = annotation,annotation_colors = annotation_color,main = "Whole genome 200Kb bins CpG methylation log2(old/young)")
+pheatmap::pheatmap(tissue_summary,cluster_rows = F,show_rownames = F,breaks = breaks, color = color_palette,annotation_row = annotation,annotation_colors = annotation_color,main = "Whole genome 200Kb bins CpG methylation Delta")
 
 H3K9me3_tissue_order <- c("Lung","Cerebellum","BAT","Muscle","Heart","Aorta","Skin","Kidney","Hippocampus","Cortex",
-                          "Liver","Tongue","Bladder","Pancreas","Cecum","Spleen","Stomach","Colon","Bone Marrow","Jejunum",
-                          "iWAT","Thymus","Ileum")
+                          "Liver","Tongue","Uterus","Testis","Bladder","Ovary","Colon","Stomach","Thymus","Cecum","Jejunum",
+                          "Pancreas","Bone Marrow","Ileum","Spleen","iWAT","Mammary Gland")
 to_plot <- tissue_summary
 colnames(to_plot)[which(colnames(to_plot)=="IWAT")] <- "iWAT"
 colnames(to_plot)[which(colnames(to_plot)=="Bone.Marrow")] <- "Bone Marrow"
+colnames(to_plot)[which(colnames(to_plot)=="Mammary.Gland")] <- "Mammary Gland"
 to_plot_H3K9me3_order <- to_plot[,H3K9me3_tissue_order]
 pheatmap::pheatmap(to_plot_H3K9me3_order,cluster_rows = F,cluster_cols = F,annotation_row = annotation,breaks = breaks,color = color_palette,show_rownames = F,main = "CpG methylation")

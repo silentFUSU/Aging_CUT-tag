@@ -5,13 +5,16 @@ set.seed(1)
 library(edgeR)
 library(ggplot2)
 library(stringr)
-tissue <- "skin"
+tissue <- "MEF"
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
+  if(tissue %in% c("mammarygland","uterus","ovary","MEF")){
+    tab <- tab[which(!tab$Chr %in% c("chrY")),]
+  }
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+|TK[0-9]+).*"
   colnames(tab)[6:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[6:length(tab)] )
   counts <- tab[6:length(tab)]
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')

@@ -10,6 +10,7 @@ library(stringr)
 library(data.table)
 library(edgeR)
 library(ggalluvial)  
+library(tools)
 plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
   
   patchwork::wrap_plots(master_list_with_plots, 
@@ -38,147 +39,193 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 tissue <- "lung"
-state_num <- 14
-ATAC_chromHMM_state_annotation <- function(tissue,state_num){
-  peaks <- read.table("data/samples/ATAC/ATAC_peak_from_MJ/All_Samples.fwp.filter.non_overlapping.bed")
-  # peaks <- peaks[grepl(tissue, peaks$V4), ]
-  peaks <- peaks[,c(1:3)]
-  peaks$V2 <- peaks$V2 + 1
-  peaks <- as.data.table(peaks)
-  setDT(peaks)
-  setkey(peaks,V1,V2,V3)
-  
-  file_dir <- paste0("result/all/ChromHMM/all_tissues_previous/",state_num,"_all_tissues/split_1k/")  
-  files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_young[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
-  file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
-  chromHMM_young <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
-  chromHMM_young <- chromHMM_young[which(chromHMM_young$V1 %in% paste0("chr",c(1:19,"X","Y"))),]
-  chromHMM_young$V2 <- chromHMM_young$V2+1
-  chromHMM_young <- data.table(chromHMM_young)
-  
-  file_dir <- paste0("result/all/ChromHMM/all_tissues_previous/",state_num,"_all_tissues/split_1k/")  
-  files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_old[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
-  file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
-  chromHMM_old <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
-  chromHMM_old <- chromHMM_old[which(chromHMM_old$V1 %in% paste0("chr",c(1:19,"X","Y"))),]
-  chromHMM_old$V2 <- chromHMM_old$V2+1
-  chromHMM_old <- data.table(chromHMM_old)
-  
-  setDT(chromHMM_young) 
-  setkey(chromHMM_young, V1, V2, V3) 
-  setDT(chromHMM_old) 
-  setkey(chromHMM_old, V1, V2, V3) 
-  
-  overlaps_young <- foverlaps(peaks, chromHMM_young, type = "any", nomatch = 0L)  
-  overlaps_old <- foverlaps(peaks, chromHMM_old, type = "any", nomatch = 0L)  
-  
-  overlaps_young$label <- paste(overlaps_young$V1,overlaps_young$V2,overlaps_young$V3,sep = "-")
-  overlaps_old$label <- paste(overlaps_old$V1,overlaps_old$V2,overlaps_old$V3,sep = "-")
-  overlaps <- merge(overlaps_young[,c("V4","label")],overlaps_old[,c("V4","label")],by="label")
-  overlaps <- as.data.frame(overlaps)
-  colnames(overlaps)[2:3] <- c("Young_state","Old_state") 
-  
-  to_plot <- overlaps %>%  
-    group_by(Young_state, Old_state) %>%  
-    summarize(freq = n())  
-  to_plot$Young_state <- factor(to_plot$Young_state,levels=paste0("E",1:state_num))
-  to_plot$Old_state <- factor(to_plot$Old_state,levels=paste0("E",1:state_num))
-  
-  p <- ggplot(to_plot, aes(axis1 = Young_state, axis2 = Old_state, y = freq)) +  
-    geom_alluvium(aes(fill = Young_state)) +  
-    geom_stratum() +  
-    geom_text(stat = "stratum", aes(label = after_stat(stratum))) +  
-    theme_minimal() +  
-    labs(y = "Count", x = "State Transition", 
-         fill = "Young State")+
-    ggtitle(paste0(tissue_label_change(tissue)," ATAC peaks"),"Sankey Plot of State Transitions")
-  return(p)
-}
-
-tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
-state_num <- 14
-p_list <- list()
-for(tissue in tissues){
-  p_list[[tissue]] <- ATAC_chromHMM_state_annotation(tissue,state_num)    
-}
-combined_plot <- plot_a_list(p_list, 4, 7)
-ggsave(paste0("result/all/diff/ATAC/ATAC_Union_peaks_chromHMM_annotation.png"),combined_plot,height = 20,width = 25,type="cairo")
-
-
-ATAC_change_chromHMM_annotation <- function(tissue,condition,state){
-  peaks <- read.table(paste0("data/samples/ATAC/ATAC_peak_from_MJ/Peak_",condition,"_",tissue,".bed"))
-  # peaks <- peaks[grepl(tissue, peaks$V4), ]
-  # peaks <- peaks[,c(1:3)]
-  peaks$V2 <- peaks$V2 + 1
-  peaks <- as.data.table(peaks)
-  setDT(peaks)
-  setkey(peaks,V1,V2,V3)
-  
-  file_dir <- paste0("result/all/ChromHMM/all_tissues_previous/",state_num,"_all_tissues/split_1k/")  
-  files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_young[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
-  file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
-  chromHMM_young <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
-  chromHMM_young <- chromHMM_young[which(chromHMM_young$V1 %in% paste0("chr",c(1:19,"X","Y"))),]
-  chromHMM_young$V2 <- chromHMM_young$V2+1
-  chromHMM_young <- data.table(chromHMM_young)
-  
-  file_dir <- paste0("result/all/ChromHMM/all_tissues_previous/",state_num,"_all_tissues/split_1k/")  
-  files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_old[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
-  file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
-  chromHMM_old <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
-  chromHMM_old <- chromHMM_old[which(chromHMM_old$V1 %in% paste0("chr",c(1:19,"X","Y"))),]
-  chromHMM_old$V2 <- chromHMM_old$V2+1
-  chromHMM_old <- data.table(chromHMM_old)
-  
-  setDT(chromHMM_young) 
-  setkey(chromHMM_young, V1, V2, V3) 
-  setDT(chromHMM_old) 
-  setkey(chromHMM_old, V1, V2, V3) 
-  
-  overlaps_young <- foverlaps(peaks, chromHMM_young, type = "any", nomatch = 0L)  
-  overlaps_old <- foverlaps(peaks, chromHMM_old, type = "any", nomatch = 0L)  
-  
-  overlaps_young$label <- paste(overlaps_young$V1,overlaps_young$V2,overlaps_young$V3,sep = "-")
-  overlaps_old$label <- paste(overlaps_old$V1,overlaps_old$V2,overlaps_old$V3,sep = "-")
-  overlaps <- merge(overlaps_young[,c("V4","label")],overlaps_old[,c("V4","label")],by="label")
-  overlaps <- as.data.frame(overlaps)
-  colnames(overlaps)[2:3] <- c("Young_state","Old_state") 
-  
-  to_plot <- overlaps %>%  
-    group_by(Young_state, Old_state) %>%  
-    summarize(freq = n())  
-  to_plot$Young_state <- factor(to_plot$Young_state,levels=paste0("E",1:state_num))
-  to_plot$Old_state <- factor(to_plot$Old_state,levels=paste0("E",1:state_num))
-  
-  p <- ggplot(to_plot, aes(axis1 = Young_state, axis2 = Old_state, y = freq)) +  
-    geom_alluvium(aes(fill = Young_state)) +  
-    geom_stratum() +  
-    geom_text(stat = "stratum", aes(label = after_stat(stratum))) +  
-    theme_minimal() +  
-    labs(y = "Count", x = "State Transition", 
-         fill = "Young State")+
-    ggtitle(paste0(tissue_label_change(tissue)," ",condition," ATAC peaks"),"Sankey Plot of State Transitions")
-  return(p)
-}
-
-
-
-conditions <- c("Up","Down")
-tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
-             "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
-state_num <- 14
-p_list <- list()
-for(condition in conditions){
+state_num <- 15
+age="young"
+tissues <-  sort(c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen",
+                   "thymus","skin","bladder","bonemarrow","Hip","heart",
+                   "muscle","jejunum","uterus","ovary","liver","tongue",
+                   "cecum","colon","testis","stomach","pancreas","iWAT","ileum"))
+age_percentage_summary <- data.frame()
+tissue_summary_list <- list()
+for(age in c("young","old")){
+  tissue_summary <- data.frame()
   for(tissue in tissues){
-    p_list[[tissue]] <- ATAC_change_chromHMM_annotation(tissue,condition,state_num)    
+    peaks <- read.table(paste0("data/samples/ATAC/",tissue,"/ATAC/bed/ATAC_macs_young_old_narrowpeak_summits_spm3.bed"))
+    peaks <- peaks[,c(1:3)]
+    # peaks$V2 <- peaks$V2 + 1
+    peaks <- as.data.table(peaks)
+    setDT(peaks)
+    setkey(peaks,V1,V2,V3)
+    
+    file_dir <- paste0("result/all/ChromHMM/all_tissues_normal_chr/",state_num,"_all_tissues/split_1k/")  
+    files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_",age,"[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
+    file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
+    chromHMM <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
+    chromHMM <- chromHMM[which(chromHMM$V1 %in% paste0("chr",c(1:19,"X","Y"))),]
+    if(tissue %in% c("mammarygland","ovary","uterus")){
+      chromHMM <- chromHMM[which(chromHMM$V1 %in% paste0("chr",c(1:19,"X"))),]
+    }
+    chromHMM$V2 <- chromHMM$V2+1
+    chromHMM <- data.table(chromHMM)
+    
+    setDT(chromHMM) 
+    setkey(chromHMM, V1, V2, V3) 
+    overlaps<- foverlaps(peaks, chromHMM, type = "any", nomatch = 0L)  
+    
+    overlaps$label <- paste(overlaps$V1,overlaps$V2,overlaps$V3,sep = "-")
+    overlaps <- as.data.frame(overlaps)
+    result <- overlaps %>%  
+      group_by(V4) %>%  
+      summarize(freq = n())  
+    
+    result$percent <- result$freq / sum(result$freq) *100
+    result <- result[,c(1,3)]
+    colnames(result)[2] <- tissue_label_change(tissue)
+    
+    if(nrow(tissue_summary)==0){
+      tissue_summary <- result
+    }else{
+      tissue_summary <- merge(tissue_summary,result,by="V4",all=T)
+    }
   }
-  combined_plot <- plot_a_list(p_list, 4, 7)
-  if(condition == "Up"){
-    condition_label <- "increase"
-  }else{
-    condition_label <- "decrease"
+  tissue_summary_list[[age]] <- tissue_summary
+  t_age_summary <- reshape2::melt(tissue_summary)
+  t_age_summary <- t_age_summary %>%
+    group_by(V4) %>%
+    summarise(mean_percent = mean(value, na.rm = TRUE))
+  t_age_summary$age <- age
+  age_percentage_summary <- rbind(age_percentage_summary,t_age_summary)
   }
-  ggsave(paste0("result/all/diff/ATAC/ATAC_",condition_label,"_peaks_remove_batch_effect_chromHMM_annotation.png"),combined_plot,height = 20,width = 25,type="cairo")
-  
+
+to_plot <- reshape2::melt(tissue_summary_list[["old"]])
+to_plot$V4 <- factor(to_plot$V4,levels = paste0("E",1:15))
+to_plot$variable <- factor(to_plot$variable,levels=sort(unique(to_plot$variable)))
+color <- read.table("data/samples/20_distinct_color.txt")
+color <- setNames(color$V1,paste0("E",1:15))
+ggplot(to_plot, aes(x = variable, y = value, fill = V4)) +  
+  geom_bar(stat = 'identity',color="white") +   
+  theme_minimal() +   
+  scale_fill_manual(values = color) +
+  theme(axis.title.x = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        text = element_text(size = 20),legend.title = element_blank()) +
+  ylab("Proportion")
+
+to_plot <- as.data.frame(age_percentage_summary)
+dictionary <- list("E1"=1, "E2"=2, "E3"=3,
+                   "E4"=4, "E5"=5, "E6"=7,
+                   "E7"=8, "E8"=6, "E9"=9,
+                   "E10"=10,"E11"=11,"E12"=15,
+                   "E13"=12,"E14"=13,"E15"=14)
+keys <- names(dictionary)
+values <- unlist(dictionary)
+to_plot$V4 <- values[match(to_plot$V4, keys)]
+to_plot$V4 <- paste0("E",to_plot$V4)
+to_plot$V4 <- factor(to_plot$V4, levels = paste0("E",1:15))
+to_plot$age <- factor(to_plot$age,levels=c("young","old"))
+
+p <- ggplot(to_plot, aes(x = age, y = mean_percent, fill = V4)) +
+  geom_bar(stat = 'identity',color="white") +
+  theme_bw() +
+  scale_fill_manual(values = color) +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        text = element_text(size = 20),legend.title = element_blank()) +
+  ylab("Proportion")
+ggsave("result/Sup_figures/ATAC_peak_chromHMM_annotation.pdf",p,height = 6,width = 4)
+
+
+conditions <- c("up","down")
+tissue_condition_summary <- list(up=list(young=data.frame(),old=data.frame()),down=list(young=data.frame(),old=data.frame()))
+for(condition in conditions){
+  for(age in c("young","old")){
+    for(tissue in tissues){
+      df <- read.csv(paste0("data/samples/ATAC/",tissue,"/ATAC/ATAC_macs_young_old_narrowpeak_summits_spm3_diff_after_remove_batch_effect.csv"))
+      if(condition == "up"){
+        peaks <- df[which(df$Significant=="Up"),c("Chr","Start","End")]
+      }else{
+        peaks <- df[which(df$Significant=="Down"),c("Chr","Start","End")]
+      }
+      if(nrow(peaks) >= 20){
+        colnames(peaks) <- c("V1","V2","V3")
+        peaks <- as.data.table(peaks)
+        setDT(peaks)
+        setkey(peaks,V1,V2,V3)
+        file_dir <- paste0("result/all/ChromHMM/all_tissues_previous/",state_num,"_all_tissues/split_1k/")  
+        files_to_read <- list.files(path = file_dir, pattern = paste0(tissue, "_",age,"[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
+        file_list <- lapply(files_to_read,  read.delim, header = FALSE)  
+        chromHMM <- Reduce(function(x, y) inner_join(x, y, by = c("V1", "V2", "V3", "V4")), file_list)  
+        chromHMM <- chromHMM[which(chromHMM$V1 %in% paste0("chr",c(1:19,"X","Y"))),]
+        if(tissue %in% c("mammarygland","ovary","uterus")){
+          chromHMM <- chromHMM[which(chromHMM$V1 %in% paste0("chr",c(1:19,"X"))),]
+        }
+        chromHMM$V2 <- chromHMM$V2+1
+        chromHMM <- data.table(chromHMM)
+        
+        setDT(chromHMM) 
+        setkey(chromHMM, V1, V2, V3) 
+        overlaps<- foverlaps(peaks, chromHMM, type = "any", nomatch = 0L)  
+        
+        overlaps$label <- paste(overlaps$V1,overlaps$V2,overlaps$V3,sep = "-")
+        overlaps <- as.data.frame(overlaps)
+        result <- overlaps %>%  
+          group_by(V4) %>%  
+          summarize(freq = n())  
+        
+        result$percent <- result$freq / sum(result$freq) *100
+        result <- result[,c(1,3)]
+        colnames(result)[2] <- tissue_label_change(tissue)
+        if(nrow(tissue_condition_summary[[condition]][[age]]) > 0){
+          tissue_condition_summary[[condition]][[age]] <- merge(tissue_condition_summary[[condition]][[age]],result,by="V4",all=T)
+        }else{
+          tissue_condition_summary[[condition]][[age]] <- result
+        }
+      }
+    }
+  }
 }
+
+for(condition in conditions){
+  for(age in c("young","old")){
+    to_plot <- tissue_condition_summary[[condition]][[age]]
+    to_plot[is.na(to_plot)] <- 0
+    to_plot <- reshape2::melt(to_plot)
+    to_plot$V4 <- factor(to_plot$V4,levels = paste0("E",1:15))
+    color <- read.table("data/samples/20_distinct_color.txt")
+    color <- setNames(color$V1,paste0("E",1:15))
+    ggplot(to_plot, aes(x = variable, y = value, fill = V4)) +  
+      geom_bar(stat = 'identity',color="white") +   
+      theme_minimal() +   
+      scale_fill_manual(values = color) +
+      theme(axis.title.x = element_blank(), 
+            axis.text.x = element_text(angle = 45, hjust = 1),
+            text = element_text(size = 20),legend.title = element_blank()) +
+      ggtitle(paste0(toTitleCase(condition)," ",age))+
+      ylab("Proportion")
+  }
+}
+
+for(condition in conditions){
+  to_plot <- data.frame()
+  for(age in c("young","old")){
+    t_to_plot <- tissue_condition_summary[[condition]][[age]]
+    t_to_plot[is.na(t_to_plot)] <- 0
+    t_to_plot <- reshape2::melt(t_to_plot)
+    t_to_plot <- t_to_plot %>%
+      group_by(V4) %>%
+      summarise(mean_percent = mean(value, na.rm = TRUE))
+    t_to_plot$age <- age
+    to_plot <- rbind(to_plot,t_to_plot)
+  }
+}
+to_plot$V4 <- factor(to_plot$V4, levels = paste0("E",1:15))
+to_plot$age <- factor(to_plot$age,levels = c("young","old"))
+ggplot(to_plot, aes(x = age, y = mean_percent, fill = V4)) +
+  geom_bar(stat = 'identity',color="white") +
+  theme_minimal() +
+  scale_fill_manual(values = color) +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        text = element_text(size = 20),legend.title = element_blank()) +
+  ggtitle(toTitleCase(condition))+
+  ylab("Proportion")

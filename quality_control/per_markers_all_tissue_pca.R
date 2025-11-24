@@ -91,6 +91,8 @@ for(i in c(1:length(antibodys))){
   p_list[[i]] <- per_markers_all_tissue_pca(antibodys[i])
 }
 combined_plot <- plot_a_list(p_list,no_of_rows = 2,no_of_cols = 4)
+ggsave("result/Sup_figures/per_markers_all_tissues_PCA.pdf",combined_plot,width = 25,height = 10)
+
 ggsave("result/all/pca/all_tissues_plot/per_markers_all_tissues_PCA.png",width = 25,height = 10,type="cairo")
 
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",

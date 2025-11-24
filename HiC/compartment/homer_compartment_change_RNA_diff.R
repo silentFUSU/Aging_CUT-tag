@@ -32,6 +32,9 @@ tissue_label_change <- function(tissue){
 
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/counts/",tissue,"_compartment_50000.counts"),skip=1)
+  if(tissue %in% c("mammarygland","ovary","uterus")){
+    tab <- tab[which(tab$Chr %in% paste0("chr",c(1:19,"X"))),]
+  }
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
@@ -53,7 +56,7 @@ diff_expression_analysis <- function(tissue){
   colnames(counts) <- paste0(colnames(counts),"-",mouse_ID,"-",age)
   
   y= DGEList(counts=counts,group=age)
-  keep = which(rowSums(cpm(y)>1)>=2)
+  keep = which(rowSums(cpm(y)>0)>=2)
   y = y[keep,]
   y$samples$group <- factor(y$samples$group, levels=c("young","old"))
   design <- model.matrix(~group, y$samples)
@@ -86,8 +89,9 @@ diff_expression_analysis <- function(tissue){
     ggtitle(tissue_label_change(tissue))
   ggsave(paste0("result/RNA/",tissue,"/relationship_gene_expression_in_compartment_with_compartment_change.png"),p,width=4,height=5,type="cairo")
 }
-tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle")
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle","cecum","ileum","pancreas","spleen")
 for(tissue in tissues){
+  print(tissue)
   diff_expression_analysis(tissue)
 }
 

@@ -50,7 +50,7 @@ all_tissues_PCA <- function(tissues,bin_size){
   df <- df[,-1]
   df <- na.omit(df) 
   pca <- prcomp(t(df))
-  saveRDS(pca,"data/samples/WGBS/1kb_bin_size_PCA.rds")
+  # saveRDS(pca,"data/samples/WGBS/1kb_bin_size_PCA.rds")
   to_plot <- data.frame(pca$x)
   to_plot$sample_name <- rownames(to_plot)
   to_plot <- merge(to_plot,search_table,by="sample_name")

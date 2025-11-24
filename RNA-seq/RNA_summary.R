@@ -27,8 +27,9 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-gene <- "Cdkn1a"
-gene_summary_plot <- function(gene){
+
+gene <- "Cdkn2a"
+gene_summary_plot <- function(gene,tissues){
   summary <- data.frame()
   
   for(tissue in tissues){
@@ -43,9 +44,13 @@ gene_summary_plot <- function(gene){
       }else{
         summary <- rbind(summary,df)
       }
+    }else{
+      print(tissue)
     }
   }
   color <- setNames(c("red","grey","blue"),c("Up","Stable","Down"))
+  summary <- summary[order(summary$logFC),]
+  summary$tissue <- factor(summary$tissue,levels=summary$tissue)
   p <- ggplot(summary,mapping = aes(x=logFC,y=tissue,fill = Significant))+
     geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+
     scale_fill_manual(values=color)+
@@ -54,7 +59,7 @@ gene_summary_plot <- function(gene){
     geom_text(data = summary[which(summary$logFC<0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5) +
     geom_text(data = summary[which(summary$logFC>0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5)
   print(p)
-  
+  # ggsave("result/figures/Cdkn2a_diff_in_each_tissue.pdf",p,width = 6,height = 6)
   summary <- data.frame()
   for(tissue in tissues){
     search_table <- read.csv("data/samples/all/RNA_search_table.csv")
@@ -92,6 +97,21 @@ gene_summary_plot <- function(gene){
     ggtitle(paste0(gene," CPM"))+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("CPM")
   print(p)
-}
-gene_summary_plot(gene)
+  return(p)
+} 
+gene_summary_plot(gene,tissues)
 
+# tissues <- c("brain","CB","Hip")
+# "Pak5"
+# genes <- c("Plk3","Arc","Brinp1","Ldlr","Ptgs2","Adrb1","Egr1","Bdnf","Hmgcr","Plk2","Nptx2","Adcy8","Npas4","Htr7")
+# p_list <- list()
+# for(gene in genes){
+#   p_list[[gene]] <- gene_summary_plot(gene,tissues)
+# }
+# plot_a_list <- function(master_list_with_plots, no_of_rows, no_of_cols) {
+#   
+#   patchwork::wrap_plots(master_list_with_plots, 
+#                         nrow = no_of_rows, ncol = no_of_cols)
+# }
+# combined_plot <- plot_a_list(p_list,3,5)
+# ggsave("tmp.png",combined_plot,width = 20,height = 20)

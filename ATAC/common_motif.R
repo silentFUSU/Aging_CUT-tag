@@ -41,12 +41,12 @@ tissues <-  c("BAT","mammarygland","CB","lung","kidney","aorta","brain","spleen"
               "thymus","skin","bladder","bonemarrow","Hip","heart",
               "muscle","jejunum","uterus","ovary","liver","tongue",
               "cecum","colon","testis","stomach","pancreas","iWAT","ileum")
-data_path <- "data/samples/ATAC/ATAC_peak_from_LMJ/motif_mutual_bg/"
-if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_without_bg/"){
+data_path <- "data/samples/ATAC/ATAC_peak_from_LMJ/motif_homer_default_database/motif_bg/"
+if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_homer_default_database/motif_without_bg/"){
   label <- "(using random fragments as background)"
-}else if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_bg/"){
+}else if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_homer_default_database/motif_bg/"){
   label <- "(using stable peaks as background)"
-}else if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_mutual_bg/"){
+}else if(data_path=="data/samples/ATAC/ATAC_peak_from_LMJ/motif_homer_default_database/motif_mutual_bg/"){
   label <- "(using peaks with an opposite changing trend as background)"
 }
   
@@ -81,7 +81,7 @@ for(i in c(1:length(tissues))){
         motif <- motif[,"Motif.Name",drop=F]
         motif <- motif[!duplicated(motif$Motif.Name),,drop=F]
         motif$tissue <- tissue_label_change(tissue)
-        motif_summary[[condition]] <- rbind(motif_summary[[condition]],motif)    0
+        motif_summary[[condition]] <- rbind(motif_summary[[condition]],motif)
       }
     }
   }
@@ -102,11 +102,19 @@ decrease_count <- merge(decrease_count,decrease_tissue,by="Motif.Name")
 
 increase_count <- increase_count[order(increase_count$n,decreasing = TRUE),]
 decrease_count <- decrease_count[order(decrease_count$n,decreasing = TRUE),]
-# write.csv(increase_count,"data/samples/all/ATAC/motif_bg/up/all_tissues_ATAC_peaks_increase_motif_count.csv",row.names = F)
-# write.csv(decrease_count,"data/samples/all/ATAC/motif_bg/down/all_tissues_ATAC_peaks_decrease_motif_count.csv",row.names = F)
+write.csv(increase_count,"data/samples/ATAC/ATAC_peak_from_LMJ/motif_homer_default_database/motif_bg/up/all_tissues_ATAC_peaks_increase_motif_count.csv",row.names = F)
+write.csv(decrease_count,"data/samples/ATAC/ATAC_peak_from_LMJ/motif_homer_default_database/motif_bg/down/all_tissues_ATAC_peaks_decrease_motif_count.csv",row.names = F)
+
 
 motif_count_summary$condition <- factor(motif_count_summary$condition,levels=c("up","down"))
 motif_count_summary$position <- motif_count_summary$count
+
+summary_by_tissue <- motif_count_summary %>%
+  group_by(tissue) %>%
+  summarise(count_sum = sum(count))
+summary_by_tissue <- summary_by_tissue[order(summary_by_tissue$count_sum),]
+motif_count_summary$tissue <- factor(motif_count_summary$tissue,levels=summary_by_tissue$tissue)
+
 motif_count_summary$position[which(motif_count_summary$condition=="down")] <- (-motif_count_summary$position[which(motif_count_summary$condition=="down")])
 ggplot(motif_count_summary, aes(x = tissue, y = ifelse(condition == "up", count, -count), fill = condition)) +  
   geom_bar(stat = "identity") +  

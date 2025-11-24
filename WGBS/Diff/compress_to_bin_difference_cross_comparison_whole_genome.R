@@ -102,8 +102,8 @@ for(tissue in tissues){
 # write.csv(tissue_summary,"data/samples/WGBS/all_tissues_delta_in_200kb_bins_cross_comparison.csv")
 tissue_summary <- read.csv("data/samples/WGBS/all_tissues_delta_in_200kb_bins_cross_comparison.csv",row.names = 1)
 H3K9me3_tissue_order <- c("lung","CB","BAT","muscle","heart","aorta","skin","kidney","Hip","brain",
-                          "liver","tongue","testis","bladder","pancreas","cecum","spleen","stomach","colon","bonemarrow","jejunum",
-                          "iWAT","thymus","ileum")
+                          "liver","tongue","uterus","testis","bladder","ovary","colon","stomach","thymus","cecum","jejunum",
+                          "pancreas","bonemarrow","ileum","spleen","iWAT","mammarygland")
 H3K9me3_tissue_order_label <- c() 
 annotation_col <- data.frame()
 for(tissue in tissues){
@@ -154,6 +154,12 @@ rownames(tissue_summary) <- as.character(tissue_summary$label)
 tissue_summary <- tissue_summary[,-1]
 # to_plot_H3K9me3_order <- tissue_summary[,H3K9me3_tissue_order_label]
 # tissue_summary <- tissue_summary[,]
+H3K9me3_tissue_order <- c("Lung","Cerebellum","BAT","Muscle","Heart","Aorta","Skin","Kidney","Hippocampus","Cortex",
+                          "Liver","Tongue","Uterus","Testis","Bladder","Ovary","Colon","Stomach","Thymus","Cecum","Jejunum",
+                          "Pancreas","Bone Marrow","Ileum","Spleen","iWAT","Mammary Gland")
+annotation_col$tissue <- factor(annotation_col$tissue,levels = H3K9me3_tissue_order)
+annotation_col <- annotation_col[order(annotation_col$tissue),,drop=F]
+tissue_summary <- tissue_summary[,rownames(annotation_col)]
 pheatmap::pheatmap(tissue_summary,cluster_rows = F,cluster_cols = F,show_rownames = F,breaks = breaks, color = color_palette,annotation_row = annotation_row,annotation_col = annotation_col,annotation_colors = annotation_color,main = "Whole genome 200Kb bins CpG methylation Delta(Old - Young)")
 
 tissue_mean_summary <- data.frame() 

@@ -55,7 +55,7 @@ per_tissue_PCA <- function(tissue,antibodys){
       search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
       data_path <- "data/samples/ATAC/"
     }else{
-      search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff.csv")
+      search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
       data_path <- "data/samples/"
     }
     tab = read.delim(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
@@ -110,7 +110,7 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
       search_table <- read.csv("data/samples/all/ATAC_search_table.csv")
       data_path <- "data/samples/ATAC/"
     }else{
-      search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff.csv")
+      search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
       data_path <- "data/samples/"
     }
     tab = read.delim(paste0(data_path,tissue,"/",antibody,"/",antibody,"_",bin_size(antibody),"_bins.counts"),skip=1)  
@@ -131,7 +131,8 @@ per_tissue_PCA_remove_batcheffect <- function(tissue,antibodys){
     y = y[keep,]
     logCPMs <- cpm(y, log = TRUE)
     # batch=c("batch1","batch1","batch2","batch2","batch3","batch3","batch4","batch4")
-    batch=c("batch1","batch1","batch2","batch2","batch3","batch3")
+    # batch=c("batch1","batch1","batch2","batch2","batch3","batch3")
+    batch=c("batch1","batch2","batch2","batch1")
     logCPMs_corrected <- limma::removeBatchEffect(logCPMs, batch = batch)
     pca <- prcomp(t(logCPMs_corrected))
     to_plot <- data.frame(pca$x, age = paste0(y$samples$group))

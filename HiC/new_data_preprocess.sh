@@ -1,4 +1,4 @@
-raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250710_Cecum_109_HiC/
+raw_data=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/raw_data_transposon2/20250303_WJH_HiC_SAMPLE/
 data_path=/mnt/transposon2/zhangyanxiaoLab/suzhuojie/project/Aging_CUT_Tag/samples/HiC/
 search_table=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/all/HiC_search_table.csv
 samples=$(find ${raw_data}result/hic_results/data/ -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | grep -v tmp)  
@@ -20,11 +20,11 @@ do
     for sample_for_tissue in ${samples_for_tissue[@]}
     do
         if ls ${raw_data}result/hic_results/data/${sample_for_tissue}/${sample_for_tissue}*.allValidPairs 1> /dev/null 2>&1; then  
-            ln -s ${raw_data}result/hic_results/data/${sample_for_tissue}/${sample_for_tissue}*.allValidPairs ${data_path}${tissue}/ValidPairs/
+            ln -sf ${raw_data}result/hic_results/data/${sample_for_tissue}/${sample_for_tissue}*.allValidPairs ${data_path}${tissue}/ValidPairs/
         fi
-        if ls ${raw_data}result/hic_results/data/${sample_for_tissue}*.allValidPairs.hic 1> /dev/null 2>&1; then  
-            ln -s ${raw_data}result/hic_results/data/${sample_for_tissue}*.allValidPairs.hic ${data_path}${tissue}/juicer/
-        fi
+        # if ls ${raw_data}result/hic_results/data/${sample_for_tissue}*.allValidPairs.hic 1> /dev/null 2>&1; then  
+        #     ln -s ${raw_data}result/hic_results/data/${sample_for_tissue}*.allValidPairs.hic ${data_path}${tissue}/juicer/
+        # fi
     done
 done
 
@@ -51,7 +51,7 @@ done
 ### homer compartment
 for tissue in ${unique_tissue_array[@]}
 do
-    bash ${code_path}compartment/homer_compartment.sh $tissue 2>&1>${log_path}${tissue}_homer_compartment.log 
+    bash ${code_path}compartment/homer_compartment.sh $tissue 2>&1>${log_path}${tissue}_homer_compartment.log &
 done
 
 ### saddle plot 
@@ -118,7 +118,7 @@ do
 done
 
 ### Loop
-resolutions=(10000)
+resolutions=(10000 25000)
 for tissue in ${unique_tissue_array[@]}
 do
     for resolution in ${resolutions[@]}
@@ -127,7 +127,7 @@ do
     done
 done
 
-resolutions=(10kb)
+resolutions=(10kb 25kb)
 for tissue in ${unique_tissue_array[@]}
 do
     for resolution in ${resolutions[@]}

@@ -4,6 +4,7 @@ setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
 set.seed(1)
 library(tidyr)
 library(dplyr)
+library(stringr)
 library(ggplot2)
 tissue_label_change <- function(tissue){
   if(tissue=="brain"){
@@ -44,12 +45,12 @@ for(antibody in antibodys){
   for(tissue in tissues){
     df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_",bin_size,"_bins_diff_after_remove_batch_effect.csv"))
     df <- df[which(df$Significant != "Stable"),]
-    if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
-      peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W1000-G3000-E100.bed"))    
-    }else{
-      peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge_macs_narrowpeak.bed"))
-    }
-    df <- df[which(df$Geneid %in% peaks$V4),]
+    # if(antibody %in% c("H3K27me3","H3K9me3","H3K36me3")){
+    #   peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge-W1000-G3000-E100.bed"))    
+    # }else{
+    #   peaks <- read.table(paste0("data/samples/",tissue,"/",antibody,"/bed/",antibody,"_",bin_size,"_in_young_old_merge_macs_narrowpeak.bed"))
+    # }
+    # df <- df[which(df$Geneid %in% peaks$V4),]
     t_summary_per_antibody <- data.frame(tissue=tissue_label_change(tissue),count=nrow(df))
     summary_per_antibody <- rbind(summary_per_antibody,t_summary_per_antibody)
   }
@@ -74,7 +75,7 @@ pheatmap::pheatmap(summary[,-1],cluster_rows = F,cluster_cols = F,breaks = break
 ##### gene_expression
 summary_RNA <- data.frame()
 for(tissue in tissues){
-  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene.csv"))
+  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_change_filter_bar.csv"))
   df <- df[which(df$Significant !="Stable"),]
   t_summary_RNA <- data.frame(tissue=tissue_label_change(tissue),count=nrow(df))  
   summary_RNA <- rbind(summary_RNA,t_summary_RNA)
@@ -96,7 +97,7 @@ pheatmap::pheatmap(summary[,-1],cluster_rows = F,cluster_cols = F,breaks = break
 ##### DNA methylation
 summary_DNA <- data.frame()
 for(tissue in tissues){
-  df <- read.csv(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta0.txt"))
+  df <- read.csv(paste0("data/samples/WGBS/",tissue,"/DSS_table/",tissue,"_DMR_delta01.txt"))
   t_summary_DNA <- data.frame(tissue=tissue_label_change(tissue),count=nrow(df))
   summary_DNA <- rbind(summary_DNA,t_summary_DNA)
 }
@@ -114,3 +115,28 @@ rownames(summary) <- summary$tissue
 breaks <- seq(1, 27, length.out = 27) 
 color_palette <- colorRampPalette(c("red", "#ffe2e2","white"))(27)  
 pheatmap::pheatmap(summary[,-1],cluster_rows = F,cluster_cols = F,breaks = breaks,color = color_palette)
+
+##### ATAC 
+summary_ATAC <- data.frame()
+for(tissue in tissues){
+  df <- read.csv(paste0("data/samples/ATAC/",tissue,"/ATAC/ATAC_macs_young_old_narrowpeak_summits_spm3_all_tissues_merge_diff_after_remove_batch_effect.csv"))
+  # df_up <- read.csv(paste0("data/samples/ATAC/ATAC_peak_from_LMJ/up/",tissue,"_Up.bed"))
+  # df_down <- read.csv(paste0("data/samples/ATAC/ATAC_peak_from_LMJ/down/",tissue,"_Down.bed"))
+  df <- df[which(df$Significant != "Stable"),]
+  t_summary_ATAC <- data.frame(tissue=tissue_label_change(tissue),count=nrow(df))
+  summary_ATAC <- rbind(summary_ATAC,t_summary_ATAC)
+}
+summary_ATAC <- summary_ATAC[order(summary_ATAC$count,decreasing = TRUE),]
+summary_ATAC$rank <- c(1:length(tissues))
+colnames(summary_ATAC)[3] <- "ATAC"
+summary_ATAC <- summary_ATAC[,c(1,3)]
+summary <- merge(summary,summary_ATAC,by="tissue")
+
+row_sums <- rowSums(summary[, -1])  
+sorted_indices <- order(row_sums)  
+summary <- summary[sorted_indices, ]
+rownames(summary) <- summary$tissue
+breaks <- seq(1, 27, length.out = 27) 
+color_palette <- colorRampPalette(c("red", "#ffe2e2","white"))(27)  
+pheatmap::pheatmap(summary[,-1],cluster_rows = F,cluster_cols = F,breaks = breaks,color = color_palette)
+tissues_order <- summary$tissue

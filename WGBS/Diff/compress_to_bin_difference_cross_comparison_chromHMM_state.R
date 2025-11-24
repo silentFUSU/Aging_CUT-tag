@@ -36,7 +36,7 @@ tissue <- "lung"
 tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
                   "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum")) 
 tissue_summary <- data.frame()
-state_num <- 11
+state_num <- 15
 for(tissue in tissues){
   file_dir <- paste0("result/all/ChromHMM/all_tissues/",state_num,"_all_tissues/split_1k/")  
   files_to_read <- list.files(path = file_dir, pattern = paste0(tissue,"_young[0-9]+_",state_num,"_segments_1k.bed"), full.names = TRUE)  
@@ -169,7 +169,7 @@ to_plot_mean <- tissue_mean_summary
 rownames(to_plot_mean) <- to_plot_mean$label
 to_plot_mean <- to_plot_mean[,-1]
 breaks <- c(seq(-0.1, -0.03, length.out = 40), seq(-0.02, 0.02, length.out = 20), seq(0.03, 0.1, length.out = 40))
-pheatmap::pheatmap(to_plot_mean,cluster_rows = T,cluster_cols = T,show_rownames = T,breaks = breaks, color = color_palette,annotation_row = annotation_row,annotation_colors = annotation_color,main = "Whole genome 200Kb bins CpG methylation Delta(Old - Young)")
+pheatmap::pheatmap(to_plot_mean,cluster_rows = T,cluster_cols = T,show_rownames = T,breaks = breaks, color = color_palette,annotation_row = annotation_row,annotation_colors = annotation_color,main = "Whole genome chromHMM state CpG methylation Delta(Old - Young)")
 
 
 

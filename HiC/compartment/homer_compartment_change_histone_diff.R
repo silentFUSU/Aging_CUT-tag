@@ -30,8 +30,16 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 diff_analysis <- function(tissue,antibody){
-  search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
-  tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",tissue,"_compartment_50000.counts"),skip=1)
+  if(antibody=="ATAC"){
+    search_table <- read.csv("data/samples/all/ATAC_search_table_batch.csv")
+    tab = read.delim(paste0("data/samples/ATAC/",tissue,"/ATAC/",tissue,"_compartment_50000.counts"),skip=1)
+  }else{
+    search_table <- read.csv("data/samples/all/CUTTag_search_table_used_in_diff_batch.csv")
+    tab = read.delim(paste0("data/samples/",tissue,"/",antibody,"/",tissue,"_compartment_50000.counts"),skip=1)
+  }
+  if(tissue %in% c("mammarygland","ovary","uterus")){
+    tab <- tab[which(tab$Chr %in% paste0("chr",c(1:19,"X"))),]
+  }
   counts = tab[,c(7:ncol(tab))]
   rownames(counts)= tab$Geneid
   pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
@@ -55,7 +63,11 @@ diff_analysis <- function(tissue,antibody){
   y$samples$batch <- search_table$batch
   
   y <- calcNormFactors(y)
-  design <- model.matrix(~batch+year, y$samples)
+  if(length(unique(y$samples$batch))==1){
+    design <- model.matrix(~year, y$samples)
+  }else{
+    design <- model.matrix(~batch+year, y$samples)
+  }
   y<-estimateCommonDisp(y)
   y<-estimateGLMTagwiseDisp(y,design)
   fit_tag = glmFit(y,design)
@@ -69,7 +81,12 @@ diff_analysis <- function(tissue,antibody){
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
   
-  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_diff_in_compartment_50000.csv"))
+  if(antibody == "ATAC"){
+    write.csv(out,paste0("data/samples/ATAC/",tissue,"/",antibody,"/",antibody,"_diff_in_compartment_50000.csv"))
+  }else{
+    write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_diff_in_compartment_50000.csv"))
+  }
+
   
   compartment <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_change_50000.csv"))
   compartment$Geneid <- paste0(compartment$chr,":",compartment$start,"-",compartment$end)
@@ -88,10 +105,12 @@ diff_analysis <- function(tissue,antibody){
     ggtitle(tissue_label_change(tissue))
   ggsave(paste0("result/all/diff/",antibody,"/",tissue,"_relationship_change_in_compartment_with_compartment_change.png"),p,width=4,height=5,type="cairo")
 }
-tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle")
-antibodys <- c("H3K9me3","H3K36me3","H3K27me3","H3K4me3","H3K4me1","H3K27ac")
+tissues <- c("brain","CB", "kidney", "liver", "lung", "bonemarrow", "colon", "heart", "Hip", "mammarygland", "stomach", "thymus","skin","muscle","cecum","ileum","pancreas","spleen")
+antibodys <- c("H3K9me3","H3K36me3","H3K27me3","H3K4me3","H3K4me1","H3K27ac","ATAC")
 for(tissue in tissues){
+  print(tissue)
   for(antibody in antibodys){
+    print(antibody)
     diff_analysis(tissue,antibody)
   }
 }
@@ -170,7 +189,7 @@ for(antibody in antibodys){
   merged_data$Value[which(merged_data$Value > 1)] <- 1
   merged_data$Value[which(merged_data$Value < -1)] <- -1
   
-  ggplot(merged_data, aes(x = Type, y = Tissue, fill = Value)) +
+  p <- ggplot(merged_data, aes(x = Type, y = Tissue, fill = Value)) +
     geom_tile(color = "white") +
     scale_fill_gradient2(low = "blue", high = "red", mid = "white",
                          limits = c(-1, 1), midpoint = 0) +
@@ -178,4 +197,6 @@ for(antibody in antibodys){
     ggtitle(antibody)+
     geom_text(aes(label = Label), color = "black", size = 4, na.rm = TRUE) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  print(p)
 }
+

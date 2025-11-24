@@ -30,10 +30,10 @@ tissue_label_change <- function(tissue){
   }
   return(tissue_label)
 }
-# tissue <- "cecum"
 
-# tissues <- c("brain","CB","kidney","liver","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
-tissues <- "cecum"
+
+tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus","muscle","skin","cecum","ileum","pancreas","spleen")
+
 for(tissue in tissues){
   print(tissue)
   search_table <- read.csv("data/samples/all/HiC_search_table.csv")
@@ -75,20 +75,71 @@ for(tissue in tissues){
   write.csv(tissue_summary,paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_50000_interaction_median.csv"))
 }
 
-# tissues <- c("brain","CB","kidney","liver","lung","bonemarrow","colon","heart","Hip","mammarygland","stomach","thymus")
-# summary <- data.frame()
 
-# for(tissue in tissues){
-#   df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_50000_interaction_median.csv"),row.names = 1)
-#   summary <- rbind(summary,df)
-#   }
-# 
-# search_table <- read.csv("data/samples/all/HiC_search_table.csv")
-# summary <- merge(summary,search_table,by.x="sample",by.y="sample_name")
-# 
-# summary$condition <- factor(summary$condition,levels = c("A-A","B-B","A-B"))
-# summary$age <- factor(summary$age, levels=c("3M","24M"))
-# summary$tissue_label <- sapply(summary$tissue, tissue_label_change)
+summary <- data.frame()
+
+for(tissue in tissues){
+  df <- read.csv(paste0("data/samples/HiC/",tissue,"/compartment/homer_compartment/compartment_50000_interaction_median.csv"),row.names = 1)
+  summary <- rbind(summary,df)
+  }
+
+search_table <- read.csv("data/samples/all/HiC_search_table.csv")
+summary <- merge(summary,search_table,by.x="sample",by.y="sample_name")
+
+summary$condition <- factor(summary$condition,levels = c("A-A","B-B","A-B"))
+summary$age <- factor(summary$age, levels=c("3M","24M"))
+summary$tissue_label <- sapply(summary$tissue, tissue_label_change)
+ggplot(summary,aes(x=condition,y=median_log2_value,color = age,shape=age))+
+  geom_boxplot(aes(fill = age), outlier.shape = NA, alpha = 0.5) +
+  ggtitle(paste0("Compartment interaction"))+ylim(-1.2,0.7)+
+  theme_bw()+xlab("")+ylab("log2(ob/ex)") +
+  theme(
+    plot.title = element_text(size = 16, hjust = 0.5),
+    axis.title.y = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    strip.text = element_text(size = 14),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
+  )
+t.test(summary$median_log2_value[which(summary$age=="24M" & summary$condition=="A-A")],summary$median_log2_value[which(summary$age=="3M" &  summary$condition=="A-A")])
+t.test(summary$median_log2_value[which(summary$age=="24M" & summary$condition=="B-B")],summary$median_log2_value[which(summary$age=="3M" &  summary$condition=="B-B")])
+t.test(summary$median_log2_value[which(summary$age=="24M" & summary$condition=="A-B")],summary$median_log2_value[which(summary$age=="3M" &  summary$condition=="A-B")])
+
+summary_avg <- summary %>%
+  group_by(condition, tissue_label, age) %>%
+  summarise(mean_median_log2_value = mean(median_log2_value, na.rm = TRUE))
+summary_avg$cond_age <- interaction(summary_avg$condition, summary_avg$age)
+summary_avg$cond_age <- factor(summary_avg$cond_age,levels=c("A-A.3M","A-A.24M","B-B.3M","B-B.24M","A-B.3M","A-B.24M"))
+
+color <- read.table("data/samples/30_distinct_color.txt")
+tissues_label <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
+                   "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")
+tissues_label <- sapply(tissues_label, tissue_label_change)
+color <- setNames(color$V1,sort(tissues_label))
+color <- color[which(names(color) %in% sapply(tissues, tissue_label_change))]
+
+
+p <- ggplot(summary_avg,aes(x=cond_age,y=mean_median_log2_value))+
+  geom_boxplot(aes(fill = age), outlier.shape = NA, alpha = 0.5)+
+  geom_point(aes(color = tissue_label), size = 2) +
+  geom_line(aes(group = interaction(tissue_label, condition), color = tissue_label), alpha = 0.5) +
+  scale_color_manual(values = color)+
+  ggtitle(paste0("Compartment interaction"))+ylim(-1.2,0.7)+
+  theme_bw()+xlab("")+ylab("log2(ob/ex)") +
+  theme(
+    plot.title = element_text(size = 16, hjust = 0.5),
+    axis.title.y = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    strip.text = element_text(size = 14),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
+  )
+ggsave("result/figures/Compartment_interaction.pdf",p,width = 5,height = 6)  
+t.test(summary_avg$mean_median_log2_value[which(summary_avg$age=="24M" & summary_avg$condition=="A-A")],summary_avg$mean_median_log2_value[which(summary_avg$age=="3M" &  summary_avg$condition=="A-A")])
+t.test(summary_avg$mean_median_log2_value[which(summary_avg$age=="24M" & summary_avg$condition=="B-B")],summary_avg$mean_median_log2_value[which(summary_avg$age=="3M" &  summary_avg$condition=="B-B")])
+t.test(summary_avg$mean_median_log2_value[which(summary_avg$age=="24M" & summary_avg$condition=="A-B")],summary_avg$mean_median_log2_value[which(summary_avg$age=="3M" &  summary_avg$condition=="A-B")])
+
+
 # ggplot(summary,aes(x=condition,y=median_log2_value,color = age,shape=age))+
 #   geom_jitter(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.3), size = 2, alpha = 0.7)+
 #   ggtitle(paste0("Compartment interaction"))+ylim(-1.2,0.7)+
