@@ -189,7 +189,17 @@ pheatmap::pheatmap(to_plot[,3,drop=F],cluster_cols = F,cluster_rows = F,breaks =
 
 
 WGBS_tissue_summary_long <- reshape2::melt(WGBS_tissue_summary)
+dictionary <- list("E1"=1, "E2"=2, "E3"=3,
+                   "E4"=4, "E5"=5, "E6"=7,
+                   "E7"=8, "E8"=6, "E9"=9,
+                   "E10"=10,"E11"=11,"E12"=15,
+                   "E13"=12,"E14"=13,"E15"=14)
+keys <- names(dictionary)
+values <- unlist(dictionary)
+WGBS_tissue_summary_long$State <- values[match(WGBS_tissue_summary_long$State, keys)]
+WGBS_tissue_summary_long$State <- paste0("E",WGBS_tissue_summary_long$State)
 WGBS_tissue_summary_long$State <- factor(WGBS_tissue_summary_long$State, levels = rev(paste0("E",1:15)))
+
 plot1 <- ggplot(WGBS_tissue_summary_long, aes(x = value, y = State)) +
   geom_violin(fill = "#4589C8FF", color = "black") +
   theme_minimal() +
@@ -206,6 +216,24 @@ plot1 <- ggplot(WGBS_tissue_summary_long, aes(x = value, y = State)) +
   ) + 
   xlim(20,100)+
   labs(x = "DNA Methylation", y= NULL)
+ggplot(WGBS_tissue_summary_long[which(WGBS_tissue_summary_long$State %in% c("E10","E11")),], aes(x = State, y = value)) +
+  geom_violin(fill = "#4589C8FF", color = "black") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, size = 12,face = "bold", color = "black"),  
+    axis.text.y = element_text(size = 12,face = "bold", color = "black"),  
+    axis.title.x = element_text(size = 14,face = "bold", color = "black"), 
+    axis.title.y = element_text(size = 14,face = "bold", color = "black"), 
+    legend.text = element_text(size = 12),  
+    panel.background = element_blank(),  
+    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
+    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.border = element_rect(color = "black", fill = NA, size = 1) 
+  ) + 
+  ylim(0,100)+
+  labs(x = "DNA Methylation", y= NULL)
+t.test(WGBS_tissue_summary_long$value[which(WGBS_tissue_summary_long$State =="E10")],WGBS_tissue_summary_long$value[which(WGBS_tissue_summary_long$State =="E11")])
+
 ATAC_tissue_summary_long <- reshape2::melt(ATAC_tissue_summary)
 ATAC_tissue_summary_long$State <- factor(ATAC_tissue_summary_long$State, levels = rev(paste0("E",1:15)))
 

@@ -119,3 +119,6 @@ p <- ggplot(data = to_plot, aes(x = value.x, y = value.y,shape=histone)) +
   labs(x = "Replicate (1) [Emission Probability]", y = "Replicate (2) [Emission Probability]") +
   theme_bw()
 ggsave("result/Sup_figures/chromHMM_15_rep_compare_histone.pdf",p,width = 5,height = 4)
+
+cor_test <- cor.test(to_plot$value.x,to_plot$value.y,method = "spearman")
+

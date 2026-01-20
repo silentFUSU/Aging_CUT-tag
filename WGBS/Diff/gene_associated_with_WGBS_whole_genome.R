@@ -262,6 +262,11 @@ GO_id <- "GO:0140014"
 # GO_id <- "GO:0002377"
 # description <- result$Description[which(result$ID==GO_id)]
 description <- "mitotic nuclear division"
+
+purine <- read.csv("data/public_data/GO_term_summary_0009205.csv")
+# purine <- unique(purine$Symbol)
+# target_genes <- purine
+# description <- "purine ribonucleoside triphosphate metabolic process"
 search_table <- read.csv("data/samples/all/RNA_search_table.csv")
 genelist <- list(score=target_genes)
 
@@ -314,7 +319,8 @@ colnames(to_plot)[ncol(to_plot)] <- "histone"
 cor_test <- cor.test(to_plot$score,to_plot$histone,method="spearman")
 average_scores <- merge(average_scores,summary_antibody,by="tissue")
 colnames(average_scores)[ncol(average_scores)] <- "histone"
-average_scores_test  <- average_scores[which(average_scores$tissue !="Pancreas"),]
+# average_scores_test  <- average_scores[which(average_scores$tissue !="Pancreas"),]
+average_scores_test  <- average_scores
 cor_test <- cor.test(average_scores_test$score,average_scores_test$histone,method="spearman")
 if(Indicator=="rank"){
   to_plot$histone <- factor(to_plot$histone,levels = c(27:1))
@@ -327,39 +333,23 @@ p <- ggplot(to_plot,aes(x=histone,y=score,color = tissue,shape=age))+
   xlab("Delta")+labs(fill = "", color = "")+
   scale_x_reverse() 
 
-#### Ransac regression
-# set.seed(1)
-# model <- ransac_reg(score ~ histone, data = average_scores, n_min = 2, tol = 0.001,n_iter = 10000,verbose = T)
-# coefficients <- coef(model)
-# intercept <- coefficients[1]
-# slope <- -coefficients[2]
-# predictions <-average_scores %>%
-#   mutate(fitted = intercept + slope * histone)
-# 
-# 
-# # Calculate the confidence interval (we'll use 95% CI here)
-# alpha <- 0.05
-# ci_multiplier <- qt(1 - alpha/2, df = length(average_scores$score) - 2)
-# average_scores <- average_scores %>%
-#   mutate(
-#     fitted = predictions$fit,
-#     se = predictions$se.fit,
-#     lower = fitted - ci_multiplier * se,
-#     upper = fitted + ci_multiplier * se
-#   )
-
+linear_model <- lm(score ~ histone, data = average_scores_test)
+model_summary <- summary(linear_model)
 p <- ggplot(average_scores,aes(x=histone,y=score))+    
   geom_jitter(size = 3, alpha = 0.7,color="#f39b7f")+
-  geom_smooth(data = average_scores[-which(average_scores$tissue %in% c("Pancreas")),], aes(x = histone, y = score),
+  # geom_smooth(data = average_scores[-which(average_scores$tissue %in% c("Testis")),], aes(x = histone, y = score),
+  #             method = "lm", color = "#e64b35", se = TRUE, level = 0.95) +
+  geom_smooth(data = average_scores, aes(x = histone, y = score),
               method = "lm", color = "#e64b35", se = TRUE, level = 0.95) +
   # geom_abline(intercept = intercept, slope = slope, color = "#e64b35", size = 1) +
   # geom_ribbon(aes(ymin = lower, ymax = upper))+
   ggtitle(paste0(description))+
   theme_bw()+theme(text = element_text(size = 18))+
   xlab("Delta")+labs(fill = "", color = "")+
+  # scale_y_continuous(limits = c(2.5, 3.8), breaks = seq(2.5, 3.8, by = 0.3))+
   scale_x_reverse()
 p
-ggsave("result/figures/WGBS_mitotic_nuclear_division_ransac.pdf",p,width = 6,height = 4)
+ggsave("result/figures/WGBS_mitotic_nuclear_division.pdf",p,width = 6,height = 4)
 
 #### GSEA 
 signif_correlation_genes <- correlation_summary
@@ -380,6 +370,7 @@ gse <- gseGO(geneList=genelist,
 results_df <- as.data.frame(gse@result)
 positive_nes_results <- subset(results_df, NES > 0)
 negative_nes_results <- subset(results_df, NES < 0)
+write.csv(negative_nes_results,"tmp_hypo_DNAm_GSEA_negative.csv")
 positive_gsea <- new("gseaResult",
                      result = positive_nes_results,
                      geneSets = gse@geneSets,

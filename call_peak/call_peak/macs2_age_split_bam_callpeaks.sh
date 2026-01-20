@@ -1,6 +1,6 @@
 # antibodys=(H3K27ac H3K4me1 H3K4me3)
 # antibodys=(ATAC)
-antibodys=(H3K27ac)
+antibodys=(H3K27me3)
 result_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/result/
 tissue=$1
 ref=mm

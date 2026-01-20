@@ -88,7 +88,7 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
   out$Significant <- ifelse(out$`FDR.old-young` < 0.05 & abs(out$`LogFC.old-young`) >= log2(1.2), 
                             ifelse(out$`LogFC.old-young` > log2(1.2), "Up", "Down"), "Stable")
   
-  write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_10kb_diff_after_remove_batch_effect.csv"),row.names = F)
+  # write.csv(out,paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_gene_TSS_10kb_diff_after_remove_batch_effect.csv"),row.names = F)
   colour <- setNames(c("blue","grey","red"),c("Down","Stable","Up"))
   p_list[[1]] <- ggplot(
     out, aes(x = `LogFC.old-young`, y = -log10(`FDR.old-young`))) +
@@ -130,6 +130,18 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
     annotate("text", x = max(out_inpeak$`LogFC.old-young`), y = max(-log10(out_inpeak$`FDR.old-young`)), label = nrow(out_inpeak[which(out_inpeak$Significant=="Up"),]), vjust = 5, hjust = 1.5,colour="red",size=5)
   out <- out[which(out$Significant != "Stable"),]
   rna <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_change_filter_bar.csv"))
+  if(tissue=="MEF"){
+    rna <- rna[order(rna$fdr),]
+    rna <- rna[1:2000,]
+    # down_sig <- subset(rna, Significant == "Down")
+    # up_sig <- subset(rna, Significant == "Up")
+    # down_sig_sorted <- down_sig[order(down_sig$fdr),]
+    # up_sig_sorted <- up_sig[order(up_sig$fdr),]
+    # 
+    # down_top_2000 <- head(down_sig_sorted, 2000)
+    # up_top_2000 <- head(up_sig_sorted, 2000)
+    # rna <- rbind(up_top_2000,down_top_2000)  
+  }
   # rna <- rna[which(rna$Significant!="Stable"),]
   colnames(rna)[1] <- "Geneid"
   out_inpeak <- out_inpeak[which(out_inpeak$Significant != "Stable"),]
@@ -176,7 +188,7 @@ Gene_TSS_diff_remove_bath_effect <- function(tissue,antibody){
              x = x_pos_left, y = y_pos_top, colour = "#f6416c", size = 5) +  
     annotate("text", label = paste0(nrow(to_plot[which(to_plot$RNA_logFC > 0 & to_plot$histone_logFC < 0 & to_plot$RNA_Significant == "Up"), ])),  
              x = x_pos_right, y = y_pos_bottom, colour = "#48466d", size = 5) 
-  # ggsave(paste0("result/figures/thymus_H3K27me3_RNA_in_young_peaks_scatter_plot.pdf"),p_list[[3]],width = 4,height = 4)
+  # ggsave(paste0("result/figures/heart_H3K27me3_RNA_in_young_peaks_scatter_plot.pdf"),p_list[[3]],width = 4,height = 4)
   
   return(p_list)
   }

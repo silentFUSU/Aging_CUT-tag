@@ -33,7 +33,11 @@ diff_summary <- data.frame()
 diff_summary_Discrete <- data.frame()
 antibody <- "H3K9me3"
 for(tissue in tissues){
-  df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W5000-G10000-E100_recursion_diff_after_remove_batch_effect.csv"))
+  if(tissue=="MEF"){
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W5000-G10000-E100_recursion_diff_after_remove_batch_effect_keep_chrY.csv"))
+  }else{
+    df <- read.csv(paste0("data/samples/",tissue,"/",antibody,"/",antibody,"_young_old_merge-W5000-G10000-E100_recursion_diff_after_remove_batch_effect.csv"))
+  }
   df <- df[which(df$Length >=200000),c("Geneid","LogFC.old.young","Significant")]
   df_Discrete <- df[,-2]
   df_Discrete$value <- 0
@@ -70,7 +74,7 @@ annotation <- data.frame(Geneid = diff_summary$Geneid,cluster=diff_summary$clust
 rownames(annotation) <- annotation$Geneid
 annotation <- annotation[,-1,drop=F]
 tissue_order <- c("Kidney","Muscle","Skin","Bladder","Stomach","Heart","Hippocampus","Uterus","Liver","Aorta","Testis","Cortex","Tongue","Cerebellum","BAT","Lung",
-                  "Mammary Gland","Pancreas","Bone Marrow","IWAT","Cecum","Colon","Jejunum","Spleen","Thymus","Ileum","Ovary")
+                  "Mammary Gland","Pancreas","Bone Marrow","IWAT","Cecum","Colon","Jejunum","Spleen","Thymus","Ileum","Ovary","Mef")
 to_plot <- to_plot[,tissue_order]
 pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,
                    breaks = breaks, annotation_row = annotation,annotation_colors = annotation_color, 
@@ -160,4 +164,9 @@ pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,
                    breaks = breaks, annotation_row = annotation,annotation_colors = annotation_color, 
                    color = color_palette,
                    border_color = "black",gaps_row = c(283,283+271,283+271+347,283+271+347+187),cluster_cols = F,filename = paste0("result/figures/H3K9me3_heatmap.pdf"),
+                   width = 6,height =9)
+pheatmap::pheatmap(to_plot,cluster_rows = F,show_rownames = F,
+                   breaks = breaks, annotation_row = annotation,annotation_colors = annotation_color, 
+                   color = color_palette,
+                   border_color = "black",gaps_row = c(283,283+271,283+271+347,283+271+347+187),cluster_cols = F,
                    width = 6,height =9)

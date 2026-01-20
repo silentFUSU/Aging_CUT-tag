@@ -43,8 +43,8 @@ p <- ggplot(summary,mapping = aes(x=LogFC.old.young,y=tissue,fill = Significant)
   theme(text = element_text(size = 13))+xlim(-3,0.5)
 
 tissues_order <- c("Heart","Tongue","Lung","Skin","Uterus","Liver","Ovary","Spleen","Cortex","Bone Marrow","Bladder",
-                   "Jejunum","iWAT","Stomach","Muscle","Cecum","Ileum","Thymus","Mammary gland","Testis","Aorta","Pancreas",
-                   "Colon","BAT","Cerebellum","Hippocampus","Kidney")
+                   "Jejunum","iWAT","Stomach","Muscle","Cecum","Ileum","Thymus","Mammary gland","Testis","Kidney","Hippocampus",
+                   "Cerebellum","Aorta","Pancreas","Colon","BAT")
 
 summary$tissue <- factor(summary$tissue,levels=rev(tissues_order))
 color <- setNames(c("red","grey","blue"),c("Up","Stable","Down"))

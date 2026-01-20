@@ -48,7 +48,7 @@ diff_bin_remove_batch_effect <- function(tissue,antibody){
   }
   counts = tab[,c(7:ncol(tab))]
   rownames(counts)= tab$Geneid
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|SZJ[0-9]+|HJC[0-9]+|HJC_[0-9]+|NTY[0-9]+|XM[0-9]+|DYQ[0-9]+).*"
   colnames(counts) <-  gsub(pattern, "\\1",colnames(counts))
   search_table <- search_table[which(search_table$sample_name %in% colnames(counts)),]
   counts <- counts[,search_table$sample_name]

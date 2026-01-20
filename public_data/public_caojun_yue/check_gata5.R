@@ -1,0 +1,26 @@
+rm(list=ls()) 
+.libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
+setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
+library(Seurat)
+library(SeuratDisk)
+library("anndata")
+data <- read_h5ad("data/public_data/caojunyue_scRNA/GSE247719_PanSci_10_Ileum_adata.h5ad")
+
+transposed_matrix <- t(data$X)
+se <- CreateSeuratObject(counts = transposed_matrix,meta.data = data$obs)
+se <- NormalizeData(se)
+se <- FindVariableFeatures(se, selection.method = "vst", nfeatures = 2000)
+se <- ScaleData(se)
+# se <- RunPCA(se, features = VariableFeatures(object = se))
+# se <- RunUMAP(se, dims = 1:30)
+# saveRDS(se,"/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/caojunyue_scRNA/GSE247719_PanSci_10_Ileum_adata.rds")
+
+DotPlot(se,features = "ENSMUSG00000015627.6",group.by = "Main_cell_type",pt.size = 0,assay = "RNA",slot = "data")
+df <- data$obs
+se$condition <- paste0(se$Sex,"-",se$Age_group)
+pseudo_ifnb <- AggregateExpression(se, assays = "RNA",slot = "counts", return.seurat = T, group.by = c("condition"))
+counts <- as.data.frame(pseudo_ifnb@assays$RNA@counts)
+cpm <- edgeR::cpm(counts)
+cpm["ENSMUSG00000015627.6",]
+DotPlot(se,features = "ENSMUSG00000015627.6",group.by = "Main_cell_type")
+DotPlot(se,features = "ENSMUSG00000015627.6",group.by = "Age_group")

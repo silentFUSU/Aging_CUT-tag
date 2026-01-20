@@ -67,6 +67,10 @@ to_plot_CG <- to_plot[,c(1,3,5)]
 colnames(to_plot_CG)[c(2,3)] <- c("young","old")
 to_plot_CG <- reshape2::melt(to_plot_CG)
 color <- setNames(c("black","gray"),c("young","old"))
+tissue_order <- c("Mammary Gland","Cecum","Thymus","Uterus","IWAT","Stomach","Skin","Spleen",
+                  "Muscle","Bone Marrow","Liver","Ileum","Testis","Cortex","Jejunum","Tongue",
+                  "Hippocampus","Colon","Bladder","Aorta","Cerebellum","Lung","Heart","Kidney","BAT","Ovary","Pancreas")
+to_plot_CG$tissue <- factor(to_plot_CG$tissue,levels = tissue_order)
 p <- ggplot(to_plot_CG, aes(x = tissue, y = value, fill = variable)) +  
   # geom_bar(stat = 'identity', aes(alpha = variable), position = position_dodge(width = 0.9),color="black") +
   geom_bar(stat = 'identity', position = position_dodge(width = 0.9),color="black") +

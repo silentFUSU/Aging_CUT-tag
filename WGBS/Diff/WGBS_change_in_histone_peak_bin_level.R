@@ -165,7 +165,7 @@ t.test(test_summary_to_plot2$value[which(test_summary_to_plot2$variable=="peak_r
 df1 <- test_summary_to_plot2[which(test_summary_to_plot2$variable=="peak_region"),]
 df2 <- test_summary_to_plot2[which(test_summary_to_plot2$variable=="out_region"),]
 df <- merge(df1,df2,by="tissue")
-t.test(df$value.x,df$value.y,paired = T)
+wilcox.test(df$value.x,df$value.y,paired = T)
 ggsave("result/figures/DNA_methylation_change_in_H3K9me3_peaks_boxplot_delta_larger_1.pdf",p,width = 2,height = 4)
 
 

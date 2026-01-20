@@ -80,8 +80,46 @@ ggplot(to_plot, aes(x = Significant, y = CpG_content,fill=Significant)) +
   labs(x = NULL, y = "CpG_percentage", title = "Lung CpG density") +
   theme_bw()
 to_plot <- summary
-ggplot(to_plot, aes(x = Significant, y = CpG_content,fill=Significant)) +
+to_plot$Significant <- factor(to_plot$Significant,levels=c("Up","Stable","Down"))
+p<-ggplot(to_plot, aes(x = Significant, y = CpG_content,fill=Significant)) +
   geom_boxplot(outliers = F) +
   # scale_fill_manual(values = color) +
   labs(x = NULL, y = "CpG_percentage", title = "all tissues CpG density") +
-  theme_bw()
+  theme_bw()+
+  ylim(0,2.5)
+p
+wilcox.test(to_plot$CpG_content[which(to_plot$Significant=="Up")],to_plot$CpG_content[which(to_plot$Significant=="Down")])
+wilcox.test(to_plot$CpG_content[which(to_plot$Significant=="Stable")],to_plot$CpG_content[which(to_plot$Significant=="Down")])
+
+ggsave("result/Sup_figures/all_tissues_H3K27me3_bin_CpG_density.pdf",p,width = 6,height = 8)
+
+#### overlap with H3K27me3 peaks
+summary_in_peaks <- data.frame()
+for(tissue in tissues){
+  t_summary <- summary[which(summary$tissue==tissue_label_change(tissue)),]
+  peaks <- read.table(paste0("data/samples/",tissue,"/H3K27me3/bed/H3K27me3_young_merge-W5000-G10000-E100.bed"))
+  peaks <- as.data.table(peaks)
+  setDT(peaks)
+  setkey(peaks,V1,V2,V3)
+  bin <- as.data.table(t_summary[,c("Geneid","Chr","Start","End")])
+  setDT(bin)
+  setkey(bin,Chr,Start,End)
+  overlaps <- foverlaps(peaks, bin, type = "any", nomatch = 0L)
+  t_summary <- t_summary[which(t_summary$Geneid %in% overlaps$Geneid),]
+  summary_in_peaks <- rbind(summary_in_peaks,t_summary)
+  }
+to_plot <- summary_in_peaks
+to_plot$Significant <- factor(to_plot$Significant,levels=c("Up","Stable","Down"))
+p<-ggplot(to_plot, aes(x = Significant, y = CpG_content,fill=Significant)) +
+  geom_boxplot(outliers = F) +
+  # scale_fill_manual(values = color) +
+  labs(x = NULL, y = "CpG_percentage", title = "all tissues CpG density") +
+  theme_bw()+
+  ylim(0,2.5)
+p
+wilcox.test(to_plot$CpG_content[which(to_plot$Significant=="Up")],to_plot$CpG_content[which(to_plot$Significant=="Down")])
+wilcox.test(to_plot$CpG_content[which(to_plot$Significant=="Stable")],to_plot$CpG_content[which(to_plot$Significant=="Down")])
+
+ggsave("result/Sup_figures/all_tissues_H3K27me3_bin_in_young_peaks_CpG_density.pdf",p,width = 6,height = 8)
+
+

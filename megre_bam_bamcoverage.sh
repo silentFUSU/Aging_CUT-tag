@@ -38,8 +38,8 @@ do
         wait
         # binsize=1000
         # smoothLength=3000
-        binsize=10000
-        smoothLength=100000
+        binsize=5000
+        smoothLength=10000
         bamCoverage -p 30 -e 100 --binSize ${binsize} --smoothLength ${smoothLength} -b ${data_path}${tissue}/${antibody}/tmp.young.merge.bam -o ${data_path}${tissue}/${antibody}/bw/young_bs${binsize}.bw --normalizeUsing RPKM &
         bamCoverage -p 30 -e 100 --binSize ${binsize} --smoothLength ${smoothLength} -b ${data_path}${tissue}/${antibody}/tmp.old.merge.bam -o ${data_path}${tissue}/${antibody}/bw/old_bs${binsize}.bw --normalizeUsing RPKM &
         wait

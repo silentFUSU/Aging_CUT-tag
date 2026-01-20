@@ -28,7 +28,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 }
 
-gene <- "Cdkn2a"
+gene <- "Hao2"
 gene_summary_plot <- function(gene,tissues){
   summary <- data.frame()
   
@@ -45,19 +45,23 @@ gene_summary_plot <- function(gene,tissues){
         summary <- rbind(summary,df)
       }
     }else{
+      df <- data.frame(logFC=0,fdr=1,Significant="Stable")
+      df$tissue <- tissue_label_change(tissue)
+      summary <- rbind(summary,df)
       print(tissue)
     }
   }
   color <- setNames(c("red","grey","blue"),c("Up","Stable","Down"))
   summary <- summary[order(summary$logFC),]
+  tissue_order <- summary$tissue
   summary$tissue <- factor(summary$tissue,levels=summary$tissue)
   p <- ggplot(summary,mapping = aes(x=logFC,y=tissue,fill = Significant))+
     geom_bar(stat = "identity", position = position_dodge2())+theme_bw()+ylab("")+
     scale_fill_manual(values=color)+
     theme(text = element_text(size = 13))+ 
-    ggtitle(paste0(gene," RNA")) +
-    geom_text(data = summary[which(summary$logFC<0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5) +
-    geom_text(data = summary[which(summary$logFC>0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5)
+    ggtitle(paste0(gene," RNA")) 
+    # geom_text(data = summary[which(summary$logFC<0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5) +
+    # geom_text(data = summary[which(summary$logFC>0),],aes(label = round(logFC,3)), position = position_dodge2(width = 0.9), hjust = 0.5, size = 5)
   print(p)
   # ggsave("result/figures/Cdkn2a_diff_in_each_tissue.pdf",p,width = 6,height = 6)
   summary <- data.frame()
@@ -90,9 +94,10 @@ gene_summary_plot <- function(gene,tissues){
     }
   }
   summary$age <- factor(summary$age, levels = c("young","old"))
+  summary$tissue <- factor(summary$tissue,levels=tissue_order)
   p <- ggplot(summary,aes(x=tissue,y=CPM,color = age))+    
     geom_jitter(position = position_jitter(width = 0.2), size = 2, alpha = 0.7)+
-    geom_text(aes(label = sample_name), position = position_jitter(width = 0.2), vjust = -1, size = 3) +
+    # geom_text(aes(label = sample_name), position = position_jitter(width = 0.2), vjust = -1, size = 3) +
     scale_fill_brewer(palette="Set3")+
     ggtitle(paste0(gene," CPM"))+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+xlab("")+labs(fill = "", color = "") +ylab("CPM")

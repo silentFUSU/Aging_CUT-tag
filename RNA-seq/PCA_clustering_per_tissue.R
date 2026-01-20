@@ -38,7 +38,7 @@ PCA_per_tissue <- function(tissue){
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|XM[0-9]+|DYQ[0-9]+|TK[0-9]+).*"
   new_colnames <- gsub(pattern, "\\1", colnames)
   colnames(tab)[6:length(tab)] <- new_colnames
   sorted_index <- order(new_colnames)
@@ -47,6 +47,7 @@ PCA_per_tissue <- function(tissue){
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
   group <- group[which(group$SampleID %in% colnames(counts)),]
   group <- group[order(group$SampleID),]
+  counts <- counts[,group$SampleID]
   age <- group[which(group$SampleID %in% colnames(counts)),"Age"]
 
   y= DGEList(counts=counts,group=age)

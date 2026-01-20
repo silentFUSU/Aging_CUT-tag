@@ -138,7 +138,9 @@ scatter_plot[is.na(scatter_plot)] <- 0
 scatter_plot$total_num <- scatter_plot$increase_num+scatter_plot$decrease_num
 
 scatter_plot$diff <- scatter_plot$increase_num - scatter_plot$decrease_num
-top_motif <- scatter_plot[which(scatter_plot$increase_num>15 | scatter_plot$decrease_num>=12),]
+write.csv(scatter_plot,"data/samples/WGBS/all/snapatac2/mutual_bg/scatter_plot_DMR_motif_summary.csv")
+top_motif <- scatter_plot[which(scatter_plot$id %in% c("Irf2","Irf8","Jund","Nfe2l1","Fos","Stat2","Batf","Dbp","Irx3","Nfic",
+                                                       "Fbxl19","Foxn1","Zbtb1","Egr2","Zfp777","Zfp189","E2f4","Lin28a","Tfdp2","Dnmt1")),]
 # top_motif <- scatter_plot[which(scatter_plot$id %in% c("Jund","Junb","Fos","E2f4")),]
 
 p <- ggplot(scatter_plot, aes(x = increase_num, y = decrease_num, color=diff)) +

@@ -5,26 +5,28 @@ set.seed(1)
 library(edgeR)
 library(ggplot2)
 library(stringr)
-tissue <- "MEF"
+tissue <- "MEF_mid_age"
 diff_expression_analysis <- function(tissue){
   tab = read.delim(paste0("data/samples/RNA/",tissue,"/combined-chrM.counts"),skip=1)
-  if(tissue %in% c("mammarygland","uterus","ovary","MEF")){
-    tab <- tab[which(!tab$Chr %in% c("chrY")),]
+  if(tissue %in% c("mammarygland","uterus","ovary","MEF","MEF_EZH2_inhibit")){
+    tab <- tab[!grepl("chrY", tab$Chr), ]
   }
   rownames(tab) <- tab$Geneid
   tab <- tab[,-1]
   colnames <- colnames(tab)[6:length(tab)]
-  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+|TK[0-9]+).*"
+  pattern <- ".*bam\\.(LLX[0-9]+|CKJ[0-9]+|HM[0-9]+|TK[0-9]+|XM[0-9]+).*"
   colnames(tab)[6:length(tab)] <- gsub(pattern, "\\1", colnames(tab)[6:length(tab)] )
   counts <- tab[6:length(tab)]
   group <- read.csv("data/samples/RNA/sample_tissue_info.csv",sep = ',')
   search_table <- read.csv("data/samples/all/RNA_search_table.csv")
   colnames(group)[1] <- "sample_name"
   group <- merge(group,search_table,by="sample_name")
+
   counts <- counts[,which(colnames(counts) %in% group$sample_name)]
   group <- group[which(group$sample_name %in% colnames(counts)),]
   group$sample_name <- factor(group$sample_name,levels = colnames(counts))
   group <- group[order(group$sample_name),]
+  group <- group[which(group$TissueName==tissue),]
   age <- group$Age
   age[which(age=="3m")] <- "young"
   age[which(age=="24m")] <- "old"

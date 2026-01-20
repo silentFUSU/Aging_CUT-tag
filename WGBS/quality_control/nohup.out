@@ -1,0 +1,99 @@
+Loading required package: limma
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:data.table’:
+
+    between, first, last
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: BiocGenerics
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, intersect, setdiff, union
+
+The following object is masked from ‘package:limma’:
+
+    plotMA
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, setdiff, sort,
+    table, tapply, union, unique, unsplit, which.max, which.min
+
+Loading required package: S4Vectors
+Loading required package: stats4
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, rename
+
+The following objects are masked from ‘package:data.table’:
+
+    first, second
+
+The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+Loading required package: IRanges
+
+Attaching package: ‘IRanges’
+
+The following objects are masked from ‘package:dplyr’:
+
+    collapse, desc, slice
+
+The following object is masked from ‘package:data.table’:
+
+    shift
+
+Warning message:
+replacing previous import ‘Biostrings::pattern’ by ‘grid::pattern’ when loading ‘genomation’ 
+[1] "aorta"
+[1] "BAT"
+[1] "bladder"
+[1] "bonemarrow"
+[1] "brain"
+[1] "CB"
+[1] "cecum"
+[1] "colon"
+[1] "heart"
+[1] "Hip"
+[1] "ileum"
+[1] "iWAT"
+[1] "jejunum"
+[1] "kidney"
+[1] "liver"
+[1] "lung"
+[1] "mammarygland"
+[1] "muscle"
+[1] "ovary"
+[1] "pancreas"
+[1] "skin"
+[1] "spleen"
+[1] "stomach"
+[1] "testis"
+[1] "thymus"
+[1] "tongue"
+[1] "uterus"

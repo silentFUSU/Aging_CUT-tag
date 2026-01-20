@@ -5,7 +5,7 @@ set.seed(1)
 library(ggplot2)
 library(stringr)
 library(edgeR)
-gene <- "Cdkn2a"
+gene <- "Klf1"
 tab = read.csv("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/GSE132040/GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv")
 tab <- tab[-c(54353:54357),]
 tab <- as.data.frame(t(tab))

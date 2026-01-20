@@ -33,11 +33,12 @@ do
     data_path=/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/samples/
     samples=$(find ${data_path}${tissue}/${antibody}/bam/ -name *.bam -exec basename {} \; | sed 's/\..*//')
     echo ${samples[@]}
-    # bed=${data_path}${tissue}/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed
-    bed=${data_path}all/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_recursion.bed
-    # saf=${data_path}${tissue}/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}.saf
-    saf=${data_path}all/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_recursion.saf
+    bed=${data_path}${tissue}/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}.bed
+    # bed=${data_path}all/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_recursion.bed
+    saf=${data_path}${tissue}/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}.saf
+    # saf=${data_path}all/${antibody}/bed/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_recursion.saf
     files=$(ls ${data_path}${tissue}/${antibody}/bam/*.bam)
     bash /storage/zhangyanxiaoLab/suzhuojie/projects/DIPG/code/peaks2matrix/bed_to_saf.sh ${bed} ${saf}
-    featureCounts -p -a ${saf} -o ${data_path}${tissue}/${antibody}/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_recursion.counts ${files} -F SAF -T 8 
+    # featureCounts -p -a ${saf} -o ${data_path}${tissue}/${antibody}/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}_recursion.counts ${files} -F SAF -T 8 
+    featureCounts -p -a ${saf} -o ${data_path}${tissue}/${antibody}/${antibody}_young_old_merge-W${window_size}-G${gap_size}-E${e_value}.counts ${files} -F SAF -T 8 
 done

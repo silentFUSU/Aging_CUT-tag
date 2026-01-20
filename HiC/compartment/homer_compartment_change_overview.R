@@ -68,7 +68,7 @@ p <- ggplot(to_plot, aes(x = percent, y = tissue, fill = Var1)) +
   geom_bar(stat = "identity", position = "stack") +
   labs(x = "Percent", y = "Tissue",fill="condition",title = "Compartment") +
   scale_fill_manual(values = color)+
-  theme_minimal()+
+  theme_bw()+
   theme(
     axis.text.x = element_text( size = 12,face = "bold", color = "black"),  
     axis.text.y = element_text(size = 12,face = "bold", color = "black"),  

@@ -22,25 +22,26 @@ to_plot <- read.csv("data/samples/all/H3K9me3/recursion_peaks_diff_table/feature
 to_plot <- to_plot %>%
   group_by(label, cluster) %>%
   summarize(RPKM = mean(mean_RPKM, na.rm = TRUE))
+to_plot <- to_plot[which(to_plot$cluster %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$cluster <- factor(to_plot$cluster,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 to_plot <- as.data.frame(to_plot)
-to_plot <- to_plot %>%
-  group_by(cluster) %>%
-  mutate(
-    Q1 = quantile(RPKM, 0.25),
-    Q3 = quantile(RPKM, 0.75),
-    IQR = Q3 - Q1,
-    lower_bound = Q1 - 1.5 * IQR,
-    upper_bound = Q3 + 1.5 * IQR
-  ) %>%
-  filter(RPKM >= lower_bound & RPKM <= upper_bound) %>%
-  select(-Q1, -Q3, -IQR, -lower_bound, -upper_bound)  
+# to_plot <- to_plot %>%
+#   group_by(cluster) %>%
+#   mutate(
+#     Q1 = quantile(RPKM, 0.25),
+#     Q3 = quantile(RPKM, 0.75),
+#     IQR = Q3 - Q1,
+#     lower_bound = Q1 - 1.5 * IQR,
+#     upper_bound = Q3 + 1.5 * IQR
+#   ) %>%
+#   filter(RPKM >= lower_bound & RPKM <= upper_bound) %>%
+#   select(-Q1, -Q3, -IQR, -lower_bound, -upper_bound)  
 
 
 p1 <-ggplot(to_plot, aes(x = cluster, y = RPKM, fill=cluster)) +
   geom_violin(color = "black")+
   # geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -49,10 +50,11 @@ p1 <-ggplot(to_plot, aes(x = cluster, y = RPKM, fill=cluster)) +
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major =  element_blank(),
+    panel.grid.minor =  element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,1)
+
 ggsave("result/figures/H3K9me3_kmeans_H3K9me3_signal.pdf",p1,height = 3,width = 6)
 
 #H3K27me3 signal
@@ -60,23 +62,24 @@ to_plot <- read.csv("data/samples/all/H3K9me3/recursion_peaks_diff_table/feature
 to_plot <- to_plot %>%
   group_by(label, cluster) %>%
   summarize(RPKM = mean(mean_RPKM, na.rm = TRUE))
+to_plot <- to_plot[which(to_plot$cluster %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$cluster <- factor(to_plot$cluster,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 to_plot <- as.data.frame(to_plot)
-to_plot <- to_plot %>%
-  group_by(cluster) %>%
-  mutate(
-    Q1 = quantile(RPKM, 0.25),
-    Q3 = quantile(RPKM, 0.75),
-    IQR = Q3 - Q1,
-    lower_bound = Q1 - 1.5 * IQR,
-    upper_bound = Q3 + 1.5 * IQR
-  ) %>%
-  filter(RPKM > lower_bound & RPKM < upper_bound) %>%
-  select(-Q1, -Q3, -IQR, -lower_bound, -upper_bound) 
+# to_plot <- to_plot %>%
+#   group_by(cluster) %>%
+#   mutate(
+#     Q1 = quantile(RPKM, 0.25),
+#     Q3 = quantile(RPKM, 0.75),
+#     IQR = Q3 - Q1,
+#     lower_bound = Q1 - 1.5 * IQR,
+#     upper_bound = Q3 + 1.5 * IQR
+#   ) %>%
+#   filter(RPKM > lower_bound & RPKM < upper_bound) %>%
+#   select(-Q1, -Q3, -IQR, -lower_bound, -upper_bound) 
 p2 <-ggplot(to_plot, aes(x = cluster, y = RPKM, fill=cluster)) +
   geom_violin(color = "black")+
   # geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -85,8 +88,8 @@ p2 <-ggplot(to_plot, aes(x = cluster, y = RPKM, fill=cluster)) +
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,2)
 ggsave("result/figures/H3K9me3_kmeans_H3K27me3_signal.pdf",p,height = 3,width = 6)
@@ -98,11 +101,13 @@ to_plot_mean <- to_plot[,c(1:28)]
 to_plot_mean$mean <- rowMeans(to_plot_mean[,-1],na.rm = T)
 to_plot_mean <- to_plot_mean[,c(1,29)]
 to_plot <- merge(to_plot_mean,to_plot[,c(1,29)],by="label")
+to_plot <- to_plot[which(to_plot$cluster %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
+
 to_plot$cluster <- factor(to_plot$cluster,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 p3 <-ggplot(to_plot, aes(x = cluster, y = mean, fill=cluster)) +
-  # geom_violin(color = "black")+
-  geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  geom_violin(color = "black")+
+  # geom_boxplot(color = "black",outliers = F)+
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -111,8 +116,8 @@ p3 <-ggplot(to_plot, aes(x = cluster, y = mean, fill=cluster)) +
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(50,100)
 ggsave("result/figures/H3K9me3_kmeans_DNA_methylation.pdf",p,height = 3,width = 6)
@@ -124,11 +129,12 @@ to_plot_mean <- to_plot[,c(1:(ncol(to_plot)-1))]
 to_plot_mean$mean <- rowMeans(to_plot_mean[,-1],na.rm = T)
 to_plot_mean <- to_plot_mean[,c(1,ncol(to_plot_mean))]
 to_plot <- merge(to_plot_mean,to_plot[,c(1,ncol(to_plot))],by="label")
+to_plot <- to_plot[which(to_plot$cluster %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$cluster <- factor(to_plot$cluster,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 p4 <-ggplot(to_plot, aes(x = cluster, y = mean, fill=cluster)) +
-  # geom_violin(color = "black")+
-  geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  geom_violin(color = "black")+
+  # geom_boxplot(color = "black",outliers = F)+
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -137,8 +143,8 @@ p4 <-ggplot(to_plot, aes(x = cluster, y = mean, fill=cluster)) +
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,100)
 ggsave("result/figures/H3K9me3_kmeans_compartmentB.pdf",p,height = 3,width = 6)
@@ -146,11 +152,12 @@ ggsave("result/figures/H3K9me3_kmeans_compartmentB.pdf",p,height = 3,width = 6)
 #TE
 #LTR
 to_plot <- read.csv("data/samples/all/H3K9me3/recursion_peaks_diff_table/feature_table_combined_chrY/kmeans_median_LTR_median_TE_length_percentage_detail.csv")
+to_plot <- to_plot[which(to_plot$condition %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$condition <- factor(to_plot$condition,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 p5 <-ggplot(to_plot, aes(x = condition, y = TE_length_percentage, fill=condition)) +
-  # geom_violin(color = "black")+
-  geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  geom_violin(color = "black")+
+  # geom_boxplot(color = "black",outliers = F)+
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -159,18 +166,19 @@ p5 <-ggplot(to_plot, aes(x = condition, y = TE_length_percentage, fill=condition
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,40)
 ggsave("result/figures/H3K9me3_kmeans_LTR.pdf",p,height = 3,width = 6)
 
 to_plot <- read.csv("data/samples/all/H3K9me3/recursion_peaks_diff_table/feature_table_combined_chrY/kmeans_median_ERV1_median_TE_length_percentage_detail.csv")
+to_plot <- to_plot[which(to_plot$condition %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$condition <- factor(to_plot$condition,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 p6 <-ggplot(to_plot, aes(x = condition, y = TE_length_percentage, fill=condition)) +
   geom_violin(color = "black")+
   # geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -179,18 +187,19 @@ p6 <-ggplot(to_plot, aes(x = condition, y = TE_length_percentage, fill=condition
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,20)
 ggsave("result/figures/H3K9me3_kmeans_ERV1.pdf",p,height = 3,width = 6)
 
 to_plot <- read.csv("data/samples/all/H3K9me3/recursion_peaks_diff_table/feature_table_combined_chrY/kmeans_median_ERVK_median_TE_length_percentage_detail.csv")
+to_plot <- to_plot[which(to_plot$condition %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$condition <- factor(to_plot$condition,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 p7 <-ggplot(to_plot, aes(x = condition, y = TE_length_percentage, fill=condition)) +
-  # geom_violin(color = "black")+
-  geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  geom_violin(color = "black")+
+  # geom_boxplot(color = "black",outliers = F)+
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -199,19 +208,20 @@ p7 <-ggplot(to_plot, aes(x = condition, y = TE_length_percentage, fill=condition
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,30)
 ggsave("result/figures/H3K9me3_kmeans_ERVK.pdf",p,height = 3,width = 6)
 
 #phast cons
 to_plot <- read.csv("data/samples/all/H3K9me3/recursion_peaks_diff_table/feature_table_combined_chrY/kmeans_median_phastCons_score_detail.csv")
+to_plot <- to_plot[which(to_plot$cluster %in% c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak")),]
 to_plot$cluster <- factor(to_plot$cluster,levels=c("kmeans1","kmeans2","kmeans3","kmeans4","Stable","random out of peak","random whole genome"))
 p8 <-ggplot(to_plot, aes(x = cluster, y = avg_V4, fill=cluster)) +
-  # geom_violin(color = "black")+
-  geom_boxplot(color = "black",outliers = F)+
-  theme_minimal() +
+  geom_violin(color = "black")+
+  # geom_boxplot(color = "black",outliers = F)+
+  theme_bw() +
   scale_fill_manual(values =color) +
   theme(
     axis.text.x = element_blank(),   
@@ -220,8 +230,8 @@ p8 <-ggplot(to_plot, aes(x = cluster, y = avg_V4, fill=cluster)) +
     axis.text.y = element_text(size = 12, face = "bold", color = "black"),
     axis.title.y = element_text(size = 14, face = "bold", color = "black"),
     panel.background = element_blank(),
-    panel.grid.major = element_line(size = 0.1, linetype = 'solid', color = "grey"),
-    panel.grid.minor = element_line(size = 0.1, linetype = 'solid', color = "lightgrey"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     panel.border = element_rect(color = "black", fill = NA, size = 1)
   ) +ylim(0,0.6)
 ggsave("result/figures/H3K9me3_kmeans_phastcons.pdf",p,height = 3,width = 6)

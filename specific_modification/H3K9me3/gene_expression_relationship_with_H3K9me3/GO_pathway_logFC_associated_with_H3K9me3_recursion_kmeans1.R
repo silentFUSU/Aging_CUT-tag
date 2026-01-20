@@ -130,6 +130,8 @@ p <- ggplot(to_plot_logFC,aes(x=logFC,y=logFC_score,color = tissue))+
   theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+
   xlab("H3K9me3 log2(Fold change)")+ylab("GO pathway score log2(Fold change)")+labs(fill = "", color = "")+scale_x_reverse()
 
+linear_model <- lm(logFC_score ~ logFC, data = to_plot_logFC)
+model_summary <- summary(linear_model)
 p <-  ggplot(to_plot_logFC,aes(x=logFC,y=logFC_score))+    
   geom_jitter(size = 3, alpha = 0.7,color="#F39B7F")+
   geom_smooth(method = "lm", color = "#E64B35", se = TRUE, level = 0.95) +
@@ -139,32 +141,3 @@ p <-  ggplot(to_plot_logFC,aes(x=logFC,y=logFC_score))+
   scale_x_reverse()
 
 ggsave("result/figures/H3K9me3_positive_regulation_of_innate_immune_response_logFC_kmeans1.pdf",p,width = 6,height = 4)
-### gene logFC median
-immunoglobin_production <- read.csv("data/public_data/GO_term_summary_0002377.csv")
-immunoglobin_production <- unique(immunoglobin_production$Symbol)
-target_genes <- immunoglobin_production
-description <- "immunoglobin production"
-# activation_of_immune_response <- read.csv("data/public_data/GO_term_summary_0002253.csv")
-# activation_of_immune_response <- unique(activation_of_immune_response$Symbol)
-# target_genes <- activation_of_immune_response
-# description <- "activation of immune response"
-to_plot_logFC <- data.frame() 
-for(tissue in tissues){
-  df <- read.csv(paste0("data/samples/RNA/",tissue,"/diff_expression_gene_change_filter_bar.csv"))
-  df <- df[which(df$X %in% target_genes),]
-  logFC <- median(df$logFC)
-  t_to_plot <- data.frame(tissue=tissue_label_change(tissue),logFC_median=logFC)
-  to_plot_logFC <- rbind(to_plot_logFC,t_to_plot)
-}
-
-to_plot_logFC <- merge(to_plot_logFC,medians,by="tissue")
-cor_test <- cor.test(to_plot_logFC$logFC_median,to_plot_logFC$logFC,method = "spearman")
-ggplot(to_plot_logFC,aes(x=logFC,y=logFC_median,color = tissue))+    
-  geom_jitter(size = 3, alpha = 0.7)+
-  scale_color_manual(values = color)+
-  ggtitle(paste0(description))+
-  theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+
-  xlab("H3K9me3 log2(Fold change)")+ylab("Gene in pathway median log2(Fold change)")+labs(fill = "", color = "")+scale_x_reverse()
-
-
-

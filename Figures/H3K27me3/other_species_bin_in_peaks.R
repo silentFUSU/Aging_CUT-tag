@@ -10,7 +10,7 @@ library(ggrepel)
 library(gridExtra)
 library(grid)  
 diff_peak_number <- data.frame()
-for(tissue in c("MEF","worm","drosophila","drosophila_female","BJ")){
+for(tissue in c("MEF","BJ","MEF_EZH2_inhibit")){
   bin_size <- "10kb"
   if(tissue=="MEF"){
     peaks <- read.table(paste0("data/samples/MEF/H3K27me3/bed/H3K27me3_young_merge-W5000-G10000-E100.bed"))
@@ -30,6 +30,9 @@ for(tissue in c("MEF","worm","drosophila","drosophila_female","BJ")){
   }else if(tissue=="BJ_bleomycin"){
     peaks <- read.table(paste0("~/projects/Aging_CUT_Tag/data/public_data/cellular_aging_GSE133292/Chip_seq/bed/H3K27me3_young_merge-W5000-G10000-E100.bed"))
     diff <- read.csv("data/public_data/cellular_aging_GSE133292/Chip_seq/H3K27me3_10kb_bins_diff.csv")
+  }else if(tissue=="MEF_EZH2_inhibit"){
+    peaks <- read.table(paste0("~/projects/Aging_CUT_Tag/data/samples/MEF_EZH2_inhibit/H3K27me3/bed/H3K27me3_young_merge-W5000-G10000-E100.bed"))
+    diff <- read.csv("~/projects/Aging_CUT_Tag/data/samples/MEF_EZH2_inhibit/H3K27me3/H3K27me3_10kb_bins_diff_after_remove_batch_effect.csv")
   }
   
   peaks <- as.data.table(peaks)
@@ -88,8 +91,8 @@ p <- ggplot(diff_peak_number, aes(x = Freq, y = tissue, fill = Var1)) +
     panel.border = element_rect(color = "black", fill = NA, size = 1) 
   ) + 
   scale_fill_manual(values = color, breaks = sort(diff_peak_number_rank$tissue)) +
-  geom_vline(xintercept = 0, color = "white") +
-  scale_x_continuous(limits = c(-60000, 60000),
-                     breaks = seq(-60000, 60000, by = 30000), 
-                     labels = function(x) format(abs(x), scientific = FALSE))   
-ggsave("result/figures/H3K27me3_diff_bins_count_other_species.pdf",p,height = 3,width = 6)
+  geom_vline(xintercept = 0, color = "white") 
+  # scale_x_continuous(limits = c(-60000, 60000),
+  #                    breaks = seq(-60000, 60000, by = 30000), 
+  #                    labels = function(x) format(abs(x), scientific = FALSE))   
+ggsave("result/figures/H3K27me3_diff_bins_count_cellular_senescence.pdf",p,height = 3,width = 6)

@@ -29,7 +29,7 @@ tissue_label_change <- function(tissue){
     }else if(tissue_label=="Mammarygland"){
       tissue_label <- "Mammary Gland"
     }else if(tissue_label=="Iwat"){
-      tissue_label <- "IWAT"
+      tissue_label <- "iWAT"
     }
   }
   return(tissue_label)
@@ -148,4 +148,15 @@ genelistGO <- enrichGO( genelist$ENTREZID,#GO富集分析
                         qvalueCutoff = 0.05,#设定q值阈值
                         readable = T)
 p <- barplot(genelistGO,label_format = 50)
-ggsave("result/figures/H3K27me3_decreasd_gene_increased_in_H3K27me3_young_peaks_larger4_GO.pdf",p,width = 6,height = 8)
+to_plot <- genelistGO@result
+to_plot <- to_plot[order(to_plot$p.adjust),]
+to_plot <- to_plot[c(1:5),]
+to_plot$p.adjust <- -log10(to_plot$p.adjust)
+to_plot$label <- paste0(to_plot$ID," ",to_plot$Description)
+to_plot <- to_plot[,c("label","p.adjust")]
+p <- ggplot(to_plot, aes(x = p.adjust, y = reorder(label, p.adjust))) +
+  geom_bar(stat = "identity") +
+  labs(x = "P Adjust", y = "Label") +
+  theme_bw() +
+  theme(axis.text.y = element_text(size = 10))
+ggsave("result/figures/H3K27me3_decreasd_gene_increased_in_H3K27me3_young_peaks_larger4_GO.pdf",p,width =15,height = 8)

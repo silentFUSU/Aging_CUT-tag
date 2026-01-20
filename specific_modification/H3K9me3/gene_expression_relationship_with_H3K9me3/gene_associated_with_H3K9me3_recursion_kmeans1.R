@@ -38,7 +38,7 @@ annotation <- data.frame(label = paste0(regions$V1,":",regions$V2,"-",regions$V3
 rownames(annotation) <- annotation$label
 annotation <- annotation[,-1,drop=F]
 annotation$chr <- factor(annotation$chr,levels=paste0("chr",c(1:19,"X","Y")))
-# regions <- regions[-which(regions$V1 == "chrY"),]
+
 regions <- paste0(regions$V1,":",regions$V2,"-",regions$V3)
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver","lung","muscle","pancreas","skin","spleen","stomach","testis","thymus","tongue","iWAT")
 # tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver","lung","muscle","pancreas","skin","spleen","stomach","testis","thymus","tongue","iWAT")
@@ -281,53 +281,45 @@ color <- color[which(names(color) %in% sapply(tissues, tissue_label_change))]
 
 average_scores <-aggregate(score ~ tissue, data = to_plot, FUN = mean)
 average_scores <- average_scores[order(average_scores$score),]
+
 to_plot$tissue <- factor(to_plot$tissue,levels = average_scores$tissue)
 to_plot$age[which(to_plot$age=="3m")] <- "Young"
 to_plot$age[which(to_plot$age=="24m")] <- "Old"
 to_plot$age <- factor(to_plot$age,levels=c("Young","Old"))
-ggplot(to_plot,aes(x=tissue,y=score,color = tissue,shape=age))+    
+p <- ggplot(to_plot,aes(x=tissue,y=score,color = tissue,shape=age))+    
   geom_jitter( size = 3, alpha = 0.7)+
   scale_color_manual(values = color)+
   ggtitle(paste0(description))+
-  theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+
+  theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.2))+
   xlab("Tissues")+labs(fill = "", color = "") 
-
+# ggsave("result/Sup_figures/tissues_mitotic_nuclear_division_plot.pdf",p,width = 10,height = 5)
 to_plot <- merge(to_plot,summary_antibody,by="tissue")
 colnames(to_plot)[ncol(to_plot)] <- "histone"
 cor_test <- cor.test(to_plot$score,to_plot$histone,method="spearman")
 average_scores <- merge(average_scores,summary_antibody,by="tissue")
 colnames(average_scores)[ncol(average_scores)] <- "histone"
 cor_test <- cor.test(average_scores$score,average_scores$histone,method="spearman")
-lm_model <- lm(score ~ histone, data = average_scores)
-r_squared <- summary(lm_model)$r.squared
-
-if(Indicator=="rank"){
-  to_plot$histone <- factor(to_plot$histone,levels = c(27:1))
-  ggplot(to_plot,aes(x=histone,y=score,color = tissue,shape=age))+    
-    geom_jitter( size = 3, alpha = 0.7)+
-    scale_color_manual(values = color)+
-    ggtitle(paste0(description," with H3K9me3"))+
-    theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+
-    xlab("Rank")+labs(fill = "", color = "")
-}else{
- p <-  ggplot(to_plot,aes(x=histone,y=score,color = tissue,shape=age))+    
+p <-  ggplot(to_plot,aes(x=histone,y=score,color = tissue,shape=age))+    
     geom_jitter( size = 3, alpha = 0.7)+
     scale_color_manual(values = color,breaks = sort(sapply(tissues, tissue_label_change)))+
     ggtitle(paste0(description," with H3K9me3"))+
     theme_bw()+theme(text = element_text(size = 18),axis.text.x = element_text(angle = 45, hjust = 1))+
     xlab("H3K9m3 log2(Fold change)")+labs(fill = "", color = "")+
     scale_x_reverse()
- 
- p <-  ggplot(average_scores,aes(x=histone,y=score))+    
-   geom_jitter(size = 3, alpha = 0.7,color="#4DBBD5")+
-   geom_smooth(method = "lm", color = "#3C5488", se = TRUE, level = 0.95) +
-   # scale_color_manual(values = color,breaks = sort(sapply(tissues, tissue_label_change)))+
-   ggtitle(paste0(description," with H3K9me3"))+
-   theme_bw()+theme(text = element_text(size = 18))+
-   xlab("H3K9m3 log2(Fold change)")+labs(fill = "", color = "")+
-   scale_x_reverse()
- ggsave("result/figures/H3K9me3_mitotic_nuclear_division_kmeans1.pdf",p,width = 6,height = 4)
-}
+
+summary(lm(score~histone,data = average_scores))
+p <-  ggplot(average_scores,aes(x=histone,y=score))+    
+ geom_point(size = 3, alpha = 0.7,color="#4DBBD5")+
+ geom_smooth(method = "lm", color = "#3C5488", se = F, level = 0.95) +
+ # scale_color_manual(values = color,breaks = sort(sapply(tissues, tissue_label_change)))+
+ # geom_abline(intercept = intercept_score_histone, slope = slope_rank, color = "#3C5488") +
+ ggtitle(paste0(description," with H3K9me3"))+
+ theme_bw()+theme(text = element_text(size = 18))+
+ xlab("H3K9m3 log2(Fold change)")+
+ ylab("Score")+
+ scale_x_reverse()
+p
+ggsave("result/figures/H3K9me3_mitotic_nuclear_division_kmeans1.pdf",p,width = 6,height = 4)
 
 GO_result <- result[which(result$ID==GO_id),]
 GO_result_gene <- strsplit(GO_result$geneID, split = "/")

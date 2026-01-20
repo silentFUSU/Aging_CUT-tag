@@ -41,7 +41,7 @@ tissues <- sort(c("mammarygland","BAT","CB","lung","kidney","aorta","brain",
                   "spleen","thymus","skin","bladder","bonemarrow","Hip",
                   "muscle","iWAT","jejunum","uterus","ovary","liver"))
 to_plot <- data.frame()
-antibody <- "H3K27me3"
+antibody <- "H3K9me3"
 for(tissue in tissues){
   opposite_change_region <- read.table(paste0("data/samples/",tissue,"/H3K27me3_H3K9me3_intersect/10kb_all_significant_second_quadrant_after_remove_batch_effect.bed"))
   opposite_change_region$V2 <- opposite_change_region$V2 +1

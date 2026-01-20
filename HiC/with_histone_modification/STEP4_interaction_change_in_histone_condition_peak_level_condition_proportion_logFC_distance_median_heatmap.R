@@ -34,7 +34,7 @@ tissue_label_change <- function(tissue){
   return(tissue_label)
 } 
 tissue <- "kidney"
-antibody <- "H3K4me3"
+antibody <- "H3K9me3"
 resolution <- "10000"
 if(antibody %in% c("H3K9me3","H3K27me3","H3K36me3")){
   broad_peak_min_length <- 200000
@@ -93,6 +93,7 @@ for(tissue in tissues){
 rownames(median_log2FC_summary) <- median_log2FC_summary$condition
 median_log2FC_summary <- median_log2FC_summary[,-1]
 to_plot <- as.data.frame(t(median_log2FC_summary))
+write.csv(to_plot,"data/samples/HiC/all/interaction_change_in_histone_condition_peak_level_condition_proportion_logFC_distance_median_heatmap.csv")
 color_palette <- colorRampPalette(c("blue", "white", "red"))(100)  
 breaks <- c(seq(-0.2, -0.06, length.out = 40), seq(-0.05, 0.05, length.out = 20), seq(0.06, 0.2, length.out = 40)) 
 if(antibody=="H3K9me3"){

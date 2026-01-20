@@ -72,7 +72,7 @@ color <- setNames(c("#e64b35","#3c5488"),c("Up","Down"))
 p <- ggplot(diff_peak_number, aes(x = Freq, y = tissue, fill = Var1)) +  
   geom_bar(stat = "identity") +  
   labs(x = "Count" , y = "Tissue") +  
-  theme_minimal() +
+  theme_bw() +
   theme(
     axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, size = 12,face = "bold", color = "black"),  
     axis.text.y = element_text(size = 12,face = "bold", color = "black"),  
@@ -86,5 +86,6 @@ p <- ggplot(diff_peak_number, aes(x = Freq, y = tissue, fill = Var1)) +
   ) + 
   scale_fill_manual(values = color, breaks = sort(diff_peak_number_rank$tissue)) +
   # geom_vline(xintercept = 0, linetype = "dashed", color = "black") +
-  scale_x_continuous(limits = c(-500, 500),breaks = seq(-500, 500, by = 100), labels = function(x) abs(x))   
+  scale_x_continuous(limits = c(-350, 350),breaks = seq(-350, 350, by = 100), labels = function(x) abs(x))   
+p
 ggsave("result/figures/H3K9me3_diff_peaks_count.pdf",p,width = 10,height = 10)  

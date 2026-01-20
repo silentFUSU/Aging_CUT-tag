@@ -97,9 +97,28 @@ p<-ggplot(proportion_data, aes(x = cluster, y = proportion, fill= V1)) +
     axis.text.y = element_text(size = 12),  
     plot.title = element_text(size = 16, face = "bold")  
   )  
-ggsave("result/Sup_figures/H3K9me3_kmeans_chromosome.pdf",p,width = 6,height = 8)
-
-
+# ggsave("result/Sup_figures/H3K9me3_kmeans_chromosome.pdf",p,width = 6,height = 8)
+proportion_data$cluster <- factor(proportion_data$cluster,levels=rev(c("kmeans1","kmeans2","kmeans3","kmeans4","Stable")))
+p<-ggplot(proportion_data, aes(x = proportion, y = cluster, fill= V1)) +  
+  geom_bar(stat = "identity", position = "fill",color = "black") + 
+  scale_fill_manual(values = color)+
+  labs(  
+    title = "Kmeans Cluster Chromosome proportion",  
+    x = "Proportion",  
+    y = "Cluster",
+    fill = "Chromosome"
+  ) +  
+  theme_bw() +   
+  scale_x_continuous(labels = scales::percent_format()) + 
+  theme(  
+    axis.title.x = element_text(size = 14),  
+    axis.title.y = element_text(size = 14),  
+    axis.text.x = element_text(size = 12),  
+    axis.text.y = element_text(size = 12),  
+    plot.title = element_text(size = 16, face = "bold")  
+  )  
+p
+ggsave("result/Sup_figures/H3K9me3_kmeans_chromosome_ppt.pdf",p,width = 8,height = 6)
 
 tissues <- c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","ileum","jejunum","kidney","liver",
              "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT")

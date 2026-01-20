@@ -67,10 +67,28 @@ for(tissue in tissues){
 
 # to_plot <- tissue_summary[c(1:1000),]
 to_plot <- tissue_summary
+column_names <- c(
+  "label", "Aorta_young", "Aorta_old", "BAT_young", "BAT_old",
+  "Bladder_young", "Bladder_old", "Bone Marrow_young", "Bone Marrow_old", 
+  "Cecum_young", "Cecum_old","Cerebellum_young", "Cerebellum_old", 
+  "Colon_young", "Colon_old","Cortex_young","Cortex_old", 
+  "Heart_young", "Heart_old", "Hippocampus_young", "Hippocampus_old", 
+  "Ileum_young", "Ileum_old", "iWAT_young", "iWAT_old",
+  "Jejunum_young", "Jejunum_old", "Kidney_young", "Kidney_old", 
+  "Liver_young", "Liver_old", "Lung_young", "Lung_old", 
+  "Mammary Gland_young", "Mammary Gland_old","Muscle_young", "Muscle_old", 
+  "Ovary_young", "Ovary_old", "Pancreas_young","Pancreas_old", 
+  "Skin_young", "Skin_old", "Spleen_young", "Spleen_old",
+  "Stomach_young", "Stomach_old", "Testis_young", "Testis_old", 
+  "Thymus_young","Thymus_old", "Tongue_young", "Tongue_old", 
+  "Uterus_young", "Uterus_old"
+)
+to_plot <- to_plot[,column_names]
 rownames(to_plot) <- to_plot$label
 to_plot <- to_plot[,-1]
 k <- 28
 kmeans_df <- to_plot
+set.seed(1)
 kmeans_result <- kmeans(kmeans_df, centers=k)
 kmeans_result <- as.data.frame(kmeans_result$cluster)
 colnames(kmeans_result) <- "cluster"
@@ -88,7 +106,7 @@ for(i in c(1:k)){
 kmeans_average_value <- kmeans_average_value[order(kmeans_average_value$mean,decreasing = T),]
 
 high_kmeans <- kmeans_average_value$kmeans[which(kmeans_average_value$mean>6)]
-high_kmeans <- c(20, 19,  4,  1, 18, 12, 22, 24,  9, 15, 17,11,25,16,3,10,26,21,23,27,14,8)
+high_kmeans <- c(20, 19,  4,  1, 18, 12, 22, 24,  9, 15, 17,11,25,16,3,10,26,21,8,2,23,27,14)
 kmeans_order <- data.frame()
 for(i in c(1:k)){
   df <- to_plot[which(to_plot$cluster==i),-which(colnames(to_plot)=="cluster")]
@@ -103,7 +121,7 @@ kmeans_order <- kmeans_order %>%
 kmeans_order$tissue <- factor(kmeans_order$tissue,levels = sapply(tissues,tissue_label_change))
 kmeans_order <- kmeans_order[order(kmeans_order$tissue),]
 kmeans_order <- c(high_kmeans,2,7,6,13,5)
-to_plot$cluster <- factor(to_plot$cluster,levels = c(high_kmeans,2,7,6,13,5))
+to_plot$cluster <- factor(to_plot$cluster,levels = c(high_kmeans,7,6,13,5))
 to_plot <- to_plot[order(to_plot$cluster),]
 annotation_row <- to_plot[,c("cluster"),drop=F]
 to_plot <- to_plot[,-which(colnames(to_plot)=="cluster")]
@@ -118,8 +136,8 @@ color_col <- read.table("data/samples/30_distinct_color.txt")
 color_col <- setNames(color_col$V1[1:27],sort(unique(annotation_col$tissue)))
 annotation_color <- list(cluster=color_row,tissue=color_col)
 
-rownames(annotation_col) <- annotation_col$sample
-annotation_col <- annotation_col[,-1,drop=F]
+# rownames(annotation_col) <- annotation_col$sample
+# annotation_col <- annotation_col[,-1,drop=F]
 
 p <- pheatmap::pheatmap(to_plot,show_rownames = F,breaks = breaks, 
                         annotation_row = annotation_row,annotation_col = annotation_col,

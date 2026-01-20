@@ -33,8 +33,9 @@ tissue_label_change <- function(tissue){
 }
 tissues <- sort(c("aorta","BAT","bladder","bonemarrow","brain","CB","cecum","colon","heart","Hip","jejunum","kidney","liver",
                   "lung","muscle","ovary","pancreas","skin","spleen","stomach","testis","thymus","tongue","uterus","mammarygland","iWAT","ileum"))
-
+tissues <- c("liver","BAT","CB","muscle","stomach")
 summary <- data.frame()
+peak_out <- data.frame()
 for(tissue in tissues){
   domain <- read.table(paste0("data/samples/",tissue,"/H3K27me3/peaks/edd/edd_peaks_fdr05.bed"))
   # peaks <- read.table(paste0("data/samples/",tissue,"/H3K9me3/bed/H3K9me3_young_old_merge-W5000-G10000-E100.bed"))
@@ -76,7 +77,11 @@ for(tissue in tissues){
                           overlap_peak=sum(domain$overlap>60)/nrow(domain) *100,
                           outside_peak=100-sum(domain$overlap>60)/nrow(domain) *100)
   summary <- rbind(summary,t_summary)
-}
+  
+  t_peak_out <- domain[which(domain$overlap < 50),]
+  t_peak_out$tissue <- tissue_label_change(tissue)
+  peak_out <- rbind(peak_out,t_peak_out)
+  }
 summary <- summary[order(summary$overlap_peak),]
 to_plot <- reshape2::melt(summary)
 
