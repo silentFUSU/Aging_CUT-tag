@@ -99,7 +99,16 @@ color <- setNames(c("#e64b35","#3c5488"),c("Up","Down"))
 
 p <- ggplot(diff_peak_number, aes(x = Freq, y = tissue, fill = Var1)) +
   geom_bar(stat = "identity") +  
-  geom_bar(aes(x = Freq_in_peaks), stat = "identity", fill = "black", alpha = 0.5) + 
+  # geom_bar(aes(x = Freq_in_peaks), stat = "identity", fill = "black", alpha = 0.5) + 
+  geom_bar_pattern(aes(x = Freq_in_peaks), 
+                   stat = "identity", 
+                   pattern = "stripe",              # 使用条纹图案
+                   pattern_density = 0.05,          # 调整图案的密度
+                   pattern_fill = NA,               # 图案内部不填充颜色
+                   pattern_color = "black",         # 网格线条的颜色
+                   pattern_angle = 45,              # 线条的角度
+                   fill = "black", 
+                   alpha = 0.5) + 
   labs(x = "Count" , y = "Tissue") +  
   theme_minimal() +
   theme(

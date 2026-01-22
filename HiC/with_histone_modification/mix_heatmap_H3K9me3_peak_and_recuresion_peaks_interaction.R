@@ -38,8 +38,8 @@ df1 <- read.csv("data/samples/HiC/all/interaction_change_in_histone_condition_pe
 df2 <- read.csv("data/samples/HiC/all/interaction_change_in_histone_condition_H3K9me3_between_kmeans_recursion_peak_level_logFC_distance_median_heatmap.csv")
 to_plot <- merge(df1,df2,by="X")
 to_plot <- to_plot[,c("X","out.out.x","out.within","within.within",
-                      "kmeans1.kmeans1","kmeans2.kmeans2","kmeans3.kmeans3",
-                      "kmeans4.kmeans4","Stable.Stable","out.out.y")]
+                      "kmeans1.kmeans1","kmeans2.kmeans2","Stable.Stable","kmeans3.kmeans3",
+                      "kmeans4.kmeans4","out.out.y")]
 colnames(to_plot) <- c("tissue","out-out","out-within","within-within",
                        "kmeans1-kmeans1","kmeans2-kmeans2","kmeans3-kmeans3",
                        "kmeans4-kmeans4","Stable-Stable","other-other")
