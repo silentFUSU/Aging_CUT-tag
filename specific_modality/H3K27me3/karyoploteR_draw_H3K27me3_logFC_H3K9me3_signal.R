@@ -1,0 +1,17 @@
+.libPaths(c("/storage/zhangyanxiaoLab/suzhuojie/R/x86_64-pc-linux-gnu-library/4.2/"))
+rm(list=ls())
+setwd("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/")
+set.seed(1)
+options(scipen = 999) 
+library(karyoploteR)
+library(GenomicRanges)  
+library(rtracklayer)
+
+logFC <- import("data/samples/brain/H3K27me3/bw/old_young_log2ratio.bw",format="BigWig")
+mcols(logFC)$y <- mcols(logFC)$score
+ymin <- floor(min(logFC$y))
+ymax <- ceiling(max(logFC$y))
+kp <- plotKaryotype(chromosomes="chr19",genome = "mm10", plot.type=4)
+kpPlotHorizon(kp, data=logFC, ymin=ymin, ymax=ymax)
+kpAxis(kp, ymin = ymin, ymax=ymax,)
+kpAbline(kp, h=0, ymin=ymin, ymax=ymax, lty=2, col="#666666")

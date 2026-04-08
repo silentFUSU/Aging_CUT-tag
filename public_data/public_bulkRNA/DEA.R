@@ -17,7 +17,7 @@ library(biomaRt)
 tab = read.csv("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/GSE132040/GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv")
 tab <- tab[-c(54353:54357),]
 table = read.delim("/storage/zhangyanxiaoLab/suzhuojie/projects/Aging_CUT_Tag/data/public_data/GSE132040/GSE132040_MACA_Bulk_metadata.csv",sep = ',')
-table <- table[which(str_detect(table$source.name,"Skin")),]
+table <- table[which(str_detect(table$source.name,"Brain")),]
 table <- table[which(table$characteristics..sex=="m"),]
 table$characteristics..age <- as.numeric(table$characteristics..age)
 table <- table[order(table$characteristics..age), ]
@@ -26,11 +26,16 @@ colnames(tab)[2:ncol(tab)] <- new_column_name
 counts <- tab[,which(colnames(tab) %in% table$Sample.name)]
 table <- table[which(table$Sample.name %in% colnames(counts)),]
 
-counts <- cbind(tab[,which(colnames(tab) %in% table$Sample.name[which(table$characteristics..age %in% c(3,24))])])
-table <- table[which(table$characteristics..age %in% c(3,24)),]
+counts <- cbind(tab[,which(colnames(tab) %in% table$Sample.name[which(table$characteristics..age %in% c(3,27))])])
+table <- table[which(table$characteristics..age %in% c(3,27)),]
 rownames(counts) <- tab$gene
 counts <- counts[,match(table$Sample.name,colnames(counts),)]
 colnames(counts) <- c(paste0("m",table$characteristics..age,"_",c(1:nrow(table))))
+counts <- counts[,c(1,2,5,6)]
+colnames(counts) <- c("Young1","Young2","Old1","Old2")
+counts$Geneid <- rownames(counts)
+counts <- counts[,c("Geneid","Young1","Young2","Old1","Old2")]
+write.table(counts,"~/projects/bioinfo_class/homework/lab2/lab2_counts.txt",row.names = F,append = F,sep = "\t")
 group =c(paste0("m",table$characteristics..age))
 
 

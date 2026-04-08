@@ -18,6 +18,7 @@ options(bitmapType="cairo")
 
 gtf <- import("~/ref_data/TE_reference/mm10_rmsk_TE.gtf", format = "gtf")
 family_data <- as.data.frame(gtf[,c("gene_id","transcript_id","family_id","class_id")])
+write.table(family_data[which(family_data$class_id=="LTR"),c(1:3,6)],"~/ref_data/TE_reference/mm10_TE_all_LTR_regions.bed",append = F,quote = F,sep = "\t",row.names = F,col.names = F)
 TE <- family_data[,c(1:3,7)]
 colnames(TE)[1:3] <- c("V1","V2","V3")
 TE <- as.data.table(TE)
@@ -48,7 +49,7 @@ regions <- rbind(regions,random_regions2)
 ### all class compare
 summary_percentage <- data.frame()
 Classifications <-c("gene_id","family_id","class_id")
-Classification <- "family_id"
+Classification <- "class_id"
 
 for(cluster in sort(unique(regions$cluster))){
   df <- regions[which(regions$cluster==cluster),]

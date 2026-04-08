@@ -1,0 +1,2 @@
+awk 'BEGIN{OFS="\t"} {if($4<0)$4=0; print}' peaks/Cbx7_logFE.sorted.bdg > peaks/Cbx7_logFE.sorted.nonneg.bdg
+bedGraphToBigWig peaks/Cbx7_logFE.sorted.nonneg.bdg /storage/zhangyanxiaoLab/suzhuojie/ref_data/for_normal_mapping/mm10/mm10.chrom.sizes bigWig/Cbx7_logFE.sorted.nonneg.bw

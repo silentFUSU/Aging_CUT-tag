@@ -112,12 +112,13 @@ to_plot <- mean_logFC_summary
 to_plot_sig <- to_plot[which(to_plot$adj.P.Val < 0.05),]
 to_plot_sig <- to_plot_sig[order(to_plot_sig$pagerank_logFC,decreasing = T),]
 
-highest_points <- to_plot_sig[1:10,]
-lowest_points <- to_plot_sig[(nrow(to_plot_sig)-9):nrow(to_plot_sig),]
-annotate_points <- bind_rows(highest_points, lowest_points)
+# highest_points <- 
+# lowest_points <- to_plot_sig[(nrow(to_plot_sig)-9):nrow(to_plot_sig),]
+annotate_points <- to_plot_sig[which(to_plot_sig$TF %in% c("Ovary-Esr2","Ovary-Nr5a2","Aorta-Dbp","BAT-Nr5a2","Colon-Klf8","Mammary Gland-Lef1","Ileum-Hoxb9","Uterus-Irf4","Uterus-Spi1","Ovary-Irf4","Pancreas-Egr2")),]
 
 p <- ggplot(to_plot[which(to_plot$adj.P.Val <0.05),], aes(x = pagerank_logFC, y = mean_logFC)) +
   geom_point(aes(size = Freq),color = "black",alpha=0.3) +
+  geom_point(data=annotate_points,aes(x = pagerank_logFC, y = mean_logFC,size = Freq),color = "red",alpha=0.3) +
   labs(x = "raw value logFC", y = "TF related gene logFC") +
   theme_bw()+
   theme(
@@ -129,4 +130,5 @@ p <- ggplot(to_plot[which(to_plot$adj.P.Val <0.05),], aes(x = pagerank_logFC, y 
   geom_text_repel(data = annotate_points, aes(label = TF), color = "red", size = 4,max.overlaps = 50)+
   geom_hline(yintercept = 0, linetype = "dashed", color = "blue") +  
   geom_vline(xintercept = 0, linetype = "dashed", color = "blue")
+p
 ggsave("result/figures/correlation_pagerank_with_gene_padj.pdf",p,width = 8,height = 7)
