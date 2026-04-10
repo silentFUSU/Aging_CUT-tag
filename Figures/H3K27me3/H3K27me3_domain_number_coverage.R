@@ -54,12 +54,13 @@ p <- ggplot(to_plot, aes(x = label,y = count),) +
   geom_jitter(aes(color = tissue), width = 0.2, size = 2) + 
   scale_color_manual(values = color) +
   labs(y = "count",x=NULL) +
-  theme_minimal()+
+  theme_bw()+
   theme(
     axis.title.x = element_blank(),  
     axis.text.x = element_blank(),   
     axis.ticks.x = element_blank()
-  )
+  )+ylim(0,600)
+p
 ggsave("result/Sup_figures/H3K27me3_domain_number.pdf",p,width = 6,height = 8)
 p<- ggplot(to_plot, aes(x = tissue, y = count,fill=tissue)) +
   geom_bar(stat = "identity") +

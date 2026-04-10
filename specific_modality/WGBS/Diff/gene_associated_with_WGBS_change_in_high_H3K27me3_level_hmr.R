@@ -75,7 +75,7 @@ rownames(rpkm) <- rpkm$Geneid
 rpkm <- rpkm[,-1]
 rpkm_matrix <- as.matrix(rpkm)
 
-re <- gsva(rpkm_matrix,genelist , method="ssgsea",ssgsea.norm=TRUE) 
+re <- gsva(rpkm_matrix,genelist, method="ssgsea",ssgsea.norm=TRUE) 
 re <- as.data.frame(t(re))
 
 to_plot <- merge(re,search_table,by.x="row.names",by.y="sample_name")
